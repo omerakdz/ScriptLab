@@ -1,0 +1,19 @@
+/*KLEUR VARIABELEN*/
+:root {
+    --dark-gray: #434242;
+    --yellow: #FFE100;
+    --blue: #0B74D1;
+}
+/* color: var(--yellow); => zo instellen */
+
+
+/*FONT*/
+@font-face {
+    font-family: 'Fortnite';
+    src: url('/fonts/Fortnite.ttf');
+}
+
+
+body{
+    font-family: "fortnite";
+}
