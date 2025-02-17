@@ -243,7 +243,7 @@ header {
 #email {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 2px solid #cccccc;
     border-radius: 20px;
     font-size: 1em;
@@ -256,17 +256,28 @@ header {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 40%;
+    top: 247px;
 }
 
 .input-box-password i {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 48%;
+    top: 294px;
+}
+
+.change-password {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #007bff;
+}
+
+.change-password:hover {
+    color: #0056b3;
 }
 
 .submitButton {
+    margin-top: 5px;
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -776,7 +787,7 @@ textarea {
 
 .personages-detail-container {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -792,18 +803,19 @@ textarea {
     color: white;
     text-align: center;
     width: 450px;
+    height: 450px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 #personages-card img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 #personages-card h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #personages-card p {
@@ -839,6 +851,8 @@ textarea {
 
 #personages-button {
     background: var(--yellow);
+    color: var(--dark-gray);
+    font-size: larger;
     border: none;
     padding: 8px 12px;
     margin-top: 5px;
@@ -854,11 +868,11 @@ textarea {
 
 #personages-note-input {
     width: 100%;
-    padding: 8px;
-    margin-top: 10px;
+    padding: 5px;
+    margin-top: 5px;
     border-radius: 8px;
     border: none;
-    height: 80px;
+    height: 50px;
     resize: none;
 }
 
@@ -869,14 +883,19 @@ textarea {
     margin-top: 10px;
 }
 
-i {
-    font-size: 20px;
+#save-icon,
+#trash-icon {
+    background-color: var(--yellow);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 35px;
     cursor: pointer;
-    color: white;
+    color: var(--dark-gray);
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-i:hover {
+#save-icon:hover,
+#trash-icon:hover {
     transform: scale(1.1);
 }
 
@@ -1344,13 +1363,13 @@ footer {
     .input-box-username i {
         position: absolute;
         left: 70%;
-        top: 247px;
+        top: 242px;
     }
 
     .input-box-password i {
         position: absolute;
         left: 70%;
-        top: 300px;
+        top: 293px;
     }
 
     /* Footer */
