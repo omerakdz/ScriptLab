@@ -13,7 +13,102 @@
     src: url('/fonts/Fortnite.ttf');
 }
 
-
 body{
     font-family: "fortnite";
+}
+
+#login-page {
+    background-image: url('../images/bg-images/bg-desktop-login-page.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-weight: lighter;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container  h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    text-align: left;
+}
+
+#username,
+#password {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.signInButton {
+    margin-top: 10px;
+    border: 3px solid #007bff;
+    color: #007bff;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+}
+.signInButton:hover{
+    border: 3px solid #0056b3;
+    color: #0056b3;
+}
+
+@media screen and (max-width: 768px){
+    
 }
