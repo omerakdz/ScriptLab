@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body>
-    <section>
+<body id="login-page">
+    <section class="login-container">
         <h1>Welkom bij ScriptLab!</h1>
         <form action="/login" method="POST">
             <label for="username">Gebruikersnaam:</label>
@@ -20,8 +20,6 @@
             <input type="submit" value="Login" class="submitButton">
 
             <button type="button" class="signInButton">Registreren</button>
-            
-            <p class="error" id="errorMessage"></p>
         </form>
     </section>
 </body>
