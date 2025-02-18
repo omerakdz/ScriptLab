@@ -238,15 +238,6 @@ header {
     flex-direction: column;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #000000;
-    text-align: left;
-    font-size: 1.1rem;
-
-}
-
 #username,
 #password,
 #email {
@@ -254,13 +245,26 @@ label {
     padding: 10px;
     margin-bottom: 10px;
     border: 2px solid #cccccc;
-    border-radius: 5px;
+    border-radius: 20px;
     font-size: 1em;
-    color: black !important;
+    color: #a8a8a8 !important;
     text-align: left;
     background-color: white;
 }
 
+.input-box-username i {
+    color: #a8a8a8;
+    position: absolute;
+    left: 57%;
+    top: 40%;
+}
+
+.input-box-password i {
+    color: #a8a8a8;
+    position: absolute;
+    left: 57%;
+    top: 48%;
+}
 
 .submitButton {
     width: 100%;
@@ -1314,7 +1318,6 @@ footer {
     }
 
     /* FAVORIET PAGINA */
-
     .all-favorite-cards {
         display: flex;
         flex-direction: column;
@@ -1323,6 +1326,38 @@ footer {
         gap: 2rem;
         margin-bottom: 20px;
     }
+
+    .favorite-page-main {
+        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        width: 100%;
+        color: black;
+    }
+
+    /* Input iconen */
+    .input-box-username i {
+        position: absolute;
+        left: 70%;
+        top: 247px;
+    }
+
+    .input-box-password i {
+        position: absolute;
+        left: 70%;
+        top: 300px;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 1.3rem;
+    }
+
 
     .favorite-page-main {
         background-image: url('/images/bg-images/bg-desktop-5.jpeg');

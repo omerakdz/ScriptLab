@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body id="login-page">
     <section class="login-container">
         <h1>Welkom bij ScriptLab!</h1>
         <form action="/login" method="POST">
-            <label for="username">Gebruikersnaam:</label>
-            <input type="text" id="username" name="username" required>
+            <section class="input-box-username">
+                <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
+                <i class="fa-solid fa-user"></i>
+            </section>
             
-            <label for="password">Wachtwoord:</label>
-            <input type="text" id="password" name="password" required>
+            <section class="input-box-password">
+                <input type="text" id="password" placeholder="Wachtwoord" name="password" required>
+                <i class="fa-solid fa-lock"></i>
+            </section>
             
             <input type="submit" value="Login" class="submitButton">
-
             <button type="button" class="signInButton">Registreren</button>
         </form>
     </section>
