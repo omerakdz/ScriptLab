@@ -18,7 +18,7 @@
     src: url('/fonts/Fortnite.ttf');
     font-weight: lighter;
 }
-
+/*BODY VOOR ALLE PAGINAS*/
 body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -32,16 +32,8 @@ body {
     font-family: "fortnite";
     font-weight: lighter;
 }
-
-/*HOME PAGE */
-/* HEADER */
-#home-page{
-    background-image: url("/images/bg-images/bg-desktop-5.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#home-page header {
+/*HEADER VOOR ALLE PAGINAS*/
+header {
     grid-area: header;
     display: flex;
     justify-content: space-between;
@@ -49,6 +41,14 @@ body {
     background: var(--dark-gray);
     padding: 10px 20px;
     opacity: 95%;
+}
+
+/*HOME PAGE */
+/* HEADER */
+#home-page{
+    background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .profile {
@@ -278,7 +278,7 @@ body {
     color: #0056b3;
 }
 
-/* FOOTER */
+/* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer;
     display: flex;
@@ -296,7 +296,7 @@ footer {
 @media screen and (max-width: 768px){
 
     /*home pagina*/
-    #home-page header span{
+    header span{
         font-size: 1.5rem;
     }
 
