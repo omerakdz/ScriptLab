@@ -370,6 +370,7 @@ header {
 .text-content p {
     margin: 5px 0;
     letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 /* FOOTER VOOR ALLE PAGINAS */
@@ -412,8 +413,8 @@ footer {
     }
 
     .search-bar {
-        width:  35px !important; 
-        height: 40px !important;
+        width:  35px; 
+        height: 40px;
         background-image: url("/images/items/search-icon.webp");
         background-size: contain;
         background-repeat: no-repeat;
@@ -489,6 +490,10 @@ footer {
     .text-content {
         width: 100%;
         font-size: 1.2rem;
+    }
+
+    .text-content p{
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
     }
 
     /*footer*/
