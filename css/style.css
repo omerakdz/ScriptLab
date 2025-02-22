@@ -45,10 +45,20 @@ header {
 
 /*HOME PAGE */
 /* HEADER */
-#home-page{
+#home-page, #landing-page{
     background-image: url("/images/bg-images/bg-desktop-5.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#home-page header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--dark-gray);
+    padding: 10px 20px;
+    opacity: 95%;
 }
 
 .profile {
@@ -191,45 +201,54 @@ header {
 }
 
 /*LOGIN/REGISTER PAGINA*/
-#login-page {
+#login-page, #register-page {
     background-image: url('../images/bg-images/bg-desktop-login-page.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#login-page, #register-page {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-container {
+.login-container, .register-container {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
 }
 
-.login-container  h1 {
+.login-container h1, .register-container  h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
     color: #000000;
 }
 
-.login-container form {
+.login-container, .register-container form {
     display: flex;
     flex-direction: column;
 }
 
-.login-container label {
+label {
     display: block;
     margin-bottom: 5px;
     color: #000000;
+    text-align: left;
+    font-size: 1.1rem;
   
 }
 
 #username,
-#password {
+#password,
+#email {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -249,7 +268,7 @@ header {
     border: none;
     border-radius: 20px;
     color: #ffffff;
-    font-size: 1em;
+    font-size: 1.25rem;
     cursor: pointer;
 }
 
@@ -257,25 +276,100 @@ header {
     background-color: #0056b3;
 }
 
-.error {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 10px;
-}
-
 .signInButton {
     margin-top: 10px;
     border: 3px solid #007bff;
     color: #007bff;
     border-radius: 20px;
-    font-size: 1em;
+    font-size: 1.25rem;
     cursor: pointer;
     width: 100%;
     padding: 10px;
 }
-.signInButton:hover{
+.signInButton:hover {
     border: 3px solid #0056b3;
     color: #0056b3;
+}
+
+/* LANDING PAGINA */
+
+/* MAIN */
+
+.landing-page-main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+}
+
+.skins-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skins-button img {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 240px;
+    height: 300px;
+}
+
+.skins-button:hover img {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.selected {
+    border: 4px solid var(--yellow) !important;
+    transform: scale(1.3);
+    transition: all 0.2s ease;
+}
+
+.skin-name {
+    margin-top: 10px;
+    padding: 5px 15px;
+    font-size: 2rem;
+    font-weight: lighter;
+    color: black;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    font-weight: 300;
+    text-align: center;
+    min-width: 100px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+}
+
+.skins-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon-button i {
+    color: var(--yellow);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.icon-button:hover i {
+    transform: scale(1.1);
 }
 
 /*UITLEG PAGINA*/
@@ -390,8 +484,9 @@ footer {
 
 @media screen and (max-width: 768px){
 
-    header span{
-        font-size: 1.9rem !important;
+    /*home pagina*/
+    #home-page header span{
+        font-size: 1.5rem;
     }
 
     .logo img{
@@ -501,8 +596,3 @@ footer {
         font-size: 1.3rem;
     }
 }
-
-
-
-
-
