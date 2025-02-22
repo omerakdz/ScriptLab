@@ -51,15 +51,6 @@ header {
     background-size: cover;
 }
 
-#home-page header {
-    grid-area: header;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--dark-gray);
-    padding: 10px 20px;
-    opacity: 95%;
-}
 
 .profile {
     display: flex;
@@ -302,6 +293,21 @@ label {
     align-items: center;
     gap:50px;
 }
+.skin-title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    background-color: var(--yellow);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
 
 .skins-button {
     border: none;
@@ -315,8 +321,9 @@ label {
     border-radius: 8px;
     transition: all 0.2s ease;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-    width: 240px;
-    height: 300px;
+    width: 240px; 
+    height: 270px; 
+    object-fit: cover; 
 }
 
 .skins-button:hover img {
@@ -371,6 +378,7 @@ label {
 .icon-button:hover i {
     transform: scale(1.1);
 }
+
 
 /*UITLEG PAGINA*/
 /* Achtergrond */
@@ -484,9 +492,8 @@ footer {
 
 @media screen and (max-width: 768px){
 
-    /*home pagina*/
-    #home-page header span{
-        font-size: 1.5rem;
+    .logo span{
+        font-size: 2rem;
     }
 
     .logo img{
@@ -589,6 +596,63 @@ footer {
 
     .text-content p{
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    }
+
+    /*LANDINGS PAGINA*/
+       #landing-page{ /*voor background img want het nam de hele scherm niet in*/
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed;
+    }
+       
+
+       .landing-page-main {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .skin-title {
+        margin-top: 0.5rem;
+        font-size: 1.7rem;
+        padding: 8px 16px;
+    }
+
+    .skins-button {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     
+    }
+
+    .skins-button img {
+        margin-top: 1.7rem;
+        width: 200px;
+        height: 220px;
+    }
+
+    .skin-name {
+        font-size: 1.5rem;
+        padding: 5px 12px;
+        min-width: 80px;
+    }
+
+    .skins-button:hover img {
+        transform: scale(1.05);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .selected {
+        transform: scale(1);
+    }
+
+    .icon-button i {
+        font-size: 2rem;
+    }
+
+    .icon-button {
+        margin: 10px;
     }
 
     /*footer*/
