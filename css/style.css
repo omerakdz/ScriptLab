@@ -475,6 +475,129 @@ label {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
+/*add to blacklist pagina*/
+#add-to-blacklist-page{
+    background-image: url('/images/bg-images/bg-desktop-6.jpeg'); 
+    background-size: cover;
+    position: relative;
+
+}
+
+
+.add-to-blacklist-container {
+    color: var(--yellow);
+    font-size: 1.8rem;
+    text-align: center;
+   
+}
+
+.add-to-blacklist-container h1{
+    font-size: 2rem;
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    padding: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.add-to-blacklist-container h2{
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.add-to-blacklist-card {
+    background-color: var(--dark-gray);
+    opacity: 97%;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    margin-top: 15px;
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+
+.skin-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    background-color: var(--dark-gray);
+    padding: 5px;
+}
+
+.add-to-blacklist-buttons {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.ab-wins, .ab-losses {
+    background-color: var(--yellow);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.ab-wins img, .ab-losses img {
+    width: 20px; 
+}
+
+
+textarea {
+    width: 90%;
+    height: 90px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: white;
+    font-size: 1rem;
+    color: var(--dark-gray);
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    resize: none; 
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+  
+}
+
+/* Voeg toe knop */
+.add-button {
+    text-align: center;
+    margin-top: 2rem;
+    width: 100%;
+    color: var(--dark-gray);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+    font-size: 1.2rem;
+    background-color: var(--yellow);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-button:hover {
+    transform: scale(1.05); 
+}
+
+
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer !important;
@@ -653,6 +776,13 @@ footer {
 
     .icon-button {
         margin: 10px;
+    }
+
+    /*add to blacklist*/
+    .add-to-blacklist-container h1{
+        top: 20%;
+        font-size: 1.8rem;
+        white-space: nowrap;
     }
 
     /*footer*/
