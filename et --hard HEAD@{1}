@@ -1,0 +1,18 @@
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{0}: pull --rebase origin menuPage (start): checkout e3d8524825c2da4a618c2e698585ab70527b710b
+[33m2e80608[m[33m ([m[1;32mmenuPage[m[33m)[m HEAD@{1}: commit: menu pagina gemaakt + stukje personage detail
+[33m054e6fb[m[33m ([m[1;32mmain[m[33m)[m HEAD@{2}: checkout: moving from main to menuPage
+[33m054e6fb[m[33m ([m[1;32mmain[m[33m)[m HEAD@{3}: reset: moving to origin/main
+[33m054e6fb[m[33m ([m[1;32mmain[m[33m)[m HEAD@{4}: checkout: moving from menuPage to main
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{5}: reset: moving to HEAD
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{6}: checkout: moving from main to menuPage
+[33m054e6fb[m[33m ([m[1;32mmain[m[33m)[m HEAD@{7}: pull origin main: Fast-forward
+[33mfe2f965[m HEAD@{8}: checkout: moving from menuPage to main
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{9}: checkout: moving from main to menuPage
+[33mfe2f965[m HEAD@{10}: checkout: moving from menuPage2 to main
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{11}: checkout: moving from menuPage to menuPage2
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{12}: reset: moving to HEAD
+[33me3d8524[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/menuPage[m[33m, [m[1;32mmenuPage2[m[33m)[m HEAD@{13}: commit: aanpassingen
+[33mf03fdd0[m HEAD@{14}: commit: wijziging
+[33mfe2f965[m HEAD@{15}: checkout: moving from menuPage to menuPage
+[33mfe2f965[m HEAD@{16}: checkout: moving from main to menuPage
+[33mfe2f965[m HEAD@{17}: clone: from https://github.com/omerakdz/ScriptLab.git

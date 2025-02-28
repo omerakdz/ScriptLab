@@ -7,9 +7,8 @@
 /* KLEUR VARIABELEN */
 :root {
     --dark-gray: #434242;
-    --yellow: hsl(53, 100%, 50%);
+    --yellow: #FFE100;
     --blue: #0B74D1;
-
 }
 
 /* color: var(--yellow); => zo instellen */
@@ -23,13 +22,13 @@
 
 /*BODY VOOR ALLE PAGINAS*/
 body {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr auto;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-rows: auto 1fr auto !important;
     grid-template-areas:
         "header header header"
         "main main main"
-        "footer footer footer";
+        "footer footer footer" !important;
     height: 100vh !important;
     color: white !important;
     font-family: "fortnite" !important;
@@ -306,6 +305,12 @@ label {
     gap: 50px;
 }
 
+.skins-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
 .skin-title {
     position: absolute;
     top: 15%;
@@ -321,22 +326,20 @@ label {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-
-.skins-button {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
 .skins-button img {
     border-radius: 8px;
     transition: all 0.2s ease;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-    width: 240px;
-    height: 270px;
+    width: 225px;
+    height: 225px;
     object-fit: cover;
+    border: 3px solid black;
+}
+
+.skins-button img.selected {
+    border: 4px solid var(--yellow);
+    transform: scale(1.3);
+    transition: all 0.2s ease;
 }
 
 .skins-button:hover img {
@@ -344,11 +347,6 @@ label {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
-.selected {
-    border: 4px solid var(--yellow) !important;
-    transform: scale(1.3);
-    transition: all 0.2s ease;
-}
 
 .skin-name {
     margin-top: 10px;
@@ -372,6 +370,10 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .icon-button {
@@ -613,26 +615,8 @@ textarea {
 }
 
 
-/* FOOTER VOOR ALLE PAGINAS */
-footer {
-    grid-area: footer !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 1.5rem !important;
-    padding: 10px !important;
-    background: var(--dark-gray) !important;
-    height: 4rem !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
-    opacity: 95% !important;
-    letter-spacing: 0.5px !important;
-}
-
-/*MENUPAGINA*/
-
-
 #menuBody {
-    font-family: arial, sans-serif !important;
+    font-family: 'Fortnite';
     display: flex;
     justify-content: center;
     align-items: center;
@@ -649,7 +633,6 @@ footer {
     background-position: center;
     overflow: hidden;
 }
-
 
 
 #menuBody::after {
@@ -671,6 +654,9 @@ footer {
 
 }
 
+
+
+
 .menu-container {
     text-align: center;
     color: white;
@@ -678,18 +664,16 @@ footer {
 
 .title {
     background-color: white;
-    color: black !important;
+    color: black;
     padding: 10px 20px;
     border-radius: 20px;
     display: inline-block;
-    font-weight: bold;
-    font-size: 1.5rem;
 }
 
 .game-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 20px;
     margin-top: 20px;
 }
 
@@ -700,20 +684,20 @@ footer {
     overflow: hidden;
     border-radius: 10px;
     transition: transform 0.2s ease-in-out;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     transition: box-shadow 0.3s ease-in-out;
 }
 
-
-
 .game-card:hover {
     transform: scale(1.05);
     cursor: pointer;
-    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.5);
-
 }
 
+
+.game-card:hover {
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.5);
+}
 
 .game-card img {
     width: 100%;
@@ -746,7 +730,6 @@ footer {
     font-size: 18px;
     font-weight: bold;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .overlay button {
@@ -761,96 +744,21 @@ footer {
     background-color: lightgray;
 }
 
-.cross {
-    font-size: 200px;
-    color: red;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
+/* FOOTER VOOR ALLE PAGINAS */
+footer {
+    grid-area: footer !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 1.5rem !important;
+    padding: 10px !important;
+    background: var(--dark-gray) !important;
+    height: 4rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+    opacity: 95% !important;
+    letter-spacing: 0.5px !important;
 }
 
-.game-card:hover .cross {
-    display: block;
-}
-
-
-.game-card:hover span {
-    opacity: 0.6;
-}
-
-
-/*PERSONAGE DETAIL PAGINA*/
-
-
-
-#personage-detail-page {
-    background-image: url('/images/bg-images/bg-desktop-1.jpeg');
-    background-size: cover;
-    position: relative;
-
-}
-
-.title {
-    /* andere classname*/
-    font-size: 24px;
-    font-weight: bold;
-    color: yellow;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-}
-
-.card {
-    background: var(--dark-gray);
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-}
-
-.character {
-    width: 50px;
-
-}
-
-.items {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-}
-
-.item-box {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    width: 66px;
-    height: 66px;
-    left: 686px;
-    top: 332px;
-
-    border: 3px solid #FFDD00;
-    border-radius: 5px;
-}
-
-button {
-    background: yellow;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-textarea {
-    width: 100%;
-    height: 50px;
-    margin-top: 10px;
-}
 
 @media screen and (max-width: 768px) {
 
@@ -1009,8 +917,8 @@ textarea {
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
     }
 
-    .selected {
-        transform: scale(1);
+    .skins-button img.selected {
+        transform: scale(1.05);
     }
 
     .icon-button i {
@@ -1028,24 +936,21 @@ textarea {
         white-space: nowrap;
     }
 
-    /*footer*/
-    footer {
-        font-size: 1.3rem;
-    }
-
-
-    /*MENUPAGINA*/
     .game-grid {
         display: grid;
         grid-template-columns: 1fr;
+        /* 1 kolom */
         grid-template-rows: repeat(2, auto);
+        /* 2 games per keer */
         gap: 10px;
         max-width: 100vw;
         justify-items: center;
         align-items: center;
         position: relative;
         overflow: hidden;
+        /* Geen scrollen mogelijk */
         height: 420px;
+        /* Hoogte zodat steeds maar 2 games zichtbaar zijn */
     }
 
     .game-card {
@@ -1053,6 +958,7 @@ textarea {
         height: 200px;
     }
 
+    /* Pijltjes knoppen */
     .scroll-btn {
         position: fixed;
         top: 50%;
@@ -1078,5 +984,12 @@ textarea {
     .scroll-btn:hover {
         background: rgba(255, 255, 255, 0.9);
         color: black;
+    }
+
+    s
+
+    /*footer*/
+    footer {
+        font-size: 1.3rem;
     }
 }
