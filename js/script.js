@@ -43,3 +43,36 @@ document.addEventListener("DOMContentLoaded", function () {
     
     updateSkins();
 });
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const skins = document.querySelectorAll(".skins-button");
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        skins.forEach((skin, index) => {
+            skin.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    document.querySelector(".fa-circle-right").addEventListener("click", function () {
+        currentIndex = (currentIndex + 1) % skins.length;
+        updateCarousel();
+    });
+
+    document.querySelector(".fa-circle-left").addEventListener("click", function () {
+        currentIndex = (currentIndex - 1 + skins.length) % skins.length;
+        updateCarousel();
+    });
+
+    updateCarousel(); // Initialiseren bij pagina-lading
+});
