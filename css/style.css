@@ -79,6 +79,13 @@ header {
     border-radius: 15px; 
 }
 
+#search-icon {
+    position: absolute;
+    top: 35px;
+    left: 810px;
+    font-size: 1.5rem;
+}
+
 .search-bar input {
     width: 300px;  
     height: 40px;  
@@ -86,7 +93,7 @@ header {
     font-size: 1.2rem; 
     border-radius: 15px; 
     border: none;
-    background-image: url("/images/items/search-icon.webp");
+    /* background-image: url("/images/items/search-icon.webp"); */
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -192,6 +199,7 @@ header {
 }
 
 /*LOGIN/REGISTER PAGINA*/
+
 #login-page, #register-page {
     background-image: url('../images/bg-images/bg-desktop-login-page.jpeg');
     background-size: cover;
@@ -203,7 +211,7 @@ header {
 }
 
 #login-page, #register-page {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
 }
@@ -223,7 +231,7 @@ header {
     color: #000000;
 }
 
-.login-container, .register-container form {
+.login-container form, .register-container form {
     display: flex;
     flex-direction: column;
 }
@@ -299,7 +307,6 @@ label {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    font-weight: bold;
     color: black;
     background-color: var(--yellow);
     padding: 10px 20px;
@@ -307,7 +314,6 @@ label {
     text-align: center;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
-
 
 .skins-button {
     border: none;
@@ -476,6 +482,7 @@ label {
 }
 
 /*add to blacklist pagina*/
+
 #add-to-blacklist-page{
     background-image: url('/images/bg-images/bg-desktop-6.jpeg'); 
     background-size: cover;
@@ -483,12 +490,10 @@ label {
 
 }
 
-
 .add-to-blacklist-container {
     color: var(--yellow);
     font-size: 1.8rem;
     text-align: center;
-   
 }
 
 .add-to-blacklist-container h1{
@@ -558,7 +563,6 @@ label {
     width: 20px; 
 }
 
-
 textarea {
     width: 90%;
     height: 90px;
@@ -595,6 +599,158 @@ textarea {
 
 .add-button:hover {
     transform: scale(1.05); 
+}
+
+/* Favoriet pagina */
+
+#favorite-page {
+    background-image: url('../images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.favorite-page-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centreert de items horizontaal */
+    padding-top: 20px;
+    width: 100%;
+    color: black;
+    /* Verwijder position: absolute en top: 10%; */
+}
+
+.all-favorite-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* centreert de cards horizontaal */
+    align-items: center;
+    gap: 2rem;
+}
+
+.favorite-page-main h1{
+    font-size: 2rem;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 130px;
+}
+
+.favorite-card {
+    background-color: var(--yellow);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 380px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.skin-image-favorite {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.wins-losses-icons {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.favorite-card h2{
+    font-size: 2rem;
+}
+
+.favorite-wins, .favorite-losses {
+    background-color: var(--yellow);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.favorite-wins p, .favorite-losses p {
+    font-size: 1.5rem;
+}
+
+/* Buttons favoriet pagina */
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.edit-button {
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+    background-color: var(--yellow);
+    border: none;
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit-button:hover {
+    transform: scale(1.05); 
+}
+
+.details-button {
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+    background-color: var(--yellow);
+    border: none;
+    padding: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.details-button:hover {
+    transform: scale(1.05); 
+}
+
+.items-favorite {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.item-img {
+    background-color: var(--yellow);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
 }
 
 
@@ -635,6 +791,12 @@ footer {
 
     .search-bar input {
         display: none;
+        background-image: none;
+    }
+
+    #search-icon {
+        display: none;
+
     }
 
     .search-bar {
@@ -719,6 +881,36 @@ footer {
 
     .text-content p{
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    }
+
+    /* favoriet pagina */
+
+    #favorite-page {
+        background-image: url(../images/bg-images/bg-mobile-1.jpeg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* background-image: none;
+        background-color: #007bff; */
+    }
+
+    .all-favorite-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .favorite-page-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        width: 100%;
+        color: black;
     }
 
     /*footer*/
