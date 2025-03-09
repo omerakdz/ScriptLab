@@ -747,10 +747,9 @@ textarea {
 /* Favoriet pagina */
 
 #favorite-page {
-    background-image: url('../images/bg-images/bg-desktop-5.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    
+   
 }
 
 .favorite-page-main {
@@ -761,6 +760,7 @@ textarea {
     padding-top: 20px;
     width: 100%;
     color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
 }
 
 .all-favorite-cards {
@@ -772,7 +772,7 @@ textarea {
 }
 
 .favorite-page-main h1{
-    font-size: 2rem;
+    font-size: 3rem;
     background-color: var(--yellow);
     border-radius: 10px;
     padding: 1rem;
@@ -780,7 +780,7 @@ textarea {
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
-    width: 130px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .favorite-card {
@@ -792,7 +792,7 @@ textarea {
     align-items: center;
     width: 350px;
     height: 380px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 }
 
 .skin-image-favorite {
@@ -812,6 +812,7 @@ textarea {
 
 .favorite-card h2{
     font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .favorite-wins, .favorite-losses {
@@ -825,7 +826,7 @@ textarea {
     align-items: center; 
     justify-content: space-between;
     gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
 .favorite-wins p, .favorite-losses p {
@@ -1137,16 +1138,8 @@ footer {
     }
 
     /* favoriet pagina */
+    
 
-    #favorite-page {
-        background-image: url(../images/bg-images/bg-mobile-1.jpeg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        /* background-image: none;
-        background-color: #007bff; */
-    }
 
     .all-favorite-cards {
         display: flex;
