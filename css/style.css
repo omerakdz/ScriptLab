@@ -748,8 +748,8 @@ textarea {
 
 #favorite-page {
     background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-    
-   
+
+
 }
 
 .favorite-page-main {
@@ -771,7 +771,7 @@ textarea {
     gap: 2rem;
 }
 
-.favorite-page-main h1{
+.favorite-page-main h1 {
     font-size: 3rem;
     background-color: var(--yellow);
     border-radius: 10px;
@@ -810,12 +810,13 @@ textarea {
     gap: 15px;
 }
 
-.favorite-card h2{
+.favorite-card h2 {
     font-size: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.favorite-wins, .favorite-losses {
+.favorite-wins,
+.favorite-losses {
     background-color: var(--yellow);
     color: black;
     border: none;
@@ -823,13 +824,14 @@ textarea {
     font-size: 1.5rem;
     border-radius: 5px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.favorite-wins p, .favorite-losses p {
+.favorite-wins p,
+.favorite-losses p {
     font-size: 1.5rem;
 }
 
@@ -860,7 +862,7 @@ textarea {
 }
 
 .edit-button:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .details-button {
@@ -879,7 +881,7 @@ textarea {
 }
 
 .details-button:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .items-favorite {
@@ -896,6 +898,43 @@ textarea {
     border-radius: 5px;
 }
 
+/*blacklist page*/
+
+#blacklistedPage {
+    background-image: url(/images/bg-images/bg-desktop-5.jpeg);
+}
+
+.blacklist-page-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.all-blacklisted-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.blacklist-page-main h1 {
+    font-size: 3rem;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer !important;
@@ -909,6 +948,14 @@ footer {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
     opacity: 95% !important;
     letter-spacing: 0.5px !important;
+}
+
+.items-blacklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 150px;
+    height: 150px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1138,7 +1185,7 @@ footer {
     }
 
     /* favoriet pagina */
-    
+
 
 
     .all-favorite-cards {
