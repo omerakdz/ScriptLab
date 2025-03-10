@@ -317,7 +317,6 @@ label {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    font-weight: bold;
     color: black;
     background-color: var(--yellow);
     padding: 10px 20px;
@@ -346,7 +345,6 @@ label {
     transform: scale(1.1);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
-
 
 .skin-name {
     margin-top: 10px;
@@ -393,7 +391,6 @@ label {
 .icon-button:hover i {
     transform: scale(1.1);
 }
-
 
 /*UITLEG PAGINA*/
 /* Achtergrond */
@@ -894,6 +891,40 @@ textarea {
     background-color: var(--yellow);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
+}
+
+#button-right-fav, #button-left-fav {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#button-right-fav {
+    position: relative;
+    left: 42%;
+    bottom: 40%;
+}
+
+#button-left-fav {
+    position: relative;
+    right: 42%;
+    top: 30%;
+}
+
+#button-right-fav i, #button-left-fav i {
+    color: var(--yellow);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+#button-right-fav:hover i {
+    transform: scale(1.1);
+}
+
+#button-left-fav:hover i {
+    transform: scale(1.1);
 }
 
 /* FOOTER VOOR ALLE PAGINAS */
