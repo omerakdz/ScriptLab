@@ -744,6 +744,142 @@ textarea {
     background-color: lightgray;
 }
 
+
+.game-card .overlay .cross {
+    display: none;
+    font-size: 150PX;
+    /* Groot maken */
+    color: red;
+    /* Normale rode kleur */
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    /* 50% transparantie */
+}
+
+.game-card:hover .overlay .cross {
+    display: block;
+}
+
+#personage-detail-page {
+    background-image: url("/images/bg-images/bg-desktop-1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+}
+
+.personages-detail-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personages-card {
+    background-color: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+#personages-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+#personages-card h2 {
+    font-size: 2rem;
+}
+
+#personages-card p {
+    font-size: 1.5rem;
+}
+
+#personages-empty-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+#personages-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 2px solid var(--yellow);
+}
+
+#personages-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+#personages-stat {
+    text-align: center;
+}
+
+#personages-button {
+    background: var(--yellow);
+    border: none;
+    padding: 8px 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#personages-button:hover {
+    transform: scale(1.1);
+}
+
+#personages-note-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    height: 80px;
+    resize: none;
+}
+
+#personages-icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+i {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+
+i:hover {
+    transform: scale(1.1);
+}
+
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer !important;
@@ -983,6 +1119,12 @@ footer {
     .scroll-btn:hover {
         background: rgba(255, 255, 255, 0.9);
         color: black;
+    }
+
+    /*FAVORIETE DETAIL PAGINA*/
+    #personages-card {
+        width: 350px;
+
     }
 
     /*footer*/
