@@ -243,7 +243,7 @@ header {
 #email {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 2px solid #cccccc;
     border-radius: 20px;
     font-size: 1em;
@@ -256,17 +256,28 @@ header {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 243px;
+    top: 247px;
 }
 
 .input-box-password i {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 295px;
+    top: 294px;
+}
+
+.change-password {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #007bff;
+}
+
+.change-password:hover {
+    color:#0056b3;
 }
 
 .submitButton {
+    margin-top: 5px;
     width: 100%;
     padding: 10px;
     background-color: #007bff;
