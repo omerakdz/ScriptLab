@@ -256,14 +256,14 @@ header {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 40%;
+    top: 243px;
 }
 
 .input-box-password i {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 48%;
+    top: 295px;
 }
 
 .submitButton {
@@ -773,7 +773,7 @@ textarea {
 
 .personages-detail-container {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -789,18 +789,19 @@ textarea {
     color: white;
     text-align: center;
     width: 450px;
+    height: 450px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 #personages-card img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 #personages-card h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #personages-card p {
@@ -836,6 +837,8 @@ textarea {
 
 #personages-button {
     background: var(--yellow);
+    color: var(--dark-gray);
+    font-size: larger;
     border: none;
     padding: 8px 12px;
     margin-top: 5px;
@@ -851,11 +854,11 @@ textarea {
 
 #personages-note-input {
     width: 100%;
-    padding: 8px;
-    margin-top: 10px;
+    padding: 5px;
+    margin-top: 5px;
     border-radius: 8px;
     border: none;
-    height: 80px;
+    height: 50px;
     resize: none;
 }
 
@@ -866,14 +869,17 @@ textarea {
     margin-top: 10px;
 }
 
-i {
-    font-size: 20px;
+#save-icon, #trash-icon {
+    background-color: var(--yellow);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 35px;
     cursor: pointer;
-    color: white;
+    color: var(--dark-gray);
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-i:hover {
+#save-icon:hover, #trash-icon:hover {
     transform: scale(1.1);
 }
 
@@ -1305,48 +1311,49 @@ footer {
         color: black;
     }
 
-/* favoriet pagina */
-/* FAVORIETE DETAIL PAGINA */
-#personages-card {
-    width: 350px;
-}
-
-/* FAVORIET PAGINA */
-
-.all-favorite-cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 20px;
-}
-
-.favorite-page-main {
-    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 100%;
-    color: black;
-}
-
+    /* FAVORIETE DETAIL PAGINA */
+    #personages-card {
+        width: 350px;
+        position: relative;
+        bottom: 10px;
     }
+
+    /* FAVORIET PAGINA */
+
+    .all-favorite-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .favorite-page-main {
+        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        width: 100%;
+        color: black;
+    }
+
+    /* Login page */
 
     .input-box-username i {
         position: absolute;
         left: 70%;
-        top: 247px;
+        top: 242px;
     }
     
     .input-box-password i {
         position: absolute;
         left: 70%;
-        top: 300px;
+        top: 293px;
     }
 
     /*footer*/

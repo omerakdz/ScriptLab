@@ -14,13 +14,15 @@
         <form action="/login" method="POST">
             <section class="input-box-username">
                 <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user" id="username-icon"></i>
             </section>
             
             <section class="input-box-password">
                 <input type="text" id="password" placeholder="Wachtwoord" name="password" required>
-                <i class="fa-solid fa-lock"></i>
+                <i class="fa-solid fa-lock" id="password-icon"></i>
             </section>
+
+            <p>wachtwoord vergeten?</p>
             
             <input type="submit" value="Login" class="submitButton">
             <button type="button" class="signInButton">Registreren</button>
