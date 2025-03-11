@@ -866,6 +866,10 @@ textarea {
     color: red;
 }
 
+.mobile-options-btn {
+    display: none;
+}
+
 /*PROFILE-ZOEK*/
 .profile-search-card {
     padding-top: 10px;
@@ -1173,6 +1177,36 @@ footer {
     .scroll-btn:hover {
         background: rgba(255, 255, 255, 0.9);
         color: black;
+    }
+
+    /*profile page*/
+    .settings-left-btns {
+        display: none;
+        background-color: var(--dark-gray);
+        box-shadow: 1px 2px 2px #000000;
+        box-shadow: 10px 0 5px -2px #888;
+        position: absolute;
+    }
+
+    .settings-account {
+        margin-top: 80px;
+        margin-left: 50px;
+    }
+
+    .mobile-options-btn {
+        display: unset;
+        position: absolute;
+        height: 30px;
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+
+    .mobile-options-btn:hover {
+        cursor: pointer;
+    }
+
+    .settings-card {
+        width: 80%;
     }
 
     /*footer*/
