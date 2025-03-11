@@ -321,7 +321,6 @@ header {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    font-weight: bold;
     color: black;
     background-color: var(--yellow);
     padding: 10px 20px;
@@ -350,7 +349,6 @@ header {
     transform: scale(1.1);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
-
 
 .skin-name {
     margin-top: 10px;
@@ -397,7 +395,6 @@ header {
 .icon-button:hover i {
     transform: scale(1.1);
 }
-
 
 /*UITLEG PAGINA*/
 /* Achtergrond */
@@ -748,12 +745,144 @@ textarea {
     background-color: lightgray;
 }
 
-/* Favoriet pagina */
+/* MENU STIJLEN */
+.game-card .overlay .cross {
+    display: none;
+    font-size: 150PX; /* Groot maken */
+    color: red; /* Normale rode kleur */
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5; /* 50% transparantie */
+}
+
+.game-card:hover .overlay .cross {
+    display: block;
+}
+
+#personage-detail-page {
+    background-image: url("/images/bg-images/bg-desktop-1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+}
+
+.personages-detail-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personages-card {
+    background-color: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+#personages-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+#personages-card h2 {
+    font-size: 2rem;
+}
+
+#personages-card p {
+    font-size: 1.5rem;
+}
+
+#personages-empty-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+#personages-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 2px solid var(--yellow);
+}
+
+#personages-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+#personages-stat {
+    text-align: center;
+}
+
+#personages-button {
+    background: var(--yellow);
+    border: none;
+    padding: 8px 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#personages-button:hover {
+    transform: scale(1.1);
+}
+
+#personages-note-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    height: 80px;
+    resize: none;
+}
+
+#personages-icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+i {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+i:hover {
+    transform: scale(1.1);
+}
+
+
+/* FAVORIET PAGINA */
 
 #favorite-page {
     background-image: url('/images/bg-images/bg-desktop-5.jpeg');
     background-position: center;
-   
 }
 
 .favorite-page-main {
@@ -775,7 +904,7 @@ textarea {
     gap: 2rem;
 }
 
-.favorite-page-main h1{
+.favorite-page-main h1 {
     font-size: 3rem;
     background-color: var(--yellow);
     border-radius: 10px;
@@ -814,7 +943,7 @@ textarea {
     gap: 15px;
 }
 
-.favorite-card h2{
+.favorite-card h2 {
     font-size: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -827,7 +956,7 @@ textarea {
     font-size: 1.5rem;
     border-radius: 5px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
@@ -864,7 +993,7 @@ textarea {
 }
 
 .edit-button:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .details-button {
@@ -883,7 +1012,7 @@ textarea {
 }
 
 .details-button:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .items-favorite {
@@ -899,6 +1028,41 @@ textarea {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
 }
+
+#button-right-fav, #button-left-fav {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#button-right-fav {
+    position: relative;
+    left: 42%;
+    bottom: 40%;
+}
+
+#button-left-fav {
+    position: relative;
+    right: 42%;
+    top: 30%;
+}
+
+#button-right-fav i, #button-left-fav i {
+    color: var(--yellow);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+#button-right-fav:hover i {
+    transform: scale(1.1);
+}
+
+#button-left-fav:hover i {
+    transform: scale(1.1);
+}
+
 
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
@@ -1141,28 +1305,36 @@ footer {
         color: black;
     }
 
-    /* favoriet pagina */
+/* favoriet pagina */
+/* FAVORIETE DETAIL PAGINA */
+#personages-card {
+    width: 350px;
+}
 
-    .all-favorite-cards {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        margin-bottom: 20px;
-    }
+/* FAVORIET PAGINA */
 
-    .favorite-page-main {
-        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-        background-size: cover ;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        width: 100%;
-        color: black;
+.all-favorite-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 20px;
+}
+
+.favorite-page-main {
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    color: black;
+}
+
     }
 
     .input-box-username i {
