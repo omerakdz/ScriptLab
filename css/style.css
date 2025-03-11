@@ -744,14 +744,17 @@ textarea {
 /* MENU STIJLEN */
 .game-card .overlay .cross {
     display: none;
-    font-size: 150PX; /* Groot maken */
-    color: red; /* Normale rode kleur */
+    font-size: 150PX;
+    /* Groot maken */
+    color: red;
+    /* Normale rode kleur */
     font-weight: bold;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.5; /* 50% transparantie */
+    opacity: 0.5;
+    /* 50% transparantie */
 }
 
 .game-card:hover .overlay .cross {
@@ -944,7 +947,8 @@ i:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.favorite-wins, .favorite-losses {
+.favorite-wins,
+.favorite-losses {
     background-color: var(--yellow);
     color: black;
     border: none;
@@ -958,7 +962,8 @@ i:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.favorite-wins p, .favorite-losses p {
+.favorite-wins p,
+.favorite-losses p {
     font-size: 1.5rem;
 }
 
@@ -1025,7 +1030,8 @@ i:hover {
     border-radius: 5px;
 }
 
-#button-right-fav, #button-left-fav {
+#button-right-fav,
+#button-left-fav {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -1044,7 +1050,8 @@ i:hover {
     top: 30%;
 }
 
-#button-right-fav i, #button-left-fav i {
+#button-right-fav i,
+#button-left-fav i {
     color: var(--yellow);
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -1301,39 +1308,38 @@ footer {
         color: black;
     }
 
-/* FAVORIETE DETAIL PAGINA */
-#personages-card {
-    width: 350px;
-}
-
-/* FAVORIET PAGINA */
-
-.all-favorite-cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 20px;
-}
-
-.favorite-page-main {
-    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 100%;
-    color: black;
-}
-
+    /* FAVORIETE DETAIL PAGINA */
+    #personages-card {
+        width: 350px;
     }
 
-    /*footer*/
-    footer {
-        font-size: 1.3rem;
+    /* FAVORIET PAGINA */
+
+    .all-favorite-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 20px;
     }
+
+    .favorite-page-main {
+        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        width: 100%;
+        color: black;
+    }
+
+}
+
+/*footer*/
+footer {
+    font-size: 1.3rem;
 }
