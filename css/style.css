@@ -628,21 +628,16 @@ textarea {
 
 
 #menuBody {
-    font-family: 'Fortnite';
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-weight: lighter;
     transition: background 0.5s ease-in-out;
     background-size: cover;
     background-position: center;
     position: relative;
-    background-image: url('images/jouw-afbeelding.jpg');
-    background-size: cover;
     background: linear-gradient(to bottom, #007bff, #6a00ff);
-    background-position: center;
     overflow: hidden;
 }
 
@@ -657,8 +652,8 @@ textarea {
     background-image: inherit;
     background-size: cover;
     background-position: center;
-    filter: blur(4px);
-    z-index: -1;
+    filter: blur(5px);
+    z-index: -1; /* Dit zorgt ervoor dat het blur-effect achter de content ligt */
     top: -5%;
     left: -5%;
     width: 110%;
@@ -680,6 +675,7 @@ textarea {
     padding: 10px 20px;
     border-radius: 20px;
     display: inline-block;
+    font-size: 2rem;
 }
 
 .game-grid {
@@ -739,9 +735,10 @@ textarea {
 
 .overlay p {
     margin: 5px 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
     color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    letter-spacing: 0.5px;
 }
 
 .overlay button {
