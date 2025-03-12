@@ -947,6 +947,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    gap: 20px;
     width: 100%;
     color: black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
@@ -955,20 +956,26 @@ textarea {
 .all-favorite-cards {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    overflow: visible;
     gap: 2rem;
+    
+    z-index: 0;
 }
 
 .favorite-page-main h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     background-color: var(--yellow);
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-    margin-top: 10px;
+    margin-bottom: 20px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    z-index: 1;
 }
 
 .favorite-card {
@@ -981,8 +988,7 @@ textarea {
     width: 350px;
     height: 380px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
-    position: relative;
-    bottom: 5%;
+    margin-bottom: 20px;
 }
 
 .skin-image-favorite {
@@ -1422,12 +1428,19 @@ footer {
         min-height: 160vh;
         background-position: center;
     }
+    
+    .favorite-card {
+        width: 100%;
+    }
+
+    .favorite-page-main h1 {
+        font-size: 1.5rem;
+        margin: 10px;
+    }
 
     .icon-button{
         display: none;
     }
-
-    
 
     .favorite-card {
         width: 280px; 
