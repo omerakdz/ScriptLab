@@ -53,6 +53,7 @@ header {
     background-image: url("/images/bg-images/bg-desktop-5.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
 }
 
 
@@ -187,6 +188,11 @@ header {
     transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     letter-spacing: 0.8px;
+    list-style: none;
+}
+
+.menu-items li img {
+    display: none;
 }
 
 .menu-items li:hover {
@@ -199,7 +205,7 @@ header {
 /*LOGIN/REGISTER PAGINA*/
 #login-page,
 #register-page {
-    background-image: url('../images/bg-images/bg-desktop-login-page.jpeg');
+    background-image: url('/images/bg-images/bg-desktop-login-page.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -441,11 +447,11 @@ header {
     background-image: url('/images/bg-images/bg-desktop-7.jpeg');
     background-size: cover;
     position: relative;
+    background-position:center;
 }
 
 .info-container {
     background-color: var(--dark-gray);
-    opacity: 99%;
     color: white;
     border-radius: 10px;
     padding: 20px;
@@ -456,6 +462,7 @@ header {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 .header {
@@ -498,25 +505,34 @@ header {
 
 .menu li {
     margin-bottom: 10px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
     transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.menu a:hover {
-    scale: (1, 1);
-    font-size: 1.3rem;
-    color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+.menu li img {
+    height: 60px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    display: block;
 }
 
-.menu a.active {
-    color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    scale: (1, 1);
+.menu li:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.menu li img.active {
+    transform: scale(1.2);  
+    filter: brightness(1.1);  
+}
+
+.menu li img {
+    pointer-events: auto; 
+}
+/* afbeelding kreeg hover wanneer ik met muis ernaast ging, dit is oplossng hiervoor */
+.menu li {
+    pointer-events: none;
 }
 
 .text-content {
@@ -534,7 +550,7 @@ header {
     background-image: url('/images/bg-images/bg-desktop-6.jpeg');
     background-size: cover;
     position: relative;
-
+    background-position:center;
 }
 
 
@@ -554,16 +570,15 @@ header {
     left: 50%;
     top: 20%;
     transform: translateX(-50%);
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .add-to-blacklist-container h2 {
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .add-to-blacklist-card {
     background-color: var(--dark-gray);
-    opacity: 97%;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -606,7 +621,7 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
 }
 
 .ab-wins img,
@@ -797,10 +812,12 @@ textarea {
     display: block;
 }
 
+/*FAVORIETE DETAIL PAGINA*/
 #personage-detail-page {
     background-image: url("/images/bg-images/bg-desktop-1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
     margin: 0;
     height: 100vh;
     position: relative;
@@ -835,7 +852,7 @@ textarea {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-#personages-card h2 {
+#personages-card figcaption {
     font-size: 1.5rem;
 }
 
@@ -901,7 +918,7 @@ textarea {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 7px;
 }
 
 #save-icon, #trash-icon {
@@ -921,13 +938,11 @@ textarea {
 
 /* FAVORIET PAGINA */
 
-#favorite-page {
-    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-    background-position: center;
-}
-
 .favorite-page-main {
     grid-area: main;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -951,8 +966,7 @@ textarea {
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -967,6 +981,8 @@ textarea {
     width: 350px;
     height: 380px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+    position: relative;
+    bottom: 5%;
 }
 
 .skin-image-favorite {
@@ -1111,7 +1127,7 @@ footer {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
     padding: 10px !important;
     background: var(--dark-gray) !important;
     height: 4rem !important;
@@ -1122,6 +1138,11 @@ footer {
 
 @media screen and (max-width: 768px) {
 
+    body{
+        background-position: center;
+    }
+
+    /*HEADER*/
     .logo span {
         font-size: 2rem;
     }
@@ -1158,6 +1179,10 @@ footer {
     }
 
     /*home pagina*/
+
+    #home-page{
+        background-image: url('/images/bg-images/bg-mobile-1.jpeg');
+    }
     .card-container {
         display: flex;
         flex-direction: column;
@@ -1183,12 +1208,31 @@ footer {
         font-size: 1.6rem;
     }
 
-    .card-content p {
-        font-size: 1.3rem;
+
+    .menu-items ul{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+ 
+    .menu-items li span {
+        display: none;
     }
 
-    .menu-items ul li {
-        font-size: 2.9rem;
+    .menu-items li img {
+        display: block;
+        width: 80px; /* Pas de grootte aan naar wens */
+        height: 80px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    #skin-icon-home{
+        background-color: var(--yellow);
+        border-radius: 50%;
+    }
+
+    .menu-items li:hover img {
+        transform: scale(1.1);
     }
 
     /*GUIDE PAGINA*/
@@ -1205,13 +1249,17 @@ footer {
     .menu ul {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 30px;
         justify-content: center;
         border-bottom: 1px solid white;
     }
 
     .menu ul li {
         margin-bottom: 1rem;
+    }
+
+    .menu a img{
+        height: 55px;
     }
 
 
@@ -1354,27 +1402,88 @@ footer {
     }
 
     /* FAVORIET PAGINA */
+    /*alles kleiner gemaakt en buttons display none gezet*/
 
     .all-favorite-cards {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
-        margin-bottom: 20px;
+        gap: 1rem;
     }
 
     .favorite-page-main {
-        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-top: 20px;
         width: 100%;
-        color: black;
+        color: black;      
+        min-height: 160vh;
+        background-position: center;
+    }
+
+    .icon-button{
+        display: none;
+    }
+
+    
+
+    .favorite-card {
+        width: 280px; 
+        height: 320px; 
+        padding: 8px; 
+        bottom: 60px; 
+        top: 20px;
+    }
+
+    .skin-image-favorite {
+        width: 100px; 
+        height: 100px;
+        margin-bottom: 5px; 
+    }
+
+    .favorite-card h2 {
+        font-size: 1.5rem; 
+    }
+
+    .wins-losses-icons {
+        gap: 10px; 
+    }
+
+    .favorite-wins, .favorite-losses {
+        padding: 8px 12px; 
+        font-size: 1.25rem; 
+    }
+
+    .favorite-wins p, .favorite-losses p {
+        font-size: 1.25rem; 
+    }
+
+    .button-container {
+        gap: 15px; 
+    }
+
+    .edit-button {
+        width: 40px; 
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .details-button {
+        width: 80px;
+        height: 35px;
+        font-size: 1.2rem; 
+    }
+
+    .items-favorite {
+        width: 120px;
+        height: 120px; 
+    }
+
+    .item-img {
+        width: 100%; 
+        height: 100%; 
     }
 
     /* Login/Register page */
