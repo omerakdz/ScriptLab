@@ -1234,7 +1234,7 @@ footer {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
 
-    /*LANDINGS PAGINA*/
+    /*LANDING PAGINA*/
     #landing-page {
         /*voor background img want het nam de hele scherm niet in*/
         background-size: cover;
@@ -1380,18 +1380,33 @@ footer {
         color: black;
     }
 
-    /* Login page */
+    /* Login/Register page */
 
     .input-box-username i {
         position: absolute;
         left: 70%;
-        top: 242px;
+        top: 39%;
     }
     
     .input-box-password i {
         position: absolute;
         left: 70%;
-        top: 293px;
+        top: 46%;
+    }
+
+    #username-icon-register {
+        left: 70%;
+        top: 41%;
+    }
+    
+    #password-icon-register {
+        left: 70%;
+        top: 48%;
+    }
+    
+    #email-icon-register {
+        left: 70%;
+        top: 56%;
     }
 
     /*footer*/
