@@ -227,8 +227,8 @@ header {
 
 .login-container h1,
 .register-container h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 10px;
     color: #000000;
 }
 
@@ -256,14 +256,35 @@ header {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 247px;
+    top: 242px;
 }
 
 .input-box-password i {
     color: #a8a8a8;
     position: absolute;
     left: 57%;
-    top: 294px;
+    top: 292px;
+}
+
+#username-icon-register {
+    color:#a8a8a8;
+    position: absolute;
+    left: 57%;
+    top: 258px;
+}
+
+#password-icon-register {
+    color:#a8a8a8;
+    position: absolute;
+    left: 57%;
+    top: 305px;
+}
+
+#email-icon-register {
+    color:#a8a8a8;
+    position: absolute;
+    left: 57%;
+    top: 352px;
 }
 
 .change-password {
@@ -286,26 +307,32 @@ header {
     color: #ffffff;
     font-size: 1.25rem;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .submitButton:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 .signInButton {
     margin-top: 10px;
     border: 3px solid #007bff;
     color: #007bff;
-    border-radius: 20px;
+    border-radius: 30px;
     font-size: 1.25rem;
     cursor: pointer;
     width: 100%;
     padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .signInButton:hover {
     border: 3px solid #0056b3;
     color: #0056b3;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 /* LANDING PAGINA */
