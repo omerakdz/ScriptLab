@@ -20,39 +20,49 @@
             </article>
         </section>
         <article class="logo">
-            <img src="images/items/info-icon.png" alt="Info">
-            <span>Fortnite</span>
+            <a href="guide.html"><img src="images/items/info-icon.png" alt="Info"></a>
+            <a href="index.html"><span>Fortnite</span></a>
         </article>
     </header>
 
 </head>
 
 <body id="personage-detail-page">
-    <div class="personages-detail-container">
-        <div id="personages-card">
-            <img src="images/skins/skin-6.jpg" alt="Avatar">
-            <h2>Skull Trooper</h2>
-            <div id="personages-empty-boxes">
-                <div id="personages-box"></div>
-                <div id="personages-box"></div>
-            </div>
-            <div id="personages-stats">
-                <div id="personages-stat">
+    <main class="personages-detail-container">
+        <section id="personages-card">
+            <figure>
+                <img src="images/skins/skin-6.jpg" alt="Avatar" />
+                <figcaption>Skull Trooper</figcaption>
+            </figure>
+            
+            <section id="personages-empty-boxes">
+                <article id="personages-box"></article>
+                <article id="personages-box"></article>
+            </section>
+            
+            <section id="personages-stats">
+                <article id="personages-stat">
                     <p>Wins: 5</p>
-                    <button id="personages-button">Wins +</button>
-                </div>
-                <div id="personages-stat">
+                    <button id="personages-button" aria-label="Increase wins">Wins +</button>
+                </article>
+                <article id="personages-stat">
                     <p>Losses: 2</p>
-                    <button id="personages-button">Losses +</button>
-                </div>
-            </div>
-            <textarea id="personages-note-input" placeholder="Notitie"></textarea>
-            <div id="personages-icon-container">
-                <i class="fa-solid fa-floppy-disk" id="save-icon"></i>
-                <i class="fa-solid fa-trash" id="trash-icon"></i>
-            </div>
-        </div>
-    </div>
+                    <button id="personages-button" aria-label="Increase losses">Losses +</button>
+                </article>
+            </section>
+            
+            <textarea id="personages-note-input" placeholder="Notitie" aria-label="Add a note"></textarea>
+            
+            <section id="personages-icon-container">
+                <button id="save-icon" aria-label="Save">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+                <button id="trash-icon" aria-label="Delete">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </section>
+        </section>
+    </main>
 
     <footer>
         <p> &copy; ScriptLab | Omer Malik Joesoef Houdaifa</p>
