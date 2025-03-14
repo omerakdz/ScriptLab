@@ -221,19 +221,29 @@ header {
     align-items: center;
 }
 
-.login-container,
 .register-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 350px;
+    height: 310px;
+    text-align: center;
+}
+
+.login-container{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 345px;
     text-align: center;
 }
 
 .login-container h1,
 .register-container h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 10px;
     color: #000000;
 }
@@ -249,53 +259,39 @@ header {
 #email {
     width: 100%;
     padding: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     border: 2px solid #cccccc;
     border-radius: 20px;
-    font-size: 0.8rem;
-    color: #a8a8a8 !important;
+    font-size: 1rem;
+    color: #575757 !important;
     text-align: left;
     background-color: white;
 }
 
-.input-box-username i {
-    color: #a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 242px;
+#username {
+    background-image: url("/images/items/user-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
 }
 
-.input-box-password i {
-    color: #a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 292px;
+#password {
+    background-image: url("/images/items/lock-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
 }
 
-#username-icon-register {
-    color:#a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 258px;
-}
-
-#password-icon-register {
-    color:#a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 305px;
-}
-
-#email-icon-register {
-    color:#a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 352px;
+#email {
+    background-image: url("/images/items/email-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
 }
 
 .change-password {
     font-family:Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 17px;
     color: #007bff;
 }
 
@@ -311,7 +307,7 @@ header {
     border: none;
     border-radius: 20px;
     color: #ffffff;
-    font-size: 1.25rem;
+    font-size: 25px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -323,11 +319,12 @@ header {
 }
 
 .signInButton {
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     border: 3px solid #007bff;
     color: #007bff;
     border-radius: 30px;
-    font-size: 1.25rem;
+    font-size: 25px;
     cursor: pointer;
     width: 100%;
     padding: 10px;
