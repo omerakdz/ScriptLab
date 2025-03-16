@@ -617,7 +617,6 @@ input{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-
 .skin-image {
     width: 90px;
     height: 90px;
@@ -651,7 +650,6 @@ input{
 .ab-losses img {
     width: 20px;
 }
-
 
 textarea {
     width: 90%;
@@ -1489,7 +1487,8 @@ button:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.favorite-wins, .favorite-losses {
+.favorite-wins,
+.favorite-losses {
     background-color: var(--yellow);
     color: black;
     border: none;
@@ -1503,8 +1502,96 @@ button:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.favorite-wins p, .favorite-losses p {
+.favorite-wins p,
+.favorite-losses p {
     font-size: 1.5rem;
+}
+
+/* blaclist pagina */
+
+#blacklist-page {
+    background-image: url('/images/bg-images/bg-desktop-4.jpeg');
+}
+
+.blacklist-page-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.all-blacklist-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.blacklist-page-main h1 {
+    font-size: 3rem;
+    color: var(--yellow);
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.blacklist-card {
+    background-color: var(--dark-gray);
+    color: var(--yellow);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 380px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+.skin-image-blacklist {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.blacklist-card h2 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.blacklist-card h3 {
+    align-self: self-start;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+.blacklist-card p {
+    width: 90%;
+    height: 90px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: white;
+    font-size: 1rem;
+    color: var(--dark-gray);
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    resize: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /* Buttons favoriet pagina */
@@ -2028,6 +2115,14 @@ footer {
     letter-spacing: 0.5px !important;
 }
 
+.items-blacklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 150px;
+    height: 150px;
+}
+
 @media screen and (max-width: 768px) {
 
     body{
@@ -2404,7 +2499,7 @@ footer {
     /* FAVORIET PAGINA */
     /*alles kleiner gemaakt en buttons display none gezet*/
 
-    .all-favorite-cards {
+    .all-favorite-cards, .all-blacklist-cards {
         display: flex;
         flex-direction: column;
         justify-content: center;
