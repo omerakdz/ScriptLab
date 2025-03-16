@@ -53,6 +53,7 @@ header {
     background-image: url("/images/bg-images/bg-desktop-5.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
 }
 
 .profile {
@@ -187,6 +188,11 @@ header {
     transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     letter-spacing: 0.8px;
+    list-style: none;
+}
+
+.menu-items li img {
+    display: none;
 }
 
 .menu-items li:hover {
@@ -199,7 +205,7 @@ header {
 /*LOGIN/REGISTER PAGINA*/
 #login-page,
 #register-page {
-    background-image: url('../images/bg-images/bg-desktop-login-page.jpeg');
+    background-image: url('/images/bg-images/bg-desktop-login-page.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -215,20 +221,30 @@ header {
     align-items: center;
 }
 
-.login-container,
 .register-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 350px;
+    height: 310px;
+    text-align: center;
+}
+
+.login-container{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 345px;
     text-align: center;
 }
 
 .login-container h1,
 .register-container h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 2.25rem;
+    margin-bottom: 10px;
     color: #000000;
 }
 
@@ -238,59 +254,88 @@ header {
     flex-direction: column;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #000000;
-    text-align: left;
-    font-size: 1.1rem;
-
-}
-
 #username,
 #password,
 #email {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 2px solid #cccccc;
-    border-radius: 5px;
-    font-size: 1em;
-    color: black !important;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #575757 !important;
     text-align: left;
     background-color: white;
 }
 
+#username {
+    background-image: url("/images/items/user-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
+}
+
+#password {
+    background-image: url("/images/items/lock-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
+}
+
+#email {
+    background-image: url("/images/items/email-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
+}
+
+.change-password {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    color: #007bff;
+}
+
+.change-password:hover {
+    color:#0056b3;
+}
 
 .submitButton {
+    margin-top: 5px;
     width: 100%;
     padding: 10px;
     background-color: #007bff;
     border: none;
     border-radius: 20px;
     color: #ffffff;
-    font-size: 1.25rem;
+    font-size: 25px;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .submitButton:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 .signInButton {
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     border: 3px solid #007bff;
     color: #007bff;
-    border-radius: 20px;
-    font-size: 1.25rem;
+    border-radius: 30px;
+    font-size: 25px;
     cursor: pointer;
     width: 100%;
     padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .signInButton:hover {
     border: 3px solid #0056b3;
     color: #0056b3;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 /* LANDING PAGINA */
@@ -317,7 +362,6 @@ label {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    font-weight: bold;
     color: black;
     background-color: var(--yellow);
     padding: 10px 20px;
@@ -346,7 +390,6 @@ label {
     transform: scale(1.1);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
-
 
 .skin-name {
     margin-top: 10px;
@@ -394,7 +437,6 @@ label {
     transform: scale(1.1);
 }
 
-
 /*UITLEG PAGINA*/
 /* Achtergrond */
 
@@ -402,11 +444,11 @@ label {
     background-image: url('/images/bg-images/bg-desktop-7.jpeg');
     background-size: cover;
     position: relative;
+    background-position:center;
 }
 
 .info-container {
     background-color: var(--dark-gray);
-    opacity: 99%;
     color: white;
     border-radius: 10px;
     padding: 20px;
@@ -417,6 +459,7 @@ label {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 .header {
@@ -459,25 +502,34 @@ label {
 
 .menu li {
     margin-bottom: 10px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
     transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.menu a:hover {
-    scale: (1, 1);
-    font-size: 1.3rem;
-    color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+.menu li img {
+    height: 60px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    display: block;
 }
 
-.menu a.active {
-    color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    scale: (1, 1);
+.menu li:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.menu li img.active {
+    transform: scale(1.2);  
+    filter: brightness(1.1);  
+}
+
+.menu li img {
+    pointer-events: auto; 
+}
+/* afbeelding kreeg hover wanneer ik met muis ernaast ging, dit is oplossng hiervoor */
+.menu li {
+    pointer-events: none;
 }
 
 .text-content {
@@ -495,7 +547,7 @@ label {
     background-image: url('/images/bg-images/bg-desktop-6.jpeg');
     background-size: cover;
     position: relative;
-
+    background-position:center;
 }
 
 
@@ -515,16 +567,15 @@ label {
     left: 50%;
     top: 20%;
     transform: translateX(-50%);
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .add-to-blacklist-container h2 {
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .add-to-blacklist-card {
     background-color: var(--dark-gray);
-    opacity: 97%;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -567,7 +618,7 @@ label {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
 }
 
 .ab-wins img,
@@ -616,21 +667,16 @@ textarea {
 
 
 #menuBody {
-    font-family: 'Fortnite';
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-weight: lighter;
     transition: background 0.5s ease-in-out;
     background-size: cover;
     background-position: center;
     position: relative;
-    background-image: url('images/jouw-afbeelding.jpg');
-    background-size: cover;
     background: linear-gradient(to bottom, #007bff, #6a00ff);
-    background-position: center;
     overflow: hidden;
 }
 
@@ -645,8 +691,8 @@ textarea {
     background-image: inherit;
     background-size: cover;
     background-position: center;
-    filter: blur(4px);
-    z-index: -1;
+    filter: blur(5px);
+    z-index: -1; /* Dit zorgt ervoor dat het blur-effect achter de content ligt */
     top: -5%;
     left: -5%;
     width: 110%;
@@ -668,6 +714,7 @@ textarea {
     padding: 10px 20px;
     border-radius: 20px;
     display: inline-block;
+    font-size: 2rem;
 }
 
 .game-grid {
@@ -725,9 +772,10 @@ textarea {
 
 .overlay p {
     margin: 5px 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
     color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    letter-spacing: 0.5px;
 }
 
 .overlay button {
@@ -1009,7 +1057,6 @@ textarea {
 
 .user-add-button img {
     margin-right: 10px;
-}
 
 #friends-page {
     top: 0;
@@ -1188,10 +1235,526 @@ footer {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
     opacity: 95% !important;
     letter-spacing: 0.5px !important;
+
+/* MENU STIJLEN */
+.game-card .overlay .cross {
+    display: none;
+    font-size: 150PX; /* Groot maken */
+    color: red; /* Normale rode kleur */
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5; /* 50% transparantie */
+
+}
+
+.game-card:hover .overlay .cross {
+    display: block;
+}
+
+/*FAVORIETE DETAIL PAGINA*/
+#personage-detail-page {
+    background-image: url("/images/bg-images/bg-desktop-1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+}
+
+.personages-detail-container {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personages-card {
+    background-color: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 450px;
+    height: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+#personages-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+#personages-card figcaption {
+    font-size: 1.5rem;
+}
+
+#personages-card p {
+    font-size: 1.5rem;
+}
+
+#personages-empty-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+#personages-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 2px solid var(--yellow);
+}
+
+#personages-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+#personages-stat {
+    text-align: center;
+}
+
+#personages-button {
+    background: var(--yellow);
+    color: var(--dark-gray);
+    font-size: larger;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#personages-button:hover {
+    transform: scale(1.1);
+}
+
+#personages-note-input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    height: 50px;
+    resize: none;
+}
+
+#personages-icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 7px;
+}
+
+#save-icon, #trash-icon {
+    background-color: var(--yellow);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 35px;
+    cursor: pointer;
+    color: var(--dark-gray);
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#save-icon:hover, #trash-icon:hover {
+    transform: scale(1.1);
+}
+
+/* FAVORIET PAGINA */
+
+.favorite-page-main {
+    grid-area: main;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.all-favorite-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: visible;
+    gap: 2rem;
+    padding-left: 200px;
+    margin-bottom: 20px;
+    z-index: 0;
+}
+
+.favorite-page-main h1 {
+    font-size: 2rem;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1; /*index 1 zorgd ervoor date deze element boven element met index 0 staat*/
+}
+
+.favorite-card {
+    background-color: var(--yellow);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 380px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+.skin-image-favorite {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.wins-losses-icons {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.favorite-card h2 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.favorite-wins, .favorite-losses {
+    background-color: var(--yellow);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.favorite-wins p, .favorite-losses p {
+    font-size: 1.5rem;
+}
+
+/* Buttons favoriet pagina */
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.edit-button {
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+    background-color: var(--yellow);
+    border: none;
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit-button:hover {
+    transform: scale(1.05);
+}
+
+.details-button {
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+    background-color: var(--yellow);
+    border: none;
+    padding: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.details-button:hover {
+    transform: scale(1.05);
+}
+
+.items-favorite {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.item-img {
+    background-color: var(--yellow);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+#button-right-fav, #button-left-fav {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#button-right-fav {
+    position: relative;
+    left: 42%;
+    bottom: 40%;
+}
+
+#button-left-fav {
+    position: relative;
+    right: 42%;
+    top: 30%;
+}
+
+#button-right-fav i, #button-left-fav i {
+    color: var(--yellow);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+#button-right-fav:hover i {
+    transform: scale(1.1);
+}
+
+#button-left-fav:hover i {
+    transform: scale(1.1);
+}
+
+/* SKIN PAGINA */
+
+#skins-page-main {
+    grid-area: main;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.current-skin {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.current-skin-name {
+    background-color: var(--yellow);
+    width: 200px;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    color: #000000;
+}
+
+.current-skin img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.skin-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-skin {
+    display: flex;
+    justify-content: flex-start;
+    color: grey;
+    background-color: white;
+    border-radius: 15px;
+    width: 300px;
+    margin: 10px;
+}
+
+.search-skin input {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: none;
+    background-image: url("/images/items/search-icon.webp");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.all-skins {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center; 
+    gap: 20px;
+    margin: 10px;
+    height: 800px;
+    width: 800px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+#skin-image {
+    border-radius: 10px;
+    width: 800px;
+    height: auto;
+    
+}
+
+.all-skins h1 {
+    color: #000000;
+    font-size: 1.8rem;
+    background-color: var(--yellow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.skin-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.skin-actions img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; /* dit voorkomt de vervorming van de icon*/
+    border-radius: 50%;
+    background-color: var(--yellow);
+    padding: 10px;
+}
+
+.skin-actions img:hover {
+    transform: scale(1.1);
+}
+
+.star-icon {
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+.add-blacklist-btn {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+.win-loss-icons {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.skins-wins,
+.skins-losses {
+    background-color: var(--yellow);
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.skins-wins img,
+.skins-losses img {
+    width: 30px;
+    height: 30px;
+}
+
+/* FOOTER VOOR ALLE PAGINAS */
+footer {
+    grid-area: footer !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 1.5rem;
+    padding: 10px !important;
+    background: var(--dark-gray) !important;
+    height: 4rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+    opacity: 95% !important;
+    letter-spacing: 0.5px !important;
 }
 
 @media screen and (max-width: 768px) {
 
+    body{
+        background-position: center;
+    }
+
+    /*HEADER*/
     .logo span {
         font-size: 2rem;
     }
@@ -1228,6 +1791,10 @@ footer {
     }
 
     /*home pagina*/
+
+    #home-page{
+        background-image: url('/images/bg-images/bg-mobile-1.jpeg');
+    }
     .card-container {
         display: flex;
         flex-direction: column;
@@ -1253,12 +1820,31 @@ footer {
         font-size: 1.6rem;
     }
 
-    .card-content p {
-        font-size: 1.3rem;
+
+    .menu-items ul{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+ 
+    .menu-items li span {
+        display: none;
     }
 
-    .menu-items ul li {
-        font-size: 2.9rem;
+    .menu-items li img {
+        display: block;
+        width: 80px; /* Pas de grootte aan naar wens */
+        height: 80px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    #skin-icon-home{
+        background-color: var(--yellow);
+        border-radius: 50%;
+    }
+
+    .menu-items li:hover img {
+        transform: scale(1.1);
     }
 
     /*GUIDE PAGINA*/
@@ -1275,13 +1861,17 @@ footer {
     .menu ul {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 30px;
         justify-content: center;
         border-bottom: 1px solid white;
     }
 
     .menu ul li {
         margin-bottom: 1rem;
+    }
+
+    .menu a img{
+        height: 55px;
     }
 
     .header h1 {
@@ -1300,7 +1890,7 @@ footer {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
 
-    /*LANDINGS PAGINA*/
+    /*LANDING PAGINA*/
     #landing-page {
         /*voor background img want het nam de hele scherm niet in*/
         background-size: cover;
@@ -1414,7 +2004,7 @@ footer {
         background: rgba(255, 255, 255, 0.9);
         color: black;
     }
-
+  
     /*profile page*/
     .settings-left-btns {
         display: none;
@@ -1465,6 +2055,181 @@ footer {
 
     .friend-requests img {
         width: 35px;
+      
+    .profile-search-card {
+        overflow: auto;
+        width: 80%;
+    }
+
+    .profile-search {
+        margin-bottom: 10px;
+        background-color: grey;
+        border-radius: 20px;
+        flex-direction: row;
+        width: 90%;
+        justify-content: flex-start;
+        height: 120px;
+    }
+
+    .profile-search img {
+        width: 90px;
+        margin-left: 20px;
+    }
+
+    .profile-search:first-of-type {
+        margin-top: 50px;
+    }
+
+    .profile-search-username {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    /*user-profile*/
+    .user-profile-card {
+        width: 90%;
+        height: 600px;
+    }
+
+    .user-profile-card .back-button {
+        position: absolute;
+    }
+
+    .user-profile-card figure {
+        margin-left: 30px;
+    }
+
+    .user-profile ul {
+        margin-top: 50px;
+        margin-left: 50px;
+        font-size: 32px;
+      
+    /* FAVORIETE DETAIL PAGINA */
+    #personages-card {
+        width: 350px;
+        position: relative;
+        bottom: 10px;
+    }
+
+    /* FAVORIET PAGINA */
+    /*alles kleiner gemaakt en buttons display none gezet*/
+
+    .all-favorite-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .favorite-page-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        width: 100%;
+        color: black;
+        background-position: center;
+    }
+    
+    .favorite-card {
+        width: 100%;
+    }
+
+    .favorite-page-main h1 {
+        font-size: 2rem;
+        margin: 10px;
+    }
+
+    .icon-button{
+        display: none;
+    }
+
+    .favorite-card {
+        width: 280px; 
+        height: 320px; 
+        padding: 8px; 
+        bottom: 60px; 
+        top: 20px;
+    }
+
+    .skin-image-favorite {
+        width: 100px; 
+        height: 100px;
+        margin-bottom: 5px; 
+    }
+
+    .favorite-card h2 {
+        font-size: 1.5rem; 
+    }
+
+    .wins-losses-icons {
+        gap: 10px; 
+    }
+
+    .favorite-wins, .favorite-losses {
+        padding: 8px 12px; 
+        font-size: 1.25rem; 
+    }
+
+    .favorite-wins p, .favorite-losses p {
+        font-size: 1.25rem; 
+    }
+
+    .button-container {
+        gap: 15px; 
+    }
+
+    .edit-button {
+        width: 40px; 
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .details-button {
+        width: 80px;
+        height: 35px;
+        font-size: 1.2rem; 
+    }
+
+    .items-favorite {
+        width: 120px;
+        height: 120px; 
+    }
+
+    .item-img {
+        width: 100%; 
+        height: 100%; 
+    }
+
+    /* Login/Register page */
+
+    .input-box-username i {
+        position: absolute;
+        left: 70%;
+        top: 39%;
+    }
+    
+    .input-box-password i {
+        position: absolute;
+        left: 70%;
+        top: 46%;
+    }
+
+    #username-icon-register {
+        left: 70%;
+        top: 41%;
+    }
+    
+    #password-icon-register {
+        left: 70%;
+        top: 48%;
+    }
+    
+    #email-icon-register {
+        left: 70%;
+        top: 56%;
     }
 
     /*footer*/
