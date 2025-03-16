@@ -2265,6 +2265,12 @@ footer {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        height: unset;
+        width: unset;
+    }
+
+    .skin {
+        margin-bottom: 15px;
     }
 
     #skin-image {
@@ -2286,10 +2292,24 @@ footer {
         height: 300px;
     }
 
+    .all-skins h1 {
+        font-size: 25px;
+    }
+
+    .skin-actions img {
+        width: 40px;
+        height: 40px;
+    }
+
     .skins-wins img,
     .skins-losses img {
         width: 30px;
         height: 30px;
+    }
+
+    #skin-image {
+        width: 170px;
+        height: auto;
     }
 
     /*footer*/
