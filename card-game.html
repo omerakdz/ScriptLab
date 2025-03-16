@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/card-game.js" defer></script>
+</head>
+<body id="card-game-page">
+    <header>
+        <article class="profile">
+            <img src="images/skins/skin-1.jpeg" alt="John">
+            <span>John</span>
+        </article>
+    <section class="search-container">
+        <article class="search-bar">
+            <input type="text" placeholder="Zoek spelers...">
+        </article>
+    </section>
+        <article class="logo">
+            <a href="guide.html"><img src="images/items/info-icon.png" alt="Info"></a>
+            <a href="index.html"><span>Fortnite</span></a>
+        </article>
+    </header>
+
+    <main class="card-game-content">
+        <h1>Memory Card Game</h1>
+        <section id="status-container" class="status-container">
+            <article id="timer" class="timer">
+                <p id="timer-text">00:00</p>
+            </article>
+            <article id="reset" class="reset">
+                <button onclick="resetGame()">Reset Game</button>
+            </article>
+            <article id="moves-count" class="moves-count">
+                <p>Zetten: <span id="move-count">0</span></p>
+            </article>
+        </section>
+        
+        <section id="game-board" class="game-board">
+            <!--kaarten kome hier met js api-->
+        </section>
+ 
+    </main>
+
+    <footer>
+        <p>ScriptLab | Omer Malik Joesoef Houdaifa</p>
+    </footer>
+</body>
+</html>
