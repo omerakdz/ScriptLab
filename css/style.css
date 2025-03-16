@@ -2545,12 +2545,25 @@ footer {
     justify-content: center;
     gap: 20px;
 }
+  
+ .all-skins {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: unset;
+        width: unset;
+    }
+
+    .skin {
+        margin-bottom: 15px;
+    }
 
 .shop-item-button {
     max-width: 200px;
     flex: 1 0 calc(50% - 20px);
 }
-
+  
 .shop-button {
     display: none;
 }
@@ -2697,7 +2710,25 @@ h1 {
     width: 30px;
     height: 30px;
 }
+    .all-skins h1 {
+        font-size: 25px;
+    }
 
+    .skin-actions img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .skins-wins img,
+    .skins-losses img {
+        width: 30px;
+        height: 30px;
+    }
+
+    #skin-image {
+        width: 170px;
+        height: auto;
+    }
 
     /*footer*/
     footer {
