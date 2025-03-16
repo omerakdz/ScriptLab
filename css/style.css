@@ -1236,7 +1236,6 @@ textarea {
     gap: 10px;
     justify-content: center;
     margin-top: 10px;
-    
 }
 
 .skin-actions img {
@@ -1253,6 +1252,7 @@ textarea {
 }
 
 .star-icon {
+    cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
     border-radius: 20px;
 }
