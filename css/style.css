@@ -1281,6 +1281,55 @@ footer {
         width: 80%;
     }
 
+    .profile-search-card {
+        overflow: auto;
+        width: 80%;
+    }
+
+    .profile-search {
+        margin-bottom: 10px;
+        background-color: grey;
+        border-radius: 20px;
+        flex-direction: row;
+        width: 90%;
+        justify-content: flex-start;
+        height: 120px;
+    }
+
+    .profile-search img {
+        width: 90px;
+        margin-left: 20px;
+    }
+
+    .profile-search:first-of-type {
+        margin-top: 50px;
+    }
+
+    .profile-search-username {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    /*user-profile*/
+    .user-profile-card {
+        width: 90%;
+        height: 600px;
+    }
+
+    .user-profile-card .back-button {
+        position: absolute;
+    }
+
+    .user-profile-card figure {
+        margin-left: 30px;
+    }
+
+    .user-profile ul {
+        margin-top: 50px;
+        margin-left: 50px;
+        font-size: 32px;
+    }
+
     /*footer*/
     footer {
         font-size: 1.3rem;
