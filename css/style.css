@@ -56,10 +56,9 @@ header {
     background-position:center;
 }
 
-
 .profile {
     display: flex;
-    align-items: center;
+    align-items: cente;
 }
 
 .profile img {
@@ -74,6 +73,7 @@ header {
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     letter-spacing: 0.5px;
+    align-self: center;
 }
 
 .search-bar {
@@ -471,14 +471,14 @@ header {
 }
 
 .back-button {
-    color: yellow;
+    color: var(--yellow);
     text-decoration: none;
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .header h1 {
-    color: yellow;
+    color: var(--yellow);
     flex-grow: 1;
     text-align: center;
     font-size: 1.8rem;
@@ -753,8 +753,6 @@ textarea {
     display: block;
 }
 
-
-
 .overlay {
     position: absolute;
     bottom: 0;
@@ -791,6 +789,273 @@ textarea {
 .overlay button:hover {
     background-color: lightgray;
 }
+
+/*PROFILEPAGE&ACCOUNT SETTINGS */
+#settings-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    justify-content: center;
+}
+
+#settings-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop3.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#settings-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.settings-left-btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 40px;
+    border-right: 1px solid white;
+    margin-bottom: 50px;
+    padding-right: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.settings-left-btns .back-button {
+    margin-bottom: 10px;
+}
+
+.settings-profile {
+    margin-left: 80px;
+}
+
+.logout-btn {
+    display: fixed;
+    margin-top: 16rem;
+    background-color: red;
+    border-radius: 20px;
+    padding: 8px;
+    text-align: center;
+}
+
+.settings-card,
+.user-profile-card {
+    display: flex;
+    width: 800px;
+    height: 500px;
+    background-color: var(--dark-gray);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+}
+
+.settings-profile img,
+.user-avatar {
+    border-radius: 200px;
+    width: 120px;
+    height: 120px;
+}
+
+.settings-profile figure,
+.user-profile figure {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    column-gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.settings-profile ul,
+.user-profile ul {
+    font-size: 23px;
+}
+
+.profile-btn,
+.account-btn {
+    margin-top: 20px;
+    font-size: 23px;
+}
+
+.profile-btn:hover,
+.account-btn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.active {
+    color: var(--yellow);
+}
+
+.current-skin,
+.wins-amount,
+.loses-amount,
+.best-time {
+    color: var(--yellow);
+}
+
+.settings-account {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 30px;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.settings-account button {
+    display: flex;
+    align-items: center;
+}
+
+.settings-account button:hover {
+    cursor: pointer;
+}
+
+.icon {
+    height: 32px;
+    margin-right: 15px;
+}
+
+#accountDeletion {
+    color: #ff0000;
+}
+
+.mobile-options-btn {
+    display: none;
+}
+
+/*PROFILE-ZOEK*/
+.profile-search-card {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    width: 800px;
+    height: 650px;
+    background-color: var(--dark-gray);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+}
+
+.profile-search-card h1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.profile-search-card .back-button {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 20px;
+    left: 0;
+    top: 0;
+}
+
+.profile-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    color: white;
+    justify-content: center;
+}
+
+.profile-search img {
+    margin-top: 10px;
+    width: 120px;
+    border-radius: 200px;
+}
+
+#profile-search-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-2.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#profile-search-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+/*PROFIEL*/
+#user-profile-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    justify-content: center;
+}
+
+#user-profile-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-7.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#user-profile-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.user-profile-card .back-button {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.user-profile {
+    margin-top: 30px;
+}
+
+.user-add-button {
+    background-color: white;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+.user-add-button {
+    cursor: pointer;
+}
+
+.user-add-button img {
+    margin-right: 10px;
 
 /* MENU STIJLEN */
 .game-card .overlay .cross {
@@ -1561,7 +1826,85 @@ footer {
         background: rgba(255, 255, 255, 0.9);
         color: black;
     }
+  
+    /*profile page*/
+    .settings-left-btns {
+        display: none;
+        background-color: var(--dark-gray);
+        box-shadow: 1px 2px 2px #000000;
+        box-shadow: 10px 0 5px -2px #888;
+        position: absolute;
+    }
 
+    .settings-account {
+        margin-top: 80px;
+        margin-left: 50px;
+    }
+
+    .mobile-options-btn {
+        display: unset;
+        position: absolute;
+        height: 30px;
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+
+    .mobile-options-btn:hover {
+        cursor: pointer;
+    }
+
+    .settings-card {
+        width: 80%;
+    }
+
+    .profile-search-card {
+        overflow: auto;
+        width: 80%;
+    }
+
+    .profile-search {
+        margin-bottom: 10px;
+        background-color: grey;
+        border-radius: 20px;
+        flex-direction: row;
+        width: 90%;
+        justify-content: flex-start;
+        height: 120px;
+    }
+
+    .profile-search img {
+        width: 90px;
+        margin-left: 20px;
+    }
+
+    .profile-search:first-of-type {
+        margin-top: 50px;
+    }
+
+    .profile-search-username {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    /*user-profile*/
+    .user-profile-card {
+        width: 90%;
+        height: 600px;
+    }
+
+    .user-profile-card .back-button {
+        position: absolute;
+    }
+
+    .user-profile-card figure {
+        margin-left: 30px;
+    }
+
+    .user-profile ul {
+        margin-top: 50px;
+        margin-left: 50px;
+        font-size: 32px;
+      
     /* FAVORIETE DETAIL PAGINA */
     #personages-card {
         width: 350px;
