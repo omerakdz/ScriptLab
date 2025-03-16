@@ -864,7 +864,15 @@ textarea {
     margin: 10px 0;
 }
 
-#personages-box {
+/* #personages-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 2px solid var(--yellow);
+} */
+
+#personages-box img {
     width: 60px;
     height: 60px;
     background: rgba(255, 255, 255, 0.2);
