@@ -540,7 +540,6 @@ label {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-
 .skin-image {
     width: 90px;
     height: 90px;
@@ -574,7 +573,6 @@ label {
 .ab-losses img {
     width: 20px;
 }
-
 
 textarea {
     width: 90%;
@@ -862,7 +860,8 @@ textarea {
 
 .blacklist-page-main h1 {
     font-size: 3rem;
-    background-color: var(--yellow);
+    color: var(--yellow);
+    background-color: var(--dark-gray);
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
@@ -873,7 +872,8 @@ textarea {
 }
 
 .blacklist-card {
-    background-color: var(--yellow);
+    background-color: var(--dark-gray);
+    color: var(--yellow);
     padding: 10px 10px;
     border-radius: 10px;
     display: flex;
@@ -981,43 +981,6 @@ textarea {
     background-color: var(--yellow);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
-}
-
-/*blacklist page*/
-
-#blacklistedPage {
-    background-image: url(/images/bg-images/bg-desktop-5.jpeg);
-}
-
-.blacklist-page-main {
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 100%;
-    color: black;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
-}
-
-.all-blacklisted-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.blacklist-page-main h1 {
-    font-size: 3rem;
-    background-color: var(--yellow);
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* FOOTER VOOR ALLE PAGINAS */
@@ -1273,7 +1236,7 @@ footer {
 
 
 
-    .all-favorite-cards {
+    .all-favorite-cards, .all-blacklist-cards {
         display: flex;
         flex-direction: column;
         justify-content: center;
