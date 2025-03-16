@@ -55,7 +55,6 @@ header {
     background-size: cover;
 }
 
-
 .profile {
     display: flex;
     align-items: cente;
@@ -802,11 +801,8 @@ textarea {
     text-align: center;
 }
 
-.back-btn:hover {
-    text-decoration: underline;
-}
-
-.settings-card {
+.settings-card,
+.user-profile-card {
     display: flex;
     width: 800px;
     height: 500px;
@@ -815,13 +811,15 @@ textarea {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
 }
 
-.settings-profile img {
+.settings-profile img,
+.user-avatar {
     border-radius: 200px;
     width: 120px;
     height: 120px;
 }
 
-.settings-profile figure {
+.settings-profile figure,
+.user-profile figure {
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -830,7 +828,8 @@ textarea {
     margin-bottom: 40px;
 }
 
-.settings-profile p {
+.settings-profile ul,
+.user-profile ul {
     font-size: 23px;
 }
 
@@ -852,18 +851,37 @@ textarea {
 
 .current-skin,
 .wins-amount,
-.loses-amount {
+.loses-amount,
+.best-time {
     color: var(--yellow);
 }
 
 .settings-account {
+    display: flex;
+    flex-direction: column;
     margin-top: 50px;
     margin-left: 20px;
     font-size: 30px;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.settings-account button {
+    display: flex;
+    align-items: center;
+}
+
+.settings-account button:hover {
+    cursor: pointer;
+}
+
+.icon {
+    height: 32px;
+    margin-right: 15px;
 }
 
 #accountDeletion {
-    color: red;
+    color: #ff0000;
 }
 
 .mobile-options-btn {
@@ -936,6 +954,60 @@ textarea {
     justify-content: center;
     align-items: center;
     grid-area: main;
+}
+
+/*PROFIEL*/
+#user-profile-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    justify-content: center;
+}
+
+#user-profile-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-7.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#user-profile-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.user-profile-card .back-button {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.user-profile {
+    margin-top: 30px;
+}
+
+.user-add-button {
+    background-color: white;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+.user-add-button {
+    cursor: pointer;
+}
+
+.user-add-button img {
+    margin-right: 10px;
 }
 
 /* FOOTER VOOR ALLE PAGINAS */

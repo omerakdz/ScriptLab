@@ -7,10 +7,10 @@
     <title>home page</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
-    <script src="js/showoptions.js" defer></script>
+    <script src="js/addFriend.js" defer></script>
 </head>
 
-<body id="settings-page">
+<body id="user-profile-page">
     <header>
         <article class="profile">
             <img src="images/skins/skin-1.jpeg" alt="John">
@@ -28,23 +28,17 @@
     </header>
 
     <main>
-        <section class="settings-card">
+        <section class="user-profile-card">
             <button class="mobile-options-btn" id="optionsBtn"> <img src="images/menu-button.svg" alt=""></button>
-            <ul class="settings-left-btns" id="leftBtns">
-                <a href="index.html" class="back-button">&larr; TERUG</a>
-
-                <li><button class="profile-btn active"><a href="settings-profile.html">Profiel</a></button></li>
-                <li><button class="account-btn"> <a href="settings-account.html">Account</a></button></li>
-                <li><button class="logout-btn"> <a href="login.html">Uitloggen</a></button></li>
-            </ul>
-
-            <article class="settings-profile">
+            <a href="profile-search.html" class="back-button">&larr; TERUG</a>
+            <article class="user-profile">
                 <figure>
-                    <img src="images/skins/skin-1.jpeg">
-                    <p><span class="profile-name">John</span></p>
+                    <img src="images/skins/skin-4.jpeg" class="user-avatar">
+                    <p class="profile-name">FnWKeyMaster77</p>
+                    <button class="user-add-button" id="addUserBtn"><img src="images/add.png" width="25px">ADD</button>
                 </figure>
                 <ul>
-                    <li>HUIDIGE SKIN: <span class="current-skin">SKULLTROOPER</span></li>
+                    <li>HUIDIGE SKIN: <span class="current-skin">BLAZE RAIDER</span></li>
                     <li>WINS: <span class="wins-amount">9</span> LOSSES: <span class="loses-amount">3</span></li>
                     <li>BESTE TIJD: <span class="best-time">0:39</span></data></li>
                 </ul>
