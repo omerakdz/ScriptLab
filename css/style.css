@@ -1035,6 +1035,7 @@ textarea {
 }
 
 .user-profile-card .back-button {
+    position: unset;
     margin-top: 20px;
     margin-left: 50px;
 }
@@ -1057,6 +1058,184 @@ textarea {
 .user-add-button img {
     margin-right: 10px;
 
+#friends-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+}
+
+#friends-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-6.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+/*LEADERBOARD*/
+.leaderboard-card {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    width: 850px;
+    height: 650px;
+    background-color: var(--dark-gray);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+    position: fixed;
+    align-items: center;
+}
+
+#friends-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.leaderboard-table {
+    height: 450px;
+    width: 700px;
+    justify-content: center;
+}
+
+.leaderboard-table th {
+    border-bottom: white 1px solid;
+}
+
+.leaderboard-header {
+    display: flex;
+    column-gap: 20px;
+    align-self: flex-start;
+    margin-top: 60px;
+    font-size: 25px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+.leaderboard-header li:hover {
+    color: var(--yellow);
+    cursor: pointer;
+}
+
+.leaderboard-card {
+    color: var(--yellow);
+    font-size: 40px;
+}
+
+#friends-page .back-button {
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.leaderboard-table th:last-child,
+.leaderboard-table tr td:last-child {
+    border-left: white 1px solid;
+    text-align: right;
+}
+
+.leaderboard-table th {
+    font-size: 30px;
+}
+
+.leaderboard-table td {
+    color: var(--yellow);
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.leaderboard-username {
+    color: white;
+    margin-left: 10px;
+}
+
+.leaderboard-table tr td:last-child,
+.leaderboard-username {
+    font-size: 30px;
+}
+
+.leaderboard-table img {
+    vertical-align: middle;
+    margin-left: 20px;
+    width: 50px;
+    border-radius: 200px;
+}
+
+#friendRequestButton {
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.friend-requests img {
+    border-radius: 200px;
+}
+
+.friend-requests {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    color: white;
+    background: #6a6a6a;
+    font-size: 20px;
+    height: 100px;
+    width: 300px;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+    right: 0;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+
+.friend-requests li {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    width: 300px;
+    position: relative;
+
+}
+
+.accept-request-button,
+.decline-request-button {
+    justify-self: end;
+}
+
+/* FOOTER VOOR ALLE PAGINAS */
+footer {
+    grid-area: footer !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 1.5rem !important;
+    padding: 10px !important;
+    background: var(--dark-gray) !important;
+    height: 4rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+    opacity: 95% !important;
+    letter-spacing: 0.5px !important;
+
 /* MENU STIJLEN */
 .game-card .overlay .cross {
     display: none;
@@ -1068,6 +1247,7 @@ textarea {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.5; /* 50% transparantie */
+
 }
 
 .game-card:hover .overlay .cross {
@@ -1196,7 +1376,6 @@ textarea {
 #save-icon:hover, #trash-icon:hover {
     transform: scale(1.1);
 }
-
 
 /* FAVORIET PAGINA */
 
@@ -1695,7 +1874,6 @@ footer {
         height: 55px;
     }
 
-
     .header h1 {
         color: yellow;
         text-align: right;
@@ -1857,6 +2035,27 @@ footer {
         width: 80%;
     }
 
+    /*leaderboard*/
+    .leaderboard-card {
+        width: 80%;
+    }
+
+    .leaderboard-table {
+        width: 400px;
+    }
+
+    .friend-requests {
+        height: 200px;
+        width: 350px;
+    }
+
+    .friend-requests li {
+        font-size: 35px;
+    }
+
+    .friend-requests img {
+        width: 35px;
+      
     .profile-search-card {
         overflow: auto;
         width: 80%;
