@@ -1,3 +1,4 @@
+/*user-profile.html*/
 const addBtn = document.getElementById("addUserBtn")
 
 function addFriend() {
