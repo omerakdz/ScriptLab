@@ -1690,6 +1690,31 @@ footer {
         top: 56%;
     }
 
+    /* SKINS PAGINA */
+
+    #skins-page-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skins-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .all-skins {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #skin-image {
+        width: 200px;
+        height: 200px;
+    }
+
     /*footer*/
     footer {
         font-size: 1.3rem;
