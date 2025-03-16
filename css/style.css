@@ -43,7 +43,6 @@ header {
     align-items: center !important;
     background: var(--dark-gray) !important;
     padding: 10px 20px !important;
-    opacity: 95% !important;
 }
 
 input{
@@ -1249,19 +1248,7 @@ button:hover {
     justify-self: end;
 }
 
-/* FOOTER VOOR ALLE PAGINAS */
-footer {
-    grid-area: footer !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 1.5rem !important;
-    padding: 10px !important;
-    background: var(--dark-gray) !important;
-    height: 4rem !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
-    opacity: 95% !important;
-    letter-spacing: 0.5px !important;}
+
 
 /* MENU STIJLEN */
 .game-card .overlay .cross {
@@ -1422,6 +1409,23 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.favorite-page-main {
+    grid-area: main;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     padding-top: 20px;
     gap: 20px;
     width: 100%;
@@ -1431,20 +1435,20 @@ footer {
 
 .all-favorite-cards {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center; /* Zorgt ervoor dat de kaarten gecentreerd worden */
     align-items: center;
-    overflow: visible;
     gap: 2rem;
-    padding-left: 200px;
+    width: 100%;
+    max-width: 1200px; /* Optioneel om een maximale breedte te behouden */
     margin-bottom: 20px;
     z-index: 0;
 }
 
 .favorite-page-main h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     background-color: var(--yellow);
+    color: black;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
@@ -1455,16 +1459,16 @@ footer {
 
 .favorite-card {
     background-color: var(--yellow);
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
+    width: calc(50% - 1rem); /* 2 kolommen */
+    max-width: 350px;
     height: 380px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 }
-
 .skin-image-favorite {
     width: 120px;
     height: 120px;
@@ -2021,8 +2025,6 @@ footer {
     padding: 10px !important;
     background: var(--dark-gray) !important;
     height: 4rem !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
-    opacity: 95% !important;
     letter-spacing: 0.5px !important;
 }
 
