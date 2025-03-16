@@ -1436,11 +1436,11 @@ button:hover {
 .all-favorite-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Zorgt ervoor dat de kaarten gecentreerd worden */
+    justify-content: center; 
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1200px; /* Optioneel om een maximale breedte te behouden */
+    max-width: 1200px; 
     margin-bottom: 20px;
     z-index: 0;
 }
@@ -1454,7 +1454,7 @@ button:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1; /*index 1 zorgd ervoor date deze element boven element met index 0 staat*/
+    z-index: 1; 
 }
 
 .favorite-card {
@@ -1464,7 +1464,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(50% - 1rem); /* 2 kolommen */
+    width: calc(50% - 1rem); 
     max-width: 350px;
     height: 380px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
@@ -2005,7 +2005,7 @@ h1 {
 }
 
 .reset button:hover {
-    transform: scale(1.1); /* Verhoogt de grootte van de knop */
+    transform: scale(1.1); 
 }
 
 /* MOVES COUNT */
@@ -2547,25 +2547,12 @@ footer {
     justify-content: center;
     gap: 20px;
 }
-  
- .all-skins {
-        align-items: center;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        height: unset;
-        width: unset;
-    }
-
-    .skin {
-        margin-bottom: 15px;
-    }
 
 .shop-item-button {
     max-width: 200px;
     flex: 1 0 calc(50% - 20px);
 }
-  
+
 .shop-button {
     display: none;
 }
@@ -2712,25 +2699,7 @@ h1 {
     width: 30px;
     height: 30px;
 }
-    .all-skins h1 {
-        font-size: 25px;
-    }
 
-    .skin-actions img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .skins-wins img,
-    .skins-losses img {
-        width: 30px;
-        height: 30px;
-    }
-
-    #skin-image {
-        width: 170px;
-        height: auto;
-    }
 
     /*footer*/
     footer {
