@@ -46,6 +46,10 @@ header {
     opacity: 95% !important;
 }
 
+input{
+    font-family: "Fortnite";
+}
+
 /*HOME PAGE */
 /* HEADER */
 #home-page,
@@ -68,6 +72,11 @@ header {
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
 }
 
 .profile span {
@@ -134,46 +143,62 @@ header {
 
 /* CARD */
 
-.card {
+.card-section {
     background-color: var(--dark-gray);
-    ;
-    opacity: 95%;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     font-size: 2rem;
-    height: 55%;
-    width: 20%;
+    width: 350px; 
+    height: auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
 }
 
-.card img {
-    width: 150px;
+.card-section img {
+    width: 120px; 
     border-radius: 10px;
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    align-items: center;
+    gap: 15px; 
+    width: 100%; 
 }
 
 .card-content h3 {
+    font-size: 2rem;
     letter-spacing: 0.4px;
+    color: var(--yellow);
 }
 
 .card-content p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     transition: transform 0.3s ease-out, background-color 0.3s ease;
-    border: #FFE100 solid;
+    border: 2px solid #FFE100;
     border-radius: 10px;
-    padding: 5px;
+    padding: 8px 12px; 
+    width: 90%; 
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 
-.card-content p:hover {
-    background-color: #FFE100;
-    cursor: pointer;
-    transform: translateY(-1px);
+#user-money{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-money img{
+    width: 25px;
+    text-align: center;
 }
 
 .menu-items ul {
@@ -201,6 +226,8 @@ header {
     text-shadow: 0px 0px 8px rgba(255, 225, 0, 0.2);
     cursor: pointer;
 }
+
+
 
 /*LOGIN/REGISTER PAGINA*/
 #login-page,
@@ -1127,6 +1154,247 @@ textarea {
 }
 
 
+/*SHOP PAGINA*/
+
+.shop-section{
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/bg-images/shop-desktop.jpeg");
+    background-position: center;
+    background-size: contain;
+}
+
+.shop-container {
+    display: flex;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; 
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+}
+
+.shop-item-button {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;  
+    background-color: var(--dark-gray); 
+    opacity: 98%;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    color: white; 
+    flex: 1 0 calc(25% - 20px); 
+    max-width: calc(25% - 20px); 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.shop-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 5px;
+    margin-bottom: 10px; 
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.shop-button {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    margin: 0 50px; 
+    width: 55px;
+    height: 55px;
+    text-align: center;
+}
+
+.shop-button:hover {
+    transform: scale(1.1);
+}
+
+.item-name {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.item-price {
+    font-size: 20px;
+    color: var(--yellow);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.coin-icon {
+    width: 30px !important;  
+    height: auto !important; 
+    margin-top: 8px;
+}
+
+.buy-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--yellow); 
+    color: var(--dark-gray);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-size: 18px;
+    width: 100%;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+}
+
+.shop-item-button img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    
+}
+.shop-button-container{
+    overflow: hidden;
+    display: none;
+    
+}
+
+.shop-button-mobile.prev-button,
+.shop-button-mobile.next-button {
+    overflow: hidden;
+}
+
+/* CARD GAME*/
+
+#card-game-page {
+    background-image: url("/images/bg-images/game-card-desktop.jpeg");
+    background-position: center;
+    background-size: cover;
+    
+}
+.card-game-content{
+    grid-area: main;
+    width: 100%;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--yellow);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: var(--dark-gray);
+    opacity: 98%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    display: none;
+}
+
+.card.open img {
+    display: block;
+}
+
+.card.open {
+    background-color: #fff;
+    transform: scale(1.1);
+}
+
+.card .question-mark {
+    font-size: 40px;
+    color: var(--yellow);
+    position: absolute;
+}
+
+.card.matched {
+    background-color: #4caf50;
+}
+
+.status-container {
+    position: absolute;
+    top: 40%; 
+    right: 8%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--yellow);
+    font-size: 1.5rem;
+    width: 10%;
+}
+
+/* TIMER */
+.timer {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* RESET BUTTON */
+.reset button {
+    background-color: var(--yellow);
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.reset button:hover {
+    transform: scale(1.1); /* Verhoogt de grootte van de knop */
+}
+
+/* MOVES COUNT */
+.moves-count {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer !important;
@@ -1174,7 +1442,7 @@ footer {
     .search-bar {
         width: 35px;
         height: 40px;
-        background-image: url("/images/items/search-icon.webp");
+        background-image: url("/images/items/search-white.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -1192,22 +1460,29 @@ footer {
     .card-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         gap: none;
         margin: 0;
         padding: 0;
     }
 
-    .card {
-        height: 45%;
-        width: 50%;
+    .card-section {
+        height: 55%;
+        width: 55%;
     }
 
-    .card img {
+    .card-section img {
         width: 90px;
     }
 
     .card-content {
-        gap: 40px;
+        gap: 15px;
+    }
+
+    .card-content p{
+        font-size: 1.3rem;
     }
 
     .card-content h3 {
@@ -1218,7 +1493,7 @@ footer {
     .menu-items ul{
         display: flex;
         flex-direction: row;
-        gap: 40px;
+        gap: 30px;
     }
  
     .menu-items li span {
@@ -1230,6 +1505,7 @@ footer {
         width: 80px; /* Pas de grootte aan naar wens */
         height: 80px;
         transition: transform 0.2s ease-in-out;
+        border-radius: 50%;
     }
 
     #skin-icon-home{
@@ -1526,6 +1802,141 @@ footer {
     #email-icon-register {
         left: 70%;
         top: 56%;
+    }
+
+    /*shop pagina*/
+    #shop-page{
+       background-image: url("/images/bg-images/shop-mobile.jpeg");
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
+   
+    }
+
+    .shop-section{
+        background-image: url("/images/bg-images/shop-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .shop-container {
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+        gap: 20px; 
+    }
+
+    .shop-item-button {
+        max-width: 200px;  /* Max breedte per item */
+        flex: 1 0 calc(50% - 20px); 
+    }
+   
+    .shop-button{
+        display: none;
+    }
+
+   .shop-button-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%; 
+        position: relative;
+        bottom: 30px;
+    }
+
+    .shop-button-mobile {
+        background-color: var(--yellow);
+        color: var(--dark-gray);
+        border: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: transform 0.2s ease-in-out;
+        text-align: center;
+    }
+
+    .shop-button-mobile:hover {
+        transform: scale(1.1);
+    }
+  
+    .coin-icon {
+        width: 20px !important;  
+        height: auto !important; 
+        margin-top: 5px;
+    }
+
+ 
+    .buy-button {
+        margin-top: 10px;
+        width: 90%; 
+    }
+
+    .item-price {
+        font-size: 18px;
+    }
+
+    .shop-item-button img {
+        height: auto;
+    }
+
+    /*GAME KAART SPEL*/
+
+    #card-game-page{
+       background-image: none;
+    }
+
+    .card-game-content{
+        background-image: url("/images/bg-images/game-card-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 118px); 
+    }
+
+    .card{
+        height: 120px;
+        width: 120px;
+    }
+
+    .status-container {
+        position: -webkit-sticky; 
+        position: sticky;
+        top: 10px; 
+        background-color: var(--dark-gray); 
+        z-index: 1; /* Zorg ervoor dat het boven andere elementen staat */
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        opacity: 97%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+   
+    .timer, .moves-count {
+        font-size: 1.5rem;
+    }
+
+  
+    .reset button {
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+    /* Game bord padding aanpassen */
+    .game-board {
+        padding: 10px; /* Verminder padding voor kleinere schermen */
     }
 
     /*footer*/
