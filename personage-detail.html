@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Favorieten Detail</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <header>
+        <article class="profile">
+            <img src="images/skins/skin-1.jpeg" alt="John">
+            <span>John</span>
+        </article>
+        <section class="search-container">
+            <article class="search-bar">
+                <input type="text" placeholder="Zoek spelers...">
+            </article>
+        </section>
+        <article class="logo">
+            <a href="guide.html"><img src="images/items/info-icon.png" alt="Info"></a>
+            <a href="index.html"><span>Fortnite</span></a>
+        </article>
+    </header>
+
+</head>
+
+<body id="personage-detail-page">
+    <main class="personages-detail-container">
+        <section id="personages-card">
+            <figure>
+                <img src="images/skins/skin-6.jpg" alt="Avatar" />
+                <figcaption>Skull Trooper</figcaption>
+            </figure>
+            
+            <section id="personages-empty-boxes">
+                <article id="personages-box"></article>
+                <article id="personages-box"></article>
+            </section>
+            
+            <section id="personages-stats">
+                <article id="personages-stat">
+                    <p>Wins: 5</p>
+                    <button id="personages-button" aria-label="Increase wins">Wins +</button>
+                </article>
+                <article id="personages-stat">
+                    <p>Losses: 2</p>
+                    <button id="personages-button" aria-label="Increase losses">Losses +</button>
+                </article>
+            </section>
+            
+            <textarea id="personages-note-input" placeholder="Notitie" aria-label="Add a note"></textarea>
+            
+            <section id="personages-icon-container">
+                <button id="save-icon" aria-label="Save">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+                <button id="trash-icon" aria-label="Delete">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p> &copy; ScriptLab | Omer Malik Joesoef Houdaifa</p>
+    </footer>
+</body>
+
+</html>
