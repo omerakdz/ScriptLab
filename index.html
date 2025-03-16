@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,57 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
 </head>
+
 <body id="home-page">
     <header>
         <article class="profile">
-            <img src="images/skins/skin-1.jpeg" alt="John">
+            <a href="settings-profile.html"><img src="images/skins/skin-1.jpeg" alt="John"></a>
             <span>John</span>
         </article>
-    <section class="search-container">
-        <article class="search-bar">
-            <input type="text" placeholder="Zoek spelers...">
-        </article>
-    </section>
+        <section class="search-container">
+            <form action="profile-search.html" class="search-bar" method="get">
+                <input type="text" name="username" placeholder="Zoek spelers...">
+            </form>
+        </section>
         <article class="logo">
-            <img src="images/items/info-icon.png" alt="Info">
-            <span>Fortnite</span>
+            <a href="guide.html"><img src="images/items/info-icon.png" alt="Info"></a>
+            <a href="index.html"><span>Fortnite</span></a>
         </article>
     </header>
     <main class="card-container">
-        <section class="card">
+        <section class="card-section">
             <img src="images/skins/skin-1.jpeg" alt="Skin">
             <article class="card-content">
                 <h3>Skull Trooper</h3>
-                <p>STATISTIEKEN BEKIJKEN</p>
+                <p><span id="user-money">5.000 <img src="images/items/coin.png" alt=""></span></p>
+                <p><span id="user-level">42 ⭐</span></p>
+                <p><span id="user-wins">120 🏆</span></p>
             </article>
         </section>
             <article class="menu-items">
                 <ul>
-                    <li>SPELEN</li>
-                    <li>SKINS</li>
-                    <li>ITEMS</li>
+                    <li>
+                        <a href="card-game.html"><span>SPELEN</span></a>
+                        <a href="card-game.html"><img src="images/items/console.png" alt="Spelen" title="spelen"></a>
+                    </li>
+                    <li>
+                        <a href="skins.html"> <span>SKINS</span></a>
+                        <a href="skins.html"><img src="images/items/skin-icon.png" alt="Skins" id="skin-icon-home" title="skins"></a>
+                    </li>
+                    <li>
+                        <span>ITEMS</span>
+                        <img src="images/items/rainbow-smash.png" alt="Items" title="items">
+                    </li>
+                    <li>
+                        <a href="shop.html"><span>SHOP</span></a>
+                        <a href="shop.html"><img src="images/items/shop.png" alt="shop" title="shop"></a>
+                    </li>
                 </ul>
             </article>
     </main>
     <footer>
-        <p> &copy; ScriptLab | Omer Malik Joesoef Houdaifa</p>
+        <p>ScriptLab | Omer Malik Joesoef Houdaifa</p>
     </footer>
 </body>
+
 </html>

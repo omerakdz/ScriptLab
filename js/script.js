@@ -27,7 +27,7 @@ function fetchSkins(apiUrl, visibleSkins = 4) {
 
             const allSkinButtons = Array.from(skinsContainer.querySelectorAll(".skins-button"));
 
-            // Skins tonen op basis van startIndex
+            // tonen van skins met startindex
             function updateSkins() {
                 allSkinButtons.forEach((skin, index) => {
                     if (index >= startIndex && index < startIndex + visibleSkins) {
@@ -38,23 +38,23 @@ function fetchSkins(apiUrl, visibleSkins = 4) {
                 });
             }
 
-            // Click event om een skin te selecteren
+            // skin selecteren click event
             skinsContainer.addEventListener("click", function (event) {
                 const clickedImage = event.target.closest(".skins-button img");
                 if (!clickedImage) return;
 
                 const allImages = document.querySelectorAll(".skins-button img");
 
-                // Verwijder de 'selected' klasse van alle afbeeldingen
+                
                 for (const img of allImages) {
                     img.classList.remove("selected");
                 }
 
-                // Voeg de 'selected' klasse toe aan de aangeklikte afbeelding
+                // gekozen afbeelding in selected
                 clickedImage.classList.add("selected");
             });
 
-            // Navigatie buttons
+            // pijltjes knoppen links en rechts
             nextButton.addEventListener("click", function () {
                 if (startIndex + visibleSkins < allSkinButtons.length) {
                     startIndex++;
