@@ -897,7 +897,7 @@ textarea {
     color: var(--yellow);
 }
 
-.current-skin,
+.user-current-skin,
 .wins-amount,
 .loses-amount,
 .best-time {
@@ -1056,7 +1056,7 @@ textarea {
 }
 
 .user-add-button img {
-    margin-right: 10px;
+    margin-right: 10px;}
 
 #friends-page {
     top: 0;
@@ -1234,7 +1234,7 @@ footer {
     height: 4rem !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
     opacity: 95% !important;
-    letter-spacing: 0.5px !important;
+    letter-spacing: 0.5px !important;}
 
 /* MENU STIJLEN */
 .game-card .overlay .cross {
@@ -2065,6 +2065,7 @@ footer {
 
     .friend-requests img {
         width: 35px;
+    }
       
     .profile-search-card {
         overflow: auto;
@@ -2113,6 +2114,7 @@ footer {
         margin-top: 50px;
         margin-left: 50px;
         font-size: 32px;
+    }
       
     /* FAVORIETE DETAIL PAGINA */
     #personages-card {
