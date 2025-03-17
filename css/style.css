@@ -592,7 +592,7 @@ input{
     padding: 1rem;
     position: absolute;
     left: 50%;
-    top: 20%;
+    top: 18%;
     transform: translateX(-50%);
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -2338,7 +2338,7 @@ footer {
 
     /*add to blacklist*/
     .add-to-blacklist-container h1 {
-        top: 20%;
+        top: 17%;
         font-size: 1.8rem;
         white-space: nowrap;
     }
