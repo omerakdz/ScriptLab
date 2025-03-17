@@ -827,7 +827,7 @@ textarea {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.5;
+    opacity: 0.5;}
     /* 50% transparantie */
 
 /*PROFILEPAGE&ACCOUNT SETTINGS */
@@ -973,7 +973,7 @@ textarea {
 
 #save-icon:hover,
 #trash-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.1);}
 
 .settings-account button {
     display: flex;
@@ -2081,7 +2081,7 @@ button:hover {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 0;}
 
 .card.open img {
     display: block;
@@ -2129,7 +2129,7 @@ button:hover {
     color: var(--yellow);
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease;}
 
 /* RESET BUTTON */
 .reset button {
