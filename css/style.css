@@ -1536,6 +1536,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 20px;
 }
 
 .blacklist-page-main h1 {
