@@ -1090,6 +1090,221 @@ textarea {
 }
 
 
+/*SEARCH-ITEM*/
+
+#search-item-body {
+    background-image: url("/images/bg-images/bg-desktop-4.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+
+}
+
+
+#search-item-body::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-4.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+
+.search-box,
+.search-items {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 20px;
+    width: 200px;
+    justify-content: center;
+}
+
+.search-items {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    top: 130px;
+}
+
+.search-box input,
+.search-items input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    color: black;
+}
+
+.search-box button,
+.search-items button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+.search-item-main {
+    text-align: center;
+    margin-top: 20px;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: auto;
+    background: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+
+}
+
+.item {
+    background: var(--yellow);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.item img {
+    width: 100px;
+    height: 100px;
+}
+
+/*ITEM PAGINA*/
+
+#item-pagina {
+    background-image: url("/images/bg-images/bg-desktop-4.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+}
+
+/* Vervagingseffect op de achtergrond */
+#item-pagina::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-4.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+/* Centraal uitlijnen van main */
+.main-item-pagina {
+    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+
+}
+
+.item-pagina-h1 {
+    color: yellow;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#img-item-pagina {
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 20px;
+    border: 3px solid white;
+    background-color: yellow;
+    max-inline-size: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.skin-selection-item-pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.skin-item-pagina {
+    margin-right: 20px;
+    width: 250px;
+}
+
+.items-item-pagina {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-top: 20px;
+
+}
+
+.item-item-pagina {
+    height: 100px;
+    width: 100px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.item-item-pagina img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: yellow;
+}
+
+#span-item-pagina {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    width: 250px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer !important;
@@ -1104,6 +1319,7 @@ footer {
     opacity: 95% !important;
     letter-spacing: 0.5px !important;
 }
+
 
 @media screen and (max-width: 768px) {
 
@@ -1372,9 +1588,34 @@ footer {
         top: 293px;
     }
 
+    .item-container {
+        width: 80%;
+        background-color: unset;
+        box-shadow: unset;
+    }
+
+    .item {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+        width: 83px;
+        height: 83px;
+    }
+
+    .item-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .search-items {
+        top: 150px;
+    }
+
     /* Footer */
     footer {
         font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
 
@@ -1390,6 +1631,173 @@ footer {
         width: 100%;
         color: black;
     }
+
+    /*ITEM PAGINA*/
+
+
+    #item-pagina {
+        background-size: cover;
+        min-height: 120vh;
+    }
+
+    .item-pagina-h1 {
+        font-size: 1.7rem;
+    }
+
+    .skin-selection-item-pagina {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skin-item-pagina {
+        margin-right: 0;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #img-item-pagina {
+        width: 180px;
+        height: 180px;
+        background-color: yellow;
+
+    }
+
+    #span-item-pagina {
+        width: 180px;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .items-item-pagina {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .item-item-pagina {
+        width: 100px;
+        height: 100px;
+    }
+
+    .item-item-pagina img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        background-color: yellow;
+    }
+
+    #item-pagina {
+        background-image: url("/images/bg-images/bg-desktop-4.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+    }
+
+    /* Vervagingseffect op de achtergrond */
+    #item-pagina::before {
+        content: " ";
+        position: absolute;
+        background-image: url(../images/bg-images/bg-desktop-4.jpeg);
+        background-size: cover;
+        z-index: -1;
+        height: 20%;
+        width: 20%;
+        transform: scale(5);
+        transform-origin: top left;
+        filter: blur(0.2px);
+    }
+
+    /* Centraal uitlijnen van main */
+    .main-item-pagina {
+        grid-area: main;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        align-items: center;
+
+    }
+
+    .item-pagina-h1 {
+        color: yellow;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    #img-item-pagina {
+        width: 250px !important;
+        height: 250px !important;
+        border-radius: 20px;
+        border: 3px solid white;
+        background-color: yellow;
+        max-inline-size: none;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+
+    }
+
+    .skin-selection-item-pagina {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .skin-item-pagina {
+        margin-right: 20px;
+        width: 250px;
+    }
+
+    .items-item-pagina {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        margin-top: 20px;
+
+    }
+
+    .item-item-pagina {
+        height: 100px;
+        width: 100px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+
+    }
+
+    .item-item-pagina img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        background-color: yellow;
+    }
+
+    #span-item-pagina {
+        background-color: yellow;
+        color: black;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 10px;
+        width: 250px;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
 
 }
 
