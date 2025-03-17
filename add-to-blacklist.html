@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body id="add-to-blacklist-page">     
+<body id="add-to-blacklist-page">
     <header>
         <article class="profile">
-            <img src="images/skins/skin-1.jpeg" alt="John">
+            <a href="settings-profile.html"><img src="images/skins/skin-1.jpeg" alt="John"></a>
             <span>John</span>
         </article>
-    <section class="search-container">
-        <article class="search-bar">
-            <input type="text" placeholder="Zoek spelers...">
-        </article>
-    </section>
+        <section class="search-container">
+            <form action="profile-search.html" class="search-bar" method="get">
+                <input type="text" name="username" placeholder="Zoek spelers...">
+            </form>
+        </section>
         <article class="logo">
-            <img src="images/items/info-icon.png" alt="Info">
-            <span>Fortnite</span>
+            <a href="guide.html"><img src="images/items/info-icon.png" alt="Info"></a>
+            <a href="index.html"><span>Fortnite</span></a>
         </article>
     </header>
     
         <main class="add-to-blacklist-container">
-            <h1>Geef een reden voor de blacklist</h1>
+            <h1>Toevoegen aan de blacklist</h1>
             <section class="add-to-blacklist-card">
                 <img src="images/skins/skin-1.jpeg" alt="Skull Trooper" class="skin-image">
                 <h2>Skull Trooper</h2>

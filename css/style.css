@@ -43,7 +43,10 @@ header {
     align-items: center !important;
     background: var(--dark-gray) !important;
     padding: 10px 20px !important;
-    opacity: 95% !important;
+}
+
+input{
+    font-family: "Fortnite";
 }
 
 /*HOME PAGE */
@@ -53,12 +56,12 @@ header {
     background-image: url("/images/bg-images/bg-desktop-5.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
 }
-
 
 .profile {
     display: flex;
-    align-items: center;
+    align-items: cente;
 }
 
 .profile img {
@@ -67,12 +70,18 @@ header {
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
 }
 
 .profile span {
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     letter-spacing: 0.5px;
+    align-self: center;
 }
 
 .search-bar {
@@ -133,46 +142,63 @@ header {
 
 /* CARD */
 
-.card {
+.card-section {
     background-color: var(--dark-gray);
-    ;
-    opacity: 95%;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     font-size: 2rem;
-    height: 55%;
-    width: 20%;
+    width: 350px; 
+    height: auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
 }
 
-.card img {
-    width: 150px;
+.card-section img {
+    width: 120px; 
     border-radius: 10px;
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    align-items: center;
+    gap: 15px; 
+    width: 100%; 
 }
 
 .card-content h3 {
+    font-size: 2rem;
     letter-spacing: 0.4px;
+    color: var(--yellow);
 }
 
 .card-content p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     transition: transform 0.3s ease-out, background-color 0.3s ease;
-    border: #FFE100 solid;
+    border: 2px solid #FFE100;
     border-radius: 10px;
-    padding: 5px;
+    padding: 8px 12px; 
+    width: 90%; 
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 
-.card-content p:hover {
-    background-color: #FFE100;
-    cursor: pointer;
-    transform: translateY(-1px);
+#user-money{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-money img{
+    width: 25px;
+    text-align: center;
 }
 
 .menu-items ul {
@@ -187,6 +213,11 @@ header {
     transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     letter-spacing: 0.8px;
+    list-style: none;
+}
+
+.menu-items li img {
+    display: none;
 }
 
 .menu-items li:hover {
@@ -196,10 +227,12 @@ header {
     cursor: pointer;
 }
 
+
+
 /*LOGIN/REGISTER PAGINA*/
 #login-page,
 #register-page {
-    background-image: url('../images/bg-images/bg-desktop-login-page.jpeg');
+    background-image: url('/images/bg-images/bg-desktop-login-page.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -215,20 +248,30 @@ header {
     align-items: center;
 }
 
-.login-container,
 .register-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 350px;
+    height: 310px;
+    text-align: center;
+}
+
+.login-container{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 345px;
     text-align: center;
 }
 
 .login-container h1,
 .register-container h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 2.25rem;
+    margin-bottom: 10px;
     color: #000000;
 }
 
@@ -243,27 +286,34 @@ header {
 #email {
     width: 100%;
     padding: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     border: 2px solid #cccccc;
     border-radius: 20px;
-    font-size: 1em;
-    color: #a8a8a8 !important;
+    font-size: 1rem;
+    color: #575757 !important;
     text-align: left;
     background-color: white;
 }
 
-.input-box-username i {
-    color: #a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 247px;
+#username {
+    background-image: url("/images/items/user-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
 }
 
-.input-box-password i {
-    color: #a8a8a8;
-    position: absolute;
-    left: 57%;
-    top: 294px;
+#password {
+    background-image: url("/images/items/lock-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
+}
+
+#email {
+    background-image: url("/images/items/email-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: right 15px center;
 }
 
 .change-password {
@@ -284,28 +334,35 @@ header {
     border: none;
     border-radius: 20px;
     color: #ffffff;
-    font-size: 1.25rem;
+    font-size: 25px;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .submitButton:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 .signInButton {
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     border: 3px solid #007bff;
     color: #007bff;
-    border-radius: 20px;
-    font-size: 1.25rem;
+    border-radius: 30px;
+    font-size: 25px;
     cursor: pointer;
     width: 100%;
     padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .signInButton:hover {
     border: 3px solid #0056b3;
     color: #0056b3;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 /* LANDING PAGINA */
@@ -414,11 +471,11 @@ header {
     background-image: url('/images/bg-images/bg-desktop-7.jpeg');
     background-size: cover;
     position: relative;
+    background-position:center;
 }
 
 .info-container {
     background-color: var(--dark-gray);
-    opacity: 99%;
     color: white;
     border-radius: 10px;
     padding: 20px;
@@ -429,6 +486,7 @@ header {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 .header {
@@ -440,14 +498,14 @@ header {
 }
 
 .back-button {
-    color: yellow;
+    color: var(--yellow);
     text-decoration: none;
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .header h1 {
-    color: yellow;
+    color: var(--yellow);
     flex-grow: 1;
     text-align: center;
     font-size: 1.8rem;
@@ -471,25 +529,34 @@ header {
 
 .menu li {
     margin-bottom: 10px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
     transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.menu a:hover {
-    scale: (1, 1);
-    font-size: 1.3rem;
-    color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+.menu li img {
+    height: 60px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    display: block;
 }
 
-.menu a.active {
-    color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    scale: (1, 1);
+.menu li:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.menu li img.active {
+    transform: scale(1.2);  
+    filter: brightness(1.1);  
+}
+
+.menu li img {
+    pointer-events: auto; 
+}
+/* afbeelding kreeg hover wanneer ik met muis ernaast ging, dit is oplossng hiervoor */
+.menu li {
+    pointer-events: none;
 }
 
 .text-content {
@@ -507,7 +574,7 @@ header {
     background-image: url('/images/bg-images/bg-desktop-6.jpeg');
     background-size: cover;
     position: relative;
-
+    background-position:center;
 }
 
 
@@ -525,18 +592,17 @@ header {
     padding: 1rem;
     position: absolute;
     left: 50%;
-    top: 20%;
+    top: 18%;
     transform: translateX(-50%);
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .add-to-blacklist-container h2 {
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .add-to-blacklist-card {
     background-color: var(--dark-gray);
-    opacity: 97%;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -551,7 +617,6 @@ header {
     transform: translateX(-50%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
-
 
 .skin-image {
     width: 90px;
@@ -579,14 +644,13 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
 }
 
 .ab-wins img,
 .ab-losses img {
     width: 20px;
 }
-
 
 textarea {
     width: 90%;
@@ -628,21 +692,16 @@ textarea {
 
 
 #menuBody {
-    font-family: 'Fortnite';
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-weight: lighter;
     transition: background 0.5s ease-in-out;
     background-size: cover;
     background-position: center;
     position: relative;
-    background-image: url('images/jouw-afbeelding.jpg');
-    background-size: cover;
     background: linear-gradient(to bottom, #007bff, #6a00ff);
-    background-position: center;
     overflow: hidden;
 }
 
@@ -657,8 +716,8 @@ textarea {
     background-image: inherit;
     background-size: cover;
     background-position: center;
-    filter: blur(4px);
-    z-index: -1;
+    filter: blur(5px);
+    z-index: -1; /* Dit zorgt ervoor dat het blur-effect achter de content ligt */
     top: -5%;
     left: -5%;
     width: 110%;
@@ -680,6 +739,7 @@ textarea {
     padding: 10px 20px;
     border-radius: 20px;
     display: inline-block;
+    font-size: 2rem;
 }
 
 .game-grid {
@@ -718,8 +778,6 @@ textarea {
     display: block;
 }
 
-
-
 .overlay {
     position: absolute;
     bottom: 0;
@@ -739,9 +797,10 @@ textarea {
 
 .overlay p {
     margin: 5px 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
     color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    letter-spacing: 0.5px;
 }
 
 .overlay button {
@@ -770,16 +829,486 @@ textarea {
     transform: translate(-50%, -50%);
     opacity: 0.5;
     /* 50% transparantie */
+
+/*PROFILEPAGE&ACCOUNT SETTINGS */
+#settings-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+    justify-content: center;
+}
+
+#settings-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop3.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#settings-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.settings-left-btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 40px;
+    border-right: 1px solid white;
+    margin-bottom: 50px;
+    padding-right: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.settings-left-btns .back-button {
+    margin-bottom: 10px;
+}
+
+.settings-profile {
+    margin-left: 80px;
+}
+
+.logout-btn {
+    display: fixed;
+    margin-top: 16rem;
+    background-color: red;
+    border-radius: 20px;
+    padding: 8px;
+    text-align: center;
+}
+
+.settings-card,
+.user-profile-card {
+    display: flex;
+    width: 800px;
+    height: 500px;
+    background-color: var(--dark-gray);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+}
+
+.user-profile-card{
+    height: 400px;
+    width: 700px;
+}
+
+.settings-profile img,
+.user-avatar {
+    border-radius: 200px;
+    width: 120px;
+    height: 120px;
+}
+
+.settings-profile figure,
+.user-profile figure {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    column-gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.settings-profile ul,
+.user-profile ul {
+    font-size: 23px;
+}
+
+.profile-btn,
+.account-btn {
+    margin-top: 20px;
+    font-size: 23px;
+}
+
+.profile-btn:hover,
+.account-btn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.active {
+    color: var(--yellow);
+}
+
+.user-current-skin,
+.wins-amount,
+.loses-amount,
+.best-time {
+    color: var(--yellow);
+}
+
+.settings-account {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 30px;
+    align-items: center;
+    row-gap: 20px;
+}
+
+#save-icon,
+#trash-icon {
+    background-color: var(--yellow);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 35px;
+    cursor: pointer;
+    color: var(--dark-gray);
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+#save-icon:hover,
+#trash-icon:hover {
+    transform: scale(1.1);
+
+.settings-account button {
+    display: flex;
+    align-items: center;
+}
+
+.settings-account button:hover {
+    cursor: pointer;
+}
+
+.icon {
+    height: 32px;
+    margin-right: 15px;
+}
+
+#accountDeletion {
+    color: #ff0000;
+}
+
+.mobile-options-btn {
+    display: none;
+}
+
+/*PROFILE-ZOEK*/
+.profile-search-card {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    width: 800px;
+    height: 650px;
+    background-color: var(--dark-gray);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+}
+
+.profile-search-card h1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.profile-search-card .back-button {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 20px;
+    left: 0;
+    top: 0;
+}
+
+.profile-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    color: white;
+    justify-content: center;
+}
+
+.profile-search img {
+    margin-top: 10px;
+    width: 120px;
+    border-radius: 200px;
+}
+
+#profile-search-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-2.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#profile-search-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+/*PROFIEL*/
+#user-profile-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    justify-content: center;
+}
+
+#user-profile-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-7.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+#user-profile-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.user-profile-card .back-button {
+    position: unset;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.user-profile {
+    margin-top: 30px;
+}
+
+.user-add-button {
+    background-color: white;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+.user-add-button {
+    cursor: pointer;
+}
+
+.user-add-button img {
+    margin-right: 10px;}
+
+#friends-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+}
+
+#friends-page::before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/bg-images/bg-desktop-6.jpeg);
+    background-size: cover;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(0.2px);
+}
+
+/*LEADERBOARD*/
+.leaderboard-card {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    width: 850px;
+    height: 650px;
+    background-color: var(--dark-gray);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+    position: fixed;
+    align-items: center;
+}
+
+#friends-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: main;
+}
+
+.leaderboard-table {
+    height: 450px;
+    width: 700px;
+    justify-content: center;
+}
+
+.leaderboard-table th {
+    border-bottom: white 1px solid;
+}
+
+.leaderboard-header {
+    display: flex;
+    column-gap: 20px;
+    align-self: flex-start;
+    margin-top: 60px;
+    font-size: 25px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+.leaderboard-header li:hover {
+    color: var(--yellow);
+    cursor: pointer;
+}
+
+.leaderboard-card {
+    color: var(--yellow);
+    font-size: 40px;
+}
+
+#friends-page .back-button {
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.leaderboard-table th:last-child,
+.leaderboard-table tr td:last-child {
+    border-left: white 1px solid;
+    text-align: right;
+}
+
+.leaderboard-table th {
+    font-size: 30px;
+}
+
+.leaderboard-table td {
+    color: var(--yellow);
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.leaderboard-username {
+    color: white;
+    margin-left: 10px;
+}
+
+.leaderboard-table tr td:last-child,
+.leaderboard-username {
+    font-size: 30px;
+}
+
+.leaderboard-table img {
+    vertical-align: middle;
+    margin-left: 20px;
+    width: 50px;
+    border-radius: 200px;
+}
+
+#friendRequestButton {
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.friend-requests img {
+    border-radius: 200px;
+}
+
+.friend-requests {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    color: white;
+    background: #6a6a6a;
+    font-size: 20px;
+    height: 100px;
+    width: 300px;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+    right: 0;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+
+.friend-requests li {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    width: 300px;
+    position: relative;
+
+}
+
+.accept-request-button,
+.decline-request-button {
+    justify-self: end;
+}
+
+
+
+/* MENU STIJLEN */
+.game-card .overlay .cross {
+    display: none;
+    font-size: 150PX; /* Groot maken */
+    color: red; /* Normale rode kleur */
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5; /* 50% transparantie */
+
 }
 
 .game-card:hover .overlay .cross {
     display: block;
 }
 
+/* PERSONAGE DETAIL PAGINA */
 #personage-detail-page {
     background-image: url("/images/bg-images/bg-desktop-1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position:center;
     margin: 0;
     height: 100vh;
     position: relative;
@@ -814,7 +1343,7 @@ textarea {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-#personages-card h2 {
+#personages-card figcaption {
     font-size: 1.5rem;
 }
 
@@ -829,7 +1358,15 @@ textarea {
     margin: 10px 0;
 }
 
-#personages-box {
+/* #personages-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    border: 2px solid var(--yellow);
+} */
+
+#personages-box img {
     width: 60px;
     height: 60px;
     background: rgba(255, 255, 255, 0.2);
@@ -880,11 +1417,10 @@ textarea {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 7px;
 }
 
-#save-icon,
-#trash-icon {
+#save-icon, #trash-icon {
     background-color: var(--yellow);
     padding: 5px;
     border-radius: 5px;
@@ -894,25 +1430,39 @@ textarea {
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-#save-icon:hover,
-#trash-icon:hover {
+#save-icon:hover, #trash-icon:hover {
     transform: scale(1.1);
 }
 
-
 /* FAVORIET PAGINA */
 
-#favorite-page {
+.favorite-page-main {
+    grid-area: main;
     background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
 }
 
 .favorite-page-main {
     grid-area: main;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding-top: 20px;
+    gap: 20px;
     width: 100%;
     color: black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
@@ -920,36 +1470,40 @@ textarea {
 
 .all-favorite-cards {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center; 
     align-items: center;
     gap: 2rem;
+    width: 100%;
+    max-width: 1200px; 
+    margin-bottom: 20px;
+    z-index: 0;
 }
 
 .favorite-page-main h1 {
     font-size: 3rem;
     background-color: var(--yellow);
+    color: black;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-    margin-top: 20px;
-    margin-bottom: 20px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1; 
 }
 
 .favorite-card {
     background-color: var(--yellow);
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
+    width: calc(50% - 1rem); 
+    max-width: 350px;
     height: 380px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 }
-
 .skin-image-favorite {
     width: 120px;
     height: 120px;
@@ -988,6 +1542,94 @@ textarea {
 .favorite-wins p,
 .favorite-losses p {
     font-size: 1.5rem;
+}
+
+/* blaclist pagina */
+
+#blacklistPage {
+    background-image: url('/images/bg-images/bg-desktop-4.jpeg');
+}
+
+.blacklist-page-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.all-blacklist-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 20px;
+}
+
+.blacklist-page-main h1 {
+    font-size: 3rem;
+    color: var(--yellow);
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.blacklist-card {
+    background-color: var(--dark-gray);
+    color: var(--yellow);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 380px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+.skin-image-blacklist {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.blacklist-card h2 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.blacklist-card h3 {
+    align-self: self-start;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+.blacklist-card p {
+    width: 90%;
+    height: 90px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: white;
+    font-size: 1rem;
+    color: var(--dark-gray);
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    resize: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /* Buttons favoriet pagina */
@@ -1053,8 +1695,7 @@ textarea {
     border-radius: 5px;
 }
 
-#button-right-fav,
-#button-left-fav {
+#button-right-fav, #button-left-fav {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -1073,8 +1714,7 @@ textarea {
     top: 30%;
 }
 
-#button-right-fav i,
-#button-left-fav i {
+#button-right-fav i, #button-left-fav i {
     color: var(--yellow);
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -1087,6 +1727,430 @@ textarea {
 
 #button-left-fav:hover i {
     transform: scale(1.1);
+}
+
+/* SKINS PAGINA */
+
+#skins-page-main {
+    grid-area: main;
+    background-image: url('/images/bg-images/bg-desktop-5.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.current-skin {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.current-skin-name {
+    background-color: var(--yellow);
+    width: 200px;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    color: #000000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.current-skin img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    border: 5px solid var(--yellow);
+}
+
+.skin-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-skin {
+    display: flex;
+    justify-content: flex-start;
+    color: grey;
+    background-color: white;
+    border-radius: 15px;
+    width: 300px;
+    margin: 10px;
+}
+
+.search-skin input {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: none;
+    background-image: url("/images/items/search-icon.webp");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.all-skins {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center; 
+    gap: 20px;
+    margin: 10px;
+    height: 800px;
+    width: 800px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+#skin-image {
+    border-radius: 10px;
+    width: 800px;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.all-skins h1 {
+    color: #000000;
+    font-size: 1.8rem;
+    background-color: var(--yellow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.skin-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.skin-actions img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; /* dit voorkomt de vervorming van de icon*/
+    border-radius: 50%;
+    background-color: var(--yellow);
+    padding: 10px;
+}
+
+.skin-actions img:hover {
+    transform: scale(1.1);
+}
+
+.star-icon {
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+.add-blacklist-btn {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+.win-loss-icons {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+}
+
+.skins-wins,
+.skins-losses {
+    background-color: var(--yellow);
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.skins-wins img,
+.skins-losses img {
+    width: 30px;
+    height: 30px;
+}
+
+/*SHOP PAGINA*/
+
+.shop-section{
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/bg-images/shop-desktop.jpeg");
+    background-position: center;
+    background-size: contain;
+}
+
+.shop-container {
+    display: flex;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; 
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+}
+
+.shop-item-button {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;  
+    background-color: var(--dark-gray); 
+    opacity: 98%;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    color: white; 
+    flex: 1 0 calc(25% - 20px); 
+    max-width: calc(25% - 20px); 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.shop-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 5px;
+    margin-bottom: 10px; 
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.shop-button {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    margin: 0 50px; 
+    width: 55px;
+    height: 55px;
+    text-align: center;
+}
+
+.shop-button:hover {
+    transform: scale(1.1);
+}
+
+.item-name {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.item-price {
+    font-size: 20px;
+    color: var(--yellow);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.coin-icon {
+    width: 30px !important;  
+    height: auto !important; 
+    margin-top: 8px;
+}
+
+.buy-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--yellow); 
+    color: var(--dark-gray);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-size: 18px;
+    width: 100%;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+}
+
+.shop-item-button img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    
+}
+.shop-button-container{
+    overflow: hidden;
+    display: none;
+    
+}
+
+.shop-button-mobile.prev-button,
+.shop-button-mobile.next-button {
+    overflow: hidden;
+}
+
+/* CARD GAME*/
+
+#card-game-page {
+    background-image: url("/images/bg-images/game-card-desktop.jpeg");
+    background-position: center;
+    background-size: cover;
+    
+}
+.card-game-content{
+    grid-area: main;
+    width: 100%;
+    padding: 1rem;
+}
+
+#card-game-page h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--yellow);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: var(--dark-gray);
+    opacity: 98%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    display: none;
+}
+
+#button-right-fav,
+#button-left-fav {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+.card.open img {
+    display: block;
+}
+
+.card.open {
+    background-color: #fff;
+    transform: scale(1.1);
+}
+
+.card .question-mark {
+    font-size: 40px;
+    color: var(--yellow);
+    position: absolute;
+}
+
+.card.matched {
+    background-color: #4caf50;
+}
+
+.status-container {
+    position: absolute;
+    top: 40%; 
+    right: 8%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--yellow);
+    font-size: 1.5rem;
+    width: 10%;
+}
+
+/* TIMER */
+.timer {
+    font-size: 2rem;
+    text-align: center;
+}
+
+#button-right-fav i,
+#button-left-fav i {
+    color: var(--yellow);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+
+/* RESET BUTTON */
+.reset button {
+    background-color: var(--yellow);
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.reset button:hover {
+    transform: scale(1.1); 
+}
+
+/* MOVES COUNT */
+.moves-count {
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 
@@ -1311,18 +2375,28 @@ footer {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
     padding: 10px !important;
     background: var(--dark-gray) !important;
     height: 4rem !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
-    opacity: 95% !important;
     letter-spacing: 0.5px !important;
 }
 
+.items-blacklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 150px;
+    height: 150px;
+}
 
 @media screen and (max-width: 768px) {
 
+    body{
+        background-position: center;
+    }
+
+    /*HEADER*/
     .logo span {
         font-size: 2rem;
     }
@@ -1348,7 +2422,7 @@ footer {
     .search-bar {
         width: 35px;
         height: 40px;
-        background-image: url("/images/items/search-icon.webp");
+        background-image: url("/images/items/search-white.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -1359,37 +2433,68 @@ footer {
     }
 
     /*home pagina*/
+
+    #home-page{
+        background-image: url('/images/bg-images/bg-mobile-1.jpeg');
+    }
     .card-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         gap: none;
         margin: 0;
         padding: 0;
     }
 
-    .card {
-        height: 45%;
-        width: 50%;
+    .card-section {
+        height: 55%;
+        width: 55%;
     }
 
-    .card img {
+    .card-section img {
         width: 90px;
     }
 
     .card-content {
-        gap: 40px;
+        gap: 15px;
+    }
+
+    .card-content p{
+        font-size: 1.3rem;
     }
 
     .card-content h3 {
         font-size: 1.6rem;
     }
 
-    .card-content p {
-        font-size: 1.3rem;
+
+    .menu-items ul{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+ 
+    .menu-items li span {
+        display: none;
     }
 
-    .menu-items ul li {
-        font-size: 2.9rem;
+    .menu-items li img {
+        display: block;
+        width: 80px; /* Pas de grootte aan naar wens */
+        height: 80px;
+        transition: transform 0.2s ease-in-out;
+        border-radius: 50%;
+    }
+
+    #skin-icon-home{
+        background-color: var(--yellow);
+        border-radius: 50%;
+    }
+
+    .menu-items li:hover img {
+        transform: scale(1.1);
     }
 
     /*GUIDE PAGINA*/
@@ -1406,7 +2511,7 @@ footer {
     .menu ul {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 30px;
         justify-content: center;
         border-bottom: 1px solid white;
     }
@@ -1415,6 +2520,9 @@ footer {
         margin-bottom: 1rem;
     }
 
+    .menu a img{
+        height: 55px;
+    }
 
     .header h1 {
         color: yellow;
@@ -1432,14 +2540,13 @@ footer {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
 
-    /*LANDINGS PAGINA*/
+    /*LANDING PAGINA*/
     #landing-page {
         /*voor background img want het nam de hele scherm niet in*/
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
-
 
     .landing-page-main {
         flex-direction: column;
@@ -1492,7 +2599,7 @@ footer {
 
     /*add to blacklist*/
     .add-to-blacklist-container h1 {
-        top: 20%;
+        top: 17%;
         font-size: 1.8rem;
         white-space: nowrap;
     }
@@ -1546,46 +2653,412 @@ footer {
         background: rgba(255, 255, 255, 0.9);
         color: black;
     }
+  
+    /*profile page*/
+    .settings-left-btns {
+        display: none;
+        background-color: var(--dark-gray);
+        box-shadow: 1px 2px 2px #000000;
+        box-shadow: 10px 0 5px -2px #888;
+        position: absolute;
+    }
 
+    .settings-account {
+        margin-top: 80px;
+        margin-left: 50px;
+    }
+
+    .mobile-options-btn {
+        display: unset;
+        position: absolute;
+        height: 30px;
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+
+    .mobile-options-btn:hover {
+        cursor: pointer;
+    }
+
+    .settings-card {
+        width: 80%;
+    }
+
+    /*leaderboard*/
+    .leaderboard-card {
+        width: 80%;
+    }
+
+    .leaderboard-table {
+        width: 400px;
+    }
+
+    .friend-requests {
+        height: 200px;
+        width: 350px;
+    }
+
+    .friend-requests li {
+        font-size: 35px;
+    }
+
+    .friend-requests img {
+        width: 35px;
+    }
+      
+    .profile-search-card {
+        overflow: auto;
+        width: 80%;
+    }
+
+    .profile-search {
+        margin-bottom: 10px;
+        background-color: grey;
+        border-radius: 20px;
+        flex-direction: row;
+        width: 90%;
+        justify-content: flex-start;
+        height: 120px;
+    }
+
+    .profile-search img {
+        width: 90px;
+        margin-left: 20px;
+    }
+
+    .profile-search:first-of-type {
+        margin-top: 50px;
+    }
+
+    .profile-search-username {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    /*user-profile*/
+    .user-profile-card {
+        width: 90%;
+        height: 600px;
+    }
+
+    .user-profile-card .back-button {
+        position: absolute;
+    }
+
+    .user-profile-card figure {
+        margin-left: 30px;
+    }
+
+    .user-profile ul {
+        margin-top: 50px;
+        margin-left: 50px;
+        font-size: 32px;
+    }
+      
     /* FAVORIETE DETAIL PAGINA */
     #personages-card {
         width: 350px;
     }
 
     /* FAVORIET PAGINA */
-    .all-favorite-cards {
+    /*alles kleiner gemaakt en buttons display none gezet*/
+
+    .all-favorite-cards, .all-blacklist-cards {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
-        margin-bottom: 20px;
+        gap: 1rem;
+        padding: 0;
     }
 
     .favorite-page-main {
-        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-top: 20px;
         width: 100%;
         color: black;
+        background-position: center;
+    }
+    
+    .favorite-card {
+        width: 100%;
     }
 
-    /* Input iconen */
+    .favorite-page-main h1 {
+        font-size: 2rem;
+        margin: 10px;
+    }
+
+    .icon-button{
+        display: none;
+    }
+
+    .favorite-card {
+        width: 280px; 
+        height: 320px; 
+        padding: 8px; 
+        bottom: 60px; 
+        top: 20px;
+    }
+
+    .skin-image-favorite {
+        width: 100px; 
+        height: 100px;
+        margin-bottom: 5px; 
+    }
+
+    .favorite-card h2 {
+        font-size: 1.5rem; 
+    }
+
+    .wins-losses-icons {
+        gap: 10px; 
+    }
+
+    .favorite-wins, .favorite-losses {
+        padding: 8px 12px; 
+        font-size: 1.25rem; 
+    }
+
+    .favorite-wins p, .favorite-losses p {
+        font-size: 1.25rem; 
+    }
+
+    .button-container {
+        gap: 15px; 
+    }
+
+    .edit-button {
+        width: 40px; 
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .details-button {
+        width: 80px;
+        height: 35px;
+        font-size: 1.2rem; 
+    }
+
+    .items-favorite {
+        width: 120px;
+        height: 120px; 
+    }
+
+    .item-img {
+        width: 100%; 
+        height: 100%; 
+    }
+
+
+    /* Login/Register page */
     .input-box-username i {
         position: absolute;
         left: 70%;
-        top: 242px;
+        top: 39%;
     }
 
     .input-box-password i {
         position: absolute;
         left: 70%;
-        top: 293px;
+        top: 46%;
+    }
+
+    #username-icon-register {
+        left: 70%;
+        top: 41%;
+    }
+    
+    #password-icon-register {
+        left: 70%;
+        top: 48%;
+    }
+    
+    #email-icon-register {
+        left: 70%;
+        top: 56%;
+    }
+
+    /* SHOP PAGINA */
+    #shop-page {
+        background-image: url("/images/bg-images/shop-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .shop-section {
+        background-image: url("/images/bg-images/shop-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .shop-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .shop-item-button {
+        max-width: 200px;
+        flex: 1 0 calc(50% - 20px);
+    }
+
+    .shop-button {
+        display: none;
+    }
+
+    .shop-button-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        position: relative;
+        bottom: 30px;
+    }
+
+    .shop-button-mobile {
+        background-color: var(--yellow);
+        color: var(--dark-gray);
+        border: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: transform 0.2s ease-in-out;
+        text-align: center;
+    }
+
+    .shop-button-mobile:hover {
+        transform: scale(1.1);
+    }
+
+    .coin-icon {
+        width: 20px !important;
+        height: auto !important;
+        margin-top: 5px;
+    }
+
+    .buy-button {
+        margin-top: 10px;
+        width: 90%;
+    }
+
+    .item-price {
+        font-size: 18px;
+    }
+
+    .shop-item-button img {
+        height: auto;
+    }
+
+    /* GAME KAART SPEL */
+    #card-game-page {
+        background-image: none;
+    }
+
+    .card-game-content {
+        background-image: url("/images/bg-images/game-card-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 118px);
+    }
+
+    .card {
+        height: 120px;
+        width: 120px;
+    }
+
+    .status-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10px;
+        background-color: var(--dark-gray);
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        opacity: 97%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .timer, .moves-count {
+        font-size: 1.5rem;
+    }
+
+    .reset button {
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+    /* Game bord padding aanpassen */
+    .game-board {
+        padding: 10px;
+    }
+
+    /* SKINS PAGINA */
+    #skins-page-main {
+        flex: 1;
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skins-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .all-skins {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: unset;
+        width: unset;
+    }
+
+    #skin-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .search-skin {
+        width: 200px;
+    }
+
+    .search-skin input {
+        width: 200px;
+        font-size: 15px;
+    }
+
+    .current-skin img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .skins-wins img,
+    .skins-losses img {
+        width: 30px;
+        height: 30px;
     }
 
     .item-container {

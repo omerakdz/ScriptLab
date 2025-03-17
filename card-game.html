@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uitleg pagina</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <title>card game</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/guide.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/card-game.js" defer></script>
 </head>
-<body id="guide-page">
+<body id="card-game-page">
     <header>
         <article class="profile">
             <a href="settings-profile.html"><img src="images/skins/skin-1.jpeg" alt="John"></a>
@@ -24,28 +24,28 @@
             <a href="index.html"><span>Fortnite</span></a>
         </article>
     </header>
-    <main class="info-container">
-        <article class="header">
-            <a href="index.html" class="back-button">&larr; TERUG</a>
-            <h1>INFO</h1>
-        </article>
-        <section class="content">
-            <nav class="menu">
-                <ul>
-                    <li data-text="How to play"><img id="how-to-play" src="images/items/questions.png"></li>
-                    <li><img id="skin-uitleg" src="images/items/skin.png"></li>
-                    <li><img id="items-uitleg" src="images/items/item.png"></li>
-                    <li><img id="profiel-uitleg" src="images/items/gamer.png"></li>
-                </ul>
-            </nav>
-            <article class="text-content">
+    <main class="card-game-content">
+        <h1>Memory Card Game</h1>
+        <section id="status-container" class="status-container">
+            <article id="timer" class="timer">
+                <p id="timer-text">00:00</p>
+            </article>
+            <article id="reset" class="reset">
+                <button onclick="resetGame()">Reset Game</button>
+            </article>
+            <article id="moves-count" class="moves-count">
+                <p>Zetten: <span id="move-count">0</span></p>
             </article>
         </section>
+        
+        <section id="game-board" class="game-board">
+            <!--kaarten kome hier met js api-->
+        </section>
+ 
     </main>
 
     <footer>
-        <p> &copy; ScriptLab | Omer Malik Joesoef Houdaifa</p>
+        <p>ScriptLab | Omer Malik Joesoef Houdaifa</p>
     </footer>
-
 </body>
 </html>

@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl-BE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Register</title>
 </head>
 <body id="register-page">
     <section class="register-container">
-        <h1>Welkom bij ScriptLab!</h1>
+        <h1>Registreer</h1>
         <form action="/signup" method="POST">
+            <section class="input-username-register">
+                <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
+            </section>
             
-            <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
+            <section class="input-password-register">
+                <input type="password" id="password" placeholder="Wachtwoord" name="password" required>
+            </section>
         
-            <input type="email" id="email" placeholder="E-mailadres" name="email" required>
+            <section class="input-email-register">
+                <input type="email" id="email" placeholder="E-mailadres" name="email" required>
+            </section>
         
-            <input type="password" id="password" placeholder="Wachtwoord" name="password" required>
-        
-            <input type="submit" value="Registreer" class="submitButton">
+            <button type="submit" class="submitButton">Registreer</button>
         </form>
     </section>
 </body>

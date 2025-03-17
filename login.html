@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl-BE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body id="login-page">
     <section class="login-container">
-        <h1>Welkom bij ScriptLab!</h1>
-        <form action="/login" method="POST">
+        <h1>Login</h1>
+        <form action="/index.html" method="GET">
             <section class="input-box-username">
                 <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
-                <i class="fa-solid fa-user" id="username-icon"></i>
             </section>
             
             <section class="input-box-password">
-                <input type="text" id="password" placeholder="Wachtwoord" name="password" required>
-                <i class="fa-solid fa-lock" id="password-icon"></i>
+                <input type="password" id="password" placeholder="Wachtwoord" name="password" required>
             </section>
+            
+            <button type="submit" class="submitButton">Login</button>
+
+            <button type="button" class="signInButton"><a href="register.html">Registreer</a></button>
 
             <a class="change-password" href="">wachtwoord vergeten?</a>
-            
-            <input type="submit" value="Login" class="submitButton">
-            <button type="button" class="signInButton">Registreren</button>
         </form>
     </section>
 </body>
