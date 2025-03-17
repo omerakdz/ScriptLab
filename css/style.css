@@ -155,6 +155,7 @@ input{
     flex-direction: column;
     align-items: center;
     gap: 15px; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
 }
 
 .card-section img {
@@ -1509,7 +1510,7 @@ button:hover {
 
 /* blaclist pagina */
 
-#blacklist-page {
+#blacklistPage {
     background-image: url('/images/bg-images/bg-desktop-4.jpeg');
 }
 
@@ -2281,7 +2282,6 @@ footer {
         background-attachment: fixed;
     }
 
-
     .landing-page-main {
         flex-direction: column;
         align-items: center;
@@ -2617,183 +2617,183 @@ footer {
         top: 56%;
     }
 
-/* SHOP PAGINA */
-#shop-page {
-    background-image: url("/images/bg-images/shop-mobile.jpeg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+    /* SHOP PAGINA */
+    #shop-page {
+        background-image: url("/images/bg-images/shop-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
-.shop-section {
-    background-image: url("/images/bg-images/shop-mobile.jpeg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+    .shop-section {
+        background-image: url("/images/bg-images/shop-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 
-.shop-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-}
+    .shop-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
 
-.shop-item-button {
-    max-width: 200px;
-    flex: 1 0 calc(50% - 20px);
-}
+    .shop-item-button {
+        max-width: 200px;
+        flex: 1 0 calc(50% - 20px);
+    }
 
-.shop-button {
-    display: none;
-}
+    .shop-button {
+        display: none;
+    }
 
-.shop-button-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    width: 100%;
-    position: relative;
-    bottom: 30px;
-}
+    .shop-button-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        position: relative;
+        bottom: 30px;
+    }
 
-.shop-button-mobile {
-    background-color: var(--yellow);
-    color: var(--dark-gray);
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s ease-in-out;
-    text-align: center;
-}
+    .shop-button-mobile {
+        background-color: var(--yellow);
+        color: var(--dark-gray);
+        border: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: transform 0.2s ease-in-out;
+        text-align: center;
+    }
 
-.shop-button-mobile:hover {
-    transform: scale(1.1);
-}
+    .shop-button-mobile:hover {
+        transform: scale(1.1);
+    }
 
-.coin-icon {
-    width: 20px !important;
-    height: auto !important;
-    margin-top: 5px;
-}
+    .coin-icon {
+        width: 20px !important;
+        height: auto !important;
+        margin-top: 5px;
+    }
 
-.buy-button {
-    margin-top: 10px;
-    width: 90%;
-}
+    .buy-button {
+        margin-top: 10px;
+        width: 90%;
+    }
 
-.item-price {
-    font-size: 18px;
-}
+    .item-price {
+        font-size: 18px;
+    }
 
-.shop-item-button img {
-    height: auto;
-}
+    .shop-item-button img {
+        height: auto;
+    }
 
-/* GAME KAART SPEL */
-#card-game-page {
-    background-image: none;
-}
+    /* GAME KAART SPEL */
+    #card-game-page {
+        background-image: none;
+    }
 
-.card-game-content {
-    background-image: url("/images/bg-images/game-card-mobile.jpeg");
-    background-position: center;
-    background-size: cover;
-}
+    .card-game-content {
+        background-image: url("/images/bg-images/game-card-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
 
-.game-board {
-    grid-template-columns: repeat(3, 118px);
-}
+    .game-board {
+        grid-template-columns: repeat(3, 118px);
+    }
 
-.card {
-    height: 120px;
-    width: 120px;
-}
+    .card {
+        height: 120px;
+        width: 120px;
+    }
 
-.status-container {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10px;
-    background-color: var(--dark-gray);
-    z-index: 1;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    opacity: 97%;
-    margin: 0 auto;
-}
+    .status-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10px;
+        background-color: var(--dark-gray);
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        opacity: 97%;
+        margin: 0 auto;
+    }
 
-h1 {
-    font-size: 2rem;
-}
+    h1 {
+        font-size: 2rem;
+    }
 
-.timer, .moves-count {
-    font-size: 1.5rem;
-}
+    .timer, .moves-count {
+        font-size: 1.5rem;
+    }
 
-.reset button {
-    padding: 8px;
-    font-size: 1rem;
-}
+    .reset button {
+        padding: 8px;
+        font-size: 1rem;
+    }
 
-/* Game bord padding aanpassen */
-.game-board {
-    padding: 10px;
-}
+    /* Game bord padding aanpassen */
+    .game-board {
+        padding: 10px;
+    }
 
-/* SKINS PAGINA */
-#skins-page-main {
-    flex: 1;
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* SKINS PAGINA */
+    #skins-page-main {
+        flex: 1;
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.skins-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .skins-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.all-skins {
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-}
+    .all-skins {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
 
-#skin-image {
-    width: 200px;
-    height: 200px;
-}
+    #skin-image {
+        width: 200px;
+        height: 200px;
+    }
 
-.search-skin {
-    width: 200px;
-}
+    .search-skin {
+        width: 200px;
+    }
 
-.search-skin input {
-    width: 200px;
-    font-size: 15px;
-}
+    .search-skin input {
+        width: 200px;
+        font-size: 15px;
+    }
 
-.current-skin img {
-    width: 300px;
-    height: 300px;
-}
+    .current-skin img {
+        width: 300px;
+        height: 300px;
+    }
 
-.skins-wins img,
-.skins-losses img {
-    width: 30px;
-    height: 30px;
-}
+    .skins-wins img,
+    .skins-losses img {
+        width: 30px;
+        height: 30px;
+    }
 
     /*footer*/
     footer {

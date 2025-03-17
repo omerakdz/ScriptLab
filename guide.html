@@ -9,17 +9,16 @@
     <script src="js/guide.js" defer></script>
 </head>
 <body id="guide-page">
-    
     <header>
         <article class="profile">
             <a href="settings-profile.html"><img src="images/skins/skin-1.jpeg" alt="John"></a>
             <span>John</span>
         </article>
-    <section class="search-container">
-        <article class="search-bar">
-            <input type="text" placeholder="Zoek spelers...">
-        </article>
-    </section>
+        <section class="search-container">
+            <form action="profile-search.html" class="search-bar" method="get">
+                <input type="text" name="username" placeholder="Zoek spelers...">
+            </form>
+        </section>
         <article class="logo">
             <a href="guide.html"><img src="images/items/info-icon.png" alt="Info"></a>
             <a href="index.html"><span>Fortnite</span></a>
