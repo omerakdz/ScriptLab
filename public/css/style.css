@@ -155,7 +155,6 @@ input{
     flex-direction: column;
     align-items: center;
     gap: 15px; 
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
 }
 
 .card-section img {
@@ -317,13 +316,13 @@ input{
 }
 
 .change-password {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
     color: #007bff;
 }
 
 .change-password:hover {
-    color: #0056b3;
+    color:#0056b3;
 }
 
 .submitButton {
@@ -592,7 +591,7 @@ input{
     padding: 1rem;
     position: absolute;
     left: 50%;
-    top: 18%;
+    top: 20%;
     transform: translateX(-50%);
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -617,6 +616,7 @@ input{
     transform: translateX(-50%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
+
 
 .skin-image {
     width: 90px;
@@ -651,6 +651,7 @@ input{
 .ab-losses img {
     width: 20px;
 }
+
 
 textarea {
     width: 90%;
@@ -815,28 +816,12 @@ textarea {
     background-color: lightgray;
 }
 
-/* MENU STIJLEN */
-.game-card .overlay .cross {
-    display: none;
-    font-size: 150PX;
-    /* Groot maken */
-    color: red;
-    /* Normale rode kleur */
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.5;}
-    /* 50% transparantie */
-
 /*PROFILEPAGE&ACCOUNT SETTINGS */
 #settings-page {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-
 
     justify-content: center;
 }
@@ -900,11 +885,6 @@ textarea {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
 }
 
-.user-profile-card{
-    height: 400px;
-    width: 700px;
-}
-
 .settings-profile img,
 .user-avatar {
     border-radius: 200px;
@@ -959,21 +939,6 @@ textarea {
     align-items: center;
     row-gap: 20px;
 }
-
-#save-icon,
-#trash-icon {
-    background-color: var(--yellow);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 35px;
-    cursor: pointer;
-    color: var(--dark-gray);
-    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
-}
-
-#save-icon:hover,
-#trash-icon:hover {
-    transform: scale(1.1);}
 
 .settings-account button {
     display: flex;
@@ -1524,8 +1489,7 @@ button:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.favorite-wins,
-.favorite-losses {
+.favorite-wins, .favorite-losses {
     background-color: var(--yellow);
     color: black;
     border: none;
@@ -1539,97 +1503,8 @@ button:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.favorite-wins p,
-.favorite-losses p {
+.favorite-wins p, .favorite-losses p {
     font-size: 1.5rem;
-}
-
-/* blaclist pagina */
-
-#blacklistPage {
-    background-image: url('/images/bg-images/bg-desktop-4.jpeg');
-}
-
-.blacklist-page-main {
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 100%;
-    color: black;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
-}
-
-.all-blacklist-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 20px;
-}
-
-.blacklist-page-main h1 {
-    font-size: 3rem;
-    color: var(--yellow);
-    background-color: var(--dark-gray);
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.blacklist-card {
-    background-color: var(--dark-gray);
-    color: var(--yellow);
-    padding: 10px 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 350px;
-    height: 380px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
-}
-
-.skin-image-blacklist {
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-    padding: 5px;
-    margin-bottom: 7px;
-}
-
-.blacklist-card h2 {
-    font-size: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.blacklist-card h3 {
-    align-self: self-start;
-    margin-left: 20px;
-    font-size: 1.5rem;
-}
-
-.blacklist-card p {
-    width: 90%;
-    height: 90px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid white;
-    background-color: white;
-    font-size: 1rem;
-    color: var(--dark-gray);
-    text-align: left;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    resize: none;
-    white-space: pre-wrap;
-    word-wrap: break-word;
 }
 
 /* Buttons favoriet pagina */
@@ -2038,7 +1913,7 @@ button:hover {
     padding: 1rem;
 }
 
-#card-game-page h1 {
+h1 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
@@ -2075,13 +1950,6 @@ button:hover {
     object-fit: cover;
     display: none;
 }
-
-#button-right-fav,
-#button-left-fav {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;}
 
 .card.open img {
     display: block;
@@ -2124,13 +1992,6 @@ button:hover {
     text-align: center;
 }
 
-#button-right-fav i,
-#button-left-fav i {
-    color: var(--yellow);
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease;}
-
 /* RESET BUTTON */
 .reset button {
     background-color: var(--yellow);
@@ -2154,221 +2015,6 @@ button:hover {
 }
 
 
-/*SEARCH-ITEM*/
-
-#search-item-body {
-    background-image: url("/images/bg-images/bg-desktop-4.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    justify-content: center;
-
-}
-
-
-#search-item-body::before {
-    content: " ";
-    position: absolute;
-    background-image: url(../images/bg-images/bg-desktop-4.jpeg);
-    background-size: cover;
-    z-index: -1;
-    height: 20%;
-    width: 20%;
-    transform: scale(5);
-    transform-origin: top left;
-    filter: blur(0.2px);
-}
-
-
-.search-box,
-.search-items {
-    display: flex;
-    align-items: center;
-    background: white;
-    padding: 5px;
-    border-radius: 20px;
-    width: 200px;
-    justify-content: center;
-}
-
-.search-items {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    top: 130px;
-}
-
-.search-box input,
-.search-items input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    color: black;
-}
-
-.search-box button,
-.search-items button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-
-
-.search-item-main {
-    text-align: center;
-    margin-top: 20px;
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.item-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: 600px;
-    margin: auto;
-    background: var(--dark-gray);
-    padding: 20px;
-    border-radius: 10px;
-    align-items: center;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
-
-}
-
-.item {
-    background: var(--yellow);
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-
-.item img {
-    width: 100px;
-    height: 100px;
-}
-
-/*ITEM PAGINA*/
-
-#item-pagina {
-    background-image: url("/images/bg-images/bg-desktop-4.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    justify-content: center;
-}
-
-/* Vervagingseffect op de achtergrond */
-#item-pagina::before {
-    content: " ";
-    position: absolute;
-    background-image: url(../images/bg-images/bg-desktop-4.jpeg);
-    background-size: cover;
-    z-index: -1;
-    height: 20%;
-    width: 20%;
-    transform: scale(5);
-    transform-origin: top left;
-    filter: blur(0.2px);
-}
-
-/* Centraal uitlijnen van main */
-.main-item-pagina {
-    grid-area: main;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    align-items: center;
-
-}
-
-.item-pagina-h1 {
-    color: yellow;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-#img-item-pagina {
-    width: 250px !important;
-    height: 250px !important;
-    border-radius: 20px;
-    border: 3px solid white;
-    background-color: yellow;
-    max-inline-size: none;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-
-}
-
-.skin-selection-item-pagina {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.skin-item-pagina {
-    margin-right: 20px;
-    width: 250px;
-}
-
-.items-item-pagina {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    margin-top: 20px;
-
-}
-
-.item-item-pagina {
-    height: 100px;
-    width: 100px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-
-}
-
-.item-item-pagina img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    background-color: yellow;
-}
-
-#span-item-pagina {
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
-    width: 250px;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
     grid-area: footer !important;
@@ -2380,14 +2026,6 @@ footer {
     background: var(--dark-gray) !important;
     height: 4rem !important;
     letter-spacing: 0.5px !important;
-}
-
-.items-blacklist {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 150px;
-    height: 150px;
 }
 
 @media screen and (max-width: 768px) {
@@ -2548,6 +2186,7 @@ footer {
         background-attachment: fixed;
     }
 
+
     .landing-page-main {
         flex-direction: column;
         align-items: center;
@@ -2599,7 +2238,7 @@ footer {
 
     /*add to blacklist*/
     .add-to-blacklist-container h1 {
-        top: 17%;
+        top: 20%;
         font-size: 1.8rem;
         white-space: nowrap;
     }
@@ -2738,7 +2377,7 @@ footer {
     /*user-profile*/
     .user-profile-card {
         width: 90%;
-        height: 450px;
+        height: 600px;
     }
 
     .user-profile-card .back-button {
@@ -2758,12 +2397,14 @@ footer {
     /* FAVORIETE DETAIL PAGINA */
     #personages-card {
         width: 350px;
+        position: relative;
+        bottom: 10px;
     }
 
     /* FAVORIET PAGINA */
     /*alles kleiner gemaakt en buttons display none gezet*/
 
-    .all-favorite-cards, .all-blacklist-cards {
+    .all-favorite-cards {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -2852,14 +2493,14 @@ footer {
         height: 100%; 
     }
 
-
     /* Login/Register page */
+
     .input-box-username i {
         position: absolute;
         left: 70%;
         top: 39%;
     }
-
+    
     .input-box-password i {
         position: absolute;
         left: 70%;
@@ -2881,400 +2522,187 @@ footer {
         top: 56%;
     }
 
-    /* SHOP PAGINA */
-    #shop-page {
-        background-image: url("/images/bg-images/shop-mobile.jpeg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    .shop-section {
-        background-image: url("/images/bg-images/shop-mobile.jpeg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .shop-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .shop-item-button {
-        max-width: 200px;
-        flex: 1 0 calc(50% - 20px);
-    }
-
-    .shop-button {
-        display: none;
-    }
-
-    .shop-button-container {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        width: 100%;
-        position: relative;
-        bottom: 30px;
-    }
-
-    .shop-button-mobile {
-        background-color: var(--yellow);
-        color: var(--dark-gray);
-        border: none;
-        padding: 10px 20px;
-        font-size: 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: transform 0.2s ease-in-out;
-        text-align: center;
-    }
-
-    .shop-button-mobile:hover {
-        transform: scale(1.1);
-    }
-
-    .coin-icon {
-        width: 20px !important;
-        height: auto !important;
-        margin-top: 5px;
-    }
-
-    .buy-button {
-        margin-top: 10px;
-        width: 90%;
-    }
-
-    .item-price {
-        font-size: 18px;
-    }
-
-    .shop-item-button img {
-        height: auto;
-    }
-
-    /* GAME KAART SPEL */
-    #card-game-page {
-        background-image: none;
-    }
-
-    .card-game-content {
-        background-image: url("/images/bg-images/game-card-mobile.jpeg");
-        background-position: center;
-        background-size: cover;
-    }
-
-    .game-board {
-        grid-template-columns: repeat(3, 118px);
-    }
-
-    .card {
-        height: 120px;
-        width: 120px;
-    }
-
-    .status-container {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 10px;
-        background-color: var(--dark-gray);
-        z-index: 1;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        opacity: 97%;
-        margin: 0 auto;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .timer, .moves-count {
-        font-size: 1.5rem;
-    }
-
-    .reset button {
-        padding: 8px;
-        font-size: 1rem;
-    }
-
-    /* Game bord padding aanpassen */
-    .game-board {
-        padding: 10px;
-    }
-
-    /* SKINS PAGINA */
-    #skins-page-main {
-        flex: 1;
-        grid-area: main;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skins-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .all-skins {
-        align-items: center;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        height: unset;
-        width: unset;
-    }
-
-    #skin-image {
-        width: 200px;
-        height: 200px;
-    }
-
-    .search-skin {
-        width: 200px;
-    }
-
-    .search-skin input {
-        width: 200px;
-        font-size: 15px;
-    }
-
-    .current-skin img {
-        width: 300px;
-        height: 300px;
-    }
-
-    .skins-wins img,
-    .skins-losses img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .item-container {
-        width: 80%;
-        background-color: unset;
-        box-shadow: unset;
-    }
-
-    .item {
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
-        width: 83px;
-        height: 83px;
-    }
-
-    .item-img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .search-items {
-        top: 150px;
-    }
-
-    /* Footer */
-    footer {
-        font-size: 1.3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-
-    .favorite-page-main {
-        background-image: url('/images/bg-images/bg-desktop-5.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        width: 100%;
-        color: black;
-    }
-
-    /*ITEM PAGINA*/
-
-
-    #item-pagina {
-        background-size: cover;
-        min-height: 120vh;
-    }
-
-    .item-pagina-h1 {
-        font-size: 1.7rem;
-    }
-
-    .skin-selection-item-pagina {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skin-item-pagina {
-        margin-right: 0;
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #img-item-pagina {
-        width: 180px;
-        height: 180px;
-        background-color: yellow;
-
-    }
-
-    #span-item-pagina {
-        width: 180px;
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    .items-item-pagina {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .item-item-pagina {
-        width: 100px;
-        height: 100px;
-    }
-
-    .item-item-pagina img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-        background-color: yellow;
-    }
-
-    #item-pagina {
-        background-image: url("/images/bg-images/bg-desktop-4.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        justify-content: center;
-    }
-
-    /* Vervagingseffect op de achtergrond */
-    #item-pagina::before {
-        content: " ";
-        position: absolute;
-        background-image: url(../images/bg-images/bg-desktop-4.jpeg);
-        background-size: cover;
-        z-index: -1;
-        height: 20%;
-        width: 20%;
-        transform: scale(5);
-        transform-origin: top left;
-        filter: blur(0.2px);
-    }
-
-    /* Centraal uitlijnen van main */
-    .main-item-pagina {
-        grid-area: main;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        max-width: 600px;
-        margin: auto;
-        padding: 20px;
-        border-radius: 10px;
-        align-items: center;
-
-    }
-
-    .item-pagina-h1 {
-        color: yellow;
-        font-size: 2rem;
-        font-weight: bold;
-        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-        text-align: center;
-    }
-
-    #img-item-pagina {
-        width: 250px !important;
-        height: 250px !important;
-        border-radius: 20px;
-        border: 3px solid white;
-        background-color: yellow;
-        max-inline-size: none;
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-
-    }
-
-    .skin-selection-item-pagina {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    .skin-item-pagina {
-        margin-right: 20px;
-        width: 250px;
-    }
-
-    .items-item-pagina {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        margin-top: 20px;
-
-    }
-
-    .item-item-pagina {
-        height: 100px;
-        width: 100px;
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-
-    }
-
-    .item-item-pagina img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-        background-color: yellow;
-    }
-
-    #span-item-pagina {
-        background-color: yellow;
-        color: black;
-        font-weight: bold;
-        padding: 5px 10px;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 10px;
-        width: 250px;
-        text-align: center;
-        font-size: 1.5rem;
-    }
-
-
+/* SHOP PAGINA */
+#shop-page {
+    background-image: url("/images/bg-images/shop-mobile.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/*footer*/
-footer {
-    font-size: 1.3rem;
+.shop-section {
+    background-image: url("/images/bg-images/shop-mobile.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.shop-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.shop-item-button {
+    max-width: 200px;
+    flex: 1 0 calc(50% - 20px);
+}
+
+.shop-button {
+    display: none;
+}
+
+.shop-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    position: relative;
+    bottom: 30px;
+}
+
+.shop-button-mobile {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+.shop-button-mobile:hover {
+    transform: scale(1.1);
+}
+
+.coin-icon {
+    width: 20px !important;
+    height: auto !important;
+    margin-top: 5px;
+}
+
+.buy-button {
+    margin-top: 10px;
+    width: 90%;
+}
+
+.item-price {
+    font-size: 18px;
+}
+
+.shop-item-button img {
+    height: auto;
+}
+
+/* GAME KAART SPEL */
+#card-game-page {
+    background-image: none;
+}
+
+.card-game-content {
+    background-image: url("/images/bg-images/game-card-mobile.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.game-board {
+    grid-template-columns: repeat(3, 118px);
+}
+
+.card {
+    height: 120px;
+    width: 120px;
+}
+
+.status-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
+    background-color: var(--dark-gray);
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    opacity: 97%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.timer, .moves-count {
+    font-size: 1.5rem;
+}
+
+.reset button {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+/* Game bord padding aanpassen */
+.game-board {
+    padding: 10px;
+}
+
+/* SKINS PAGINA */
+#skins-page-main {
+    flex: 1;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skins-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.all-skins {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+#skin-image {
+    width: 200px;
+    height: 200px;
+}
+
+.search-skin {
+    width: 200px;
+}
+
+.search-skin input {
+    width: 200px;
+    font-size: 15px;
+}
+
+.current-skin img {
+    width: 300px;
+    height: 300px;
+}
+
+.skins-wins img,
+.skins-losses img {
+    width: 30px;
+    height: 30px;
+}
+
+
+    /*footer*/
+    footer {
+        font-size: 1.3rem;
+    }
 }
