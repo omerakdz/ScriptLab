@@ -819,16 +819,13 @@ textarea {
 .game-card .overlay .cross {
     display: none;
     font-size: 150PX;
-    /* Groot maken */
     color: red;
-    /* Normale rode kleur */
     font-weight: bold;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.5;}
-    /* 50% transparantie */
 
 /*PROFILEPAGE&ACCOUNT SETTINGS */
 #settings-page {
@@ -836,8 +833,6 @@ textarea {
     bottom: 0;
     left: 0;
     right: 0;
-
-
     justify-content: center;
 }
 
@@ -2303,18 +2298,19 @@ button:hover {
 }
 
 .item-pagina-h1 {
-    color: yellow;
+    color: black;
+    background-color: var(--yellow);
+    padding: 5px;
+    border-radius: 5px;
     font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #img-item-pagina {
     width: 250px !important;
     height: 250px !important;
     border-radius: 20px;
-    border: 3px solid white;
-    background-color: yellow;
+    border: 3px solid var(--yellow);
+    background-color: var(--yellow);
     max-inline-size: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 
@@ -2341,10 +2337,14 @@ button:hover {
 }
 
 .item-item-pagina {
-    height: 100px;
-    width: 100px;
+    height: 140px;
+    width: 140px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
 
+.item-item-pagina:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .item-item-pagina img {
@@ -2352,20 +2352,19 @@ button:hover {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    background-color: yellow;
+    background-color: var(--yellow);
 }
 
 #span-item-pagina {
-    background-color: yellow;
+    background-color: var(--yellow);
     color: black;
-    font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
     width: 250px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 
@@ -3207,7 +3206,6 @@ footer {
     .item-pagina-h1 {
         color: yellow;
         font-size: 2rem;
-        font-weight: bold;
         text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
         text-align: center;
     }
@@ -3261,7 +3259,6 @@ footer {
     #span-item-pagina {
         background-color: yellow;
         color: black;
-        font-weight: bold;
         padding: 5px 10px;
         border-radius: 5px;
         display: inline-block;
