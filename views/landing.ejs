@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<main class="landing-page-main">
+    <h1 class="skin-title">Kies een skin</h1>
+
+    <button class="icon-button">
+        <i class="fa-solid fa-circle-left"></i>
+    </button>
+
+    <a href="item.html">
+        <article class="skins-container">
+            <% if (skins && skins.length > 0) { %>
+                <% for (const skin of skins) { %>
+                    <section class="skins-button">
+                        <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
+                        <p><%= skin.name %></p>
+                    </section>
+                <% } %>
+            <% } else { %>
+                <p>Geen skins gevonden.</p>
+            <% } %>
+        </article>
+</a>
+
+    <button class="icon-button">
+        <i class="fa-solid fa-circle-right"></i>
+    </button>
+</main>
+
+<%- include("partials/footer") %>

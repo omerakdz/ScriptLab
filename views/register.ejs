@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Register</title>
+</head>
+<body id="register-page">
+    <section class="register-container">
+        <h1>Registreer</h1>
+        <form action="/signup" method="POST">
+            <section class="input-username-register">
+                <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
+            </section>
+            
+            <section class="input-password-register">
+                <input type="password" id="password" placeholder="Wachtwoord" name="password" required>
+            </section>
+        
+            <section class="input-email-register">
+                <input type="email" id="email" placeholder="E-mailadres" name="email" required>
+            </section>
+        
+            <button type="submit" class="submitButton"><a href="landing.html">Registreer</a></button>
+        </form>
+    </section>
+</body>
+</html>
