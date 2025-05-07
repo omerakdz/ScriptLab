@@ -366,106 +366,101 @@ input{
 
 /* LANDING PAGINA */
 
-  LANDING PAGINA
-  #landing-page {
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+/* MAIN */
 
-/* landing pagina */
 .landing-page-main {
     grid-area: main;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-.skin-title {
-    font-size: 4rem;
+    gap: 50px;
 }
 
 .skins-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
 }
+
+.skin-title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: black;
+    background-color: var(--yellow);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.skins-button img {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    border: 3px solid black;
+}
+
+.skins-button img.selected {
+    border: 4px solid var(--yellow);
+    transform: scale(1.3);
+    transition: all 0.2s ease;
+}
+
+.skins-button:hover img {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.skin-name {
+    margin-top: 10px;
+    padding: 5px 15px;
+    font-size: 2rem;
+    font-weight: lighter;
+    color: black;
+    background-color: var(--yellow);
+    border-radius: 10px;
+    font-weight: 300;
+    text-align: center;
+    min-width: 100px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+}
+
 .skins-button {
-    width: 100%;
-}
-
-/* Verberg radio input */
-.skins-button input[type="radio"] {
-    display: none;
-}
-
-.skins-button label {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-
-.skins-button label img {
-    width: 180px;
-    height: 200px;
-    border: #000000 3px solid;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    background-color: transparent;
+    padding: 0;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.skins-button label img:hover {
-    transform: scale(1.05);
-    border: 2px solid var(--yellow);
-    border-radius: 10px;
-}
-
-
-.skins-button input[type="radio"]:checked + label {
-    border-color: yellow;
-    transform: scale(1.05);
-}
-
-
-.skins-button input[type="radio"]:checked + label img {
-    transform: scale(1.1);
-    border: var(--yellow) 3px solid;
-}
-
-.skin-name,
-.skins-button label p {
-    font-size: 1.5rem;
-    padding: 5px 12px;
-    min-width: 80px;
-    color: black;
-    background-color: var(--yellow);
-    border-radius: 15px;
-}
-
-/* Foutmelding */
-.error-message {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: var(--dark-gray);
-    border-radius: 15px;
-}
-.error-message p {
-    color: red;
-    font-size: 2rem;
-    padding: 1rem;
-}
-
-/* Navigatieknoppen */
 .icon-button {
-    margin: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
+
 .icon-button i {
-    font-size: 2rem;
+    color: var(--yellow);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.icon-button:hover i {
+    transform: scale(1.1);
 }
 
 /*UITLEG PAGINA*/
@@ -2064,84 +2059,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* ITEMS CHOOSE PAGINA */
-/*FIX: ALS IK H1 MARGIN_-TOP 1 REM GEEF OF ERROR KNOP ACHTERGROND KLEUR GEEF NEEMT HELER RUIMTE IN = BACKGR IMG VERSCHUIFT BEETJE*/
-.main-item-pagina {
-    grid-area: main;
-}
 
-.items-item-pagina {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    gap: 20px; 
-    padding: 20px;
-}
-
-.item-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark-gray);
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    flex: 0 1 calc(20% - 20px); 
-    cursor: pointer;
-    border: 3px solid transparent;
-    transition: border 0.3s ease;
-}
-
-
-.item-card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-/* Verberg checkbox */
-.item-card input[type="checkbox"] {
-    display: none;
-}
-
-
-.item-card input[type="checkbox"]:checked + img {
-    border: 3px solid gold;
-    padding: 2px;
-    box-sizing: border-box;
-}
-
-
-.submit-button {
-    background-color: var(--yellow);
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.submit-button:hover {
-    transform: scale(1.1);
-}
-
-.choose-item-error{
-    color: red;
-    
-    text-align: center;
-    font-size: 1.2rem;
- 
-}
 
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
@@ -2826,30 +2744,6 @@ h1 {
 .skins-losses img {
     width: 30px;
     height: 30px;
-}
-
-/* ITEMS CHOOSE PAGINA */
-/*FIX: ACHTERGROND AFBEELDING HELFT NIET BESCHIKBAAR*/
-.items-item-pagina {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; 
-}
-
-.item-card {
-    flex: 0 1 calc(50% - 20px); 
-    margin-bottom: 20px; 
-}
-
-.submit-button {
-    width: 50%; 
-    text-align: center;
-    color: var(--dark-gray);
-}
-
-.choose-item-error {
-    top: 20px;
-    width: 100%;
 }
 
 

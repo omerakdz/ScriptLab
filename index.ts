@@ -5,6 +5,9 @@ import path from "path";
 import mongoose from "mongoose";
 import { FortniteItem, Skin, Player, Card, GameCard } from "./types";
 import { fetchSkins, fetchItems, fetchAll } from "./api";
+import { loginUser } from "./account";
+
+
 
 dotenv.config();
 
@@ -17,10 +20,11 @@ app.use(express.static("public"));
 app.set("port", process.env.PORT ?? 3000);
 
 
+
 app.get("/", (req, res) => {
-    res.render("index", {
-            bodyId : "home-page",
-            title   : "Home"
+    res.render("menu", {
+            bodyId : "menuBody",
+            title   : "Menu"
         });
 });
 
@@ -31,6 +35,17 @@ app.get("/login", (req, res) => {
     });
 }); 
 
+app.post("/login", async(req, res) => {
+    // const username = req.body.username;
+    // const password = req.body.password;
+    
+    // const user : Player = await loginUser(username, password); 
+    res.redirect("/landing");
+    // if (user) {
+    //     res.redirect("/landing");
+    // }   
+});
+
 app.get("/register", (req, res) => {
     res.render("register", {
         bodyId : "register-page",
@@ -39,40 +54,79 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/landing", async(req, res) => {
-    try {
         const skins = await fetchSkins(40);
+        const selectedSkinImage = req.query.selectedSkinImage
         res.render("landing", {
             bodyId: "landing-page",
             title: "Landing",
             skins,
+            errorMessage: undefined,
+            selectedSkinImage
         });
-    } catch (error) {
-        console.error("Fout bij ophalen skins:", error);
-        res.status(500).send("Fout bij ophalen van skins");
-    }
+    
 });
 
-app.get("/item", async(req, res) => {
-    try {
-        const items = await fetchItems(40);
-        res.render("item", {
-            bodyId: "item-pagina",
-            title: "item",
-            items 
+app.post("/landing", async (req, res) => {
+    const skins : Skin[] = await fetchSkins(40); 
+    const selectedSkin  = req.body.selectedSkin;
+    console.log("Gekozen skin:", selectedSkin);
+
+    if (!selectedSkin) {
+        return res.render("landing", {
+            errorMessage: "Geen skin geselecteerd!",
+            title: "Landing",
+            bodyId: "landing-page",
+            skins: skins ,
         });
-    } catch (error) {
-        console.error("Fout bij ophalen items:", error);
-        res.status(500).send("Fout bij ophalen van items");
     }
+
+    res.render('choose-item');
 });
 
+app.get("/choose-item", async (req, res) => {
+    const items = await fetchItems(20);
 
-app.get("/menu", (req, res) => {
-    res.render("menu", {
-        bodyId : "menuBody",
-        title   : "Menu"
+    res.render("choose-item", {
+        bodyId: "item-pagina",
+        title: "Kies Items", // Add the title here
+        items,
+        errorMessage: undefined, 
+        selectedItems: [] 
     });
 });
+
+app.post("/select-items", async (req, res) => {
+    const selectedItems = req.body.selectedItems || []; // Gekozen items op de item pagina
+    if (selectedItems.length === 2) {
+        console.log("Geselecteerde items:", selectedItems); // Controle
+        res.redirect("/index"); 
+    } else {
+        const items = await fetchItems(20);  
+        res.render("choose-item", {
+            bodyId: "item-pagina",
+            title: "Kies Items", // Add the title here
+            errorMessage: "Je moet precies twee items kiezen.", // Alleen foutmelding als er een probleem is
+            items,
+            selectedItems: selectedItems || [], // Lege array als er geen geselecteerde items zijn
+        });
+    }
+});
+
+
+app.get("/index", (req, res) => {
+    res.render("index", {
+        bodyId : "home-page",
+        title   : "home pagina"
+    });
+});
+
+app.get("/items", async(req, res) => {
+    res.render("search-item", {
+        bodyId : "search-item-body",
+        title   : "items pagina"
+    });
+
+})
 
 app.get("/shop", (req, res) => {
     res.render("shop", {

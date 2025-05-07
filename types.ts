@@ -1,22 +1,26 @@
 // voorlopig
 export interface Player{ // gebruiker
-    id: string;
+    id?: number;
     username: string;
-    playTime: number;
-    level: number;
-    wins: number;
-    losses: number;
-    lastPlayed: Date;
-    createdAt: Date;
-    friends: string[];
-    matches: string[];
+    password?: string;
+    playTime?: number;
+    level?: number;
+    wins?: number;
+    losses?: number;
+    lastPlayed?: Date;
+    createdAt?: Date;
+    friends?: string[];
+    matches?: string[];
 }
 
 export interface Skin{
     id: string;
     name: string;
     rarity: string;
-    imageUrl: string;
+    images: {
+        icon: string; 
+        featured: string;
+    };
     description: string;
     playerId: string;
     player: Player;
