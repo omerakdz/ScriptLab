@@ -10,60 +10,24 @@
             </section>
         </article>
         <article class="skin-gallery">
-            <section class="search-skin">
-                <input type="search" value="" placeholder="Zoek skins">
-            </section>
+            <form class="search-skin" action="/skins" method="GET">
+                <input type="search" value="" placeholder="Zoek skins" name="q">
+            </form>
             <section class="all-skins">
-                <section class="skin">
-                    <img id="skin-image" src="images/skins/skin-1.jpeg" alt="Skin 1">
-                    <h1>Shadow Striker</h1>
-                    <section class="skin-actions">
-                        <a href="favorite-page.html"><img class="star-icon" src="images/items/star-icon.png" alt="ster"></a>
-                        <a href="add-to-blacklist.html">
-                            <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
-                        </a>
-                    </section>
-                </section>
-                <section class="skin">
-                    <img id="skin-image" src="images/skins/skin-2-2.jpeg" alt="Skin 2">
-                    <h1>Maze</h1>
-                    <section class="skin-actions">
-                        <a href="favorite-page.html"><img class="star-icon" src="images/items/star-icon.png" alt="ster"></a>
-                        <a href="add-to-blacklist.html">
-                            <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
-                        </a>
-                    </section>
-                </section>
-                <section class="skin">
-                    <img id="skin-image" src="images/skins/skin-3.jpeg" alt="Skin 3">
-                    <h1>Nightfall Hunter</h1>
-                    <section class="skin-actions">
-                        <a href="favorite-page.html"><img class="star-icon" src="images/items/star-icon.png" alt="ster"></a>
-                        <a href="add-to-blacklist.html">
-                            <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
-                        </a>
-                    </section>
-                </section>
-                <section class="skin">
-                    <img id="skin-image" src="images/skins/skin-4.jpeg" alt="Skin 4">
-                    <h1>Blaze Raider</h1>
-                    <section class="skin-actions">
-                        <a href="favorite-page.html"><img class="star-icon" src="images/items/star-icon.png" alt="ster"></a>
-                        <a href="add-to-blacklist.html">
-                            <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
-                        </a>
-                    </section>
-                </section>
-                <section class="skin">
-                    <img id="skin-image" src="images/skins/skin-5.jpeg" alt="Skin 5">
-                    <h1>Pixel Phantom</h1>
-                    <section class="skin-actions">
-                        <a href="favorite-page.html"><img class="star-icon" src="images/items/star-icon.png" alt="ster"></a>
-                        <a href="add-to-blacklist.html">
-                            <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
-                        </a>
-                    </section>
-                </section>
+                <% for (const skin of skins) { %>
+                    <article class="skin">
+                        <img id="skin-image" src="<%= skin.images.icon %>" alt="<%= skin.name %>">
+                        <h1><%= skin.name %></h1>
+                        <section class="skin-actions">
+                            <a href="favorite-page.html">
+                                <img class="star-icon" src="images/items/star-icon.png" alt="ster">
+                            </a>
+                            <a href="add-to-blacklist.html">
+                                <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
+                            </a>
+                        </section>
+                    </article>
+                <% } %>
             </section>                    
         </article>
     </main>

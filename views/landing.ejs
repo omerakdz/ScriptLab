@@ -3,24 +3,36 @@
 <main class="landing-page-main">
     <h1 class="skin-title">Kies een skin</h1>
 
+    <% if (errorMessage) { %>
+        <article class="error-message">
+            <p style="color: red;"><%= errorMessage %></p>
+        </article>
+    <% } %>
+
     <button class="icon-button">
         <i class="fa-solid fa-circle-left"></i>
     </button>
 
-    <a href="item.html">
+    <form id="skin-form" method="POST" action="/landing">
         <article class="skins-container">
             <% if (skins && skins.length > 0) { %>
                 <% for (const skin of skins) { %>
                     <section class="skins-button">
-                        <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
-                        <p><%= skin.name %></p>
+               
+                        <input type="radio" name="selectedSkin" id="skin-<%= skin.id %>" value="<%= skin.id %>" />
+                        <label for="skin-<%= skin.id %>">
+                            <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
+                            <p><%= skin.name %></p>
+                        </label>
                     </section>
                 <% } %>
             <% } else { %>
                 <p>Geen skins gevonden.</p>
             <% } %>
         </article>
-</a>
+    
+        <button type="submit" class="submit-button">Bevestig keuze</button>
+    </form>
 
     <button class="icon-button">
         <i class="fa-solid fa-circle-right"></i>

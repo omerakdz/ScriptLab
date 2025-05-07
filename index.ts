@@ -4,7 +4,11 @@ import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
 import { FortniteItem, Skin, Player, Card, GameCard } from "./types";
-import { fetchSkins, fetchItems, fetchAll } from "./api";
+import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
+import { loginUser } from "./account";
+import { error } from "console";
+
+
 
 dotenv.config();
 
@@ -17,10 +21,11 @@ app.use(express.static("public"));
 app.set("port", process.env.PORT ?? 3000);
 
 
+
 app.get("/", (req, res) => {
-    res.render("index", {
-            bodyId : "home-page",
-            title   : "Home"
+    res.render("menu", {
+            bodyId : "menuBody",
+            title   : "Menu"
         });
 });
 
@@ -31,6 +36,17 @@ app.get("/login", (req, res) => {
     });
 }); 
 
+app.post("/login", async(req, res) => {
+    // const username = req.body.username;
+    // const password = req.body.password;
+    
+    // const user : Player = await loginUser(username, password); 
+    res.redirect("/landing");
+    // if (user) {
+    //     res.redirect("/landing");
+    // }   
+});
+
 app.get("/register", (req, res) => {
     res.render("register", {
         bodyId : "register-page",
@@ -39,45 +55,106 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/landing", async(req, res) => {
-    try {
         const skins = await fetchSkins(40);
+        const selectedSkinImage = req.query.selectedSkinImage
         res.render("landing", {
             bodyId: "landing-page",
             title: "Landing",
             skins,
+            errorMessage: undefined,
+            selectedSkinImage
         });
-    } catch (error) {
-        console.error("Fout bij ophalen skins:", error);
-        res.status(500).send("Fout bij ophalen van skins");
-    }
+    
 });
 
-app.get("/item", async(req, res) => {
-    try {
-        const items = await fetchItems(40);
-        res.render("item", {
-            bodyId: "item-pagina",
-            title: "item",
-            items 
+app.post("/landing", async (req, res) => {
+    const skins : Skin[] = await fetchSkins(40); 
+    const selectedSkin  = req.body.selectedSkin;
+    
+    console.log("Gekozen skin:", selectedSkin);
+
+    if (!selectedSkin) {
+        return res.render("landing", {
+            errorMessage: "Geen skin geselecteerd!",
+            title: "Landing",
+            bodyId: "landing-page",
+            skins: skins ,
         });
-    } catch (error) {
-        console.error("Fout bij ophalen items:", error);
-        res.status(500).send("Fout bij ophalen van items");
     }
+
+    res.redirect('choose-item')
 });
 
-
-app.get("/menu", (req, res) => {
-    res.render("menu", {
-        bodyId : "menuBody",
-        title   : "Menu"
+app.get("/choose-item", async (req, res) => {
+    const items = await fetchItems(20);
+    console.log("Items:", items); // Controle
+    res.render("choose-item", {
+        bodyId: "item-pagina",
+        title: "Kies Items", 
+        items,
+        errorMessage: undefined, 
+        selectedItems: [] 
     });
 });
 
-app.get("/shop", (req, res) => {
+app.post("/select-items", async (req, res) => {
+    const selectedItems = req.body.selectedItems || []; // Gekozen items op de item pagina
+    if (selectedItems.length === 2) {
+        console.log("Geselecteerde items:", selectedItems); // Controle
+        res.redirect("/index"); 
+    } else {
+        const items = await fetchItems(20);  
+        res.render("choose-item", {
+            bodyId: "item-pagina",
+            title: "Kies Items", 
+            errorMessage: "Je moet precies twee items kiezen.", 
+            items,
+            selectedItems: selectedItems || [], 
+        });
+    }
+});
+
+
+app.get("/index", (req, res) => {
+    res.render("index", {
+        bodyId : "home-page",
+        title   : "home pagina"
+    });
+});
+
+app.get("/items", async(req, res) => {
+    const searchItem  = typeof req.query.q === "string" ? req.query.q : "";
+    
+    const items = await fetchItems(40); 
+
+    const filteredItems = items.filter(item =>
+        item.name.toLowerCase().includes(searchItem.toLowerCase())
+    );
+    res.render("search-item", {
+        bodyId: "search-item-body",
+        title: "Items Pagina",
+        items: items, 
+        searchItem : searchItem,
+        filteredItems: filteredItems
+    });
+})
+
+app.get("/skins", async(req, res) => {
+    const skins : Skin[] = await fetchSkins(40);
+    res.render("skins", {
+        bodyId : "skins-page",
+        title   : "skins",
+        skins: skins
+    });
+});
+
+
+app.get("/shop", async(req, res) => {
+    const items = await fetchShop(40); 
     res.render("shop", {
-        bodyId : "shop-page",
-        title   : "Shop"
+        bodyId: "shop-page",
+        title: "Shop",
+        items 
     });
 });
 
@@ -115,3 +192,5 @@ app.get("/card-game", async(req, res) => {
 app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost/:" + app.get("port"));
 });
+
+
