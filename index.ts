@@ -4,8 +4,9 @@ import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
 import { FortniteItem, Skin, Player, Card, GameCard } from "./types";
-import { fetchSkins, fetchItems, fetchAll } from "./api";
+import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { loginUser } from "./account";
+import { error } from "console";
 
 
 
@@ -69,6 +70,7 @@ app.get("/landing", async(req, res) => {
 app.post("/landing", async (req, res) => {
     const skins : Skin[] = await fetchSkins(40); 
     const selectedSkin  = req.body.selectedSkin;
+    
     console.log("Gekozen skin:", selectedSkin);
 
     if (!selectedSkin) {
@@ -80,15 +82,15 @@ app.post("/landing", async (req, res) => {
         });
     }
 
-    res.render('choose-item');
+    res.redirect('choose-item')
 });
 
 app.get("/choose-item", async (req, res) => {
     const items = await fetchItems(20);
-
+    console.log("Items:", items); // Controle
     res.render("choose-item", {
         bodyId: "item-pagina",
-        title: "Kies Items", // Add the title here
+        title: "Kies Items", 
         items,
         errorMessage: undefined, 
         selectedItems: [] 
@@ -104,10 +106,10 @@ app.post("/select-items", async (req, res) => {
         const items = await fetchItems(20);  
         res.render("choose-item", {
             bodyId: "item-pagina",
-            title: "Kies Items", // Add the title here
-            errorMessage: "Je moet precies twee items kiezen.", // Alleen foutmelding als er een probleem is
+            title: "Kies Items", 
+            errorMessage: "Je moet precies twee items kiezen.", 
             items,
-            selectedItems: selectedItems || [], // Lege array als er geen geselecteerde items zijn
+            selectedItems: selectedItems || [], 
         });
     }
 });
@@ -121,17 +123,38 @@ app.get("/index", (req, res) => {
 });
 
 app.get("/items", async(req, res) => {
-    res.render("search-item", {
-        bodyId : "search-item-body",
-        title   : "items pagina"
-    });
+    const searchItem  = typeof req.query.q === "string" ? req.query.q : "";
+    
+    const items = await fetchItems(40); 
 
+    const filteredItems = items.filter(item =>
+        item.name.toLowerCase().includes(searchItem.toLowerCase())
+    );
+    res.render("search-item", {
+        bodyId: "search-item-body",
+        title: "Items Pagina",
+        items: items, 
+        searchItem : searchItem,
+        filteredItems: filteredItems
+    });
 })
 
-app.get("/shop", (req, res) => {
+app.get("/skins", async(req, res) => {
+    const skins : Skin[] = await fetchSkins(40);
+    res.render("skins", {
+        bodyId : "skins-page",
+        title   : "skins",
+        skins: skins
+    });
+});
+
+
+app.get("/shop", async(req, res) => {
+    const items = await fetchShop(40); 
     res.render("shop", {
-        bodyId : "shop-page",
-        title   : "Shop"
+        bodyId: "shop-page",
+        title: "Shop",
+        items 
     });
 });
 
@@ -169,3 +192,5 @@ app.get("/card-game", async(req, res) => {
 app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost/:" + app.get("port"));
 });
+
+
