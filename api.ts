@@ -22,14 +22,19 @@ export async function fetchItems(limit : number = 40): Promise<FortniteItem[]> {
 export async function fetchShop(limit: number = 40): Promise<FortniteItem[]> {
     const response = await fetch("https://fortnite-api.com/v2/shop");
     const data = await response.json();
-    console.log(data); // Voeg deze regel toe om te kijken wat er in de data zit
-    if (Array.isArray(data.data)) {
-        return data.data.slice(0, limit); // Zorg ervoor dat data.data een array is
-    } else {
-        console.error("De ontvangen data is geen array:", data.data); 
-        return []; // Of een lege array teruggeven als data niet in het verwachte formaat is
-    }
+
+    if (!data || !data.data || !data.data.entries) {
+        console.error("Geen gegevens gevonden");
+        return [];  
+    }  
+    const shopItems: FortniteItem[] = data.data.entries;
+
+    const filterImage = shopItems.filter(item => item.bundle?.image);
+
+    return filterImage.slice(0, limit);
 }
+
+
 
 export async function fetchAll(limit : number = 40): Promise<FortniteItem[]> {
     const response = await fetch(BASE_URL);
