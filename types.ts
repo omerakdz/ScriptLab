@@ -45,7 +45,9 @@ export interface GameCard {
     element: HTMLDivElement;
 }
 
-export interface FortniteItem { // voor api
+export interface FortniteItem {
+    offerTag: any;
+    bundle: any;
     id: string;
     name: string;
     images: {
@@ -56,9 +58,9 @@ export interface FortniteItem { // voor api
     };
     description: string;
     type: {
+        id(id: any): unknown;
         value: string; // outfit, item, etc.
     };
   }
-
 
 

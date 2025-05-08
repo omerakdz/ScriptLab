@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import { FortniteItem, Skin, Player, Card, GameCard } from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { loginUser } from "./account";
-import { error } from "console";
+
 
 
 
@@ -87,7 +87,6 @@ app.post("/landing", async (req, res) => {
 
 app.get("/choose-item", async (req, res) => {
     const items = await fetchItems(20);
-    console.log("Items:", items); // Controle
     res.render("choose-item", {
         bodyId: "item-pagina",
         title: "Kies Items", 
@@ -100,7 +99,7 @@ app.get("/choose-item", async (req, res) => {
 app.post("/select-items", async (req, res) => {
     const selectedItems = req.body.selectedItems || []; // Gekozen items op de item pagina
     if (selectedItems.length === 2) {
-        console.log("Geselecteerde items:", selectedItems); // Controle
+        console.log("Geselecteerde items:", selectedItems.length); // Controle
         res.redirect("/index"); 
     } else {
         const items = await fetchItems(20);  
@@ -149,12 +148,12 @@ app.get("/skins", async(req, res) => {
 });
 
 
-app.get("/shop", async(req, res) => {
-    const items = await fetchShop(40); 
+app.get("/shop", async (req, res) => {
+    const items = await fetchShop(10); 
     res.render("shop", {
         bodyId: "shop-page",
         title: "Shop",
-        items 
+        items
     });
 });
 
