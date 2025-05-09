@@ -192,5 +192,3 @@ app.get("/card-game", async(req, res) => {
 app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost/:" + app.get("port"));
 });
-
-
