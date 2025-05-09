@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+<script type="module" src="public/static/js/card-game.js" defer></script>
+
+    <main class="card-game-content">
+        <h1>Memory Card Game</h1>
+        <section id="status-container" class="status-container">
+            <article id="timer" class="timer">
+                <p id="timer-text">00:00</p>
+            </article>
+            <article id="reset" class="reset">
+                <button>Reset Game</button>
+            </article>
+            <article id="moves-count" class="moves-count">
+                <p>Zetten: <span id="move-count">0</span></p>
+            </article>
+        </section>
+        
+        <section id="game-board" class="game-board">
+            <% for (const item of items) { %>
+                <article class="card" data-name="<%= item.name %>"> <!-- werkt momenteel niet -->
+                    <section class="card-inner">
+                        <div class="card-front"></div>
+                        <div class="card-back">
+                            <img src="<%= item.images.icon %>" alt="<%= item.name %>">
+                        </div>
+                    </section>
+                </article>
+            <% } %>
+        </section>
+
+        <section id="game-end-container" class="game-end-container" style="display: none;">
+            <article class="game-end-content">
+                <h2>Het spel is afgelopen!</h2>
+                <p>Je hebt het spel voltooid! Wil je opnieuw spelen of naar de homepagina gaan?</p>
+
+                <section class="game-end-stats">
+                    <p id="final-time">Tijd: 00:00</p>
+                    <p id="final-moves">Aantal zetten: 0</p>
+                </section>
+
+                <section class="game-end-buttons">
+                    <button id="retry-game" class="retry-button">
+                        <img src="/images/retry-icon.png" alt="Opnieuw" />
+                        Opnieuw
+                    </button>
+
+                    <button id="home-button" class="home-button">
+                        <img src="/images/home-icon.png" alt="Home" />
+                        Home
+                    </button>
+                </section>
+            </article>
+        </section>
+ 
+    </main>
+
+  <%- include("partials/footer") %>

@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+    <main id="skins-page-main">
+        <article class="current-skin">
+            <img src="images/skins/skin-6.jpg" alt="Dark Voyager">
+            <h1 class="current-skin-name">Dark Voyager</h1>
+            <section class="win-loss-icons">
+                <button class="skins-wins">5<img src="images/items/trophy.png" alt=""></button>
+                <button class="skins-losses">3<img src="images/items/game-over.png" alt="game over"></button>
+            </section>
+        </article>
+        <article class="skin-gallery">
+            <form class="search-skin" action="/skins" method="GET">
+                <input type="search" value="" placeholder="Zoek skins" name="q">
+            </form>
+            <section class="all-skins">
+                <% for (const skin of skins) { %>
+                    <article class="skin">
+                        <img id="skin-image" src="<%= skin.images.icon %>" alt="<%= skin.name %>">
+                        <h1><%= skin.name %></h1>
+                        <section class="skin-actions">
+                            <a href="favorite-page.html">
+                                <img class="star-icon" src="images/items/star-icon.png" alt="ster">
+                            </a>
+                            <a href="add-to-blacklist.html">
+                                <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
+                            </a>
+                        </section>
+                    </article>
+                <% } %>
+            </section>                    
+        </article>
+    </main>
+    <%- include("partials/footer") %>

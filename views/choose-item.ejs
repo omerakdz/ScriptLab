@@ -1,0 +1,39 @@
+
+<%- include("partials/header") %>
+
+    <main class="main-item-pagina">
+        <h1 class="item-pagina-h1">KIES 2 ITEMS VOOR JOUW SKIN</h1>
+
+        <section class="skin-selection-item-pagina">
+
+            <% if (errorMessage) { %>
+                <p class="choose-item-error"><%= errorMessage %></p>
+            <% } %>
+            <!-- <article class="skin-item-pagina">
+                <img id="img-item-pagina" src="images/skins/skin-5.jpeg" alt="Dark Voyager Skin">
+                <span id="span-item-pagina">dark voyager</span>
+            </article> -->
+
+      
+
+        <form action="/select-items" method="POST">
+            <section class="items-item-pagina">
+                <% if (items && items.length > 0) { %>
+                    <% for (const item of items) { %>
+                        <label class="item-card">
+                            <input type="checkbox" name="selectedItems" value="<%= item.id %>">
+                            <img src="<%= item.images.icon %>" alt="<%= item.name %>">
+                        </label>
+                    <% } %>
+                <% } else { %>
+                    <p>Geen items gevonden.</p>
+                <% } %>
+            </section>
+        </section>
+            <button type="submit" class="submit-button">Bevestigen</button>
+        </form>
+    </main>
+    </main>
+
+
+  <%- include("partials/footer") %>

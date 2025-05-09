@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<section class="shop-section">
+    <!-- <button type="button" class="shop-button prev-button">&#9664;</button>
+    <article class="shop-container"></article>
+    <button type="button" class="shop-button next-button">&#9654;</button> -->
+
+    <main id="shop-page-main">
+        <article class="shop-container">
+                <% for (const item of items) { %>
+                    <article class="shop-item">
+                        <img src="<%= item.bundle?.image || 'default-image-path.png' %>" alt="<%= item.bundle?.name || item.devName %>">
+                        <h3 class="shop-item-name"><%= item.bundle?.name || item.devName %></h3>
+                        <p class="shop-des"><%= item.offerTag?.text || 'Geen beschrijving beschikbaar' %></p>
+                        <p class="price">
+                            <%= item.finalPrice %> 
+                            <img src="https://fortnite-api.com/images/vbuck.png" alt="V-Bucks" class="vbuck-icon">
+                        </p>
+                        <button type="button" class="buy-button">Koop</button>
+                    </article>
+                <% } %>
+        </article>
+    </main>
+<!-- 
+    <article class="shop-button-container">
+        <button type="button" class="shop-button-mobile prev-button">&#9664;</button>
+        <button type="button" class="shop-button-mobile next-button">&#9654;</button>
+    </article> -->
+</section>
+
+<%- include('partials/footer') %>

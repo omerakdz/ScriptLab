@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+
+    <main class="search-item-main">
+        <section class="search-items">
+            <form action="/items" method="GET">
+                <input type="text" name="q" placeholder="Search for items..." value="<%= searchItem  %> ">
+            </form>
+        </section>
+
+        <section class="item-container">
+            <% for (const item of items) { %>
+                <article class="item">
+                    <img src="<%= item.images.icon %>" alt="<%= item.name %>">
+                </article>
+            <% }; %>
+        </section>
+    </main>
+
+
+   <%- include("partials/footer") %>
