@@ -64,4 +64,7 @@ export interface FortniteItem {
     };
   }
 
-
+  export interface Profile{
+      name: string;
+      skinIconUrl: string;
+  }

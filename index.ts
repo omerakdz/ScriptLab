@@ -3,8 +3,12 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
-import { FortniteItem, Skin, Player, Card, GameCard } from "./types";
+import { FortniteItem, Skin, Player, Card, GameCard, Profile} from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
+import { profiles } from "./public/json/players.json"
+import { loginUser } from "./account";
+import { error } from "console";
+import { title } from "process";
 import { loginUser, createUser } from "./account";
 import session from "./session";
 import { collection, connect } from "./database";
@@ -303,9 +307,19 @@ app.get("/card-game", async(req, res) => {
       }
 });
 
+app.get("/search-profile", (req, res) => {
+    const q  = typeof req.query.q === "string" ? req.query.q : "";
+    const results : Profile[] = profiles.filter(profile  => profile.name.toLowerCase().includes(q.toLowerCase()))
+    res.render("search-profile", {title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q : q})
+})
+
+app.get("/user/:username", (req, res) =>{
+    const username  = typeof req.params.username === "string" ? req.params.username : "";
+    const profile : Profile | undefined = profiles.find(profile => profile.name === username )
+    res.render("user-profile", {title: title, bodyId:"user-profile-page", profile : profile})
+})
+
 app.listen(app.get("port"), async() => {
     await connect();
     console.log("Server started on http://localhost/:" + app.get("port"));
 });
-
-
