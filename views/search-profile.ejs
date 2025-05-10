@@ -2,72 +2,18 @@
 
     <main>
         <section class="profile-search-card">
-            <a href="index.html" class="back-button">&larr; TERUG</a>
+            <a href="index" class="back-button">&larr; TERUG</a>
 
-            <h1>ZOEKRESULTATEN VOOR: Fn</h1>
-
-            <article class="profile-search">
-                <a href="user-profile.html">
-                <img src="images/skins/skin-4.jpeg" alt="">
-            </a>
-                    <span class="profile-search-username">FnWKeyMaster77</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-5.jpeg" alt="">
-                <span class="profile-search-username">FnCrankGod92</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-1.jpeg" alt="">
-                <span class="profile-search-username">FnStormPhase99</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-7.jpg" alt="">
-                <span class="profile-search-username">FnSweat4Days23</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-1.jpeg" alt="">
-                <span class="profile-search-username">FnEditDemon54</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-1.jpeg" alt="">
-                <span class="profile-search-username">FnRampRushX88</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-3.jpeg" alt="">
-                <span class="profile-search-username">FnBoxFighter09</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-4.jpeg" alt="">
-                <span class="profile-search-username">FnSniperClutch31</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-5.jpeg" alt="">
-                <span class="profile-search-username">FnSweat4Days23</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-1.jpeg" alt="">
-                <span class="profile-search-username">FnEditDemon54</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-1.jpeg" alt="">
-                <span class="profile-search-username">FnRampRushX88</span>
-            </article>
-
-            <article class="profile-search">
-                <img src="images/skins/skin-1.jpeg" alt="">
-                <span class="profile-search-username">FnBoxFighter09</span>
-            </article>
-
+            <h1>ZOEKRESULTATEN VOOR: <%= q %> </h1>
+            
+            <% for(var result of results ) { %> 
+                <article class="profile-search">
+                    <a href="/user/<%=result.name%>">
+                    <img src="<%= result.skinIconUrl %>" alt="">
+                </a>
+                        <span class="profile-search-username"><%= result.name %></span>
+                </article>
+                <% } %> 
         </section>
     </main>
 

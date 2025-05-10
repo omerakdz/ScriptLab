@@ -1015,6 +1015,10 @@ textarea {
     border-radius: 200px;
 }
 
+.profile-search img:hover{
+    border: var(--yellow) 6px solid;
+}
+
 #profile-search-page::before {
     content: " ";
     position: absolute;

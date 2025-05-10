@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset.css">
 </head>
-<body id="home-page">
+<body id="<%= bodyId %>">
 <header>
     <article class="logo">
-        <a href="/"><span>Fortnite</span></a>
-        <a href="/guide"><img src="images/items/info-icon.png" alt="Info"></a>
+        <a href="/index"><span>Fortnite</span></a>
+        <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a>
     </article>
     <section class="search-container">
-        <form action="/search-profile" class="search-bar" method="get">
+        <form action="../search-profile" class="search-bar" method="get">
             <input type="text" name="q" placeholder="Zoek spelers...">
         </form>
     </section>
     <article class="profile">
-        <a href="settings-profile.html"><img src="images/skins/skin-1.jpeg" alt="John"></a>
+        <a href="../settings-profile"><img src="../images/skins/skin-1.jpeg" alt="John"></a>
         <span>John</span>
     </article>
 </header>
-<body id="<%= bodyId %>">
+
     
