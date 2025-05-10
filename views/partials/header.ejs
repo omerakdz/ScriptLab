@@ -11,8 +11,8 @@
 <body id="home-page">
 <header>
     <article class="profile">
-        <a href="settings-profile.html"><img src="images/skins/skin-1.jpeg" alt="John"></a>
-        <span>John</span>
+        <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/skins/default-skin.jpg' %>" alt="<%= username %>">
+        <span><%= username %></span>
     </article>
     <section class="search-container">
         <form action="profile-search.html" class="search-bar" method="get">
