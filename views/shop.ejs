@@ -1,32 +1,31 @@
 <%- include('partials/header') %>
 
-    <section class="shop-section">
-        <button type="button" class="shop-button prev-button">&#9664;</button> <!-- Desktop vorige knop -->
-        <article class="shop-container"></article> <!-- Hier komt shop items met js -->
-        <button type="button" class="shop-button next-button">&#9654;</button> <!-- Desktop volgende knop -->
+<section class="shop-section">
+    <!-- <button type="button" class="shop-button prev-button">&#9664;</button>
+    <article class="shop-container"></article>
+    <button type="button" class="shop-button next-button">&#9654;</button> -->
 
-        <main id="shop-page-main">
-            <article class="shop-container">
-                <% if (items.length > 0) { %>
-                    <% for (const item of items) { %>
-                        <section class="shop-item">
-                            <img src="<%= item.item.images.icon %>" alt="<%= item.item.name %>">
-                            <h2><%= item.item.name %></h2>
-                            <p><%= item.item.series ? item.item.series.name : "No series" %></p>
-                            <p>Prijs: <%= item.finalPrice %> V-Bucks</p>
-                        </section>
-                    <% } %>
-                <% } else { %>
-                    <p>No items available at the moment.</p>
+    <main id="shop-page-main">
+        <article class="shop-container">
+                <% for (const item of items) { %>
+                    <article class="shop-item">
+                        <img src="<%= item.bundle?.image || 'default-image-path.png' %>" alt="<%= item.bundle?.name || item.devName %>">
+                        <h3 class="shop-item-name"><%= item.bundle?.name || item.devName %></h3>
+                        <p class="shop-des"><%= item.offerTag?.text || 'Geen beschrijving beschikbaar' %></p>
+                        <p class="price">
+                            <%= item.finalPrice %> 
+                            <img src="https://fortnite-api.com/images/vbuck.png" alt="V-Bucks" class="vbuck-icon">
+                        </p>
+                        <button type="button" class="buy-button">Koop</button>
+                    </article>
                 <% } %>
-            </article>
-        </main>
-    
-        <!-- Extra knoppen onderaan voor mobiel -->
-        <article class="shop-button-container">
-            <button type="button" class="shop-button-mobile prev-button">&#9664;</button> 
-            <button type="button" class="shop-button-mobile next-button">&#9654;</button> 
         </article>
-    </section>
+    </main>
+<!-- 
+    <article class="shop-button-container">
+        <button type="button" class="shop-button-mobile prev-button">&#9664;</button>
+        <button type="button" class="shop-button-mobile next-button">&#9654;</button>
+    </article> -->
+</section>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>

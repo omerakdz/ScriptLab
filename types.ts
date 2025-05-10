@@ -1,17 +1,18 @@
 // voorlopig
-export interface Player{ // gebruiker
-    id?: number;
+export interface Player {
     username: string;
     password?: string;
-    playTime?: number;
+    email?: string;
+    blacklistedSkins?: string[];
+    favoriteSkins?: string[];
+    selectedSkin?: Skin;
+    selectedItems?: FortniteItem[]; // max 2
     level?: number;
     wins?: number;
     losses?: number;
-    lastPlayed?: Date;
     createdAt?: Date;
     friends?: string[];
-    matches?: string[];
-}
+  }
 
 export interface Skin{
     id: string;
@@ -45,7 +46,9 @@ export interface GameCard {
     element: HTMLDivElement;
 }
 
-export interface FortniteItem { // voor api
+export interface FortniteItem {
+    offerTag: any;
+    bundle: any;
     id: string;
     name: string;
     images: {
@@ -56,6 +59,7 @@ export interface FortniteItem { // voor api
     };
     description: string;
     type: {
+        id(id: any): unknown;
         value: string; // outfit, item, etc.
     };
   }

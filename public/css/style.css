@@ -253,7 +253,7 @@ input{
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
-    height: 310px;
+    height: 330px;
     text-align: center;
 }
 
@@ -263,7 +263,7 @@ input{
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
-    height: 345px;
+    height: 370px;
     text-align: center;
 }
 
@@ -282,7 +282,7 @@ input{
 
 #username,
 #password,
-#email {
+#confirmPassword {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -308,7 +308,7 @@ input{
     background-position: right 15px center;
 }
 
-#email {
+#confirmPassword {
     background-image: url("/images/items/email-icon.png");
     background-repeat: no-repeat;
     background-size: 18px;
@@ -366,7 +366,6 @@ input{
 
 /* LANDING PAGINA */
 
-  LANDING PAGINA
   #landing-page {
     background-size: cover;
     background-position: center;
@@ -458,6 +457,13 @@ input{
     color: red;
     font-size: 2rem;
     padding: 1rem;
+}
+
+
+.error-message-login p {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Navigatieknoppen */
@@ -1783,7 +1789,6 @@ button:hover {
 }
 
 /* SHOP PAGINA */
-
 .shop-section {
     grid-area: main;
     display: flex;
@@ -1811,7 +1816,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 200px;
+    width: calc(20% - 20px); 
     background-color: var(--dark-gray);
     opacity: 98%;
     border-radius: 10px;
@@ -1823,37 +1828,35 @@ button:hover {
     cursor: pointer;
 }
 
-.shop-img {
+.shop-item img {
     width: 100%;
-    height: 180px;
+    height: auto;
     border-radius: 5px;
-    margin-bottom: 10px;
-    object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.shop-item-name {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+.shop-item-name{
+    font-size: 1.5rem;
+    font-weight: lighter;
 }
 
-.shop-item-price {
-    font-size: 20px;
+.shop-des{
+    font-weight: normal;
+    margin-top: 0.5rem;
+}
+
+.price {
+    font-size: 1.2rem;
     color: var(--yellow);
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    
 }
 
-.coin-icon {
+.vbuck-icon {
     width: 30px !important;
-    height: auto !important;
-    margin-top: 8px;
+    margin-top: 10px;
+    position: relative;
+    top: 8px;
 }
+
 
 .buy-button {
     margin-top: 10px;
@@ -1872,13 +1875,16 @@ button:hover {
     transform: scale(1.05);
 }
 
-.shop-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+.shop-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    display: none;
 }
 
-.shop-button {
+/* SHOP BUTTONS */
+/* .shop-button {
     background-color: var(--yellow);
     color: var(--dark-gray);
     border: none;
@@ -1897,16 +1903,9 @@ button:hover {
     transform: scale(1.1);
 }
 
-.shop-button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    display: none;
-}
 
-
-.shop-button-mobile {
+/* MOBILE SHOP BUTTONS */
+/* .shop-button-mobile {
     background-color: var(--yellow);
     color: var(--dark-gray);
     border: none;
@@ -1935,7 +1934,7 @@ button:hover {
 .shop-button-mobile.prev-button:hover,
 .shop-button-mobile.next-button:hover {
     transform: scale(1.1);
-}
+} */ */
 
 
 /* CARD GAME*/
@@ -1952,7 +1951,7 @@ button:hover {
     padding: 1rem;
 }
 
-h1 {
+.card-game-content h1 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
@@ -2737,7 +2736,10 @@ footer {
     }
 
 /* SHOP PAGINA */
-#shop-page {
+.shop-item {
+    width: calc(50% - 20px); /* 2 items naast elkaar */
+}
+/* #shop-page {
     background-image: url("/images/bg-images/shop-mobile.jpeg");
     background-position: center;
     background-size: cover;
@@ -2813,7 +2815,7 @@ footer {
 
 .shop-item-button img {
     height: auto;
-}
+} */
 
 /* GAME KAART SPEL */
 #card-game-page {

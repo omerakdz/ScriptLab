@@ -20,8 +20,8 @@
         </form>
     </section>
     <article class="profile">
-        <a href="../settings-profile"><img src="../images/skins/skin-1.jpeg" alt="John"></a>
-        <span>John</span>
+        <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/skins/default-skin.jpg' %>" alt="<%= username %>">
+        <span><%= username %></span>
     </article>
 </header>
 
