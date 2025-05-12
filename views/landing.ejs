@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 
 <main class="landing-page-main">
-    <h1 class="skin-title">Kies een skin</h1>
+    <h1 class="skin-title">Kies een avatar</h1>
 
     <% if (errorMessage) { %>
         <article class="error-message">
@@ -9,34 +9,28 @@
         </article>
     <% } %>
 
-    <button class="icon-button">
-        <i class="fa-solid fa-circle-left"></i>
-    </button>
-
     <form id="skin-form" method="POST" action="/landing">
-        <article class="skins-container">
-            <% if (skins && skins.length > 0) { %>
-                <% for (const skin of skins) { %>
-                    <section class="skins-button">
-               
-                        <input type="radio" name="selectedSkin" id="skin-<%= skin.id %>" value="<%= skin.id %>" />
-                        <label for="skin-<%= skin.id %>">
-                            <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
-                            <p><%= skin.name %></p>
-                        </label>
-                    </section>
+        <section class="skins-scroll-wrapper">
+            <article class="skins-container">
+                <% if (skins && skins.length > 0) { %>
+                    <% for (const skin of skins) { %>
+                        <section class="skins-button">
+                            <input type="radio" name="selectedSkin" id="skin-<%= skin.id %>" value="<%= skin.id %>" />
+                            <label for="skin-<%= skin.id %>">
+                                <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
+                                <p><%= skin.name %></p>
+                            </label>
+                        </section>
+                    <% } %>
+                <% } else { %>
+                    <p>Geen skins gevonden.</p>
                 <% } %>
-            <% } else { %>
-                <p>Geen skins gevonden.</p>
-            <% } %>
-        </article>
-    
+            </article>
+        </section>
+        
         <button type="submit" class="submit-button">Bevestig keuze</button>
     </form>
-
-    <button class="icon-button">
-        <i class="fa-solid fa-circle-right"></i>
-    </button>
+    
 </main>
 
 <%- include("partials/footer") %>

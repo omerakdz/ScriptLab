@@ -366,13 +366,15 @@ input{
 
 /* LANDING PAGINA */
 
+
+
   #landing-page {
+
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* landing pagina */
 .landing-page-main {
     grid-area: main;
     display: flex;
@@ -393,7 +395,6 @@ input{
     width: 100%;
 }
 
-/* Verberg radio input */
 .skins-button input[type="radio"] {
     display: none;
 }
@@ -412,7 +413,7 @@ input{
 .skins-button label img {
     width: 180px;
     height: 200px;
-    border: #000000 3px solid;
+    border: var(--yellow) 3px solid;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
@@ -440,6 +441,7 @@ input{
 .skins-button label p {
     font-size: 1.5rem;
     padding: 5px 12px;
+    margin-top: 15px;
     min-width: 80px;
     color: black;
     background-color: var(--yellow);
@@ -459,6 +461,17 @@ input{
     padding: 1rem;
 }
 
+/* scrollbar */
+.skins-scroll-wrapper {
+    background-color: var(--dark-gray);
+    max-height: 400px;
+    width: 80rem;
+    overflow-y: auto;
+    border: 3px solid var(--yellow);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
 
 .error-message-login p {
     color: red;
@@ -466,12 +479,18 @@ input{
     margin-bottom: 0.5rem;
 }
 
-/* Navigatieknoppen */
-.icon-button {
-    margin: 10px;
+.skins-scroll-wrapper::-webkit-scrollbar {
+    width: 12px;
 }
-.icon-button i {
-    font-size: 2rem;
+
+.skins-scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    border-radius: 6px;
+}
+
+.skins-scroll-wrapper::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 6px;
 }
 
 /*UITLEG PAGINA*/
@@ -2149,11 +2168,11 @@ button:hover {
 
 .submit-button {
     background-color: var(--yellow);
-    color: white;
+    color: black;
     padding: 15px 30px;
     border: none;
     border-radius: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 30px;
@@ -2230,11 +2249,13 @@ button:hover {
 
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
+    font-family: Arial, Helvetica, sans-serif;
     grid-area: footer !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: lighter;
     padding: 10px !important;
     background: var(--dark-gray) !important;
     height: 4rem !important;
@@ -2441,15 +2462,34 @@ footer {
         transform: scale(1.05);
     }
 
-    .icon-button i {
-        font-size: 2rem;
+    /* scroll bar */
+
+        .skins-scroll-wrapper {
+        background-color: var(--dark-gray);
+        max-height: 300px;
+        width: 40rem;
+        overflow-y: auto;
+        border: 3px solid var(--yellow);
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
     }
 
-    .icon-button {
-        margin: 10px;
+    .skins-scroll-wrapper::-webkit-scrollbar {
+        width: 12px;
     }
 
-    /*add to blacklist*/
+    .skins-scroll-wrapper::-webkit-scrollbar-thumb {
+        background-color: var(--yellow);
+        border-radius: 6px;
+    }
+
+    .skins-scroll-wrapper::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        border-radius: 6px;
+    }
+
+    /* ADD TO BLACKLIST*/
     .add-to-blacklist-container h1 {
         top: 20%;
         font-size: 1.8rem;
@@ -2948,6 +2988,6 @@ h1 {
 
     /*footer*/
     footer {
-        font-size: 1.3rem;
+        font-size: 0.9rem;
     }
 }
