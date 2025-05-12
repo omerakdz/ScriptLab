@@ -469,7 +469,7 @@ input {
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
-
+}
 
 .error-message-login p {
     color: red;
@@ -3050,4 +3050,4 @@ footer {
     footer {
         font-size: 0.9rem;
     }
-}
+ }
