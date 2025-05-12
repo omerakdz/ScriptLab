@@ -45,7 +45,7 @@ header {
     padding: 10px 20px !important;
 }
 
-input{
+input {
     font-family: "Fortnite";
 }
 
@@ -56,7 +56,7 @@ input{
     background-image: url("/images/bg-images/bg-desktop-5.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:center;
+    background-position: center;
 }
 
 .profile {
@@ -148,17 +148,17 @@ input{
     border-radius: 10px;
     text-align: center;
     font-size: 2rem;
-    width: 350px; 
+    width: 350px;
     height: auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; 
+    gap: 15px;
 }
 
 .card-section img {
-    width: 120px; 
+    width: 120px;
     border-radius: 10px;
 }
 
@@ -166,8 +166,8 @@ input{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; 
-    width: 100%; 
+    gap: 15px;
+    width: 100%;
 }
 
 .card-content h3 {
@@ -181,13 +181,13 @@ input{
     transition: transform 0.3s ease-out, background-color 0.3s ease;
     border: 2px solid #FFE100;
     border-radius: 10px;
-    padding: 8px 12px; 
-    width: 90%; 
-    text-align: center; 
-    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 8px 12px;
+    width: 90%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-#user-money{
+#user-money {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -195,7 +195,7 @@ input{
     gap: 10px;
 }
 
-#user-money img{
+#user-money img {
     width: 25px;
     text-align: center;
 }
@@ -257,7 +257,7 @@ input{
     text-align: center;
 }
 
-.login-container{
+.login-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
@@ -316,13 +316,13 @@ input{
 }
 
 .change-password {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
     color: #007bff;
 }
 
 .change-password:hover {
-    color:#0056b3;
+    color: #0056b3;
 }
 
 .submitButton {
@@ -365,11 +365,7 @@ input{
 }
 
 /* LANDING PAGINA */
-
-
-
   #landing-page {
-
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -391,6 +387,7 @@ input{
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
+
 .skins-button {
     width: 100%;
 }
@@ -426,13 +423,13 @@ input{
 }
 
 
-.skins-button input[type="radio"]:checked + label {
+.skins-button input[type="radio"]:checked+label {
     border-color: yellow;
     transform: scale(1.05);
 }
 
 
-.skins-button input[type="radio"]:checked + label img {
+.skins-button input[type="radio"]:checked+label img {
     transform: scale(1.1);
     border: var(--yellow) 3px solid;
 }
@@ -455,6 +452,7 @@ input{
     background-color: var(--dark-gray);
     border-radius: 15px;
 }
+
 .error-message p {
     color: red;
     font-size: 2rem;
@@ -478,7 +476,7 @@ input{
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
 }
-
+  
 .skins-scroll-wrapper::-webkit-scrollbar {
     width: 12px;
 }
@@ -500,7 +498,7 @@ input{
     background-image: url('/images/bg-images/bg-desktop-7.jpeg');
     background-size: cover;
     position: relative;
-    background-position:center;
+    background-position: center;
 }
 
 .info-container {
@@ -576,13 +574,14 @@ input{
 }
 
 .menu li img.active {
-    transform: scale(1.2);  
-    filter: brightness(1.1);  
+    transform: scale(1.2);
+    filter: brightness(1.1);
 }
 
 .menu li img {
-    pointer-events: auto; 
+    pointer-events: auto;
 }
+
 /* afbeelding kreeg hover wanneer ik met muis ernaast ging, dit is oplossng hiervoor */
 .menu li {
     pointer-events: none;
@@ -603,7 +602,7 @@ input{
     background-image: url('/images/bg-images/bg-desktop-6.jpeg');
     background-size: cover;
     position: relative;
-    background-position:center;
+    background-position: center;
 }
 
 
@@ -748,7 +747,8 @@ textarea {
     background-size: cover;
     background-position: center;
     filter: blur(5px);
-    z-index: -1; /* Dit zorgt ervoor dat het blur-effect achter de content ligt */
+    z-index: -1;
+    /* Dit zorgt ervoor dat het blur-effect achter de content ligt */
     top: -5%;
     left: -5%;
     width: 110%;
@@ -1116,7 +1116,8 @@ textarea {
 }
 
 .user-add-button img {
-    margin-right: 10px;}
+    margin-right: 10px;
+}
 
 #friends-page {
     top: 0;
@@ -1287,14 +1288,17 @@ button:hover {
 /* MENU STIJLEN */
 .game-card .overlay .cross {
     display: none;
-    font-size: 150PX; /* Groot maken */
-    color: red; /* Normale rode kleur */
+    font-size: 150PX;
+    /* Groot maken */
+    color: red;
+    /* Normale rode kleur */
     font-weight: bold;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.5; /* 50% transparantie */
+    opacity: 0.5;
+    /* 50% transparantie */
 
 }
 
@@ -1307,7 +1311,7 @@ button:hover {
     background-image: url("/images/bg-images/bg-desktop-1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:center;
+    background-position: center;
     margin: 0;
     height: 100vh;
     position: relative;
@@ -1419,7 +1423,8 @@ button:hover {
     margin-top: 7px;
 }
 
-#save-icon, #trash-icon {
+#save-icon,
+#trash-icon {
     background-color: var(--yellow);
     padding: 5px;
     border-radius: 5px;
@@ -1429,7 +1434,8 @@ button:hover {
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-#save-icon:hover, #trash-icon:hover {
+#save-icon:hover,
+#trash-icon:hover {
     transform: scale(1.1);
 }
 
@@ -1470,11 +1476,11 @@ button:hover {
 .all-favorite-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin-bottom: 20px;
     z-index: 0;
 }
@@ -1488,7 +1494,7 @@ button:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1; 
+    z-index: 1;
 }
 
 .favorite-card {
@@ -1498,11 +1504,12 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(50% - 1rem); 
+    width: calc(50% - 1rem);
     max-width: 350px;
     height: 380px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 }
+
 .skin-image-favorite {
     width: 120px;
     height: 120px;
@@ -1523,7 +1530,8 @@ button:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.favorite-wins, .favorite-losses {
+.favorite-wins,
+.favorite-losses {
     background-color: var(--yellow);
     color: black;
     border: none;
@@ -1537,7 +1545,8 @@ button:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.favorite-wins p, .favorite-losses p {
+.favorite-wins p,
+.favorite-losses p {
     font-size: 1.5rem;
 }
 
@@ -1604,7 +1613,8 @@ button:hover {
     border-radius: 5px;
 }
 
-#button-right-fav, #button-left-fav {
+#button-right-fav,
+#button-left-fav {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -1623,7 +1633,8 @@ button:hover {
     top: 30%;
 }
 
-#button-right-fav i, #button-left-fav i {
+#button-right-fav i,
+#button-left-fav i {
     color: var(--yellow);
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -1728,6 +1739,7 @@ button:hover {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    border: var(--yellow) 2px solid;
 }
 
 .all-skins h1 {
@@ -1741,14 +1753,16 @@ button:hover {
 }
 
 .skin {
-    background-color: var(--yellow);
+    /* background-color: var(--yellow); */
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 15px;
 }
+
 .skin-actions {
     display: flex;
     gap: 10px;
@@ -1759,7 +1773,8 @@ button:hover {
 .skin-actions img {
     width: 50px;
     height: 50px;
-    object-fit: contain; /* dit voorkomt de vervorming van de icon*/
+    object-fit: contain;
+    /* dit voorkomt de vervorming van de icon*/
     border-radius: 50%;
     background-color: var(--yellow);
     padding: 10px;
@@ -1807,6 +1822,43 @@ button:hover {
     height: 30px;
 }
 
+
+.all-skins {
+    max-height: 500px;
+    /* Pas aan naar wens */
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* optioneel */
+}
+
+.all-skins::-webkit-scrollbar {
+    width: 8px;
+    /* Breedte van de scrollbar */
+}
+
+.all-skins::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    /* Kleur van de scrollbar */
+    border-radius: 10px;
+    /* Hoekradius van de scrollbar */
+}
+
+.all-skins::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    /* Kleur van de scrollbar track */
+    border-radius: 10px;
+    /* Hoekradius van de scrollbar track */
+}
+
+/* .all-skins::-webkit-scrollbar-thumb:hover {
+    background-color: var(--yellow); /* Kleur van de scrollbar bij hover */
+
 /* SHOP PAGINA */
 .shop-section {
     grid-area: main;
@@ -1815,7 +1867,7 @@ button:hover {
     align-items: center;
     background-image: url("/images/bg-images/shop-desktop.jpeg");
     background-position: center;
-    background-size: cover; 
+    background-size: cover;
     padding: 20px;
 }
 
@@ -1827,7 +1879,7 @@ button:hover {
     margin-top: 40px;
     margin-bottom: 40px;
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
 }
 
 .shop-item {
@@ -1835,7 +1887,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: calc(20% - 20px); 
+    width: calc(20% - 20px);
     background-color: var(--dark-gray);
     opacity: 98%;
     border-radius: 10px;
@@ -1853,12 +1905,12 @@ button:hover {
     border-radius: 5px;
 }
 
-.shop-item-name{
+.shop-item-name {
     font-size: 1.5rem;
     font-weight: lighter;
 }
 
-.shop-des{
+.shop-des {
     font-weight: normal;
     margin-top: 0.5rem;
 }
@@ -1866,7 +1918,7 @@ button:hover {
 .price {
     font-size: 1.2rem;
     color: var(--yellow);
-    
+
 }
 
 .vbuck-icon {
@@ -1953,18 +2005,18 @@ button:hover {
 .shop-button-mobile.prev-button:hover,
 .shop-button-mobile.next-button:hover {
     transform: scale(1.1);
-} */ */
-
-
+} */
+*/
 /* CARD GAME*/
 
 #card-game-page {
     background-image: url("/images/bg-images/game-card-desktop.jpeg");
     background-position: center;
     background-size: cover;
-    
+
 }
-.card-game-content{
+
+.card-game-content {
     grid-area: main;
     width: 100%;
     padding: 1rem;
@@ -1975,7 +2027,6 @@ button:hover {
     text-align: center;
     margin-bottom: 20px;
     color: var(--yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     text-transform: uppercase;
 }
 
@@ -2029,8 +2080,8 @@ button:hover {
 
 .status-container {
     position: absolute;
-    top: 40%; 
-    right: 8%; 
+    top: 40%;
+    right: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2062,7 +2113,7 @@ button:hover {
 }
 
 .reset button:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 /* MOVES COUNT */
@@ -2124,9 +2175,9 @@ button:hover {
 
 .items-item-pagina {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    gap: 20px; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
     padding: 20px;
 }
 
@@ -2139,7 +2190,7 @@ button:hover {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-    flex: 0 1 calc(20% - 20px); 
+    flex: 0 1 calc(20% - 20px);
     cursor: pointer;
     border: 3px solid transparent;
     transition: border 0.3s ease;
@@ -2159,7 +2210,7 @@ button:hover {
 }
 
 
-.item-card input[type="checkbox"]:checked + img {
+.item-card input[type="checkbox"]:checked+img {
     border: 3px solid gold;
     padding: 2px;
     box-sizing: border-box;
@@ -2187,17 +2238,18 @@ button:hover {
     transform: scale(1.1);
 }
 
-.choose-item-error{
+.choose-item-error {
     color: red;
-    
+
     text-align: center;
     font-size: 1.2rem;
- 
+
 }
 
 /*item pagina*/
 /* Zoekpagina */
-.search-item-main { /*achtergrond afbeeldnig niet volledig*/
+.search-item-main {
+    /*achtergrond afbeeldnig niet volledig*/
     padding: 20px;
     grid-area: main;
 }
@@ -2232,7 +2284,7 @@ button:hover {
 
 
 .item {
-    width: calc(20% - 10px); 
+    width: calc(20% - 10px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2264,7 +2316,7 @@ footer {
 
 @media screen and (max-width: 768px) {
 
-    body{
+    body {
         background-position: center;
     }
 
@@ -2306,9 +2358,10 @@ footer {
 
     /*home pagina*/
 
-    #home-page{
+    #home-page {
         background-image: url('/images/bg-images/bg-mobile-1.jpeg');
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
@@ -2333,7 +2386,7 @@ footer {
         gap: 15px;
     }
 
-    .card-content p{
+    .card-content p {
         font-size: 1.3rem;
     }
 
@@ -2342,25 +2395,26 @@ footer {
     }
 
 
-    .menu-items ul{
+    .menu-items ul {
         display: flex;
         flex-direction: row;
         gap: 30px;
     }
- 
+
     .menu-items li span {
         display: none;
     }
 
     .menu-items li img {
         display: block;
-        width: 80px; /* Pas de grootte aan naar wens */
+        width: 80px;
+        /* Pas de grootte aan naar wens */
         height: 80px;
         transition: transform 0.2s ease-in-out;
         border-radius: 50%;
     }
 
-    #skin-icon-home{
+    #skin-icon-home {
         background-color: var(--yellow);
         border-radius: 50%;
     }
@@ -2392,7 +2446,7 @@ footer {
         margin-bottom: 1rem;
     }
 
-    .menu a img{
+    .menu a img {
         height: 55px;
     }
 
@@ -2545,7 +2599,7 @@ footer {
         background: rgba(255, 255, 255, 0.9);
         color: black;
     }
-  
+
     /*profile page*/
     .settings-left-btns {
         display: none;
@@ -2597,7 +2651,7 @@ footer {
     .friend-requests img {
         width: 35px;
     }
-      
+
     .profile-search-card {
         overflow: auto;
         width: 80%;
@@ -2646,7 +2700,7 @@ footer {
         margin-left: 50px;
         font-size: 32px;
     }
-      
+
     /* FAVORIETE DETAIL PAGINA */
     #personages-card {
         width: 350px;
@@ -2675,7 +2729,7 @@ footer {
         color: black;
         background-position: center;
     }
-    
+
     .favorite-card {
         width: 100%;
     }
@@ -2685,47 +2739,49 @@ footer {
         margin: 10px;
     }
 
-    .icon-button{
+    .icon-button {
         display: none;
     }
 
     .favorite-card {
-        width: 280px; 
-        height: 320px; 
-        padding: 8px; 
-        bottom: 60px; 
+        width: 280px;
+        height: 320px;
+        padding: 8px;
+        bottom: 60px;
         top: 20px;
     }
 
     .skin-image-favorite {
-        width: 100px; 
+        width: 100px;
         height: 100px;
-        margin-bottom: 5px; 
+        margin-bottom: 5px;
     }
 
     .favorite-card h2 {
-        font-size: 1.5rem; 
+        font-size: 1.5rem;
     }
 
     .wins-losses-icons {
-        gap: 10px; 
+        gap: 10px;
     }
 
-    .favorite-wins, .favorite-losses {
-        padding: 8px 12px; 
-        font-size: 1.25rem; 
+    .favorite-wins,
+    .favorite-losses {
+        padding: 8px 12px;
+        font-size: 1.25rem;
     }
 
-    .favorite-wins p, .favorite-losses p {
-        font-size: 1.25rem; 
+    .favorite-wins p,
+    .favorite-losses p {
+        font-size: 1.25rem;
     }
 
     .button-container {
-        gap: 15px; 
+        gap: 15px;
     }
 
     .edit-button {
-        width: 40px; 
+        width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
@@ -2733,17 +2789,17 @@ footer {
     .details-button {
         width: 80px;
         height: 35px;
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
     }
 
     .items-favorite {
         width: 120px;
-        height: 120px; 
+        height: 120px;
     }
 
     .item-img {
-        width: 100%; 
-        height: 100%; 
+        width: 100%;
+        height: 100%;
     }
 
     /* Login/Register page */
@@ -2753,7 +2809,7 @@ footer {
         left: 70%;
         top: 39%;
     }
-    
+
     .input-box-password i {
         position: absolute;
         left: 70%;
@@ -2764,22 +2820,24 @@ footer {
         left: 70%;
         top: 41%;
     }
-    
+
     #password-icon-register {
         left: 70%;
         top: 48%;
     }
-    
+
     #email-icon-register {
         left: 70%;
         top: 56%;
     }
 
-/* SHOP PAGINA */
-.shop-item {
-    width: calc(50% - 20px); /* 2 items naast elkaar */
-}
-/* #shop-page {
+    /* SHOP PAGINA */
+    .shop-item {
+        width: calc(50% - 20px);
+        /* 2 items naast elkaar */
+    }
+
+    /* #shop-page {
     background-image: url("/images/bg-images/shop-mobile.jpeg");
     background-position: center;
     background-size: cover;
@@ -2857,133 +2915,135 @@ footer {
     height: auto;
 } */
 
-/* GAME KAART SPEL */
-#card-game-page {
-    background-image: none;
-}
+    /* GAME KAART SPEL */
+    #card-game-page {
+        background-image: none;
+    }
 
-.card-game-content {
-    background-image: url("/images/bg-images/game-card-mobile.jpeg");
-    background-position: center;
-    background-size: cover;
-}
+    .card-game-content {
+        background-image: url("/images/bg-images/game-card-mobile.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
 
-.game-board {
-    grid-template-columns: repeat(3, 118px);
-}
+    .game-board {
+        grid-template-columns: repeat(3, 118px);
+    }
 
-.card {
-    height: 120px;
-    width: 120px;
-}
+    .card {
+        height: 120px;
+        width: 120px;
+    }
 
-.status-container {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10px;
-    background-color: var(--dark-gray);
-    z-index: 1;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    opacity: 97%;
-    margin: 0 auto;
-}
+    .status-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10px;
+        background-color: var(--dark-gray);
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        opacity: 97%;
+        margin: 0 auto;
+    }
 
-h1 {
-    font-size: 2rem;
-}
+    h1 {
+        font-size: 2rem;
+    }
 
-.timer, .moves-count {
-    font-size: 1.5rem;
-}
+    .timer,
+    .moves-count {
+        font-size: 1.5rem;
+    }
 
-.reset button {
-    padding: 8px;
-    font-size: 1rem;
-}
+    .reset button {
+        padding: 8px;
+        font-size: 1rem;
+    }
 
-/* Game bord padding aanpassen */
-.game-board {
-    padding: 10px;
-}
+    /* Game bord padding aanpassen */
+    .game-board {
+        padding: 10px;
+    }
 
-/* SKINS PAGINA */
-#skins-page-main {
-    flex: 1;
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* SKINS PAGINA */
+    #skins-page-main {
+        flex: 1;
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.skins-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .skins-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.all-skins {
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-}
+    .all-skins {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
 
-#skin-image {
-    width: 200px;
-    height: 200px;
-}
+    #skin-image {
+        width: 200px;
+        height: 200px;
+    }
 
-.search-skin {
-    width: 200px;
-}
+    .search-skin {
+        width: 200px;
+    }
 
-.search-skin input {
-    width: 200px;
-    font-size: 15px;
-}
+    .search-skin input {
+        width: 200px;
+        font-size: 15px;
+    }
 
-.current-skin img {
-    width: 300px;
-    height: 300px;
-}
+    .current-skin img {
+        width: 300px;
+        height: 300px;
+    }
 
-.skins-wins img,
-.skins-losses img {
-    width: 30px;
-    height: 30px;
-}
+    .skins-wins img,
+    .skins-losses img {
+        width: 30px;
+        height: 30px;
+    }
 
-/* ITEMS CHOOSE PAGINA */
-/*FIX: ACHTERGROND AFBEELDING HELFT NIET BESCHIKBAAR*/
-.items-item-pagina {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; 
-}
+    /* ITEMS CHOOSE PAGINA */
+    /*FIX: ACHTERGROND AFBEELDING HELFT NIET BESCHIKBAAR*/
+    .items-item-pagina {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
 
-.item-card {
-    flex: 0 1 calc(50% - 20px); 
-    margin-bottom: 20px; 
-}
+    .item-card {
+        flex: 0 1 calc(50% - 20px);
+        margin-bottom: 20px;
+    }
 
-.submit-button {
-    width: 50%; 
-    text-align: center;
-    color: var(--dark-gray);
-}
+    .submit-button {
+        width: 50%;
+        text-align: center;
+        color: var(--dark-gray);
+    }
 
-.choose-item-error {
-    top: 20px;
-    width: 100%;
-}
+    .choose-item-error {
+        top: 20px;
+        width: 100%;
+    }
 
-/*item search*/
-.item {
-    width: calc(50% - 10px); /* 2 items naast elkaar */
-}
+    /*item search*/
+    .item {
+        width: calc(50% - 10px);
+        /* 2 items naast elkaar */
+    }
 
 
     /*footer*/
