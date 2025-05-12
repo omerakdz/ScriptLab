@@ -1,17 +1,18 @@
 // voorlopig
-export interface Player{ // gebruiker
-    id?: number;
+export interface Player {
     username: string;
     password?: string;
-    playTime?: number;
+    email?: string;
+    blacklistedSkins?: string[];
+    favoriteSkins?: string[];
+    selectedSkin?: Skin;
+    selectedItems?: FortniteItem[]; // max 2
     level?: number;
     wins?: number;
     losses?: number;
-    lastPlayed?: Date;
     createdAt?: Date;
     friends?: string[];
-    matches?: string[];
-}
+  }
 
 export interface Skin{
     id: string;
@@ -63,4 +64,7 @@ export interface FortniteItem {
     };
   }
 
-
+  export interface Profile{
+      name: string;
+      skinIconUrl: string;
+  }

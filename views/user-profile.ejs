@@ -2,12 +2,12 @@
 
     <main>
         <section class="user-profile-card">
-            <a href="profile-search.html" class="back-button">&larr; TERUG</a>
+            <a href="../index" class="back-button">&larr; TERUG</a>
             <article class="user-profile">
                 <figure>
-                    <img src="images/skins/skin-4.jpeg" class="user-avatar">
-                    <p class="profile-name">FnWKeyMaster77</p>
-                    <button class="user-add-button" id="addUserBtn"><img src="images/add.png" width="25px">ADD</button>
+                    <img src="<%= profile.skinIconUrl %>" class="user-avatar">
+                    <p class="profile-name"><%= profile.name%></p>
+                    <button class="user-add-button" id="addUserBtn"><img src="../images/add.png" width="25px">ADD</button>
                 </figure>
                 <ul>
                     <li>HUIDIGE SKIN: <span class="user-current-skin">BLAZE RAIDER</span></li>

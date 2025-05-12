@@ -116,7 +116,7 @@ input{
 .logo img {
     width: 50px;
     height: 50px;
-    margin-right: 15px;
+    margin-left: 15px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
@@ -253,7 +253,7 @@ input{
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
-    height: 310px;
+    height: 330px;
     text-align: center;
 }
 
@@ -263,7 +263,7 @@ input{
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
-    height: 345px;
+    height: 370px;
     text-align: center;
 }
 
@@ -282,7 +282,7 @@ input{
 
 #username,
 #password,
-#email {
+#confirmPassword {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -308,7 +308,7 @@ input{
     background-position: right 15px center;
 }
 
-#email {
+#confirmPassword {
     background-image: url("/images/items/email-icon.png");
     background-repeat: no-repeat;
     background-size: 18px;
@@ -366,7 +366,10 @@ input{
 
 /* LANDING PAGINA */
 
-#landing-page {
+
+
+  #landing-page {
+
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -468,6 +471,12 @@ input{
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+
+
+.error-message-login p {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .skins-scroll-wrapper::-webkit-scrollbar {
@@ -1029,6 +1038,10 @@ textarea {
     margin-top: 10px;
     width: 120px;
     border-radius: 200px;
+}
+
+.profile-search img:hover{
+    border: var(--yellow) 6px solid;
 }
 
 #profile-search-page::before {
@@ -1957,7 +1970,7 @@ button:hover {
     padding: 1rem;
 }
 
-h1 {
+.card-game-content h1 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;

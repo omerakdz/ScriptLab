@@ -2,11 +2,11 @@
 
     <main id="skins-page-main">
         <article class="current-skin">
-            <img src="images/skins/skin-6.jpg" alt="Dark Voyager">
-            <h1 class="current-skin-name">Dark Voyager</h1>
+            <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/skins/default-skin.jpg' %>" alt="Dark Voyager">
+            <h1 class="current-skin-name"><%= selectedSkin ? selectedSkin.name : 'Geen skin geselecteerd' %></h1>
             <section class="win-loss-icons">
-                <button class="skins-wins">5<img src="images/items/trophy.png" alt=""></button>
-                <button class="skins-losses">3<img src="images/items/game-over.png" alt="game over"></button>
+                <button class="skins-wins"><%= wins %><img src="images/items/trophy.png" alt="Win trofee"></button>
+                <button class="skins-losses"><%= losses %><img src="images/items/game-over.png" alt="verlies"></button>
             </section>
         </article>
         <article class="skin-gallery">

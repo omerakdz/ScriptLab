@@ -2,12 +2,12 @@
     <%- include("partials/header") %>
     <main class="card-container">
         <section class="card-section">
-            <img src="images/skins/skin-1.jpeg" alt="Skin">
+            <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/skins/default-skin.jpg' %>" alt="Skin">
             <article class="card-content">
-                <h3>Skull Trooper</h3>
-                <p><span id="user-money">5.000 <img src="images/items/coin.png" alt=""></span></p>
-                <p><span id="user-level">42 ⭐</span></p>
-                <p><span id="user-wins">120 🏆</span></p>
+                <h3><%= selectedSkin ? selectedSkin.name : 'Geen skin geselecteerd' %></h3>
+                <span id="user-money"><%= vbucks %> <img src="images/items/coin.png" alt=""></span>
+                <span id="user-level"><%= level %> ⭐</span>
+                <span id="user-wins"><%= wins %> 🏆</span>
             </article>
         </section>
             <article class="menu-items">
