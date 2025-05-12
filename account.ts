@@ -1,8 +1,8 @@
-import { Player } from "./types";
+import { FortniteItem, Player } from "./types";
 import { MongoClient, Collection } from "mongodb";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
-import { collection } from "./database";
+import { usersCollection } from "./database";
 
 dotenv.config();
 const saltRounds: number = parseInt(process.env.SALT!);
@@ -24,7 +24,7 @@ export async function createUser(username: string, password: string): Promise<Pl
     };
 
     try {
-        const result = await collection.insertOne(user);
+        const result = await usersCollection.insertOne(user);
         console.log(`Gebruiker aangemaakt met id ${result.insertedId}`);
         return { username };
     } catch (error) {
@@ -35,11 +35,15 @@ export async function createUser(username: string, password: string): Promise<Pl
 
 // Gebruiker inloggen
 export async function loginUser(username: string, password: string): Promise<Player> {
-    const user  = await collection.findOne({ username });
+    const user  = await usersCollection.findOne({ username });
 
     if (!user) {
         throw new Error("Gebruiker niet gevonden");
     }
+
+    if (!user.password) {
+    throw new Error("Wachtwoord ontbreekt voor deze gebruiker");
+}
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
@@ -56,29 +60,29 @@ export async function loginUser(username: string, password: string): Promise<Pla
 
 // Haal gebruikersprofiel op
 export async function getUserProfile(username: string) {
-    const user = await collection.findOne({ username }, { projection: { password: 0 } });
+    const user = await usersCollection.findOne({ username }, { projection: { password: 0 } });
     if (!user) throw new Error("Gebruiker niet gevonden");
     return user;
 }
 
 export async function updateSelectedSkin(username: string, skinId: string) {
-    await collection.updateOne({ username }, { $set: { selectedSkinId: skinId } });
+    await usersCollection.updateOne({ username }, { $set: { selectedSkinId: skinId } });
 }
 
-export async function updateSelectedItems(username: string, items: string[]) {
+export async function updateSelectedItems(username: string, items:FortniteItem[]) {
     if (items.length > 2) throw new Error("Je mag maximaal 2 items selecteren");
-    await collection.updateOne({ username }, { $set: { selectedItems: items } });
+    await usersCollection.updateOne({ username }, { $set: { selectedItems: items } });
 }
 
 export async function addFriend(username: string, friendUsername: string) {
-    await collection.updateOne(
+    await usersCollection.updateOne(
         { username },
         { $addToSet: { friends: friendUsername } }
     );
 }
 
 export async function addFavoriteSkin(username: string, skinId: string) {
-    await collection.updateOne(
+    await usersCollection.updateOne(
         { username },
         { $addToSet: { favoriteSkinId: skinId } }
     );
@@ -88,5 +92,5 @@ export async function updateGameResult(username: string, didWin: boolean) {
     const update = didWin
         ? { $inc: { wins: 1, level: 1 } }
         : { $inc: { losses: 1 } };
-    await collection.updateOne({ username }, update);
+    await usersCollection.updateOne({ username }, update);
 }
