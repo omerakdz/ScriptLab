@@ -6,7 +6,6 @@ import mongoose from "mongoose";
 import { FortniteItem, Skin, Player, Card, GameCard, Profile} from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { profiles } from "./public/json/players.json"
-import { loginUser } from "./account";
 import { error } from "console";
 import { title } from "process";
 import { loginUser, createUser } from "./account";
