@@ -379,7 +379,9 @@ input:not(.input-box-username input, .input-box-password input){
 }
 
 .skin-title {
+    color: var(--yellow);
     font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .skins-container {
@@ -462,7 +464,7 @@ input:not(.input-box-username input, .input-box-password input){
 /* scrollbar */
 .skins-scroll-wrapper {
     background-color: var(--dark-gray);
-    max-height: 400px;
+    height: 500px;
     width: 80rem;
     overflow-y: auto;
     border: 3px solid var(--yellow);
@@ -2223,7 +2225,7 @@ button:hover {
     padding: 15px 30px;
     border: none;
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 30px;
@@ -2232,6 +2234,8 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 300px;
+    text-align: center;
 }
 
 .submit-button:hover {
@@ -2474,25 +2478,30 @@ footer {
         background-attachment: fixed;
     }
 
-
     .landing-page-main {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
+    .skins-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .skin-title {
         margin-top: 0.5rem;
-        font-size: 1.7rem;
+        font-size: 2.8rem;
         padding: 8px 16px;
     }
 
     .skins-button {
-        width: 100%;
+        width: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
-
     }
 
     .skins-button img {
@@ -2517,12 +2526,10 @@ footer {
     }
 
     /* scroll bar */
-
-        .skins-scroll-wrapper {
+    .skins-scroll-wrapper {
         background-color: var(--dark-gray);
-        max-height: 300px;
-        width: 40rem;
-        overflow-y: auto;
+        height: 320px;
+        width: 25rem;
         border: 3px solid var(--yellow);
         padding: 10px;
         border-radius: 10px;
@@ -3031,7 +3038,7 @@ footer {
     .submit-button {
         width: 50%;
         text-align: center;
-        color: var(--dark-gray);
+        color: black;
     }
 
     .choose-item-error {
