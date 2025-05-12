@@ -10,10 +10,11 @@ import { error } from "console";
 import { title } from "process";
 import { loginUser, createUser } from "./account";
 import session from "./session";
-import { collection, connect } from "./database";
+import { usersCollection, connect, getPlayersByName, getSkinById, getItemsByName, getSkinsByName, itemsCollection } from "./database";
 import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
+import { SortDirection } from "mongodb";
 
 
 dotenv.config();
@@ -40,7 +41,7 @@ app.use(async(req, res, next) => {
     if (req.session.username) {
         res.locals.username = req.session.username;
 
-        const user = await collection.findOne({ username: req.session.username });
+        const user = await usersCollection.findOne({ username: req.session.username });
 
         if (user) {
             res.locals.level = user.level || 1;
@@ -89,7 +90,7 @@ app.post("/login", async(req, res) => {
         req.session.username = user.username;
         console.log("Sessies gebruikersnaam:", req.session.username);
 
-        const userExists = await collection.findOne({ username });
+        const userExists = await usersCollection.findOne({ username });
         
         if (userExists) {
             res.redirect("/index");
@@ -128,7 +129,7 @@ app.get("/register", (req, res) => {
 app.post("/signup", async (req, res) => {
     const { username,email, password, confirmPassword } = req.body;
 
-    const existingUser = await collection.findOne({ username });
+    const existingUser = await usersCollection.findOne({ username });
     if (existingUser) {
         return res.render("register", {
             errorMessage: "Gebruikersnaam is al in gebruik.",
@@ -188,7 +189,7 @@ if (!selectedSkin) {
     });
 }
 
-await collection.updateOne(
+await usersCollection.updateOne(
     { username: req.session.username },
     { $set: { selectedSkinId: selectedSkin } }
 );
@@ -213,7 +214,7 @@ app.post("/select-items", async (req, res) => {
     if (selectedItems.length === 2) {
         console.log("Geselecteerde items:", selectedItems.length); // Controle
 
-        await collection.updateOne(
+        await usersCollection.updateOne(
             { username: req.session.username },
             { $set: { selectedItems: selectedItems } }
         );
@@ -240,29 +241,44 @@ app.get("/index", async(req, res) => {
 });
 
 app.get("/items", async(req, res) => {
-    const searchItem  = typeof req.query.q === "string" ? req.query.q : "";
-    
-    const items = await fetchItems(40); 
+ const searchItem = typeof req.query.q === "string" ? req.query.q : "";
+  const sortField = typeof req.query.sort === "string" ? req.query.sort : "name";
+  const sortDirection: SortDirection = req.query.dir === "desc" ? -1 : 1;
 
-    const filteredItems = items.filter(item =>
-        item.name.toLowerCase().includes(searchItem.toLowerCase())
-    );
-    res.render("search-item", {
-        bodyId: "search-item-body",
-        title: "Items Pagina",
-        items: items, 
-        searchItem : searchItem,
-        filteredItems: filteredItems
-    });
+  let items = await fetchItems(40);
+
+
+  const filteredItems = items.filter(item =>
+    item.name.toLowerCase().includes(searchItem.toLowerCase())
+  );
+  
+  res.render("search-item", {
+    bodyId: "search-item-body",
+    title: "Items Pagina",
+    items: items, // Gebruik de unieke items
+    searchItem,
+    filteredItems: filteredItems
+  });
 })
 
 app.get("/skins", async(req, res) => {
-    const skins : Skin[] = await fetchSkins(40);
-    res.render("skins", {
-        bodyId : "skins-page",
-        title   : "skins",
-        skins: skins
-    });
+  const query = typeof req.query.q === "string" ? req.query.q : "";
+
+  const fetchedSkins = await fetchSkins(40);
+  const databaseSkins = await getSkinsByName(query);
+
+  const filteredFetchedSkins = fetchedSkins.filter((skin) =>
+    skin.name.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const skins = [...filteredFetchedSkins, ...databaseSkins];
+
+  res.render("skins", {
+    bodyId: "skins-page",
+    title: "Skins",
+    skins,
+    searchQuery: query,
+  });
 });
 
 
@@ -315,7 +331,7 @@ app.get("/search-profile", (req, res) => {
 app.get("/user/:username", (req, res) =>{
     const username  = typeof req.params.username === "string" ? req.params.username : "";
     const profile : Profile | undefined = profiles.find(profile => profile.name === username )
-    res.render("user-profile", {title: title, bodyId:"user-profile-page", profile : profile})
+    res.render("user-profile", {title:  `Profiel van ${username}`, bodyId:"user-profile-page", profile : profile})
 })
 
 app.listen(app.get("port"), async() => {

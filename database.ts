@@ -1,15 +1,90 @@
 import mongoose from 'mongoose';
 import { fetchItems, fetchSkins } from './api';
-import { Collection } from 'mongodb';
+import { Collection, SortDirection } from 'mongodb';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
-import { Player } from './types';
+import { FortniteItem, Player, Skin } from './types';
 dotenv.config();
 
 export const CONNECTION_STRING: string = process.env.CONNECTION_STRING ?? ""; 
 
 const client = new MongoClient(CONNECTION_STRING);
-export const collection: Collection = client.db("Scriptlab").collection("users");
+export const usersCollection: Collection = client.db("Scriptlab").collection("users");
+export const skinsCollection: Collection<Skin> = client.db("Scriptlab").collection("skins");
+export const itemsCollection: Collection<FortniteItem> = client.db("Scriptlab").collection("items");
+
+
+export async function getPlayersByName(q: string = "", sortField: string = "username", sortDirection: SortDirection = 1) {
+    const query = q === "" ? {} : { username: { $regex: q, $options: 'i' } };  
+    return await usersCollection.find(query).sort({ [sortField]: sortDirection }).toArray();
+}
+
+export async function getPlayerById(id: string) {
+    return await usersCollection.findOne({ id: id });
+}
+
+export async function getSkinsByName(q: string = "", sortField: string = "name", sortDirection: SortDirection = 1) {
+    const query = q === "" ? {} : { name: { $regex: q, $options: 'i' } };  
+    return await skinsCollection.find(query).sort({ [sortField]: sortDirection }).toArray();
+}
+
+export async function getSkinById(id: string) {
+    return await skinsCollection.findOne({ id });
+}
+
+export async function getItemsByName(q: string = "", sortField: string = "name", sortDirection: SortDirection = 1) {
+    const query = q === "" ? {} : { name: { $regex: q, $options: 'i' } };  
+    return await itemsCollection.find(query).sort({ [sortField]: sortDirection }).toArray();
+}
+
+export async function getItemById(id: string) {
+    return await itemsCollection.findOne({ id });
+}
+
+export async function updateGameResult(username: string, didWin: boolean) {
+    const user = await usersCollection.findOne({ username });
+
+    if (!user) return;
+
+    const currentWins = user.wins ?? 0;
+    const currentLosses = user.losses ?? 0;
+    const currentLevel = user.level ?? 1;
+    const currentVbucks = user.vbucks ?? 1000;
+
+    const newWins = didWin ? currentWins + 1 : currentWins;
+    const newLosses = didWin ? currentLosses : currentLosses + 1;
+    const newLevel = didWin ? currentLevel + 1 : currentLevel;
+    const newVbucks = didWin ? currentVbucks + 100 : currentVbucks + 50;
+
+     await usersCollection.updateOne(
+        { username },
+        {
+            $set: {
+                wins: newWins,
+                losses: newLosses,
+                level: newLevel,
+                vbucks: newVbucks
+            }
+        }
+    );
+}
+
+export async function addFriend(username: string, friendUsername: string) {
+    const user = await usersCollection.findOne({ username });
+    const friend = await usersCollection.findOne({ username: friendUsername });
+
+    if (!user || !friend) return;
+
+    const currentFriends: string[] = user.friends ?? [];
+    if (currentFriends.includes(friendUsername)) return;
+
+    currentFriends.push(friendUsername);
+
+    await usersCollection.updateOne(
+        { username },
+        { $set: { friends: currentFriends } }
+    );
+}
 
 // Functie om verbinding af te sluiten
 async function exit() {
@@ -24,7 +99,7 @@ async function exit() {
 
 // Functie om de collectie te vullen met een voorbeeldspeler als deze leeg is
 async function seed() {
-    if ((await collection.countDocuments()) === 0) {
+    if ((await usersCollection.countDocuments()) === 0) {
         const skins = await fetchSkins();
         const items = await fetchItems();
     
@@ -47,7 +122,7 @@ async function seed() {
                 blacklistedSkins: [skins[(i + 2) % skins.length]?.id]
             };
     
-            const insertResponse = await collection.insertOne(examplePlayer);
+            const insertResponse = await usersCollection.insertOne(examplePlayer);
         }
     }
 }
@@ -65,7 +140,7 @@ export async function connect() {
         // await collection.deleteMany({}); 
         await seed();
 
-        await collection.createIndex({ username: "text" });
+        await usersCollection.createIndex({ username: "text" });
 
     } catch (error) {
         console.error(error);
