@@ -11,6 +11,13 @@
 <body id="login-page">
     <section class="login-container">
         <h1>Login</h1>
+
+        <% if (errorMessage) { %>
+            <article class="error-message-login">
+                <p><%= errorMessage %></p>
+            </article>
+        <% } %>
+
         <form action="/login" method="POST" >
             <section class="input-box-username">
                 <input type="text" id="username" placeholder="Gebruikersnaam" name="username" required>
@@ -22,7 +29,7 @@
             
             <button type="submit" class="submitButton">Login</button>
 
-            <button type="button" class="signInButton"><a href="register.html">Registreer</a></button>
+            <button type="button" class="signInButton"><a href="/register">Registreer</a></button>
 
             <a class="change-password" href="">wachtwoord vergeten?</a>
         </form>

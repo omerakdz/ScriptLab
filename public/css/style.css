@@ -116,7 +116,7 @@ input {
 .logo img {
     width: 50px;
     height: 50px;
-    margin-right: 15px;
+    margin-left: 15px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
@@ -253,7 +253,7 @@ input {
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
-    height: 310px;
+    height: 330px;
     text-align: center;
 }
 
@@ -263,7 +263,7 @@ input {
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
-    height: 345px;
+    height: 370px;
     text-align: center;
 }
 
@@ -282,7 +282,7 @@ input {
 
 #username,
 #password,
-#email {
+#confirmPassword {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -308,7 +308,7 @@ input {
     background-position: right 15px center;
 }
 
-#email {
+#confirmPassword {
     background-image: url("/images/items/email-icon.png");
     background-repeat: no-repeat;
     background-size: 18px;
@@ -365,14 +365,12 @@ input {
 }
 
 /* LANDING PAGINA */
-
-LANDING PAGINA #landing-page {
+  #landing-page {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* landing pagina */
 .landing-page-main {
     grid-area: main;
     display: flex;
@@ -394,7 +392,6 @@ LANDING PAGINA #landing-page {
     width: 100%;
 }
 
-/* Verberg radio input */
 .skins-button input[type="radio"] {
     display: none;
 }
@@ -413,7 +410,7 @@ LANDING PAGINA #landing-page {
 .skins-button label img {
     width: 180px;
     height: 200px;
-    border: #000000 3px solid;
+    border: var(--yellow) 3px solid;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
@@ -441,6 +438,7 @@ LANDING PAGINA #landing-page {
 .skins-button label p {
     font-size: 1.5rem;
     padding: 5px 12px;
+    margin-top: 15px;
     min-width: 80px;
     color: black;
     background-color: var(--yellow);
@@ -461,13 +459,36 @@ LANDING PAGINA #landing-page {
     padding: 1rem;
 }
 
-/* Navigatieknoppen */
-.icon-button {
-    margin: 10px;
+/* scrollbar */
+.skins-scroll-wrapper {
+    background-color: var(--dark-gray);
+    max-height: 400px;
+    width: 80rem;
+    overflow-y: auto;
+    border: 3px solid var(--yellow);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+
+.error-message-login p {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+  
+.skins-scroll-wrapper::-webkit-scrollbar {
+    width: 12px;
 }
 
-.icon-button i {
-    font-size: 2rem;
+.skins-scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    border-radius: 6px;
+}
+
+.skins-scroll-wrapper::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 6px;
 }
 
 /*UITLEG PAGINA*/
@@ -1017,6 +1038,10 @@ textarea {
     margin-top: 10px;
     width: 120px;
     border-radius: 200px;
+}
+
+.profile-search img:hover{
+    border: var(--yellow) 6px solid;
 }
 
 #profile-search-page::before {
@@ -1997,7 +2022,7 @@ button:hover {
     padding: 1rem;
 }
 
-h1 {
+.card-game-content h1 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
@@ -2194,11 +2219,11 @@ h1 {
 
 .submit-button {
     background-color: var(--yellow);
-    color: white;
+    color: black;
     padding: 15px 30px;
     border: none;
     border-radius: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 30px;
@@ -2276,11 +2301,13 @@ h1 {
 
 /* FOOTER VOOR ALLE PAGINAS */
 footer {
+    font-family: Arial, Helvetica, sans-serif;
     grid-area: footer !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: lighter;
     padding: 10px !important;
     background: var(--dark-gray) !important;
     height: 4rem !important;
@@ -2489,15 +2516,34 @@ footer {
         transform: scale(1.05);
     }
 
-    .icon-button i {
-        font-size: 2rem;
+    /* scroll bar */
+
+        .skins-scroll-wrapper {
+        background-color: var(--dark-gray);
+        max-height: 300px;
+        width: 40rem;
+        overflow-y: auto;
+        border: 3px solid var(--yellow);
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
     }
 
-    .icon-button {
-        margin: 10px;
+    .skins-scroll-wrapper::-webkit-scrollbar {
+        width: 12px;
     }
 
-    /*add to blacklist*/
+    .skins-scroll-wrapper::-webkit-scrollbar-thumb {
+        background-color: var(--yellow);
+        border-radius: 6px;
+    }
+
+    .skins-scroll-wrapper::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        border-radius: 6px;
+    }
+
+    /* ADD TO BLACKLIST*/
     .add-to-blacklist-container h1 {
         top: 20%;
         font-size: 1.8rem;
@@ -3002,6 +3048,6 @@ footer {
 
     /*footer*/
     footer {
-        font-size: 1.3rem;
+        font-size: 0.9rem;
     }
 }
