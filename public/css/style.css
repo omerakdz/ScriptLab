@@ -45,7 +45,7 @@ header {
     padding: 10px 20px !important;
 }
 
-input {
+input:not(.input-box-username input, .input-box-password input){
     font-family: "Fortnite";
 }
 
