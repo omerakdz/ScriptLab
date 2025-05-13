@@ -11,10 +11,14 @@
             <% for (const item of items) { %>
                 <article class="item">
                     <img src="<%= item.images.icon %>" alt="<%= item.name %>">
+                    <p>
+                        <%= item.name %>
+                    </p>
+
                 </article>
-            <% }; %>
+                <% }; %>
         </section>
     </main>
 
 
-   <%- include("partials/footer") %>
+    <%- include("partials/footer") %>
