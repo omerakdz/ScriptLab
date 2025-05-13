@@ -2,7 +2,7 @@
 
     <main id="skins-page-main">
         <article class="current-skin">
-            <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/skins/default-skin.jpg' %>" alt="Dark Voyager">
+            <img class="current-skin-image" src="<%= selectedSkin ? selectedSkin.images.icon : 'images/skins/default-skin.jpg' %>" alt="selected skin">
             <h1 class="current-skin-name"><%= selectedSkin ? selectedSkin.name : 'Geen skin geselecteerd' %></h1>
             <section class="win-loss-icons">
                 <button class="skins-wins"><%= wins %><img src="images/items/trophy.png" alt="Win trofee"></button>

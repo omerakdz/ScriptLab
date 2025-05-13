@@ -1706,11 +1706,12 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
 }
 
-.current-skin img {
+.current-skin-image {
     width: 400px;
     height: 400px;
     border-radius: 20px;
     border: 5px solid var(--yellow);
+    background-color: var(--dark-gray);
 }
 
 .skin-gallery {
@@ -1778,7 +1779,6 @@ button:hover {
 }
 
 .skin {
-    /* background-color: var(--yellow); */
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
@@ -1799,7 +1799,6 @@ button:hover {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    /* dit voorkomt de vervorming van de icon*/
     border-radius: 50%;
     background-color: var(--yellow);
     padding: 10px;
@@ -1833,7 +1832,7 @@ button:hover {
     padding: 10px;
     font-size: 1.5rem;
     border-radius: 10px;
-    color: var(--dark-gray);
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1847,10 +1846,8 @@ button:hover {
     height: 30px;
 }
 
-
 .all-skins {
     max-height: 500px;
-    /* Pas aan naar wens */
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1859,30 +1856,21 @@ button:hover {
     background-color: var(--dark-gray);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    /* optioneel */
 }
 
 .all-skins::-webkit-scrollbar {
     width: 8px;
-    /* Breedte van de scrollbar */
 }
 
 .all-skins::-webkit-scrollbar-thumb {
     background-color: var(--yellow);
-    /* Kleur van de scrollbar */
     border-radius: 10px;
-    /* Hoekradius van de scrollbar */
 }
 
 .all-skins::-webkit-scrollbar-track {
     background-color: #f5f5f5;
-    /* Kleur van de scrollbar track */
     border-radius: 10px;
-    /* Hoekradius van de scrollbar track */
 }
-
-/* .all-skins::-webkit-scrollbar-thumb:hover {
-    background-color: var(--yellow); /* Kleur van de scrollbar bij hover */
 
 /* SHOP PAGINA */
 .shop-section {
