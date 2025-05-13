@@ -14,23 +14,24 @@
                 <span id="span-item-pagina">dark voyager</span>
             </article> -->
 
-      
 
         <form action="/select-items" method="POST">
-            <section class="items-item-pagina">
-                <% if (items && items.length > 0) { %>
-                    <% for (const item of items) { %>
-                        <label class="item-card">
-                            <input type="checkbox" name="selectedItems" value="<%= item.id %>">
-                            <img src="<%= item.images.icon %>" alt="<%= item.name %>">
-                        </label>
+            <section class="items-scroll-wrapper">
+                <section class="items-item-pagina">
+                    <% if (items && items.length > 0) { %>
+                        <% for (const item of items) { %>
+                            <label class="item-card">
+                                <input type="checkbox" name="selectedItems" value="<%= item.id %>">
+                                <img src="<%= item.images.icon %>" alt="<%= item.name %>">
+                                <p class="choose-item-p"><%= item.name %></p>
+                            </label>
+                        <% } %>
+                    <% } else { %>
+                        <p>Geen items gevonden.</p>
                     <% } %>
-                <% } else { %>
-                    <p>Geen items gevonden.</p>
-                <% } %>
+                </section>
             </section>
-        </section>
-            <button type="submit" class="submit-button">Bevestigen</button>
+            <button type="submit" class="submit-button">Opslaan</button>
         </form>
     </main>
     </main>
