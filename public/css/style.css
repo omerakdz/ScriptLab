@@ -1694,7 +1694,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--yellow);
     border-radius: 10px;
     width: 60%;
     margin-top: 20px;
@@ -3082,6 +3081,27 @@ footer {
         /* 2 items naast elkaar */
 
     }
+
+    .search-item-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .search-items,
+    .item-container {
+        width: 100%;
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .item-container {
+        max-height: 550px;
+    }
+
+
 
 
     /*footer*/

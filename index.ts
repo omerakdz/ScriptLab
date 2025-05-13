@@ -3,7 +3,7 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
-import { FortniteItem, Skin, Player, Card, GameCard, Profile} from "./types";
+import { FortniteItem, Skin, Player, Card, GameCard, Profile } from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { profiles } from "./public/json/players.json"
 import { error } from "console";
@@ -19,7 +19,7 @@ import { SortDirection } from "mongodb";
 
 dotenv.config();
 
-const app : Express = express();
+const app: Express = express();
 
 app.set("view engine", "ejs");
 app.use(session);
@@ -37,7 +37,7 @@ app.set("port", process.env.PORT ?? 3000);
 //     }
 // };
 
-app.use(async(req, res, next) => {
+app.use(async (req, res, next) => {
     if (req.session.username) {
         res.locals.username = req.session.username;
 
@@ -68,7 +68,7 @@ app.get("/", (req, res) => {
     res.render("menu", {
         bodyId: "menuBody",
         title: "Menu",
-        username: req.session.username ?? null 
+        username: req.session.username ?? null
     });
 });
 
@@ -81,7 +81,7 @@ app.get("/login", (req, res) => {
     });
 });
 
-app.post("/login", async(req, res) => {
+app.post("/login", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -91,7 +91,7 @@ app.post("/login", async(req, res) => {
         console.log("Sessies gebruikersnaam:", req.session.username);
 
         const userExists = await usersCollection.findOne({ username });
-        
+
         if (userExists) {
             res.redirect("/index");
         } else {
@@ -108,13 +108,13 @@ app.post("/login", async(req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-        req.session.destroy((err) => {
+    req.session.destroy((err) => {
         if (err) {
-        console.error("Fout bij het vernietigen van de sessie:", err);
-        return res.status(500).send("Er is een fout opgetreden.");
+            console.error("Fout bij het vernietigen van de sessie:", err);
+            return res.status(500).send("Er is een fout opgetreden.");
         }
-        res.redirect("/login"); 
-        });
+        res.redirect("/login");
+    });
 });
 
 app.get("/register", (req, res) => {
@@ -127,7 +127,7 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-    const { username,email, password, confirmPassword } = req.body;
+    const { username, email, password, confirmPassword } = req.body;
 
     const existingUser = await usersCollection.findOne({ username });
     if (existingUser) {
@@ -161,7 +161,7 @@ app.post("/signup", async (req, res) => {
 });
 
 // secureMiddleware
-app.get("/landing",  async(req, res) => {
+app.get("/landing", async (req, res) => {
     const skins = await fetchSkins(40);
     const selectedSkinImage = req.query.selectedSkinImage
     res.render("landing", {
@@ -175,42 +175,42 @@ app.get("/landing",  async(req, res) => {
 });
 
 app.post("/landing", async (req, res) => {
-const skins : Skin[] = await fetchSkins(40); 
-const selectedSkin  = req.body.selectedSkin;
+    const skins: Skin[] = await fetchSkins(40);
+    const selectedSkin = req.body.selectedSkin;
 
-console.log("Gekozen skin:", selectedSkin);
+    console.log("Gekozen skin:", selectedSkin);
 
-if (!selectedSkin) {
-    return res.render("landing", {
-        errorMessage: "Geen skin geselecteerd!",
-        title: "Landing",
-        bodyId: "landing-page",
-        skins: skins ,
-    });
-}
+    if (!selectedSkin) {
+        return res.render("landing", {
+            errorMessage: "Geen skin geselecteerd!",
+            title: "Landing",
+            bodyId: "landing-page",
+            skins: skins,
+        });
+    }
 
-await usersCollection.updateOne(
-    { username: req.session.username },
-    { $set: { selectedSkinId: selectedSkin } }
-);
+    await usersCollection.updateOne(
+        { username: req.session.username },
+        { $set: { selectedSkinId: selectedSkin } }
+    );
 
-res.redirect('choose-item')
+    res.redirect('choose-item')
 });
 
 // secureMiddleware
-app.get("/choose-item",async (req, res) => {
+app.get("/choose-item", async (req, res) => {
     const items = await fetchItems(20);
     res.render("choose-item", {
         bodyId: "item-pagina",
-        title: "Kies Items", 
+        title: "Kies Items",
         items,
-        errorMessage: undefined, 
-        selectedItems: [] 
+        errorMessage: undefined,
+        selectedItems: []
     });
 });
 
 app.post("/select-items", async (req, res) => {
-    const selectedItems = req.body.selectedItems || []; 
+    const selectedItems = req.body.selectedItems || [];
     if (selectedItems.length === 2) {
         console.log("Geselecteerde items:", selectedItems.length); // Controle
 
@@ -219,71 +219,71 @@ app.post("/select-items", async (req, res) => {
             { $set: { selectedItems: selectedItems } }
         );
 
-        res.redirect("/index"); 
+        res.redirect("/index");
     } else {
-        const items = await fetchItems(20);  
+        const items = await fetchItems(20);
         res.render("choose-item", {
             bodyId: "item-pagina",
-            title: "Kies Items", 
-            errorMessage: "Je moet precies twee items kiezen.", 
+            title: "Kies Items",
+            errorMessage: "Je moet precies twee items kiezen.",
             items,
-            selectedItems: selectedItems || [], 
+            selectedItems: selectedItems || [],
         });
     }
 });
 
 
-app.get("/index", async(req, res) => {
+app.get("/index", async (req, res) => {
     res.render("index", {
         bodyId: "home-page",
         title: "Home pagina",
     });
 });
 
-app.get("/items", async(req, res) => {
- const searchItem = typeof req.query.q === "string" ? req.query.q : "";
-  const sortField = typeof req.query.sort === "string" ? req.query.sort : "name";
-  const sortDirection: SortDirection = req.query.dir === "desc" ? -1 : 1;
+app.get("/items", async (req, res) => {
+    const searchItem = typeof req.query.q === "string" ? req.query.q : "";
+    const sortField = typeof req.query.sort === "string" ? req.query.sort : "name";
+    const sortDirection: SortDirection = req.query.dir === "desc" ? -1 : 1;
 
-  let items = await fetchItems(40);
+    let items = await fetchItems(40);
 
 
-  const filteredItems = items.filter(item =>
-    item.name.toLowerCase().includes(searchItem.toLowerCase())
-  );
-  
-  res.render("search-item", {
-    bodyId: "search-item-body",
-    title: "Items Pagina",
-    items: items, // Gebruik de unieke items
-    searchItem,
-    filteredItems: filteredItems
-  });
+    const filteredItems = items.filter(item =>
+        item.name.toLowerCase().includes(searchItem.toLowerCase())
+    );
+
+    res.render("search-item", {
+        bodyId: "search-item-body",
+        title: "Items Pagina",
+        items: items, // Gebruik de unieke items
+        searchItem,
+        filteredItems: filteredItems
+    });
 })
 
-app.get("/skins", async(req, res) => {
-  const query = typeof req.query.q === "string" ? req.query.q : "";
+app.get("/skins", async (req, res) => {
+    const query = typeof req.query.q === "string" ? req.query.q : "";
 
-  const fetchedSkins = await fetchSkins(40);
-  const databaseSkins = await getSkinsByName(query);
+    const fetchedSkins = await fetchSkins(40);
+    const databaseSkins = await getSkinsByName(query);
 
-  const filteredFetchedSkins = fetchedSkins.filter((skin) =>
-    skin.name.toLowerCase().includes(query.toLowerCase())
-  );
+    const filteredFetchedSkins = fetchedSkins.filter((skin) =>
+        skin.name.toLowerCase().includes(query.toLowerCase())
+    );
 
-  const skins = [...filteredFetchedSkins, ...databaseSkins];
+    const skins = [...filteredFetchedSkins, ...databaseSkins];
 
-  res.render("skins", {
-    bodyId: "skins-page",
-    title: "Skins",
-    skins,
-    searchQuery: query,
-  });
+    res.render("skins", {
+        bodyId: "skins-page",
+        title: "Skins",
+        skins,
+        searchQuery: query,
+    });
 });
 
 
 app.get("/shop", async (req, res) => {
-    const items = await fetchShop(10); 
+    const items = await fetchShop(10);
     res.render("shop", {
         bodyId: "shop-page",
         title: "Shop",
@@ -293,48 +293,48 @@ app.get("/shop", async (req, res) => {
 
 app.get("/guide", (req, res) => {
     res.render("guide", {
-        bodyId : "guide-page",
-        title   : "Guide"
+        bodyId: "guide-page",
+        title: "Guide"
     });
 });
 
-app.get("/card-game", async(req, res) => {
+app.get("/card-game", async (req, res) => {
     try {
         const items: FortniteItem[] = await fetchItems(10);
-    
+
         const duplicated = [...items, ...items]; // kopie van array
-    
+
         // kaarten schudden
         for (let i = duplicated.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [duplicated[i], duplicated[j]] = [duplicated[j], duplicated[i]];
+            const j = Math.floor(Math.random() * (i + 1));
+            [duplicated[i], duplicated[j]] = [duplicated[j], duplicated[i]];
         }
-    
+
         res.render("card-game", {
-          title: "Memory Game",
-          bodyId: "card-game",
-          items: duplicated
+            title: "Memory Game",
+            bodyId: "card-game",
+            items: duplicated
         });
-    
-      } catch (error) {
+
+    } catch (error) {
         console.error("Fout bij ophalen van kaartjes:", error);
         res.status(500).send("Fout bij ophalen van items.");
-      }
+    }
 });
 
 app.get("/search-profile", (req, res) => {
-    const q  = typeof req.query.q === "string" ? req.query.q : "";
-    const results : Profile[] = profiles.filter(profile  => profile.name.toLowerCase().includes(q.toLowerCase()))
-    res.render("search-profile", {title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q : q})
+    const q = typeof req.query.q === "string" ? req.query.q : "";
+    const results: Profile[] = profiles.filter(profile => profile.name.toLowerCase().includes(q.toLowerCase()))
+    res.render("search-profile", { title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q: q })
 })
 
-app.get("/user/:username", (req, res) =>{
-    const username  = typeof req.params.username === "string" ? req.params.username : "";
-    const profile : Profile | undefined = profiles.find(profile => profile.name === username )
-    res.render("user-profile", {title:  `Profiel van ${username}`, bodyId:"user-profile-page", profile : profile})
+app.get("/user/:username", (req, res) => {
+    const username = typeof req.params.username === "string" ? req.params.username : "";
+    const profile: Profile | undefined = profiles.find(profile => profile.name === username)
+    res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
 })
 
-app.listen(app.get("port"), async() => {
+app.listen(app.get("port"), async () => {
     await connect();
     console.log("Server started on http://localhost/:" + app.get("port"));
 });
