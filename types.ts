@@ -12,6 +12,8 @@ export interface Player {
     losses?: number;
     createdAt?: Date;
     friends?: string[];
+    moves?: number;
+    vbucks?: number;
   }
 
 export interface Skin{
@@ -39,11 +41,6 @@ export interface Card {
     name: string;
     image: string;
     matched: boolean;
-}
-
-export interface GameCard {
-    card: Card;
-    element: HTMLDivElement;
 }
 
 export interface FortniteItem {

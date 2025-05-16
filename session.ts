@@ -2,6 +2,7 @@ import session, { MemoryStore } from "express-session";
 import dotenv from "dotenv";
 import mongoDBsession from "connect-mongodb-session";
 import {CONNECTION_STRING} from "./database";
+import { Card } from "./types";
 
 dotenv.config();
 
@@ -17,9 +18,23 @@ mongoStore.on("error", (error: any) => {
     console.error(error); // wordt opgeroepen als er een fout is
 })
 
+mongoStore.clear((err) => {
+  if (err) {
+    console.error("Fout bij het wissen van sessies:", err);
+  } else {
+    console.log("Alle sessies zijn gereset bij serverstart.");
+  }
+});
+
 declare module "express-session" {
     export interface SessionData {
-        username: string; // username van de ingelogde speler
+        username?: string; // username van de ingelogde speler
+        cards?: Card[]; 
+        flipped?: number[];
+        matched?: number[];
+        moves?: number;
+        toBeClosed?: boolean;
+        gameEnded?: boolean;
     }
 }
 
