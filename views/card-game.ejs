@@ -1,57 +1,107 @@
 <%- include("partials/header") %>
-<script type="module" src="/js/card-game.js" defer></script>
 
-    <main class="card-game-content">
-        <h1>Memory Card Game</h1>
-        <section id="status-container" class="status-container">
-            <article id="timer" class="timer">
-                <p id="timer-text">00:00</p>
-            </article>
-            <article id="reset" class="reset">
-                <button>Reset Game</button>
-            </article>
-            <article id="moves-count" class="moves-count">
-                <p>Zetten: <span id="move-count">0</span></p>
-            </article>
-        </section>
-        
-        <section id="game-board" class="game-board">
-            <% for (const item of items) { %>
-                <article class="card" data-name="<%= item.name %>"> <!-- werkt momenteel niet -->
-                    <section class="card-inner">
-                        <div class="card-front"></div>
-                        <div class="card-back">
-                            <img src="<%= item.images.icon %>" alt="<%= item.name %>">
-                        </div>
-                    </section>
-                </article>
-            <% } %>
-        </section>
+<main class="card-game-content" id="card-game-page">
+  <h1>Memory Card Game</h1>
 
-        <section id="game-end-container" class="game-end-container" style="display: none;">
-            <article class="game-end-content">
-                <h2>Het spel is afgelopen!</h2>
-                <p>Je hebt het spel voltooid! Wil je opnieuw spelen of naar de homepagina gaan?</p>
+  <section id="status-container" class="status-container">
+    <!-- <article id="timer" class="timer">
+      <p id="timer-text">00:00</p>
+    </article> -->
+    <article id="reset" class="reset">
+      <form action="/card-game" method="GET" style="margin: 0">
+        <button id="reset-btn" type="submit" name="reset" value="true">Reset Game</button>
+      </form>
+    </article>
+    <article id="moves-count" class="moves-count">
+      <p>Zetten: <span id="move-count"><%= moves %></span></p>
+    </article>
+  </section>
 
-                <section class="game-end-stats">
-                    <p id="final-time">Tijd: 00:00</p>
-                    <p id="final-moves">Aantal zetten: 0</p>
-                </section>
+  <section id="game-board" class="game-board">
+    <% let index = 0; for (const card of cards) { %>
+    <form method="POST">
+      <input type="hidden" name="cardIndex" value="<%= index %>" />
+      <button
+        class="card <%= matched.includes(index) ? 'matched' : '' %> <%= flipped.includes(index) || matched.includes(index) ? 'open' : '' %>"
+        type="submit"
+      >
+        <% if (flipped.includes(index) || matched.includes(index)) { %>
+        <img src="<%= card.image %>" alt="<%= card.name %>" />
+        <% } else { %>
+        <article class="question-mark">?</article>
+        <% } %>
+      </button>
+    </form>
+    <% index++; } %>
+  </section>
+</main>
 
-                <section class="game-end-buttons">
-                    <button id="retry-game" class="retry-button">
-                        <img src="/images/retry-icon.png" alt="Opnieuw" />
-                        Opnieuw
-                    </button>
 
-                    <button id="home-button" class="home-button">
-                        <img src="/images/home-icon.png" alt="Home" />
-                        Home
-                    </button>
-                </section>
-            </article>
-        </section>
- 
-    </main>
 
-  <%- include("partials/footer") %>
+  document.addEventListener("DOMContentLoaded", () => {
+    let seconds = Number(sessionStorage.getItem("memoryGameTimerSeconds")) || 0;
+    let minutes = Number(sessionStorage.getItem("memoryGameTimerMinutes")) || 0;
+    let timerStarted = false;
+    let timerInterval;
+
+    const timerText = document.getElementById("timer-text");
+
+    function updateTimer() {
+      seconds++;
+      if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+      }
+      const formattedMinutes = String(minutes).padStart(2, "0");
+      const formattedSeconds = String(seconds).padStart(2, "0");
+      timerText.textContent = `${formattedMinutes}:${formattedSeconds}`;
+
+      sessionStorage.setItem("memoryGameTimerSeconds", seconds);
+      sessionStorage.setItem("memoryGameTimerMinutes", minutes);
+    }
+
+    function startTimer() {
+      if (!timerStarted) {
+        timerStarted = true;
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      seconds = 0;
+      minutes = 0;
+      timerStarted = false;
+      timerText.textContent = "00:00";
+      sessionStorage.removeItem("memoryGameTimerSeconds");
+      sessionStorage.removeItem("memoryGameTimerMinutes");
+    }
+
+    // Als er al een opgeslagen tijd is, start dan direct de timer
+    if (seconds !== 0 || minutes !== 0) {
+      timerText.textContent = `${String(minutes).padStart(2, "0")}:${String(
+        seconds
+      ).padStart(2, "0")}`;
+      startTimer();
+    }
+
+    // Start timer bij eerste kaart klik (button click)
+    const cardButtons = document.querySelectorAll("#game-board button");
+    cardButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        startTimer();
+      });
+    });
+
+    // Reset knop handler
+    const resetBtn = document.getElementById("reset-btn");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", (event) => {
+        resetTimer();
+        // Hier mag de pagina herladen worden om het spel te resetten
+      });
+    }
+  });
+</script> -->
+
+<%- include("partials/footer") %>
