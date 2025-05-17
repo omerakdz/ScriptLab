@@ -1,0 +1,53 @@
+<% if (showLeaderboard) { %>
+  <article class="leaderboard-overlay"></article>
+  <article class="leaderboard-container">
+    <h3>Leaderboard:</h3>
+    <ul>
+      <% leaderboard.forEach(player => { %>
+        <li><strong><%= player.username %></strong>: <%= player.moves %> zetten</li>
+      <% }) %>
+    </ul>
+    <form action="/card-game" method="GET">
+      <input type="hidden" name="gameEnded" value="true" />
+      <button type="submit" class="back-to-endgame-button">
+        &#8592; Terug naar het speloverzicht
+      </button>
+    </form>
+  </article>
+<% } else if (gameEnded) { %>
+  <section id="game-end-container" class="game-end-container">
+  <article class="game-end-content">
+    <h2>Het spel is afgelopen!</h2>
+    <p>Je hebt het spel voltooid! Wil je opnieuw spelen of naar de homepagina gaan?</p>
+
+    <section class="game-end-stats">
+      <p id="final-moves">Aantal zetten: <%= moves %></p>
+    </section>
+
+    <section class="game-end-buttons-wrapper">
+      <form action="/card-game" method="GET">
+        <input type="hidden" name="reset" value="true" />
+        <button type="submit" class="retry-button">
+          <img src="/images/reload.png" alt="Opnieuw" />
+          Opnieuw
+        </button>
+      </form>
+
+      <form action="/index" method="GET">
+        <button type="submit" class="home-button">
+          <img src="/images/home.png" alt="Home" />
+          Home
+        </button>
+      </form>
+
+      <form action="/card-game" method="GET">
+        <input type="hidden" name="leaderboard" value="true" />
+        <button type="submit" class="leaderboard-button">
+          <img src="/images/leaderbord.png" alt="Leaderboard" />
+          Leaderboard
+        </button>
+      </form>
+    </section>
+  </article>
+</section>
+<% } %>

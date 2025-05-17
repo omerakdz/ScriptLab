@@ -1,21 +1,68 @@
 <%- include('partials/header.ejs') %>
-    <main class="info-container">
-        <article class="header">
-            <a href="index.html" class="back-button">&larr; TERUG</a>
-            <h1>INFO</h1>
-        </article>
-        <section class="content">
+<main class="info-container">
+    <article class="header">
+        <a href="/index" class="back-button">&larr; TERUG</a>
+        <h1>INFO</h1>
+    </article>
+    <section class="content">
             <nav class="menu">
-                <ul>
-                    <li data-text="How to play"><img id="how-to-play" src="images/items/questions.png"></li>
-                    <li><img id="skin-uitleg" src="images/items/skin.png"></li>
-                    <li><img id="items-uitleg" src="images/items/item.png"></li>
-                    <li><img id="profiel-uitleg" src="images/items/gamer.png"></li>
-                </ul>
-            </nav>
-            <article class="text-content">
-            </article>
-        </section>
-    </main>
-
-    <%- include('partials/footer.ejs') %>
+        <ul>
+            <li>
+                <a href="/guide?section=how-to-play">
+                    <img src="images/items/questions.png"
+                        class="<%= section === 'how-to-play' ? 'active' : '' %>">
+                </a>
+            </li>
+            <li>
+                <a href="/guide?section=skin">
+                    <img src="images/items/skin.png"
+                        class="<%= section === 'skin' ? 'active' : '' %>">
+                </a>
+            </li>
+            <li>
+                <a href="/guide?section=item">
+                    <img src="images/items/item.png"
+                        class="<%= section === 'item' ? 'active' : '' %>">
+                </a>
+            </li>
+            <li>
+                <a href="/guide?section=profile">
+                    <img src="images/items/gamer.png"
+                        class="<%= section === 'profile' ? 'active' : '' %>">
+                </a>
+            </li>
+        </ul>
+    </nav>
+        <article class="text-content">
+            <% if (section === "how-to-play") { %>
+                <h2>How to Play</h2>
+                <p>In dit spel kies jij je eigen avatar en stel je favorietenlijst samen.
+                Koppel items, houd je wins en losses bij en voeg notities toe.
+                Niet tevreden over een personage? Blacklist hem met een reden!
+                Maar let op: als een personage drie keer zoveel verliest als wint, wordt het automatisch geblacklist.
+                Tijd om je favorieten te kiezen en de strijd aan te gaan!</p>
+            <% } else if (section === "skin") { %>
+                <h2>Skins</h2>
+                <p>Skins geven je personage een unieke uitstraling.
+                Je kunt skins verzamelen en ruilen met andere spelers.
+                Exclusieve skins zijn zeldzaam en moeilijk te verkrijgen.
+                Sommige skins geven extra bonussen in speciale evenementen.</p>
+            <% } else if (section === "item") { %>
+                <h2>Items</h2>
+                <p>Items helpen je strategisch voordeel te behalen.
+                Gebruik items om tegenstanders te verslaan of jezelf te versterken.
+                Verzamel zeldzame items om je speelstijl te verbeteren.
+                Items kunnen worden gecombineerd voor speciale effecten.</p>
+            <% } else if (section === "profile") { %>
+                <h2>Profiel</h2>
+                <p>Je profiel bevat je statistieken en favoriete personages.
+                Bekijk je overwinningen, verliezen en prestaties.
+                Pas je profiel aan met een unieke avatar en achtergrond.
+                Vergelijk je profiel met andere spelers in het klassement.</p>
+            <% } else { %>
+                <p>Klik op een van de icoontjes hierboven om meer uitleg te krijgen.</p>
+            <% } %>
+        </article>
+    </section>
+</main>
+<%- include('partials/footer.ejs') %>
