@@ -1,3 +1,4 @@
+import { fetchItems } from "./api";
 import { getLeaderboard,  updatePlayerMovesIfBetter, usersCollection } from "./database";
 import { Card, FortniteItem } from "./types";
 
@@ -78,3 +79,19 @@ export async function processCardGameMove(session: any, cardIndex: number, usern
   return { cards, flipped, matched, moves, gameEnded };
 }
 
+export async function clearGameSession(session: any) {
+  delete session.cards;
+  delete session.flipped;
+  delete session.matched;
+  delete session.moves;
+  delete session.toBeClosed;
+  delete session.gameEnded;
+}
+
+export function resetSessionGameState(session: any) {
+  session.cards = [];
+  session.flipped = [];
+  session.matched = [];
+  session.moves = 0;
+  session.toBeClosed = false;
+}
