@@ -1531,24 +1531,8 @@ button:hover {
   padding-top: 20px;
   gap: 20px;
   width: 100%;
-  color: black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
-}
-
-.favorite-page-main {
-  grid-area: main;
-  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 20px;
-  gap: 20px;
-  width: 100%;
-  color: black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+  color: var(--yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .all-favorite-cards {
@@ -1565,18 +1549,16 @@ button:hover {
 
 .favorite-page-main h1 {
   font-size: 3rem;
-  background-color: var(--yellow);
-  color: black;
+  color: var(--yellow);
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .favorite-card {
-  background-color: var(--yellow);
+  background-color: var(--dark-gray);
   padding: 10px;
   border-radius: 10px;
   display: flex;
@@ -1593,8 +1575,9 @@ button:hover {
   height: 120px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-  padding: 5px;
   margin-bottom: 7px;
+  border: 2px solid var(--yellow);
+  background-color: none;
 }
 
 .wins-losses-icons {
@@ -1610,9 +1593,9 @@ button:hover {
 
 .favorite-wins,
 .favorite-losses {
-  background-color: var(--yellow);
-  color: black;
-  border: none;
+  background-color: var(--dark-gray);
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
   padding: 10px 15px;
   font-size: 1.5rem;
   border-radius: 5px;
@@ -1664,6 +1647,7 @@ button:hover {
   height: 40px;
   color: black;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease;
   background-color: var(--yellow);
   border: none;
@@ -1671,6 +1655,9 @@ button:hover {
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 5px;
+  background-color: var(--dark-gray);
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
 }
 
 .details-button:hover {
@@ -1678,6 +1665,8 @@ button:hover {
 }
 
 .items-favorite {
+  background-color: var(--dark-gray);
+  color: var(--yellow);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -1686,8 +1675,9 @@ button:hover {
 }
 
 .item-img {
-  background-color: var(--yellow);
+  background-color: var(--dark-gray);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--yellow);
   border-radius: 5px;
 }
 
@@ -2521,7 +2511,7 @@ button:hover {
   gap: 20px;
   justify-content: center;
   background-color: var(--dark-gray);
-  max-height: 500px;
+  max-height: 550px;
   overflow-y: auto;
   padding: 1rem;
   border-radius: 10px;
@@ -2557,7 +2547,7 @@ button:hover {
 .item p {
   margin-top: 10px;
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: var(--yellow);
   border-radius: 10px;
   color: black;
@@ -3852,14 +3842,11 @@ footer {
         max-height: 550px;
     }
 
-
-
-
     /*footer*/
     footer {
         font-size: 0.9rem;
     }
-}
+
   /* GAME KAART SPEL */
   #card-game-page {
     background-image: none;
