@@ -208,8 +208,8 @@ input:not(.input-box-username input, .input-box-password input) {
   letter-spacing: 0.4px;
 }
 
-/* HAMBURGER MENU */
 
+/* HAMBURGER MENU */
 /* MAIN */
 #home-page .card-container {
   grid-area: main;
@@ -1765,6 +1765,7 @@ button:hover {
   border-radius: 20px;
   border: 5px solid var(--yellow);
   background-color: var(--dark-gray);
+
 }
 
 .skin-gallery {
@@ -1838,6 +1839,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   margin: 15px;
+
 }
 
 .skin-actions {
@@ -1854,6 +1856,7 @@ button:hover {
   border-radius: 50%;
   background-color: var(--yellow);
   padding: 10px;
+
 }
 
 .skin-actions img:hover {
@@ -1898,6 +1901,7 @@ button:hover {
   height: 30px;
 }
 
+
 .all-skins {
   max-height: 500px;
   overflow-y: auto;
@@ -1923,6 +1927,9 @@ button:hover {
   background-color: #f5f5f5;
   border-radius: 10px;
 }
+
+/* .all-skins::-webkit-scrollbar-thumb:hover {
+    background-color: var(--yellow); /* Kleur van de scrollbar bij hover */
 
 /* SHOP PAGINA */
 .shop-section {
@@ -2345,21 +2352,15 @@ button:hover {
   font-weight: bold;
   margin-right: 6px;
 }
+
 /* ITEMS CHOOSE PAGINA */
 /*FIX: ALS IK H1 MARGIN_-TOP 1 REM GEEF OF ERROR KNOP ACHTERGROND KLEUR GEEF NEEMT HELER RUIMTE IN = BACKGR IMG VERSCHUIFT BEETJE*/
+
 #item-pagina {
   background-image: url("/images/bg-images/bg-desktop-5.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-
-.item-pagina-h1 {
-  font-size: 3rem;
-  color: var(--yellow);
-  text-align: center;
-  margin: 1rem 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .main-item-pagina {
@@ -2395,6 +2396,7 @@ button:hover {
   object-fit: cover;
   border-radius: 50%;
 }
+
 
 .item-card:hover {
   transform: scale(1.05);
@@ -2884,6 +2886,8 @@ footer {
     margin-top: 20px;
   }
 
+@media screen and (max-width: 768px) {
+
   .mobile-options-btn:hover {
     cursor: pointer;
   }
@@ -2928,8 +2932,6 @@ footer {
         display: none;
     }
 
-
-    /* HAMBURGER MENU */
 
     /*home pagina*/
 
@@ -3794,7 +3796,7 @@ footer {
         height: 30px;
     }
 
-    /* CHOOSE ITEMS PAGINA */
+    /* ITEMS CHOOSE PAGINA */
     /*FIX: ACHTERGROND AFBEELDING HELFT NIET BESCHIKBAAR*/
     .items-item-pagina {
         display: flex;
@@ -3824,40 +3826,7 @@ footer {
         width: 100%;
     }
 
-    /* SCROLL BAR */
-
-    .items-scroll-wrapper {
-        max-height: 400px;
-        margin: 10px;
-        padding: 8px;
-    }
-
-    .items-item-pagina {
-        justify-content: center;
-        gap: 16px;
-        padding: 10px;
-    }
-
-    .item-card {
-        flex: 0 1 calc(45% - 10px);
-    }
-
-    .item-card img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .submit-button {
-        width: 90%;
-        font-size: 1.3rem;
-        padding: 12px;
-    }
-
-    .choose-item-error {
-        font-size: 1rem;
-    }
-
-    /*item search pagina*/
+    /*item search*/
     .item {
         width: calc(50% - 10px);
         /* 2 items naast elkaar */
