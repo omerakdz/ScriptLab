@@ -334,6 +334,28 @@ app.get("/user/:username", (req, res) => {
     res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
 })
 
+
+app.get("/user/:username", (req, res) => {
+    const username = typeof req.params.username === "string" ? req.params.username : "";
+    const profile: Profile | undefined = profiles.find(profile => profile.name === username)
+    res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
+})
+
+app.get('/aim-trainer', (req, res) => {
+    res.render('aim-trainer', {
+        bodyId: "aim-body",
+        title: "Aim Trainer",
+        username: req.session.username ?? null,
+    });
+});
+app.get('/drop-game', (req, res) => {
+    res.render('drop-game', {
+        bodyId: "drop-body",
+        title: "Drop Game",
+        username: req.session.username ?? null,
+    });
+});
+
 app.listen(app.get("port"), async () => {
     await connect();
     console.log("Server started on http://localhost/:" + app.get("port"));
