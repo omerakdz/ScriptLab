@@ -41,6 +41,30 @@ export async function getItemById(id: string) {
     return await itemsCollection.findOne({ id });
 }
 
+export async function getLeaderboard() {
+  return await usersCollection.find({})
+    .sort({ moves: 1 }) 
+    .limit(4)
+    .toArray();
+}
+
+export async function updatePlayerMovesIfBetter(username: string, newMoves: number) {
+  const user = await usersCollection.findOne({ username });
+
+  if (!user) {
+    return;
+  }
+
+  const currentMoves = user.moves ?? Infinity; // Als moves niet bestaat, beschouwen we het als oneindig
+
+  if (newMoves < currentMoves) {
+    await usersCollection.updateOne(
+      { username },
+      { $set: { moves: newMoves } }
+    );
+  }
+}
+
 export async function updateGameResult(username: string, didWin: boolean) {
     const user = await usersCollection.findOne({ username });
 
@@ -114,6 +138,7 @@ async function seed() {
                 level: 5 + i,  // Voor elk speler verhoog je het niveau
                 wins: 12 + i,
                 losses: 8 + i,
+                moves: 0,
                 createdAt: new Date(),
                 friends: [],
                 selectedSkin: selectedSkin,

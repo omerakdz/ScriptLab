@@ -26,7 +26,7 @@ export async function createUser(username: string, password: string): Promise<Pl
     try {
         const result = await usersCollection.insertOne(user);
         console.log(`Gebruiker aangemaakt met id ${result.insertedId}`);
-        return { username };
+        return { username};
     } catch (error) {
         console.error("Fout bij aanmaken gebruiker:", error);
         return null;
@@ -55,6 +55,7 @@ export async function loginUser(username: string, password: string): Promise<Pla
         level: user.level,
         wins: user.wins,
         losses: user.losses,
+        moves: user.moves,
     };
 }
 

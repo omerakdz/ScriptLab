@@ -3,19 +3,29 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
-import { FortniteItem, Skin, Player, Card, GameCard, Profile } from "./types";
+import { FortniteItem, Skin, Player, Card, Profile } from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
-import { profiles } from "./public/json/players.json"
+import { profiles } from "./public/json/players.json";
 import { error } from "console";
 import { title } from "process";
 import { loginUser, createUser } from "./account";
 import session from "./session";
-import { usersCollection, connect, getPlayersByName, getSkinById, getItemsByName, getSkinsByName, itemsCollection } from "./database";
+import {
+  usersCollection,
+  connect,
+  getPlayersByName,
+  getSkinById,
+  getItemsByName,
+  getSkinsByName,
+  itemsCollection,
+  getLeaderboard,
+  updatePlayerMovesIfBetter,
+} from "./database";
 import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 import { SortDirection } from "mongodb";
-
+import { clearGameSession, prepareGameData, processCardGameMove,  resetSessionGameState,  shuffle } from "./games";
 
 dotenv.config();
 
@@ -33,307 +43,373 @@ app.set("port", process.env.PORT ?? 3000);
 //     if (req.session.username) {
 //         next();
 //     } else {
-//         res.redirect("/"); 
+//         res.redirect("/");
 //     }
 // };
 
 app.use(async (req, res, next) => {
-    if (req.session.username) {
-        res.locals.username = req.session.username;
+  if (req.session.username) {
+    res.locals.username = req.session.username;
 
-        const user = await usersCollection.findOne({ username: req.session.username });
+    const user = await usersCollection.findOne({
+      username: req.session.username,
+    });
 
-        if (user) {
-            res.locals.level = user.level || 1;
-            res.locals.wins = user.wins || 0;
-            res.locals.losses = user.losses || 0;
-            res.locals.vbucks = 1000;
+    if (user) {
+      res.locals.level = user.level || 1;
+      res.locals.wins = user.wins || 0;
+      res.locals.losses = user.losses || 0;
+      res.locals.vbucks = 1000;
 
-            if (user.selectedSkinId) {
-                const skins = await fetchSkins();
-                res.locals.selectedSkin = skins.find(skin => skin.id === user.selectedSkinId);
-            } else {
-                res.locals.selectedSkin = null;
-            }
-        }
-    } else {
-        res.locals.username = null;
+      if (user.selectedSkinId) {
+        const skins = await fetchSkins();
+        res.locals.selectedSkin = skins.find(
+          (skin) => skin.id === user.selectedSkinId
+        );
+      } else {
         res.locals.selectedSkin = null;
+      }
     }
+  } else {
+    res.locals.username = null;
+    res.locals.selectedSkin = null;
+  }
 
-    next();
+  next();
 });
 
 app.get("/", (req, res) => {
-    res.render("menu", {
-        bodyId: "menuBody",
-        title: "Menu",
-        username: req.session.username ?? null
-    });
+  res.render("menu", {
+    bodyId: "menuBody",
+    title: "Menu",
+    username: req.session.username ?? null,
+  });
 });
 
 app.get("/login", (req, res) => {
-    const message = "";
-    res.render("login", {
-        title: "Login",
-        bodyId: "login-page",
-        errorMessage: message
-    });
+  const message = "";
+  res.render("login", {
+    title: "Login",
+    bodyId: "login-page",
+    errorMessage: message,
+  });
 });
 
 app.post("/login", async (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
 
-    try {
-        const user: Player = await loginUser(username, password);
-        req.session.username = user.username;
-        console.log("Sessies gebruikersnaam:", req.session.username);
+  try {
+    const user: Player = await loginUser(username, password);
+    req.session.username = user.username;
+    console.log("Sessies gebruikersnaam:", req.session.username);
 
-        const userExists = await usersCollection.findOne({ username });
+    const userExists = await usersCollection.findOne({ username });
 
-        if (userExists) {
-            res.redirect("/index");
-        } else {
-            res.redirect("/landing");
-        }
-
-    } catch (error) {
-        res.render("login", {
-            errorMessage: "Ongeldige login",
-            title: "Login",
-            bodyId: "login-page"
-        });
+    if (userExists) {
+      res.redirect("/index");
+    } else {
+      res.redirect("/landing");
     }
+  } catch (error) {
+    res.render("login", {
+      errorMessage: "Ongeldige login",
+      title: "Login",
+      bodyId: "login-page",
+    });
+  }
 });
 
 app.get("/logout", (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            console.error("Fout bij het vernietigen van de sessie:", err);
-            return res.status(500).send("Er is een fout opgetreden.");
-        }
-        res.redirect("/login");
-    });
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Fout bij het vernietigen van de sessie:", err);
+      return res.status(500).send("Er is een fout opgetreden.");
+    }
+    res.redirect("/login");
+  });
 });
 
 app.get("/register", (req, res) => {
-    const errorMessage = "";
-    res.render("register", {
-        bodyId: "register-page",
-        title: "Register",
-        errorMessage: errorMessage
-    });
+  const errorMessage = "";
+  res.render("register", {
+    bodyId: "register-page",
+    title: "Register",
+    errorMessage: errorMessage,
+  });
 });
 
 app.post("/signup", async (req, res) => {
-    const { username, email, password, confirmPassword } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
 
-    const existingUser = await usersCollection.findOne({ username });
-    if (existingUser) {
-        return res.render("register", {
-            errorMessage: "Gebruikersnaam is al in gebruik.",
-            title: "Register",
-            bodyId: "register-page"
-        });
-    }
+  const existingUser = await usersCollection.findOne({ username });
+  if (existingUser) {
+    return res.render("register", {
+      errorMessage: "Gebruikersnaam is al in gebruik.",
+      title: "Register",
+      bodyId: "register-page",
+    });
+  }
 
-    if (password !== confirmPassword) {
-        return res.render("register", {
-            errorMessage: "De wachtwoorden komen niet overeen.",
-            title: "Register",
-            bodyId: "register-page"
-        });
-    }
+  if (password !== confirmPassword) {
+    return res.render("register", {
+      errorMessage: "De wachtwoorden komen niet overeen.",
+      title: "Register",
+      bodyId: "register-page",
+    });
+  }
 
-    const user = await createUser(username, password);
+  const user = await createUser(username, password);
 
-    if (!user) {
-        return res.render("register", {
-            errorMessage: "Er is een fout opgetreden bij het aanmaken van het account.",
-            title: "Register",
-            bodyId: "register-page"
-        });
-    }
+  if (!user) {
+    return res.render("register", {
+      errorMessage:
+        "Er is een fout opgetreden bij het aanmaken van het account.",
+      title: "Register",
+      bodyId: "register-page",
+    });
+  }
 
-    req.session.username = user.username;
-    res.redirect("/landing");
+  req.session.username = user.username;
+  res.redirect("/landing");
 });
 
 // secureMiddleware
 app.get("/landing", async (req, res) => {
-    const skins = await fetchSkins(40);
-    const selectedSkinImage = req.query.selectedSkinImage
-    res.render("landing", {
-        bodyId: "landing-page",
-        title: "Landing",
-        skins,
-        errorMessage: undefined,
-        selectedSkinImage
-    });
-
+  const skins = await fetchSkins(40);
+  const selectedSkinImage = req.query.selectedSkinImage;
+  res.render("landing", {
+    bodyId: "landing-page",
+    title: "Landing",
+    skins,
+    errorMessage: undefined,
+    selectedSkinImage,
+  });
 });
 
 app.post("/landing", async (req, res) => {
-    const skins: Skin[] = await fetchSkins(40);
-    const selectedSkin = req.body.selectedSkin;
+  const skins: Skin[] = await fetchSkins(40);
+  const selectedSkin = req.body.selectedSkin;
 
-    console.log("Gekozen skin:", selectedSkin);
+  console.log("Gekozen skin:", selectedSkin);
 
-    if (!selectedSkin) {
-        return res.render("landing", {
-            errorMessage: "Geen skin geselecteerd!",
-            title: "Landing",
-            bodyId: "landing-page",
-            skins: skins,
-        });
-    }
+  if (!selectedSkin) {
+    return res.render("landing", {
+      errorMessage: "Geen skin geselecteerd!",
+      title: "Landing",
+      bodyId: "landing-page",
+      skins: skins,
+    });
+  }
 
-    await usersCollection.updateOne(
-        { username: req.session.username },
-        { $set: { selectedSkinId: selectedSkin } }
-    );
+  await usersCollection.updateOne(
+    { username: req.session.username },
+    { $set: { selectedSkinId: selectedSkin } }
+  );
 
-    res.redirect('choose-item')
+  res.redirect("choose-item");
 });
 
 // secureMiddleware
 app.get("/choose-item", async (req, res) => {
-    const items = await fetchItems(20);
-    res.render("choose-item", {
-        bodyId: "item-pagina",
-        title: "Kies Items",
-        items,
-        errorMessage: undefined,
-        selectedItems: []
-    });
+  const items = await fetchItems(20);
+  res.render("choose-item", {
+    bodyId: "item-pagina",
+    title: "Kies Items",
+    items,
+    errorMessage: undefined,
+    selectedItems: [],
+  });
 });
 
 app.post("/select-items", async (req, res) => {
-    const selectedItems = req.body.selectedItems || [];
-    if (selectedItems.length === 2) {
-        console.log("Geselecteerde items:", selectedItems.length); // Controle
+  const selectedItems = req.body.selectedItems || [];
+  if (selectedItems.length === 2) {
+    console.log("Geselecteerde items:", selectedItems.length); // Controle
 
-        await usersCollection.updateOne(
-            { username: req.session.username },
-            { $set: { selectedItems: selectedItems } }
-        );
+    await usersCollection.updateOne(
+      { username: req.session.username },
+      { $set: { selectedItems: selectedItems } }
+    );
 
-        res.redirect("/index");
-    } else {
-        const items = await fetchItems(20);
-        res.render("choose-item", {
-            bodyId: "item-pagina",
-            title: "Kies Items",
-            errorMessage: "Je moet precies twee items kiezen.",
-            items,
-            selectedItems: selectedItems || [],
-        });
-    }
+    res.redirect("/index");
+  } else {
+    const items = await fetchItems(20);
+    res.render("choose-item", {
+      bodyId: "item-pagina",
+      title: "Kies Items",
+      errorMessage: "Je moet precies twee items kiezen.",
+      items,
+      selectedItems: selectedItems || [],
+    });
+  }
 });
 
-
 app.get("/index", async (req, res) => {
-    res.render("index", {
-        bodyId: "home-page",
-        title: "Home pagina",
-    });
+  await clearGameSession(req.session);
+  res.render("index", {
+    bodyId: "home-page",
+    title: "Home pagina",
+
+  });
 });
 
 app.get("/items", async (req, res) => {
-    const searchItem = typeof req.query.q === "string" ? req.query.q : "";
-    const sortField = typeof req.query.sort === "string" ? req.query.sort : "name";
-    const sortDirection: SortDirection = req.query.dir === "desc" ? -1 : 1;
+  const searchItem = typeof req.query.q === "string" ? req.query.q.trim() : "";
+  const sortField =
+    typeof req.query.sort === "string" ? req.query.sort : "name";
+  const sortDirection: SortDirection = req.query.dir === "desc" ? -1 : 1;
 
-    let items = await fetchItems(40);
+  let items;
 
+  if (searchItem !== "") {
+    items = await getItemsByName(searchItem, sortField, sortDirection);
+  } else {
+    items = await fetchItems(40);
+  }
 
-    const filteredItems = items.filter(item =>
-        item.name.toLowerCase().includes(searchItem.toLowerCase())
-    );
-
-    res.render("search-item", {
-        bodyId: "search-item-body",
-        title: "Items Pagina",
-        items: items, // Gebruik de unieke items
-        searchItem,
-        filteredItems: filteredItems
-    });
-})
-
-app.get("/skins", async (req, res) => {
-    const query = typeof req.query.q === "string" ? req.query.q : "";
-
-    const fetchedSkins = await fetchSkins(40);
-    const databaseSkins = await getSkinsByName(query);
-
-    const filteredFetchedSkins = fetchedSkins.filter((skin) =>
-        skin.name.toLowerCase().includes(query.toLowerCase())
-    );
-
-    const skins = [...filteredFetchedSkins, ...databaseSkins];
-
-    res.render("skins", {
-        bodyId: "skins-page",
-        title: "Skins",
-        skins,
-        searchQuery: query,
-    });
+  res.render("search-item", {
+    bodyId: "search-item-body",
+    title: "Items Pagina",
+    items,
+    searchItem,
+  });
 });
 
+app.get("/skins", async (req, res) => {
+  const query = typeof req.query.q === "string" ? req.query.q : "";
+
+  const fetchedSkins = await fetchSkins(40);
+  const databaseSkins = await getSkinsByName(query);
+
+  const filteredFetchedSkins = fetchedSkins.filter((skin) =>
+    skin.name.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const skins = [...filteredFetchedSkins, ...databaseSkins];
+
+  res.render("skins", {
+    bodyId: "skins-page",
+    title: "Skins",
+    skins,
+    searchQuery: query,
+  });
+});
 
 app.get("/shop", async (req, res) => {
-    const items = await fetchShop(10);
-    res.render("shop", {
-        bodyId: "shop-page",
-        title: "Shop",
-        items
-    });
+  const items = await fetchShop(10);
+  res.render("shop", {
+    bodyId: "shop-page",
+    title: "Shop",
+    items,
+  });
 });
 
 app.get("/guide", (req, res) => {
-    res.render("guide", {
-        bodyId: "guide-page",
-        title: "Guide"
-    });
+  const section: string =
+    typeof req.query.section === "string" ? req.query.section : "";
+  res.render("guide", {
+    bodyId: "guide-page",
+    title: "Guide",
+    section: section,
+  });
 });
 
 app.get("/card-game", async (req, res) => {
-    try {
-        const items: FortniteItem[] = await fetchItems(10);
+    const reset = req.query.reset === "true";
+   const showLeaderboard = req.query.leaderboard === "true";
+ 
+  if (reset || !req.session.cards) {
+     if (reset || !req.session.cards) {
+    await resetSessionGameState(req.session); // hier reset je correct
+    const { shuffled } = await prepareGameData(fetchItems, false);
+    req.session.cards = shuffled;
+  }
+  }
 
-        const duplicated = [...items, ...items]; // kopie van array
+   const gameEnded = req.query.gameEnded === "true" || (
+    req.session.cards && req.session.matched
+      ? req.session.cards.length === req.session.matched.length
+      : false
+  );
 
-        // kaarten schudden
-        for (let i = duplicated.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [duplicated[i], duplicated[j]] = [duplicated[j], duplicated[i]];
-        }
 
-        res.render("card-game", {
-            title: "Memory Game",
-            bodyId: "card-game",
-            items: duplicated
-        });
+  let leaderboard : any = [];
+  if (showLeaderboard) {
+    leaderboard = await getLeaderboard();
+  }
 
-    } catch (error) {
-        console.error("Fout bij ophalen van kaartjes:", error);
-        res.status(500).send("Fout bij ophalen van items.");
-    }
+  res.render("card-game", {
+    cards: req.session.cards,
+    flipped: req.session.flipped,
+    matched: req.session.matched,
+    moves: req.session.moves ?? 0 ,
+    title: "Kaartspel",
+    bodyId: "card-game-page",
+    showLeaderboard,
+    leaderboard: showLeaderboard ? await getLeaderboard() : [],
+    gameEnded,
+  });
+});
+
+app.post("/card-game", async (req, res) => {
+ const cardIndex = parseInt(req.body.cardIndex);
+
+  const gameState = await processCardGameMove(req.session, cardIndex, req.session.username);
+
+    req.session.gameEnded = gameState.gameEnded;
+    const showLeaderboard = false;
+    const leaderboard: any[] = [];
+
+    if (gameState.gameEnded && req.session.username) {
+    await updatePlayerMovesIfBetter(req.session.username, gameState.moves);
+  }
+
+  res.render("card-game", {
+     cards: gameState.cards,
+    flipped: gameState.flipped,
+    matched: gameState.matched,
+    moves: gameState.moves,
+    title: "Kaartspel",
+    bodyId: "card-game-page",
+    gameEnded: gameState.gameEnded,
+    showLeaderboard,
+    leaderboard,
+  });
 });
 
 app.get("/search-profile", (req, res) => {
-    const q = typeof req.query.q === "string" ? req.query.q : "";
-    const results: Profile[] = profiles.filter(profile => profile.name.toLowerCase().includes(q.toLowerCase()))
-    res.render("search-profile", { title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q: q })
-})
+  const q = typeof req.query.q === "string" ? req.query.q : "";
+  const results: Profile[] = profiles.filter((profile) =>
+    profile.name.toLowerCase().includes(q.toLowerCase())
+  );
+  res.render("search-profile", {
+    title: "Zoekresultaten...",
+    bodyId: "profile-search-page",
+    results: results,
+    q: q,
+  });
+});
 
 app.get("/user/:username", (req, res) => {
-    const username = typeof req.params.username === "string" ? req.params.username : "";
-    const profile: Profile | undefined = profiles.find(profile => profile.name === username)
-    res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
-})
+  const username =
+    typeof req.params.username === "string" ? req.params.username : "";
+  const profile: Profile | undefined = profiles.find(
+    (profile) => profile.name === username
+  );
+  res.render("user-profile", {
+    title: `Profiel van ${username}`,
+    bodyId: "user-profile-page",
+    profile: profile,
+  });
+});
 
+app.get("/favorite", (req, res) => {
+    res.render("favorite", {
+        title: "Favorieten",
+        bodyId: "favorite-page"
+    });
+})
 
 app.get("/user/:username", (req, res) => {
     const username = typeof req.params.username === "string" ? req.params.username : "";
@@ -355,8 +431,14 @@ app.get('/drop-game', (req, res) => {
         username: req.session.username ?? null,
     });
 });
+app.get("/blacklist", (req, res) => {
+    res.render("blacklist", {
+        title: "Blacklist",
+        bodyId: "blacklistPage"
+    });
+})
 
 app.listen(app.get("port"), async () => {
-    await connect();
-    console.log("Server started on http://localhost/:" + app.get("port"));
+  await connect();
+  console.log("Server started on http://localhost/:" + app.get("port"));
 });
