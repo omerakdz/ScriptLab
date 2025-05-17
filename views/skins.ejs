@@ -19,10 +19,10 @@
                         <img id="skin-image" src="<%= skin.images.icon %>" alt="<%= skin.name %>">
                         <h1><%= skin.name %></h1>
                         <section class="skin-actions">
-                            <a href="favorite-page.html">
+                            <a href="/favorite/<%= skin.id %>">
                                 <img class="star-icon" src="images/items/star-icon.png" alt="ster">
                             </a>
-                            <a href="add-to-blacklist.html">
+                            <a href="/add-blacklist/<%= skin.id %>">
                                 <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
                             </a>
                         </section>
