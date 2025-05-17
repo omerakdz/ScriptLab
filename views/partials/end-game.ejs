@@ -1,5 +1,21 @@
-<% if (gameEnded) { %>
-<section id="game-end-container" class="game-end-container">
+<% if (showLeaderboard) { %>
+  <article class="leaderboard-overlay"></article>
+  <article class="leaderboard-container">
+    <h3>Leaderboard:</h3>
+    <ul>
+      <% leaderboard.forEach(player => { %>
+        <li><strong><%= player.username %></strong>: <%= player.moves %> zetten</li>
+      <% }) %>
+    </ul>
+    <form action="/card-game" method="GET">
+      <input type="hidden" name="gameEnded" value="true" />
+      <button type="submit" class="back-to-endgame-button">
+        &#8592; Terug naar het speloverzicht
+      </button>
+    </form>
+  </article>
+<% } else if (gameEnded) { %>
+  <section id="game-end-container" class="game-end-container">
   <article class="game-end-content">
     <h2>Het spel is afgelopen!</h2>
     <p>Je hebt het spel voltooid! Wil je opnieuw spelen of naar de homepagina gaan?</p>
@@ -8,8 +24,9 @@
       <p id="final-moves">Aantal zetten: <%= moves %></p>
     </section>
 
-    <section class="game-end-buttons">
+    <section class="game-end-buttons-wrapper">
       <form action="/card-game" method="GET">
+        <input type="hidden" name="reset" value="true" />
         <button type="submit" class="retry-button">
           <img src="/images/reload.png" alt="Opnieuw" />
           Opnieuw
@@ -24,7 +41,7 @@
       </form>
 
       <form action="/card-game" method="GET">
-        <input type="hidden" name="showLeaderboard" value="true" />
+        <input type="hidden" name="leaderboard" value="true" />
         <button type="submit" class="leaderboard-button">
           <img src="/images/leaderbord.png" alt="Leaderboard" />
           Leaderboard
@@ -33,19 +50,4 @@
     </section>
   </article>
 </section>
-<% } %>
-
-<% if (showLeaderboard) { %>
-  <div class="leaderboard-overlay"></div>
-  <div class="leaderboard-container">
-    <h3>Leaderboard:</h3>
-    <ul>
-      <% leaderboard.forEach(player => { %>
-        <li><strong><%= player.username %></strong>: <%= player.moves %> zetten</li>
-      <% }) %>
-    </ul>
-    <form action="/card-game" method="GET">
-      <button type="submit">Terug naar spel</button>
-    </form>
-  </div>
 <% } %>

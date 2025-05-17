@@ -18,14 +18,6 @@ mongoStore.on("error", (error: any) => {
     console.error(error); // wordt opgeroepen als er een fout is
 })
 
-mongoStore.clear((err) => {
-  if (err) {
-    console.error("Fout bij het wissen van sessies:", err);
-  } else {
-    console.log("Alle sessies zijn gereset bij serverstart.");
-  }
-});
-
 declare module "express-session" {
     export interface SessionData {
         username?: string; // username van de ingelogde speler

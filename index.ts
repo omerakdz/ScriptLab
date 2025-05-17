@@ -19,12 +19,13 @@ import {
   getSkinsByName,
   itemsCollection,
   getLeaderboard,
+  updatePlayerMovesIfBetter,
 } from "./database";
 import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 import { SortDirection } from "mongodb";
-import { prepareGameData, processCardGameMove, shuffle } from "./games";
+import { clearGameSession, prepareGameData, processCardGameMove,  resetSessionGameState,  shuffle } from "./games";
 
 dotenv.config();
 
@@ -245,9 +246,11 @@ app.post("/select-items", async (req, res) => {
 });
 
 app.get("/index", async (req, res) => {
+  await clearGameSession(req.session);
   res.render("index", {
     bodyId: "home-page",
     title: "Home pagina",
+
   });
 });
 
@@ -313,30 +316,54 @@ app.get("/guide", (req, res) => {
 });
 
 app.get("/card-game", async (req, res) => {
-  const reset = req.query.reset === "true";
-
+    const reset = req.query.reset === "true";
+   const showLeaderboard = req.query.leaderboard === "true";
+ 
   if (reset || !req.session.cards) {
+     if (reset || !req.session.cards) {
+    await resetSessionGameState(req.session); // hier reset je correct
     const { shuffled } = await prepareGameData(fetchItems, false);
     req.session.cards = shuffled;
-    req.session.flipped = [];
-    req.session.matched = [];
-    req.session.moves = 0;
+  }
+  }
+
+   const gameEnded = req.query.gameEnded === "true" || (
+    req.session.cards && req.session.matched
+      ? req.session.cards.length === req.session.matched.length
+      : false
+  );
+
+
+  let leaderboard : any = [];
+  if (showLeaderboard) {
+    leaderboard = await getLeaderboard();
   }
 
   res.render("card-game", {
     cards: req.session.cards,
     flipped: req.session.flipped,
     matched: req.session.matched,
-    moves: req.session.moves,
+    moves: req.session.moves ?? 0 ,
     title: "Kaartspel",
     bodyId: "card-game-page",
+    showLeaderboard,
+    leaderboard: showLeaderboard ? await getLeaderboard() : [],
+    gameEnded,
   });
 });
 
 app.post("/card-game", async (req, res) => {
  const cardIndex = parseInt(req.body.cardIndex);
 
-  const gameState = await processCardGameMove(req.session, cardIndex);
+  const gameState = await processCardGameMove(req.session, cardIndex, req.session.username);
+
+    req.session.gameEnded = gameState.gameEnded;
+    const showLeaderboard = false;
+    const leaderboard: any[] = [];
+
+    if (gameState.gameEnded && req.session.username) {
+    await updatePlayerMovesIfBetter(req.session.username, gameState.moves);
+  }
 
   res.render("card-game", {
      cards: gameState.cards,
@@ -345,6 +372,9 @@ app.post("/card-game", async (req, res) => {
     moves: gameState.moves,
     title: "Kaartspel",
     bodyId: "card-game-page",
+    gameEnded: gameState.gameEnded,
+    showLeaderboard,
+    leaderboard,
   });
 });
 

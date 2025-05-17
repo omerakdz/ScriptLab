@@ -55,7 +55,7 @@ export async function updatePlayerMovesIfBetter(username: string, newMoves: numb
     return;
   }
 
-  const currentMoves = user.moves ?? 0;
+  const currentMoves = user.moves ?? Infinity; // Als moves niet bestaat, beschouwen we het als oneindig
 
   if (newMoves < currentMoves) {
     await usersCollection.updateOne(
@@ -138,7 +138,7 @@ async function seed() {
                 level: 5 + i,  // Voor elk speler verhoog je het niveau
                 wins: 12 + i,
                 losses: 8 + i,
-                moves: 19 +i,
+                moves: 0,
                 createdAt: new Date(),
                 friends: [],
                 selectedSkin: selectedSkin,
