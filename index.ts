@@ -404,6 +404,21 @@ app.get("/user/:username", (req, res) => {
   });
 });
 
+app.get("/favorite", (req, res) => {
+    res.render("favorite", {
+        title: "Favorieten",
+        bodyId: "favorite-page"
+    });
+})
+
+app.get("/blacklist", (req, res) => {
+    res.render("blacklist", {
+        title: "Blacklist",
+        bodyId: "blacklistPage"
+    });
+})
+
+
 app.listen(app.get("port"), async () => {
   await connect();
   console.log("Server started on http://localhost/:" + app.get("port"));
