@@ -234,6 +234,7 @@ input:not(.input-box-username input, .input-box-password input) {
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
 }
 
 .card-section img {
@@ -951,7 +952,6 @@ textarea {
   width: 20%;
   transform: scale(5);
   transform-origin: top left;
-  filter: blur(0.2px);
 }
 
 #settings-page main {
@@ -990,6 +990,11 @@ textarea {
   text-align: center;
 }
 
+.profile-level{
+  color: var(--yellow);
+  font-size: 25px;
+}
+
 .settings-card,
 .user-profile-card {
   display: flex;
@@ -997,7 +1002,7 @@ textarea {
   height: 500px;
   background-color: var(--dark-gray);
   border-radius: 30px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
 }
 
 .settings-profile img,
@@ -1005,6 +1010,7 @@ textarea {
   border-radius: 200px;
   width: 120px;
   height: 120px;
+  border: var(--yellow) 2px solid;
 }
 
 .settings-profile figure,
@@ -2875,6 +2881,8 @@ footer {
     margin-left: 30px;
     margin-top: 20px;
   }
+}
+
 
 @media screen and (max-width: 768px) {
 

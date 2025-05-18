@@ -2,23 +2,23 @@
   "profiles": [
     {
       "name": "ShadowSlayer",
-      "skinIconUrl": "https://fortnite-api.com/images/cosmetics/br/CID_959_Athena_Commando_M_Corny/icon.png"
+      "skinIconUrl": "https://image.fnbr.co/outfit/5ab16c0e5f957f27504aa4e4/icon.png"
     },
     {
       "name": "LunaStorm",
-      "skinIconUrl": "https://fortnite-api.com/images/cosmetics/br/CID_068_Athena_Commando_F_SkiGirl_KOR/icon.png"
+      "skinIconUrl": "https://image.fnbr.co/outfit/5ab16c0e5f957f27504aa4e4/icon.png"
     },
     {
       "name": "BlazeKnight",
-      "skinIconUrl": "https://fortnite-api.com/images/cosmetics/br/CID_069_Athena_Commando_F_PinkBear/icon.png"
+      "skinIconUrl": "https://image.fnbr.co/outfit/5ab16c0e5f957f27504aa4e4/icon.png"
     },
     {
       "name": "AquaPhantom",
-      "skinIconUrl": "https://fortnite-api.com/images/cosmetics/br/CID_067_Athena_Commando_F_SkiGirl_CHN/icon.png"
+      "skinIconUrl": "https://image.fnbr.co/outfit/5ab16c0e5f957f27504aa4e4/icon.png"
     },
     {
       "name": "CyberHunter",
-      "skinIconUrl": "https://fortnite-api.com/images/cosmetics/br/CID_242_Athena_Commando_F_Bullseye/icon.png"
+      "skinIconUrl": "https://image.fnbr.co/outfit/5ab16c0e5f957f27504aa4e4/icon.png"
     }
   ]
 }
