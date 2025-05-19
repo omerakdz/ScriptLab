@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset.css">
 </head>
+
 <body id="<%= bodyId %>">
-<header>
-    <!-- <article class="logo">
+    <header>
+        <!-- <article class="logo">
         <a href="/index"><span>Fortnite</span></a>
         <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a>
     </article>
@@ -19,7 +22,7 @@
             <input type="text" name="q" placeholder="Zoek spelers...">
         </form>
     </section> -->
-    <!-- <nav class="hamburger-nav">
+        <!-- <nav class="hamburger-nav">
         <img src="/images/items/hamburger-menu.png" alt="Menu" class="hamburger-icon" id="hamburgerToggle">
 
         <ul class="nav-links" id="navLinks">
@@ -31,34 +34,39 @@
         </ul>
     </nav> -->
 
-    <article class="menu-container">
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger-icon">
-            <img src="/images/items/hamburger-menu.png" alt="Menu">
-        </label>
+        <article class="menu-container">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger-icon">
+                <img src="/images/items/hamburger-menu.png" alt="Menu">
+            </label>
 
-        <section class="dropdown-menu">
-            <ul>
-                <li><a href="/index">Home</a></li>
-                <li><a href="/favorite">Favoriet</a></li>
-                <li><a href="/blacklist">Blacklisted</a></li>
-                <li><a href="/guide">Info</a></li>
-                <li><a href="/profile-settings">Profiel</a></li>
-                <li><a href="/#">Vrienden</a></li>
-                <li><a href="/#" class="logout-link">Uitloggen</a></li>
-            </ul>
-        </section>
-    </article>
+            <section class="dropdown-menu">
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/favorite">Favoriet</a></li>
+                    <li><a href="/blacklist">Blacklisted</a></li>
+                    <li><a href="/guide">Info</a></li>
+                    <li><a href="/profile-settings">Profiel</a></li>
+                    <li><a href="/#">Vrienden</a></li>
+                    <li><a href="/#" class="logout-link">Uitloggen</a></li>
+                </ul>
+            </section>
+        </article>
 
-    <article class="logo">
-        <a href="/index"><span>Fortnite</span></a>
-        <!-- <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a> -->
-    </article>
+        <article class="logo">
+            <a href="/index"><span>Fortnite</span></a>
+            <!-- <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a> -->
+        </article>
 
-    <article class="profile">
-        <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/default-img.jpg' %>" alt="<%= username %>">
-        <span><%= username %></span>
-    </article>
-</header>
-<script src="/js/menu.js"></script>
-    
+        <article class="profile">
+            <% if (selectedSkin) { %>
+                <img src="<%= selectedSkin.images.icon %>" alt="<%= username %>">
+                <% } %>
+                    <!-- <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/default-img.jpg' %>" alt="<%= username %>"> -->
+
+                    <span>
+                        <%= username %>
+                    </span>
+        </article>
+    </header>
+    <script src="/js/menu.js"></script>

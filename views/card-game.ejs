@@ -1,41 +1,42 @@
 <%- include("partials/header") %>
 
-<main class="card-game-content" id="card-game-page">
-  <h1>Memory Card Game</h1>
+  <main class="card-game-content" id="card-game-page">
+    <h1>Memory Card Game</h1>
 
-  <section id="status-container" class="status-container">
-    <!-- <article id="timer" class="timer">
+    <section id="status-container" class="status-container">
+      <!-- <article id="timer" class="timer">
       <p id="timer-text">00:00</p>
     </article> -->
-    <article id="reset" class="reset">
-      <form action="/card-game" method="GET" style="margin: 0">
-        <button id="reset-btn" type="submit" name="reset" value="true">Reset Game</button>
-      </form>
-    </article>
-    <article id="moves-count" class="moves-count">
-      <p>Zetten: <span id="move-count"><%= moves %></span></p>
-    </article>
-  </section>
+      <article id="reset" class="reset">
+        <form action="/card-game" method="GET" style="margin: 0">
+          <button id="reset-btn" type="submit" name="reset" value="true">Reset Game</button>
+        </form>
+      </article>
+      <article id="moves-count" class="moves-count">
+        <p>Zetten: <span id="move-count">
+            <%= moves %>
+          </span></p>
+      </article>
+    </section>
 
-  <section id="game-board" class="game-board">
-    <% let index = 0; for (const card of cards) { %>
-    <form method="POST">
-      <input type="hidden" name="cardIndex" value="<%= index %>" />
-      <button
-        class="card <%= matched.includes(index) ? 'matched' : '' %> <%= flipped.includes(index) || matched.includes(index) ? 'open' : '' %>"
-        type="submit"
-      >
-        <% if (flipped.includes(index) || matched.includes(index)) { %>
-        <img src="<%= card.image %>" alt="<%= card.name %>" />
-        <% } else { %>
-        <article class="question-mark">?</article>
-        <% } %>
-      </button>
-    </form>
-    <% index++; } %>
-  </section>
-</main>
+    <section id="game-board" class="game-board">
+      <% let index=0; for (const card of cards) { %>
+        <form method="POST">
+          <input type="hidden" name="cardIndex" value="<%= index %>" />
+          <button
+            class="card <%= matched.includes(index) ? 'matched' : '' %> <%= flipped.includes(index) || matched.includes(index) ? 'open' : '' %>"
+            type="submit">
+            <% if (flipped.includes(index) || matched.includes(index)) { %>
+              <img src="<%= card.image %>" alt="<%= card.name %>" />
+              <% } else { %>
+                <article class="question-mark">?</article>
+                <% } %>
+          </button>
+        </form>
+        <% index++; } %>
+    </section>
+  </main>
 
-<%- include("partials/end-game") %>
+  <%- include("partials/end-game") %>
 
-<%- include("partials/footer") %>
+    <%- include("partials/footer") %>

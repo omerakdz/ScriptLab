@@ -51,77 +51,77 @@ input:not(.input-box-username input, .input-box-password input) {
 
 /* NAVIGATION */
 .menu-container {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .menu-toggle {
-    display: none;
+  display: none;
 }
 
 .hamburger-icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .hamburger-icon img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: 50px;
-    left: 20px;
-    background-color: var(--dark-gray);
-    border: 1px solid var(--yellow);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-    padding: 1rem 1.5rem;
-    width: 200px;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 999;
-    text-align: left;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  background-color: var(--dark-gray);
+  border: 1px solid var(--yellow);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  padding: 1rem 1.5rem;
+  width: 200px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  text-align: left;
 }
 
-.menu-toggle:checked + .hamburger-icon + .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+.menu-toggle:checked+.hamburger-icon+.dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .dropdown-menu li {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .dropdown-menu a {
-    color: var(--yellow);
-    font-family: 'Fortnite', Arial, sans-serif;
-    font-size: 1.7rem;
+  color: var(--yellow);
+  font-family: 'Fortnite', Arial, sans-serif;
+  font-size: 1.7rem;
 }
 
 .dropdown-menu a:hover {
-    transition: all 0.3s ease;  
-    color: #fff;
-    text-shadow: 0px 0px 8px rgba(204, 204, 204, 0.4);
-    cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-shadow: 0px 0px 8px rgba(204, 204, 204, 0.4);
+  cursor: pointer;
 }
 
 .dropdown-menu a.logout-link:hover {
-    transition: all 0.3s ease;  
-    color: red;
-    text-shadow: none;
+  transition: all 0.3s ease;
+  color: red;
+  text-shadow: none;
 }
 
 /*HOME PAGE */
@@ -135,19 +135,19 @@ input:not(.input-box-username input, .input-box-password input) {
 }
 
 .profile {
-    display: flex;
-    align-items: center;
-    margin: 0 30px;
+  display: flex;
+  align-items: center;
+  margin: 0 30px;
 }
 
 .profile img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
-    border: var(--yellow) 2px solid;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+  border: var(--yellow) 2px solid;
 }
 
 .profile img:hover {
@@ -520,12 +520,12 @@ input:not(.input-box-username input, .input-box-password input) {
   border-radius: 10px;
 }
 
-.skins-button input[type="radio"]:checked + label {
+.skins-button input[type="radio"]:checked+label {
   border-color: yellow;
   transform: scale(1.05);
 }
 
-.skins-button input[type="radio"]:checked + label img {
+.skins-button input[type="radio"]:checked+label img {
   transform: scale(1.1);
   border: var(--yellow) 3px solid;
 }
@@ -568,9 +568,9 @@ input:not(.input-box-username input, .input-box-password input) {
 }
 
 .error-message-login p {
-    color: red;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .skins-scroll-wrapper::-webkit-scrollbar {
@@ -1369,15 +1369,15 @@ button:hover {
 
 /* MENU STIJLEN */
 .game-card .overlay .cross {
-    display: none;
-    font-size: 150PX;
-    color: red;
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.5;
+  display: none;
+  font-size: 150PX;
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
 }
 
 .game-card:hover .overlay .cross {
@@ -1531,8 +1531,24 @@ button:hover {
   padding-top: 20px;
   gap: 20px;
   width: 100%;
-  color: var(--yellow);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.favorite-page-main {
+  grid-area: main;
+  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  gap: 20px;
+  width: 100%;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
 }
 
 .all-favorite-cards {
@@ -1549,16 +1565,18 @@ button:hover {
 
 .favorite-page-main h1 {
   font-size: 3rem;
-  color: var(--yellow);
+  background-color: var(--yellow);
+  color: black;
   border-radius: 10px;
   padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .favorite-card {
-  background-color: var(--dark-gray);
+  background-color: var(--yellow);
   padding: 10px;
   border-radius: 10px;
   display: flex;
@@ -1575,9 +1593,8 @@ button:hover {
   height: 120px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 5px;
   margin-bottom: 7px;
-  border: 2px solid var(--yellow);
-  background-color: none;
 }
 
 .wins-losses-icons {
@@ -1593,9 +1610,9 @@ button:hover {
 
 .favorite-wins,
 .favorite-losses {
-  background-color: var(--dark-gray);
-  color: var(--yellow);
-  border: 2px solid var(--yellow);
+  background-color: var(--yellow);
+  color: black;
+  border: none;
   padding: 10px 15px;
   font-size: 1.5rem;
   border-radius: 5px;
@@ -1647,7 +1664,6 @@ button:hover {
   height: 40px;
   color: black;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease;
   background-color: var(--yellow);
   border: none;
@@ -1655,9 +1671,6 @@ button:hover {
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 5px;
-  background-color: var(--dark-gray);
-  color: var(--yellow);
-  border: 2px solid var(--yellow);
 }
 
 .details-button:hover {
@@ -1665,8 +1678,6 @@ button:hover {
 }
 
 .items-favorite {
-  background-color: var(--dark-gray);
-  color: var(--yellow);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -1675,9 +1686,8 @@ button:hover {
 }
 
 .item-img {
-  background-color: var(--dark-gray);
+  background-color: var(--yellow);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border: 2px solid var(--yellow);
   border-radius: 5px;
 }
 
@@ -2186,8 +2196,10 @@ button:hover {
 
 .game-end-container {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.75);
   color: white;
   display: flex;
@@ -2205,7 +2217,7 @@ button:hover {
   max-width: 400px;
   padding: 25px 30px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .game-end-content h2 {
@@ -2242,7 +2254,7 @@ button:hover {
   align-items: center;
   gap: 6px;
   width: 90px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.15s ease-in-out;
 }
 
@@ -2262,8 +2274,10 @@ button:hover {
 /* Leaderboard overlay */
 .leaderboard-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
@@ -2271,12 +2285,13 @@ button:hover {
 /* Leaderboard container */
 .leaderboard-container {
   position: fixed;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: #333;
   padding: 20px 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
   color: white;
   width: 90%;
   max-width: 380px;
@@ -2306,7 +2321,7 @@ button:hover {
   border-left: 3px solid var(--yellow);
 }
 
-.game-end-buttons-wrapper{
+.game-end-buttons-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -2349,19 +2364,26 @@ button:hover {
 #item-pagina {
   background-image: url("/images/bg-images/bg-desktop-5.jpeg");
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
 }
 
 .main-item-pagina {
   grid-area: main;
+
+}
+
+.item-pagina-h1 {
+  font-size: 2.8rem;
+  margin: 1rem 0;
+  padding: 0 10px;
+  text-align: center;
 }
 
 .items-item-pagina {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
+  gap: 25px;
   padding: 20px;
 }
 
@@ -2396,7 +2418,7 @@ button:hover {
   display: none;
 }
 
-.item-card input[type="checkbox"]:checked ~ * {
+.item-card input[type="checkbox"]:checked~* {
   transform: scale(1.1);
 }
 
@@ -2511,7 +2533,7 @@ button:hover {
   gap: 20px;
   justify-content: center;
   background-color: var(--dark-gray);
-  max-height: 550px;
+  max-height: 500px;
   overflow-y: auto;
   padding: 1rem;
   border-radius: 10px;
@@ -2547,7 +2569,7 @@ button:hover {
 .item p {
   margin-top: 10px;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: var(--yellow);
   border-radius: 10px;
   color: black;
@@ -2876,201 +2898,201 @@ footer {
     margin-top: 20px;
   }
 
-@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
 
-  .mobile-options-btn:hover {
-    cursor: pointer;
-  }
+    .mobile-options-btn:hover {
+      cursor: pointer;
+    }
 
-  .settings-card {
-    width: 80%;
-  }
+    .settings-card {
+      width: 80%;
+    }
 
-  /*leaderboard*/
-  .leaderboard-card {
-    width: 80%;
-  }
+    /*leaderboard*/
+    .leaderboard-card {
+      width: 80%;
+    }
 
-  .leaderboard-table {
-    width: 400px;
-  }
+    .leaderboard-table {
+      width: 400px;
+    }
 
     body {
-        background-position: center;
+      background-position: center;
     }
 
     /*HEADER*/
     .logo span {
-        font-size: 2rem;
+      font-size: 2rem;
     }
 
     .logo img {
-        width: 40px !important;
-        height: 40px !important;
+      width: 40px !important;
+      height: 40px !important;
     }
 
     .profile span {
-        font-size: 1.8rem !important;
+      font-size: 1.8rem !important;
     }
 
     .profile img {
-        width: 50px !important;
-        height: 50px !important;
+      width: 50px !important;
+      height: 50px !important;
     }
 
     .search-bar input {
-        display: none;
+      display: none;
     }
 
 
     /*home pagina*/
 
     #home-page {
-        background-image: url('/images/bg-images/bg-mobile-1.jpeg');
+      background-image: url('/images/bg-images/bg-mobile-1.jpeg');
     }
 
     .card-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        gap: none;
-        margin: 0;
-        padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: none;
+      margin: 0;
+      padding: 0;
     }
 
     .card-section {
-        height: 380px;
-        width: 55%;
+      height: 380px;
+      width: 55%;
     }
 
     .card-section img {
-        width: 90px;
+      width: 90px;
     }
 
     .card-content {
-        gap: 15px;
+      gap: 15px;
     }
 
     .card-content p {
-        font-size: 1.3rem;
+      font-size: 1.3rem;
     }
 
     .card-content h3 {
-        font-size: 1.6rem;
+      font-size: 1.6rem;
     }
 
 
     .menu-items ul {
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
     }
 
     .menu-items li span {
-        display: none;
+      display: none;
     }
 
     .menu-items li img {
-        display: block;
-        width: 80px;
-        /* Pas de grootte aan naar wens */
-        height: 80px;
-        transition: transform 0.2s ease-in-out;
-        border-radius: 50%;
+      display: block;
+      width: 80px;
+      /* Pas de grootte aan naar wens */
+      height: 80px;
+      transition: transform 0.2s ease-in-out;
+      border-radius: 50%;
     }
 
     #skin-icon-home {
-        background-color: var(--yellow);
-        border-radius: 50%;
+      background-color: var(--yellow);
+      border-radius: 50%;
     }
 
     .menu-items li:hover img {
-        transform: scale(1.1);
+      transform: scale(1.1);
     }
 
     /*GUIDE PAGINA*/
     .content {
-        flex-direction: column;
+      flex-direction: column;
     }
 
     .menu {
-        width: 100%;
-        margin-right: 0;
-        border-right: none;
+      width: 100%;
+      margin-right: 0;
+      border-right: none;
     }
 
     .menu ul {
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
-        justify-content: center;
-        border-bottom: 1px solid white;
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      justify-content: center;
+      border-bottom: 1px solid white;
     }
 
     .menu ul li {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
     }
 
     .menu a img {
-        height: 55px;
+      height: 55px;
     }
 
     .header h1 {
-        color: yellow;
-        text-align: right;
-        font-size: 1.8rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+      color: yellow;
+      text-align: right;
+      font-size: 1.8rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     }
 
     .text-content {
-        width: 100%;
-        font-size: 1.2rem;
+      width: 100%;
+      font-size: 1.2rem;
     }
 
     .text-content p {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
 
     /*LANDING PAGINA*/
     #landing-page {
-        /*voor background img want het nam de hele scherm niet in*/
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+      /*voor background img want het nam de hele scherm niet in*/
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     .landing-page-main {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
 
     .skins-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .skin-title {
-        margin-top: 0.5rem;
-        font-size: 2.8rem;
-        padding: 8px 16px;
+      margin-top: 0.5rem;
+      font-size: 2.8rem;
+      padding: 8px 16px;
     }
 
     .skins-button {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .skins-button img {
-        margin-top: 1.7rem;
-        width: 200px;
-        height: 220px;
+      margin-top: 1.7rem;
+      width: 200px;
+      height: 220px;
     }
 
     /* .skin-name {
@@ -3080,332 +3102,332 @@ footer {
     } */
 
     .skins-button:hover img {
-        transform: scale(1.05);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+      transform: scale(1.05);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
     }
 
     .skins-button img.selected {
-        transform: scale(1.05);
+      transform: scale(1.05);
     }
 
     /* scroll bar */
 
     .skins-scroll-wrapper {
-        background-color: var(--dark-gray);
-        height: 320px;
-        width: 25rem;
-        border: 3px solid var(--yellow);
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 20px;
+      background-color: var(--dark-gray);
+      height: 320px;
+      width: 25rem;
+      border: 3px solid var(--yellow);
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
 
     .skins-scroll-wrapper::-webkit-scrollbar {
-        width: 12px;
+      width: 12px;
     }
 
     .skins-scroll-wrapper::-webkit-scrollbar-thumb {
-        background-color: var(--yellow);
-        border-radius: 6px;
+      background-color: var(--yellow);
+      border-radius: 6px;
     }
 
     .skins-scroll-wrapper::-webkit-scrollbar-track {
-        background-color: #f1f1f1;
-        border-radius: 6px;
+      background-color: #f1f1f1;
+      border-radius: 6px;
     }
 
     /* ADD TO BLACKLIST PAGINA */
     .add-to-blacklist-container h1 {
-        top: 20%;
-        font-size: 1.8rem;
-        white-space: nowrap;
+      top: 20%;
+      font-size: 1.8rem;
+      white-space: nowrap;
     }
 
     .game-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        /* 1 kolom */
-        grid-template-rows: repeat(2, auto);
-        /* 2 games per keer */
-        gap: 10px;
-        max-width: 100vw;
-        justify-items: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        /* Geen scrollen mogelijk */
-        height: 420px;
-        /* Hoogte zodat steeds maar 2 games zichtbaar zijn */
+      display: grid;
+      grid-template-columns: 1fr;
+      /* 1 kolom */
+      grid-template-rows: repeat(2, auto);
+      /* 2 games per keer */
+      gap: 10px;
+      max-width: 100vw;
+      justify-items: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      /* Geen scrollen mogelijk */
+      height: 420px;
+      /* Hoogte zodat steeds maar 2 games zichtbaar zijn */
     }
 
     .game-card {
-        width: 200px;
-        height: 200px;
+      width: 200px;
+      height: 200px;
     }
 
     /* Pijltjes knoppen */
     .scroll-btn {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 20px;
-        border-radius: 50%;
-        z-index: 10;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      z-index: 10;
     }
 
     .scroll-btn.left {
-        left: 10px;
+      left: 10px;
     }
 
     .scroll-btn.right {
-        right: 10px;
+      right: 10px;
     }
 
     .scroll-btn:hover {
-        background: rgba(255, 255, 255, 0.9);
-        color: black;
+      background: rgba(255, 255, 255, 0.9);
+      color: black;
     }
 
     /*profile page*/
     .settings-left-btns {
-        display: none;
-        background-color: var(--dark-gray);
-        box-shadow: 1px 2px 2px #000000;
-        box-shadow: 10px 0 5px -2px #888;
-        position: absolute;
+      display: none;
+      background-color: var(--dark-gray);
+      box-shadow: 1px 2px 2px #000000;
+      box-shadow: 10px 0 5px -2px #888;
+      position: absolute;
     }
 
     .settings-account {
-        margin-top: 80px;
-        margin-left: 50px;
+      margin-top: 80px;
+      margin-left: 50px;
     }
 
     .mobile-options-btn {
-        display: unset;
-        position: absolute;
-        height: 30px;
-        margin-left: 30px;
-        margin-top: 20px;
+      display: unset;
+      position: absolute;
+      height: 30px;
+      margin-left: 30px;
+      margin-top: 20px;
     }
 
     .mobile-options-btn:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
 
     .settings-card {
-        width: 80%;
+      width: 80%;
     }
 
     /*leaderboard*/
     .leaderboard-card {
-        width: 80%;
+      width: 80%;
     }
 
     .leaderboard-table {
-        width: 400px;
+      width: 400px;
     }
 
     .friend-requests {
-        height: 200px;
-        width: 350px;
+      height: 200px;
+      width: 350px;
     }
 
     .friend-requests li {
-        font-size: 35px;
+      font-size: 35px;
     }
 
     .friend-requests img {
-        width: 35px;
+      width: 35px;
     }
 
     .profile-search-card {
-        overflow: auto;
-        width: 80%;
+      overflow: auto;
+      width: 80%;
     }
 
     .profile-search {
-        margin-bottom: 10px;
-        background-color: grey;
-        border-radius: 20px;
-        flex-direction: row;
-        width: 90%;
-        justify-content: flex-start;
-        height: 120px;
+      margin-bottom: 10px;
+      background-color: grey;
+      border-radius: 20px;
+      flex-direction: row;
+      width: 90%;
+      justify-content: flex-start;
+      height: 120px;
     }
 
     .profile-search img {
-        width: 90px;
-        margin-left: 20px;
+      width: 90px;
+      margin-left: 20px;
     }
 
     .profile-search:first-of-type {
-        margin-top: 50px;
+      margin-top: 50px;
     }
 
     .profile-search-username {
-        font-size: 30px;
-        margin-left: 20px;
+      font-size: 30px;
+      margin-left: 20px;
     }
 
     /*user-profile*/
     .user-profile-card {
-        width: 90%;
-        height: 600px;
+      width: 90%;
+      height: 600px;
     }
 
     .user-profile-card .back-button {
-        position: absolute;
+      position: absolute;
     }
 
     .user-profile-card figure {
-        margin-left: 30px;
+      margin-left: 30px;
     }
 
     .user-profile ul {
-        margin-top: 50px;
-        margin-left: 50px;
-        font-size: 32px;
+      margin-top: 50px;
+      margin-left: 50px;
+      font-size: 32px;
     }
 
     /* FAVORIETE DETAIL PAGINA */
     #personages-card {
-        width: 350px;
-        position: relative;
-        bottom: 10px;
+      width: 350px;
+      position: relative;
+      bottom: 10px;
     }
 
     /* FAVORIET PAGINA */
     /*alles kleiner gemaakt en buttons display none gezet*/
 
     .all-favorite-cards {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 0;
     }
 
     .favorite-page-main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        width: 100%;
-        color: black;
-        background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      width: 100%;
+      color: black;
+      background-position: center;
     }
 
     .favorite-card {
-        width: 100%;
+      width: 100%;
     }
 
     .favorite-page-main h1 {
-        font-size: 2rem;
-        margin: 10px;
+      font-size: 2rem;
+      margin: 10px;
     }
 
     .icon-button {
-        display: none;
+      display: none;
     }
 
     .favorite-card {
-        width: 280px;
-        height: 320px;
-        padding: 8px;
-        bottom: 60px;
-        top: 20px;
+      width: 280px;
+      height: 320px;
+      padding: 8px;
+      bottom: 60px;
+      top: 20px;
     }
 
     .skin-image-favorite {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 5px;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 5px;
     }
 
     .favorite-card h2 {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
 
     .wins-losses-icons {
-        gap: 10px;
+      gap: 10px;
     }
 
     .favorite-wins,
     .favorite-losses {
-        padding: 8px 12px;
-        font-size: 1.25rem;
+      padding: 8px 12px;
+      font-size: 1.25rem;
     }
 
     .favorite-wins p,
     .favorite-losses p {
-        font-size: 1.25rem;
+      font-size: 1.25rem;
     }
 
     .button-container {
-        gap: 15px;
+      gap: 15px;
     }
 
     .edit-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
     }
 
     .details-button {
-        width: 80px;
-        height: 35px;
-        font-size: 1.2rem;
+      width: 80px;
+      height: 35px;
+      font-size: 1.2rem;
     }
 
     .items-favorite {
-        width: 120px;
-        height: 120px;
+      width: 120px;
+      height: 120px;
     }
 
     .item-img {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      height: 100%;
     }
 
     /* Login/Register page */
 
     .input-box-username i {
-        position: absolute;
-        left: 70%;
-        top: 39%;
+      position: absolute;
+      left: 70%;
+      top: 39%;
     }
 
     .input-box-password i {
-        position: absolute;
-        left: 70%;
-        top: 46%;
+      position: absolute;
+      left: 70%;
+      top: 46%;
     }
 
     #username-icon-register {
-        left: 70%;
-        top: 41%;
+      left: 70%;
+      top: 41%;
     }
 
     #password-icon-register {
-        left: 70%;
-        top: 48%;
+      left: 70%;
+      top: 48%;
     }
 
     #email-icon-register {
-        left: 70%;
-        top: 56%;
+      left: 70%;
+      top: 56%;
     }
 
     /* SHOP PAGINA */
     .shop-item {
-        width: calc(50% - 20px);
-        /* 2 items naast elkaar */
+      width: calc(50% - 20px);
+      /* 2 items naast elkaar */
     }
 
     /* #shop-page {
@@ -3453,162 +3475,162 @@ footer {
   }
 
   /*user-profile*/
-  .user-profile-card {
-    width: 90%;
-    height: 600px;
-  }
+    .user-profile-card {
+      width: 90%;
+      height: 600px;
+    }
 
-  .user-profile-card .back-button {
-    position: absolute;
-  }
+    .user-profile-card .back-button {
+      position: absolute;
+    }
 
-  .user-profile-card figure {
-    margin-left: 30px;
-  }
+    .user-profile-card figure {
+      margin-left: 30px;
+    }
 
-  .user-profile ul {
-    margin-top: 50px;
-    margin-left: 50px;
-    font-size: 32px;
-  }
+    .user-profile ul {
+      margin-top: 50px;
+      margin-left: 50px;
+      font-size: 32px;
+    }
 
-  /* FAVORIETE DETAIL PAGINA */
-  #personages-card {
-    width: 350px;
-    position: relative;
-    bottom: 10px;
-  }
+    /* FAVORIETE DETAIL PAGINA */
+    #personages-card {
+      width: 350px;
+      position: relative;
+      bottom: 10px;
+    }
 
-  /* FAVORIET PAGINA */
-  /*alles kleiner gemaakt en buttons display none gezet*/
+    /* FAVORIET PAGINA */
+    /*alles kleiner gemaakt en buttons display none gezet*/
 
-  .all-favorite-cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 0;
-  }
+    .all-favorite-cards {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 0;
+    }
 
-  .favorite-page-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 100%;
-    color: black;
-    background-position: center;
-  }
+    .favorite-page-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      width: 100%;
+      color: black;
+      background-position: center;
+    }
 
-  .favorite-card {
-    width: 100%;
-  }
+    .favorite-card {
+      width: 100%;
+    }
 
-  .favorite-page-main h1 {
-    font-size: 2rem;
-    margin: 10px;
-  }
+    .favorite-page-main h1 {
+      font-size: 2rem;
+      margin: 10px;
+    }
 
-  .icon-button {
-    display: none;
-  }
+    .icon-button {
+      display: none;
+    }
 
-  .favorite-card {
-    width: 280px;
-    height: 320px;
-    padding: 8px;
-    bottom: 60px;
-    top: 20px;
-  }
+    .favorite-card {
+      width: 280px;
+      height: 320px;
+      padding: 8px;
+      bottom: 60px;
+      top: 20px;
+    }
 
-  .skin-image-favorite {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 5px;
-  }
+    .skin-image-favorite {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 5px;
+    }
 
-  .favorite-card h2 {
-    font-size: 1.5rem;
-  }
+    .favorite-card h2 {
+      font-size: 1.5rem;
+    }
 
-  .wins-losses-icons {
-    gap: 10px;
-  }
+    .wins-losses-icons {
+      gap: 10px;
+    }
 
-  .favorite-wins,
-  .favorite-losses {
-    padding: 8px 12px;
-    font-size: 1.25rem;
-  }
+    .favorite-wins,
+    .favorite-losses {
+      padding: 8px 12px;
+      font-size: 1.25rem;
+    }
 
-  .favorite-wins p,
-  .favorite-losses p {
-    font-size: 1.25rem;
-  }
+    .favorite-wins p,
+    .favorite-losses p {
+      font-size: 1.25rem;
+    }
 
-  .button-container {
-    gap: 15px;
-  }
+    .button-container {
+      gap: 15px;
+    }
 
-  .edit-button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
+    .edit-button {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
 
-  .details-button {
-    width: 80px;
-    height: 35px;
-    font-size: 1.2rem;
-  }
+    .details-button {
+      width: 80px;
+      height: 35px;
+      font-size: 1.2rem;
+    }
 
-  .items-favorite {
-    width: 120px;
-    height: 120px;
-  }
+    .items-favorite {
+      width: 120px;
+      height: 120px;
+    }
 
-  .item-img {
-    width: 100%;
-    height: 100%;
-  }
+    .item-img {
+      width: 100%;
+      height: 100%;
+    }
 
-  /* Login/Register page */
+    /* Login/Register page */
 
-  .input-box-username i {
-    position: absolute;
-    left: 70%;
-    top: 39%;
-  }
+    .input-box-username i {
+      position: absolute;
+      left: 70%;
+      top: 39%;
+    }
 
-  .input-box-password i {
-    position: absolute;
-    left: 70%;
-    top: 46%;
-  }
+    .input-box-password i {
+      position: absolute;
+      left: 70%;
+      top: 46%;
+    }
 
-  #username-icon-register {
-    left: 70%;
-    top: 41%;
-  }
+    #username-icon-register {
+      left: 70%;
+      top: 41%;
+    }
 
-  #password-icon-register {
-    left: 70%;
-    top: 48%;
-  }
+    #password-icon-register {
+      left: 70%;
+      top: 48%;
+    }
 
-  #email-icon-register {
-    left: 70%;
-    top: 56%;
-  }
+    #email-icon-register {
+      left: 70%;
+      top: 56%;
+    }
 
-  /* SHOP PAGINA */
-  .shop-item {
-    width: calc(50% - 20px);
-    /* 2 items naast elkaar */
-  }
+    /* SHOP PAGINA */
+    .shop-item {
+      width: calc(50% - 20px);
+      /* 2 items naast elkaar */
+    }
 
-  /* #shop-page {
+    /* #shop-page {
     background-image: url("/images/bg-images/shop-mobile.jpeg");
     background-position: center;
     background-size: cover;
@@ -3688,168 +3710,176 @@ footer {
 
     /* GAME KAART SPEL */
     #card-game-page {
-        background-image: none;
+      background-image: none;
     }
 
     .card-game-content {
-        background-image: url("/images/bg-images/game-card-mobile.jpeg");
-        background-position: center;
-        background-size: cover;
+      background-image: url("/images/bg-images/game-card-mobile.jpeg");
+      background-position: center;
+      background-size: cover;
     }
 
     .game-board {
-        grid-template-columns: repeat(3, 118px);
+      grid-template-columns: repeat(3, 118px);
     }
 
     .card {
-        height: 120px;
-        width: 120px;
+      height: 120px;
+      width: 120px;
     }
 
     .status-container {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 10px;
-        background-color: var(--dark-gray);
-        z-index: 1;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        opacity: 97%;
-        margin: 0 auto;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 10px;
+      background-color: var(--dark-gray);
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      opacity: 97%;
+      margin: 0 auto;
     }
 
     h1 {
-        font-size: 2rem;
+      font-size: 2rem;
     }
 
     .timer,
     .moves-count {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
 
     .reset button {
-        padding: 8px;
-        font-size: 1rem;
+      padding: 8px;
+      font-size: 1rem;
     }
 
     /* Game bord padding aanpassen */
     .game-board {
-        padding: 10px;
+      padding: 10px;
     }
 
     /* SKINS PAGINA */
     #skins-page-main {
-        flex: 1;
-        grid-area: main;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      flex: 1;
+      grid-area: main;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .skins-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .all-skins {
-        align-items: center;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
     }
 
     #skin-image {
-        width: 200px;
-        height: 200px;
+      width: 200px;
+      height: 200px;
     }
 
     .search-skin {
-        width: 200px;
+      width: 200px;
     }
 
     .search-skin input {
-        width: 200px;
-        font-size: 15px;
+      width: 200px;
+      font-size: 15px;
     }
 
     .current-skin img {
-        width: 300px;
-        height: 300px;
+      width: 300px;
+      height: 300px;
     }
 
     .skins-wins img,
     .skins-losses img {
-        width: 30px;
-        height: 30px;
+      width: 30px;
+      height: 30px;
     }
 
     /* ITEMS CHOOSE PAGINA */
     /*FIX: ACHTERGROND AFBEELDING HELFT NIET BESCHIKBAAR*/
     .items-item-pagina {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .main-item-pagina {
+      margin-top: 60px;
     }
 
     .item-pagina-h1 {
-        font-size: 2.8rem;
-        margin: 1rem 0;
-        padding: 0 10px;
+      font-size: 2.8rem;
+      margin: 1rem 0;
+      padding: 0 10px;
     }
 
     .item-card {
-        flex: 0 1 calc(50% - 20px);
-        margin-bottom: 20px;
+      flex: 0 1 calc(50% - 20px);
+      margin-bottom: 20px;
     }
 
     .submit-button {
-        width: 50%;
-        text-align: center;
-        color: black;
+      width: 50%;
+      text-align: center;
+      color: black;
     }
 
     .choose-item-error {
-        top: 20px;
-        width: 100%;
+      top: 20px;
+      width: 100%;
     }
 
     /*item search*/
     .item {
-        width: calc(50% - 10px);
-        /* 2 items naast elkaar */
+      width: calc(50% - 10px);
+      /* 2 items naast elkaar */
 
     }
 
     .search-item-main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
     .search-items,
     .item-container {
-        width: 100%;
-        max-width: 90%;
-        margin-bottom: 20px;
+      width: 100%;
+      max-width: 90%;
+      margin-bottom: 20px;
     }
 
     .item-container {
-        max-height: 550px;
+      max-height: 550px;
     }
+
+
+
 
     /*footer*/
     footer {
-        font-size: 0.9rem;
+      font-size: 0.9rem;
     }
+  }
 
   /* GAME KAART SPEL */
   #card-game-page {
-    background-image: none;
+    background-color: var(--blue);
   }
 
   .card-game-content {
