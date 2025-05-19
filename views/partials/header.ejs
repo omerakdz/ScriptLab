@@ -13,57 +13,34 @@
 
 <body id="<%= bodyId %>">
     <header>
-        <!-- <article class="logo">
-        <a href="/index"><span>Fortnite</span></a>
-        <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a>
-    </article>
-    <section class="search-container">
-        <form action="../search" class="search-bar" method="get">
-            <input type="text" name="q" placeholder="Zoek spelers...">
-        </form>
-    </section> -->
-        <!-- <nav class="hamburger-nav">
-        <img src="/images/items/hamburger-menu.png" alt="Menu" class="hamburger-icon" id="hamburgerToggle">
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/favoriet">Favoriet</a></li>
-            <li><a href="/blacklisted">Blacklisted</a></li>
-            <li><a href="/info">Info</a></li>
-            <li><a href="/account-settings">Account Settings</a></li>
-        </ul>
-    </nav> -->
-
+        <article class="logo">
+            <a href="/index"><span>Fortnite</span></a>
+        </article>
         <article class="menu-container">
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="hamburger-icon">
                 <img src="/images/items/hamburger-menu.png" alt="Menu">
             </label>
-        <section class="dropdown-menu">
-            <ul>
-                <li><a href="/index">Home</a></li>
-                <li><a href="/favorite">Favoriet</a></li>
-                <li><a href="/blacklist">Blacklisted</a></li>
-                <li><a href="/guide">Info</a></li>
-                <li><a href="/profile-settings">Profiel</a></li>
-                <li><a href="/leaderboard">Vrienden</a></li>
-                <li><a href="/logout" class="logout-link">Uitloggen</a></li>
-            </ul>
-        </section>
-    </article>
-        <article class="logo">
-            <a href="/index"><span>Fortnite</span></a>
-            <!-- <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a> -->
+            <section class="dropdown-menu">
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/favorite">Favoriet</a></li>
+                    <li><a href="/blacklist">Blacklisted</a></li>
+                    <li><a href="/guide">Info</a></li>
+                    <li><a href="/profile-settings">Profiel</a></li>
+                    <li><a href="/leaderboard">Vrienden</a></li>
+                    <li><a href="/logout" class="logout-link">Uitloggen</a></li>
+                </ul>
+            </section>
         </article>
         <article class="profile">
-            <% if (selectedSkin) { %>
-                <img src="<%= selectedSkin.images.icon %>" alt="<%= username %>">
-                <% } %>
-                    <!-- <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/default-img.jpg' %>" alt="<%= username %>"> -->
-
-                    <span>
-                        <%= username %>
-                    </span>
+            <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/items/question-sign.png' %>" 
+            alt="<%= username %>"
+            class="<%= selectedSkin ? '' : 'placeholder-icon' %>"
+            >
+                <span>
+                    <%= username %>
+                </span>
         </article>
     </header>
     <script src="/js/menu.js"></script>
