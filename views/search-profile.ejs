@@ -8,10 +8,10 @@
             
             <% for(var result of results ) { %> 
                 <article class="profile-search">
-                    <a href="/search/<%=result.name%>">
-                    <img src="<%= result.skinIconUrl %>" alt="">
+                    <a href="/search/<%=result.username%>">
+                    <img src="<%= result.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + result.selectedSkinId + '/smallicon.png' %>" alt="">
                 </a>
-                        <span class="profile-search-username"><%= result.name %></span>
+                        <span class="profile-search-username"><%= result.username %></span>
                 </article>
                 <% } %> 
         </section>

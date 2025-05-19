@@ -8,7 +8,7 @@ import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { profiles } from "./public/json/players.json";
 import { error } from "console";
 import { title } from "process";
-import { loginUser, createUser } from "./account";
+import { loginUser, createUser, getSearchResults } from "./account";
 import session from "./session";
 import {
   usersCollection,
@@ -377,9 +377,11 @@ app.post("/card-game", async (req, res) => {
   });
 });
 
-app.get("/search", (req, res) => {
+
+
+app.get("/search", async (req, res) => {
     const q = typeof req.query.q === "string" ? req.query.q : "";
-    const results: Profile[] = profiles.filter(profile => profile.name.toLowerCase().includes(q.toLowerCase()))
+    const results = await getSearchResults(q);
     res.render("search-profile", { title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q: q })
 })
 
@@ -424,7 +426,7 @@ app.get("/account-settings", (req, res) => {
 })
 
 app.get("/leaderboard", (req, res) => {
-   
+  
   res.render("leaderboard", {
     title: "Account-instellingen",
     bodyId : "friends-page",
