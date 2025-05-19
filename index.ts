@@ -333,7 +333,6 @@ app.get("/card-game", async (req, res) => {
       : false
   );
 
-
   let leaderboard : any = [];
   if (showLeaderboard) {
     leaderboard = await getLeaderboard();
@@ -428,7 +427,7 @@ app.get("/leaderboard", (req, res) => {
    
   res.render("leaderboard", {
     title: "Account-instellingen",
-    bodyId : "settings-page",
+    bodyId : "friends-page",
   profiles: profiles}
   )
 })
