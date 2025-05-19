@@ -378,40 +378,13 @@ app.post("/card-game", async (req, res) => {
   });
 });
 
-app.get("/search-profile", (req, res) => {
-  const q = typeof req.query.q === "string" ? req.query.q : "";
-  const results: Profile[] = profiles.filter((profile) =>
-    profile.name.toLowerCase().includes(q.toLowerCase())
-  );
-  res.render("search-profile", {
-    title: "Zoekresultaten...",
-    bodyId: "profile-search-page",
-    results: results,
-    q: q,
-  });
-});
-
-app.get("/user/:username", (req, res) => {
-  const username =
-    typeof req.params.username === "string" ? req.params.username : "";
-  const profile: Profile | undefined = profiles.find(
-    (profile) => profile.name === username
-  );
-  res.render("user-profile", {
-    title: `Profiel van ${username}`,
-    bodyId: "user-profile-page",
-    profile: profile,
-  });
-});
-
-app.get("/favorite", (req, res) => {
-    res.render("favorite", {
-        title: "Favorieten",
-        bodyId: "favorite-page"
-    });
+app.get("/search", (req, res) => {
+    const q = typeof req.query.q === "string" ? req.query.q : "";
+    const results: Profile[] = profiles.filter(profile => profile.name.toLowerCase().includes(q.toLowerCase()))
+    res.render("search-profile", { title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q: q })
 })
 
-app.get("/user/:username", (req, res) => {
+app.get("/search/:username", (req, res) => {
     const username = typeof req.params.username === "string" ? req.params.username : "";
     const profile: Profile | undefined = profiles.find(profile => profile.name === username)
     res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
@@ -436,6 +409,28 @@ app.get("/blacklist", (req, res) => {
         title: "Blacklist",
         bodyId: "blacklistPage"
     });
+})
+
+app.get("/profile-settings", (req, res) =>{
+    res.render("profile-settings", {
+        title : req.session.username ?? null, 
+        bodyId : "settings-page"})
+})
+
+app.get("/account-settings", (req, res) => {
+  res.render("account-settings", {
+    title: "Account-instellingen",
+    bodyId : "settings-page"}
+  )
+})
+
+app.get("/leaderboard", (req, res) => {
+   
+  res.render("leaderboard", {
+    title: "Account-instellingen",
+    bodyId : "settings-page",
+  profiles: profiles}
+  )
 })
 
 app.listen(app.get("port"), async () => {

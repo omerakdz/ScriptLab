@@ -18,7 +18,7 @@
         <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a>
     </article>
     <section class="search-container">
-        <form action="../search-profile" class="search-bar" method="get">
+        <form action="../search" class="search-bar" method="get">
             <input type="text" name="q" placeholder="Zoek spelers...">
         </form>
     </section> -->
@@ -39,25 +39,22 @@
             <label for="menu-toggle" class="hamburger-icon">
                 <img src="/images/items/hamburger-menu.png" alt="Menu">
             </label>
-
-            <section class="dropdown-menu">
-                <ul>
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/favorite">Favoriet</a></li>
-                    <li><a href="/blacklist">Blacklisted</a></li>
-                    <li><a href="/guide">Info</a></li>
-                    <li><a href="/profile-settings">Profiel</a></li>
-                    <li><a href="/#">Vrienden</a></li>
-                    <li><a href="/#" class="logout-link">Uitloggen</a></li>
-                </ul>
-            </section>
-        </article>
-
+        <section class="dropdown-menu">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/favorite">Favoriet</a></li>
+                <li><a href="/blacklist">Blacklisted</a></li>
+                <li><a href="/guide">Info</a></li>
+                <li><a href="/profile-settings">Profiel</a></li>
+                <li><a href="/leaderboard">Vrienden</a></li>
+                <li><a href="/logout" class="logout-link">Uitloggen</a></li>
+            </ul>
+        </section>
+    </article>
         <article class="logo">
             <a href="/index"><span>Fortnite</span></a>
             <!-- <a href="../guide"><img src="../images/items/info-icon.png" alt="Info"></a> -->
         </article>
-
         <article class="profile">
             <% if (selectedSkin) { %>
                 <img src="<%= selectedSkin.images.icon %>" alt="<%= username %>">
