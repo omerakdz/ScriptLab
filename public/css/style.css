@@ -45,7 +45,7 @@ header {
   padding: 10px 20px !important;
 }
 
-input:not(.input-box-username input, .input-box-password input) {
+input:not(.input-box-username input, .input-box-password input, .input-password-register input, .input-username-register input, .input-confirm-password-register input) {
   font-family: "Fortnite";
 }
 
@@ -366,7 +366,7 @@ input:not(.input-box-username input, .input-box-password input) {
 
 .login-container h1,
 .register-container h1 {
-  font-size: 2.25rem;
+  font-size: 2.3rem;
   margin-bottom: 10px;
   color: #000000;
 }
@@ -385,7 +385,7 @@ input:not(.input-box-username input, .input-box-password input) {
   margin-bottom: 15px;
   border: 2px solid #cccccc;
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #575757 !important;
   text-align: left;
   background-color: white;
@@ -406,7 +406,7 @@ input:not(.input-box-username input, .input-box-password input) {
 }
 
 #confirmPassword {
-  background-image: url("/images/items/email-icon.png");
+  background-image: url("/images/items/lock-icon.png");
   background-repeat: no-repeat;
   background-size: 18px;
   background-position: right 15px center;
@@ -868,8 +868,8 @@ textarea {
 
 .game-card {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 280px;
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.2s ease-in-out;
@@ -913,7 +913,7 @@ textarea {
 
 .overlay p {
   margin: 5px 0;
-  font-size: 20px;
+  font-size: 2.3rem;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
   letter-spacing: 0.5px;
@@ -2425,7 +2425,7 @@ button:hover {
   font-size: 1.7rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 10px;
   display: block;
   margin-left: auto;
@@ -2441,9 +2441,9 @@ button:hover {
 
 .choose-item-error {
   color: red;
-
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 /* SCROLL BAR */
@@ -3814,9 +3814,39 @@ footer {
     .choose-item-error {
         top: 20px;
         width: 100%;
+        font-size: 1.5rem;
     }
 
-    /*item search*/
+    /* SCROLL BAR */
+
+    .items-scroll-wrapper {
+        max-height: 400px;
+        margin: 10px;
+        padding: 8px;
+    }
+
+    .items-item-pagina {
+        justify-content: center;
+        gap: 16px;
+        padding: 10px;
+    }
+
+    .item-card {
+        flex: 0 1 calc(45% - 10px);
+    }
+
+    .item-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .submit-button {
+        width: 90%;
+        font-size: 1.3rem;
+        padding: 12px;
+    }
+
+    /*item search pagina*/
     .item {
         width: calc(50% - 10px);
         /* 2 items naast elkaar */
@@ -4007,7 +4037,7 @@ footer {
   }
 
   .choose-item-error {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   /*item search pagina*/
