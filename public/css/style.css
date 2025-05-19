@@ -2086,6 +2086,7 @@ button:hover {
   grid-area: main;
   width: 100%;
   padding: 1rem;
+  background-color: var(--blue);
 }
 
 .card-game-content h1 {
