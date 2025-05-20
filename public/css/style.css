@@ -592,6 +592,75 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   border-radius: 6px;
 }
 
+/*skin stats edit pagina*/
+#edit-skin-page main {
+  grid-area: main;
+  max-width: 480px;
+  margin: 2rem auto;
+  background-color: var(--dark-gray);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px var(--yellow);
+  color: var(--yellow);
+  font-size: 1.6rem;
+}
+
+#edit-skin-page main h1 {
+  margin-bottom: 1.5rem;
+  font-weight: lighter;
+  text-align: center;
+  color: var(--yellow);
+}
+
+#edit-skin-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#edit-skin-page label {
+  font-weight: lighter;
+  font-size: 1.4rem;
+  color: var(--yellow);
+}
+
+#edit-skin-page input[type="number"] {
+  padding: 0.6rem 1rem;
+  font-family: "Fortnite";
+  font-size: 1.4rem;
+  border: 2px solid var(--yellow);
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+}
+
+#edit-skin-page input[type="number"]:focus {
+  border-color: var(--blue);
+}
+
+#edit-skin-page button[type="submit"] {
+  background-color: var(--yellow);
+  color: var(--dark-gray);
+  font-family: "Fortnite";
+  font-weight: lighter;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--yellow);
+  transition: background-color 0.3s ease;
+}
+
+#edit-skin-page button[type="submit"]:hover {
+  background-color: var(--blue);
+  color: white;
+  box-shadow: 0 0 12px var(--blue);
+}
+
+
 /*UITLEG PAGINA*/
 /* Achtergrond */
 
@@ -4065,4 +4134,4 @@ footer {
   footer {
     font-size: 0.9rem;
   }
-}
+

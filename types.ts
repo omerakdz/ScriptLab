@@ -1,18 +1,19 @@
 // voorlopig
 export interface Player {
+    id?: number;
     username: string;
     password?: string;
     email?: string;
-    blacklistedSkins?: string[];
-    favoriteSkins?: string[];
-    selectedSkin?: Skin;
+    blacklistedSkins?: BlacklistedSkin[];
+    favoriteSkins?: FavoriteSkin[];
+    selectedSkinId?: Skin;
     selectedItems?: FortniteItem[]; // max 2
     level?: number;
     wins?: number;
     losses?: number;
     createdAt?: Date;
     friends?: string[];
-    moves?: number;
+    bestTime?: number | null
     vbucks?: number;
   }
 
@@ -25,8 +26,6 @@ export interface Skin{
         featured: string;
     };
     description: string;
-    playerId: string;
-    player: Player;
     matches: string[];
     stats: {
         wins: number;
@@ -34,6 +33,15 @@ export interface Skin{
         kills: number;
         deaths: number;
     };
+}
+
+export interface BlacklistedSkin {
+  id: string;
+  reason: string;
+}
+
+export interface FavoriteSkin {
+  id: string;
 }
 
 export interface Card {

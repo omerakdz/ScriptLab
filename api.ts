@@ -7,8 +7,6 @@ export async function fetchSkins(limit: number = 40): Promise<Skin[]> {
   const response = await fetch(BASE_URL);
   const data = await response.json();
 
-
-
   return data.data
     .filter((item: any) =>
       item.type.value === 'outfit' &&

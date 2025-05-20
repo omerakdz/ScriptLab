@@ -19,9 +19,13 @@
                         <img id="skin-image" src="<%= skin.images.icon %>" alt="<%= skin.name %>">
                         <h1><%= skin.name %></h1>
                         <section class="skin-actions">
-                            <a href="/favorite/<%= skin.id %>">
-                                <img class="star-icon" src="images/items/star-icon.png" alt="ster">
-                            </a>
+                           <form method="POST" class="favorite-form" action="/favorites" target="invisible-frame">
+                                <input type="hidden" name="skinId" value="<%= skin.id %>">
+                                <button type="submit" class="favorite-button">
+                                    <img class="star-icon" src="images/items/star-icon.png" alt="ster">
+                                </button>
+                            </form>
+
                             <a href="/add-blacklist/<%= skin.id %>">
                                 <img class="add-blacklist-btn" src="images/items/block-user-icon.png" alt="skin blacklist">
                             </a>
@@ -31,4 +35,7 @@
             </section>                    
         </article>
     </main>
+    <iframe name="invisible-frame" style="display: none;"></iframe>
+
     <%- include("partials/footer") %>
+    
