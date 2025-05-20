@@ -1,17 +1,22 @@
 <%- include('partials/header') %>
-    
-        <main class="add-to-blacklist-container">
-            <h1>Toevoegen aan de blacklist</h1>
-            <section class="add-to-blacklist-card">
-                <img src="images/skins/skin-1.jpeg" alt="Skull Trooper" class="skin-image">
-                <h2>Skull Trooper</h2>
-                <article class="add-to-blacklist-buttons">
-                    <button class="ab-wins">5 <img src="images/items/trophy.png" alt=""></button>
-                    <button class="ab-losses">7 <img src="images/items/game-over.png" alt=""></button>
-                </article>
-                <textarea placeholder="Voer hier je reden in..."></textarea>
-                <button class="add-button">Toevoegen</button>
-            </section>
-        </main>
 
-  <%- include('partials/footer') %>
+<main class="add-to-blacklist-container">
+    <h1>Toevoegen aan de blacklist</h1>
+    <section class="add-to-blacklist-card">
+        <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" class="skin-image">
+        <h2><%= skin.name %></h2>
+
+        <article class="add-to-blacklist-buttons">
+            <button class="ab-wins"><%= skin.wins ?? 0 %> <img src="images/items/trophy.png" alt=""></button>
+            <button class="ab-losses"><%= skin.losses ?? 0 %> <img src="images/items/game-over.png" alt=""></button>
+        </article>
+
+        <form method="POST" action="/add-blacklist">
+            <textarea name="reason" placeholder="Voer hier je reden in..." required></textarea>
+            <input type="hidden" name="skinId" value="<%= skin.id %>">
+            <button type="submit" class="add-button">Toevoegen</button>
+        </form>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

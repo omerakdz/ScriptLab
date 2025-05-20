@@ -20,6 +20,7 @@ mongoStore.on("error", (error: any) => {
 
 declare module "express-session" {
     export interface SessionData {
+        userId?: string; // id van de ingelogde speler
         username?: string; // username van de ingelogde speler
         cards?: Card[]; 
         flipped?: number[];

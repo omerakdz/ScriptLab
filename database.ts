@@ -3,7 +3,8 @@ import { fetchItems, fetchSkins } from './api';
 import { Collection, SortDirection } from 'mongodb';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
-import { FortniteItem, Player, Skin } from './types';
+import { BlacklistedSkin, FortniteItem, Player, Skin, FavoriteSkin } from './types';
+import { createUserId } from './account';
 dotenv.config();
 
 export const CONNECTION_STRING: string = process.env.CONNECTION_STRING ?? ""; 
@@ -110,6 +111,82 @@ export async function addFriend(username: string, friendUsername: string) {
     );
 }
 
+export async function updateSkinStats(id: string, wins: number, losses: number): Promise<void> {
+  await skinsCollection.updateOne(
+    { id },
+    { $set: { "stats.wins": wins, "stats.losses": losses } }
+  );
+}
+
+export async function addFavoriteSkinToDB(username: string, skinId: string): Promise<void> {
+  const user = await usersCollection.findOne({ username });
+  if (!user) return;
+
+  const currentFavorites: FavoriteSkin[] = user.favoriteSkins ?? [];
+
+  if (currentFavorites.find(entry => entry.id === skinId)) {
+    console.log(`Skin ${skinId} staat al in de favorieten van ${username}.`);
+    return;
+  }
+
+  currentFavorites.push({ id: skinId });
+
+  await usersCollection.updateOne(
+    { username },
+    { $set: { favoriteSkins: currentFavorites } }
+  );
+}
+
+export async function getFavSkinsDB(username: string): Promise<Skin[]> {
+  const user = await usersCollection.findOne({ username });
+  if (!user?.favoriteSkins?.length) return [];
+
+  const ids = user.favoriteSkins.map((fav: FavoriteSkin) => fav.id);
+  const skins = await skinsCollection.find({ id: { $in: ids } }).toArray();
+
+  return user.favoriteSkins.map((fav: FavoriteSkin) => ({
+    ...fav,
+    skin: skins.find((s) => s.id === fav.id) || null,
+  }));
+}
+
+export async function addSkinToBlacklistDB(username: string, skinId: string, reason: string): Promise<void> {
+    const user = await usersCollection.findOne({ username });
+
+    if (!user) {
+        console.error(`Gebruiker met username "${username}" niet gevonden.`);
+        return;
+    }
+
+    const currentBlacklist: BlacklistedSkin[] = user.blacklistedSkins ?? [];
+
+    if (currentBlacklist.find(entry => entry.id === skinId)) {
+        console.log(`Skin ${skinId} staat al op de blacklist van ${username}.`);
+        return;
+    }
+
+    currentBlacklist.push({ id: skinId, reason });
+
+    await usersCollection.updateOne(
+        { username },
+        { $set: { blacklistedSkins: currentBlacklist } }
+    );
+}
+
+export async function getBlacklistFromDB(username: string) {
+  const user = await usersCollection.findOne({ username });
+
+  if (!user?.blacklistedSkins?.length) return [];
+
+  const ids = user.blacklistedSkins.map((b : BlacklistedSkin) => b.id);
+  const skins = await skinsCollection.find({ id: { $in: ids } }).toArray();
+
+  return user.blacklistedSkins.map((b : BlacklistedSkin) => ({
+    ...b,
+    skin: skins.find((s) => s.id === b.id) || null,
+  }));
+}
+
 // Functie om verbinding af te sluiten
 async function exit() {
     try {
@@ -124,31 +201,57 @@ async function exit() {
 // Functie om de collectie te vullen met een voorbeeldspeler als deze leeg is
 async function seed() {
     if ((await usersCollection.countDocuments()) === 0) {
-        const skins = await fetchSkins();
-        const items = await fetchItems();
+    const skins = await fetchSkins();
+    const items = await fetchItems();
+
+    if ((await skinsCollection.countDocuments()) === 0) {
+        try {
+        const insertResult = await skinsCollection.insertMany(skins);
+        console.log(`Inserted ${insertResult.insertedCount} skins.`);
+        } catch (error) {
+        console.error("Fout bij het invoegen van skins:", error);
+        }
+    }
+
     
         // Voeg minstens 3 spelers toe
         for (let i = 1; i <= 3; i++) {
+             const id = await createUserId();
             const selectedSkin = skins[i % skins.length];  // Zorg ervoor dat we niet buiten de array gaan
             const selectedItems = items.slice(i * 2, i * 2 + 2);  // Kies twee verschillende items voor elke speler
     
             const examplePlayer: Player = {
+                id,
                 username: `Player${i}`,
                 password: "password",
                 level: 5 + i,  // Voor elk speler verhoog je het niveau
                 wins: 12 + i,
                 losses: 8 + i,
-                moves: 0,
+                bestTime: null,
                 createdAt: new Date(),
                 friends: [],
-                selectedSkin: selectedSkin,
+                selectedSkinId: selectedSkin,
                 selectedItems: selectedItems,
-                favoriteSkins: [skins[(i + 1) % skins.length]?.id],
-                blacklistedSkins: [skins[(i + 2) % skins.length]?.id]
+                favoriteSkins: [{ id: skins[(i + 1) % skins.length]?.id }],
+                blacklistedSkins: [{
+                id: skins[(i + 2) % skins.length]?.id,
+                reason: "Ik vind deze skin niet mooi"  // Voorbeeld reden
+                }]
             };
     
             const insertResponse = await usersCollection.insertOne(examplePlayer);
         }
+    }
+}
+
+async function seedSkins() { // skin collectie wou niet toegevoegd worden dus dit gemaakt
+    const count = await skinsCollection.countDocuments();
+    if (count === 0) {
+      const skins = await fetchSkins();
+      const result = await skinsCollection.insertMany(skins);
+      console.log(`Inserted ${result.insertedCount} skins`);
+    } else {
+      console.log("Skins collection is not empty, skipping seed.");
     }
 }
 
@@ -161,9 +264,11 @@ export async function connect() {
         // Zorg ervoor dat de verbinding wordt afgesloten bij afsluiten van het proces
         process.on("SIGINT", exit); 
 
-        // await collection.dropIndex("*"); 
-        // await collection.deleteMany({}); 
+        // await usersCollection.dropIndex("*"); // gebruik deze 2 om collectie te resetten en updaten (niewe veld toevoegen)
+        // await usersCollection.deleteMany({}); // gebruik deze 2 om collectie te resetten en updaten (niewe veld toevoegen)
         await seed();
+        await seedSkins();
+        console.log("Database seeded");
 
         await usersCollection.createIndex({ username: "text" });
 

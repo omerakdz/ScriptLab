@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<main>
+  <h1>Pas wins en losses aan voor <%= skin.name %></h1>
+  <form action="/skins/edit/<%= skin.id %>" method="post">
+    <label for="wins">Wins:</label>
+    <input type="number" id="wins" name="wins" value="<%= skin.wins ?? 0 %>" min="0" required>
+
+    <label for="losses">Losses:</label>
+    <input type="number" id="losses" name="losses" value="<%= skin.losses ?? 0 %>" min="0" required>
+
+    <button type="submit">Opslaan</button>
+  </form>
+</main>
+
+<%- include("partials/footer") %>

@@ -8,18 +8,9 @@ import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { profiles } from "./public/json/players.json";
 import { error } from "console";
 import { title } from "process";
-import { loginUser, createUser } from "./account";
+import { loginUser, createUser, addFavoriteSkin } from "./account";
 import session from "./session";
-import {
-  usersCollection,
-  connect,
-  getPlayersByName,
-  getSkinById,
-  getItemsByName,
-  getSkinsByName,
-  itemsCollection,
-  getLeaderboard,
-  updatePlayerMovesIfBetter,
+import {usersCollection,connect,  getPlayersByName,getSkinById,getItemsByName,getSkinsByName,itemsCollection,getLeaderboard, updatePlayerMovesIfBetter, skinsCollection, getPlayerById, addFavoriteSkinToDB, getFavSkinsDB, getBlacklistFromDB, addSkinToBlacklistDB, updateSkinStats,
 } from "./database";
 import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
@@ -140,7 +131,7 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  const { username, email, password, confirmPassword } = req.body;
+  const { id,username, email, password, confirmPassword } = req.body;
 
   const existingUser = await usersCollection.findOne({ username });
   if (existingUser) {
@@ -296,6 +287,40 @@ app.get("/skins", async (req, res) => {
   });
 });
 
+app.get("/skins/edit/:id", async (req, res) => {
+  const id = req.params.id;
+
+  const skin : any= await skinsCollection.findOne({ id });
+
+  if (!skin) {
+     res.status(404).send("Skin niet gevonden");
+  }
+
+  res.render("edit-skin", {
+    title: `Edit Skin - ${skin.name}`,
+    skin,
+    bodyId: "edit-skin-page",
+  });
+});
+
+app.post("/skins/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const wins = req.body.wins;
+  const losses = req.body.losses;
+
+  const winsNum = parseInt(wins, 10);
+  const lossesNum = parseInt(losses, 10);
+
+  if (isNaN(winsNum) || isNaN(lossesNum) || winsNum < 0 || lossesNum < 0) {
+     res.status(400).send("Ongeldige invoer voor wins of losses.");
+  }
+
+  await updateSkinStats(id, winsNum, lossesNum);
+  res.redirect("/favorite");
+  
+});
+
+
 app.get("/shop", async (req, res) => {
   const items = await fetchShop(10);
   res.render("shop", {
@@ -392,9 +417,8 @@ app.get("/search-profile", (req, res) => {
 });
 
 app.get("/user/:username", (req, res) => {
-  const username =
-    typeof req.params.username === "string" ? req.params.username : "";
-  const profile: Profile | undefined = profiles.find(
+  const username = typeof req.params.username === "string" ? req.params.username : "";
+    const profile: Profile | undefined = profiles.find(
     (profile) => profile.name === username
   );
   res.render("user-profile", {
@@ -404,41 +428,69 @@ app.get("/user/:username", (req, res) => {
   });
 });
 
-app.get("/favorite", (req, res) => {
-    res.render("favorite", {
-        title: "Favorieten",
-        bodyId: "favorite-page"
-    });
-})
 
-app.get("/user/:username", (req, res) => {
-    const username = typeof req.params.username === "string" ? req.params.username : "";
-    const profile: Profile | undefined = profiles.find(profile => profile.name === username)
-    res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
-})
+app.get("/blacklist", async (req, res) => {
+    const username : any = req.session.username;  // pak username uit sessie of auth
+   
+     const blacklistItems = await getBlacklistFromDB(username);
 
-app.get('/aim-trainer', (req, res) => {
-    res.render('aim-trainer', {
-        bodyId: "aim-body",
-        title: "Aim Trainer",
-        username: req.session.username ?? null,
-    });
-});
-app.get('/drop-game', (req, res) => {
-    res.render('drop-game', {
-        bodyId: "drop-body",
-        title: "Drop Game",
-        username: req.session.username ?? null,
-    });
-});
-app.get("/blacklist", (req, res) => {
     res.render("blacklist", {
         title: "Blacklist",
-        bodyId: "blacklistPage"
-    });
-})
+        bodyId: "blacklistPage" ,
+        blacklistItems
+      });
+});
+
+app.get("/add-blacklist/:skinId", async (req, res) => {
+    const skinId = req.params.skinId;
+    const skin = await getSkinById(skinId);
+
+    res.render("add-blacklist", {
+       skin,
+       title: "blacklist toevoegen", 
+       bodyId: "add-blacklist-page", 
+      });
+});
+
+app.post("/add-blacklist", async (req, res) => {
+    const username : any = req.session.username;
+ 
+    const skinId  = req.body.skinId;
+    const reason : string = req.body.reason;
+
+    if (!reason) {
+       res.status(400).send("reden is verplicht in te vullen");
+    }
+
+    await addSkinToBlacklistDB(username, skinId, reason);
+    res.redirect("/blacklist");
+});
+
+app.get("/favorite", async (req, res) => {
+  const username : any = req.session.username;
+ 
+  const skins = await getFavSkinsDB(username);
+
+  res.render("favorite", {
+    title: "Favorieten",
+    bodyId: "favorites-page",
+    skins,
+  });
+});
+
+
+app.post("/favorites", async (req, res) => {
+  const skinId = req.body.skinId;
+  const username : any = req.session.username;
+
+  await addFavoriteSkinToDB(username, skinId);
+  res.redirect("/favorite");
+  
+});
+
 
 app.listen(app.get("port"), async () => {
   await connect();
   console.log("Server started on http://localhost/:" + app.get("port"));
 });
+

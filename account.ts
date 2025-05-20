@@ -7,26 +7,43 @@ import { usersCollection } from "./database";
 dotenv.config();
 const saltRounds: number = parseInt(process.env.SALT!);
 
+export async function createUserId(): Promise<number> { // geeft elke user automatisch een id
+    // Zoek het huidige hoogste id in de collectie
+    const highestUser: Player | null = await usersCollection.findOne<Player>({}, { sort: { id: -1 } });
+
+    // Start bij 1 als er nog geen gebruikers zijn
+    let newId: number = 1;
+    if (highestUser && typeof highestUser.id === "number") {
+        newId = highestUser.id + 1;
+    }
+
+    return newId;
+}
+
 export async function createUser(username: string, password: string): Promise<Player | null> {
+    const id = await createUserId();
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const user = {
+    const user : Player= {
+        id,
         username,
         password: hashedPassword,
-        blacklistedSkinId: [],
-        favoriteSkinId: [],
-        selectedSkinId: null,
-        selectedItems: [], // max 2
         level: 1,
         wins: 0,
         losses: 0,
+        bestTime: null,               
         createdAt: new Date(),
-        friends: []
+        friends: [],
+        selectedSkinId: undefined,          
+        selectedItems: [],             
+        favoriteSkins: [],             
+        blacklistedSkins: [],          
+        vbucks: 1000                  
     };
 
     try {
         const result = await usersCollection.insertOne(user);
         console.log(`Gebruiker aangemaakt met id ${result.insertedId}`);
-        return { username};
+        return { id,username};
     } catch (error) {
         console.error("Fout bij aanmaken gebruiker:", error);
         return null;
@@ -55,7 +72,7 @@ export async function loginUser(username: string, password: string): Promise<Pla
         level: user.level,
         wins: user.wins,
         losses: user.losses,
-        moves: user.moves,
+        bestTime: user.bestTime,
     };
 }
 
