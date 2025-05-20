@@ -436,7 +436,7 @@ app.get("/blacklist", async (req, res) => {
     blacklistItems: blacklistItems,
   });
 });
-});
+
 
 app.get("/add-blacklist/:skinId", async (req, res) => {
     const skinId = req.params.skinId;
