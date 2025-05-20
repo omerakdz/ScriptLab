@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+    <main>
+        <section class="leaderboard-card">
+            <a href="/index" class="back-button">&larr; TERUG</a>
+            <h1>LEADERBOARD</h1>
+            <table class="leaderboard-table">
+                <tr>
+                    <th>SPELER</th>
+                    <th>TIJD</th>
+                </tr>
+                <% let rank = 1; %>
+                <% for(var profile of profiles ) { %> 
+                    <tr>
+               <td>#<%=rank%> <img src="<%= profile.skinIconUrl %>" alt=""> <a href="/search/<%=profile.name%>"> <span
+                                class="leaderboard-username">
+                                <%= profile.name %> </span></a></td>
+                                <% rank++ %>
+                    <td>0:39</td>
+                <% } %> 
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <%- include("partials/footer") %>

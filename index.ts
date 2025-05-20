@@ -358,7 +358,6 @@ app.get("/card-game", async (req, res) => {
       : false
   );
 
-
   let leaderboard : any = [];
   if (showLeaderboard) {
     leaderboard = await getLeaderboard();
@@ -418,7 +417,7 @@ app.get("/search-profile", (req, res) => {
 
 app.get("/user/:username", (req, res) => {
   const username = typeof req.params.username === "string" ? req.params.username : "";
-    const profile: Profile | undefined = profiles.find(
+  const profile: Profile | undefined = profiles.find(
     (profile) => profile.name === username
   );
   res.render("user-profile", {
@@ -428,17 +427,15 @@ app.get("/user/:username", (req, res) => {
   });
 });
 
-
 app.get("/blacklist", async (req, res) => {
-    const username : any = req.session.username;  // pak username uit sessie of auth
-   
-     const blacklistItems = await getBlacklistFromDB(username);
-
-    res.render("blacklist", {
-        title: "Blacklist",
-        bodyId: "blacklistPage" ,
-        blacklistItems
-      });
+  const username: any = req.session.username;  // pak username uit sessie of auth
+  const blacklistItems = await getBlacklistFromDB(username);
+  res.render("blacklist", {
+    title: "Blacklist",
+    bodyId: "blacklistPage",
+    blacklistItems: blacklistItems,
+  });
+});
 });
 
 app.get("/add-blacklist/:skinId", async (req, res) => {
@@ -488,6 +485,28 @@ app.post("/favorites", async (req, res) => {
   
 });
 
+
+app.get("/profile-settings", (req, res) =>{
+    res.render("profile-settings", {
+        title : req.session.username ?? null, 
+        bodyId : "settings-page"})
+})
+
+app.get("/account-settings", (req, res) => {
+  res.render("account-settings", {
+    title: "Account-instellingen",
+    bodyId : "settings-page"}
+  )
+})
+
+app.get("/leaderboard", (req, res) => {
+   
+  res.render("leaderboard", {
+    title: "Account-instellingen",
+    bodyId : "friends-page",
+  profiles: profiles}
+  )
+})
 
 app.listen(app.get("port"), async () => {
   await connect();
