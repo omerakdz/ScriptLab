@@ -23,14 +23,9 @@
               
             </section>
 
-                        <section class="items-favorite">
-                <% 
-                    // Bepaal het aantal items om te tonen (max 2)
-                    const itemsToShow = skin.items && skin.items.length > 0 ? skin.items.slice(0, 2) : [];
-                    // Vul aan tot 2 met null (voor fallback)
-                    while (itemsToShow.length < 2) {
-                    itemsToShow.push(null);
-                    }
+            <section class="items-favorite">
+                <%  const itemsToShow = (skin.items || []).slice(0, 2);
+                  while (itemsToShow.length < 2) itemsToShow.push(null);
                 %>
 
                 <% for (const item of itemsToShow) { %>

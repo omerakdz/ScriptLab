@@ -1570,19 +1570,19 @@ button:hover {
 }
 
 .favorite-page-main {
-  grid-area: main;
-  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 20px;
-  gap: 20px;
-  width: 100%;
-  color: black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+ background-image: url(/images/bg-images/bg-desktop-5.jpeg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    width: 100%;
+    color: var(--yellow);
+    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+    grid-area: main;
+    background-position: center center;
+    gap: 20px;
 }
 
 .all-favorite-cards {
@@ -1598,37 +1598,35 @@ button:hover {
 }
 
 .favorite-page-main h1 {
-  font-size: 3rem;
-  background-color: var(--yellow);
-  color: black;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+    font-size: 3rem;
+    color: var(--yellow);
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 1rem;
 }
 
 .favorite-card {
-  background-color: var(--yellow);
-  padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(50% - 1rem);
-  max-width: 350px;
-  height: 380px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+background-color: var(--dark-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(50% - 1rem);
+    max-width: 350px;
+    height: 380px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 6px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .skin-image-favorite {
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-  padding: 5px;
-  margin-bottom: 7px;
+    width: 120px;
+    height: 120px;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 4px 10px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    border: 2px solid var(--yellow);
 }
 
 .wins-losses-icons {
@@ -1644,17 +1642,17 @@ button:hover {
 
 .favorite-wins,
 .favorite-losses {
-  background-color: var(--yellow);
-  color: black;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1.5rem;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    background-color: var(--dark-gray);
+    color: var(--yellow);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 4px 15px;
+    border: 2px solid var(--yellow);
+    padding: 10px 15px;
+    border-radius: 5px;
+    gap: 20px;
 }
 
 .favorite-wins p,
@@ -1693,18 +1691,19 @@ button:hover {
 }
 
 .details-button {
-  text-align: center;
-  width: 100px;
-  height: 40px;
-  color: black;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease;
-  background-color: var(--yellow);
-  border: none;
-  padding: 5px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: var(--dark-gray);
+    color: var(--yellow);
+    transition: transform 0.2s;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid var(--yellow);
 }
 
 .details-button:hover {
@@ -1720,9 +1719,10 @@ button:hover {
 }
 
 .item-img {
-  background-color: var(--yellow);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
+    background-color: var(--dark-gray);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 15px;
+    border: 2px solid var(--yellow);
+    border-radius: 5px;
 }
 
 #button-right-fav,
@@ -1760,7 +1760,6 @@ button:hover {
 #button-left-fav:hover i {
   transform: scale(1.1);
 }
-
 /* SKINS PAGINA */
 
 #skins-page-main {
