@@ -57,6 +57,7 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 .menu-container {
   position: relative;
   display: inline-block;
+  right: 500px;
 }
 
 .menu-toggle {
@@ -865,8 +866,8 @@ textarea {
 
 .game-card {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.2s ease-in-out;
@@ -902,6 +903,10 @@ textarea {
   font-size: 2rem;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+.game-card:hover .overlay .cross {
+  display: block;
 }
 
 /*PROFILE PAGE & ACCOUNT SETTINGS */
@@ -1343,10 +1348,6 @@ button:hover {
 .accept-request-button,
 .decline-request-button {
   justify-self: end;
-}
-
-.game-card:hover .overlay .cross {
-  display: block;
 }
 
 /* PERSONAGE DETAIL PAGINA */
@@ -2339,9 +2340,10 @@ button:hover {
 }
 
 .item-pagina-h1 {
-  font-size: 2.8rem;
-  margin: 1rem 0;
-  padding: 0 10px;
+  margin: 30px;
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
   text-align: center;
 }
 
@@ -2631,7 +2633,7 @@ footer {
 
 .menu-cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin: 10px;
 }
@@ -2640,14 +2642,13 @@ footer {
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   border-radius: 20px;
-  font-size: 1.5rem;
-  margin-top: 10px;
+  font-size: 1.8rem;
 }
 
 .game-card {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 10px;
   transition: transform 0.2s ease-in-out;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
@@ -3208,10 +3209,10 @@ footer {
       height: 420px;
     }
 
-    .game-card {
+    /* .game-card {
       width: 200px;
       height: 200px;
-    }
+    } */
 
     /* Pijltjes knoppen */
     .scroll-btn {
@@ -3478,51 +3479,7 @@ footer {
       /* 2 items naast elkaar */
     }
 
-    /* #shop-page {
-
-  .friend-requests {
-    height: 200px;
-    width: 350px;
-  }
-
-  .friend-requests li {
-    font-size: 35px;
-  }
-
-  .friend-requests img {
-    width: 35px;
-  }
-
-  .profile-search-card {
-    overflow: auto;
-    width: 80%;
-  }
-
-  .profile-search {
-    margin-bottom: 10px;
-    background-color: grey;
-    border-radius: 20px;
-    flex-direction: row;
-    width: 90%;
-    justify-content: flex-start;
-    height: 120px;
-  }
-
-  .profile-search img {
-    width: 90px;
-    margin-left: 20px;
-  }
-
-  .profile-search:first-of-type {
-    margin-top: 50px;
-  }
-
-  .profile-search-username {
-    font-size: 30px;
-    margin-left: 20px;
-  }
-
-  /*user-profile*/
+    /*user-profile*/
     .user-profile-card {
       width: 90%;
       height: 600px;
