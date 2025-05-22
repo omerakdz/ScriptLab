@@ -4,7 +4,7 @@
   <% if (skins.length === 0) { %>
     <p class="error-message-favorite">Je hebt nog geen favoriete skins.</p>
   <% } else { %>
-    <h1>Jouw favoriete skins</h1>
+    <h1>favoriete skins</h1>
     <article class="all-favorite-cards">
       <% for (const fav of skins) { %>
         <% const skin = fav.skin; %>
@@ -32,19 +32,24 @@
                   <% if (item) { %>
                     <img src="<%= item.images.icon %>" alt="<%= item.name %>">
                   <% } else { %>
-                    <article style="font-size: 1rem; text-align: center;" title="Niet bekend">?</article>
+                    <article  title="Niet bekend">?</article>
                   <% } %>
                 </section>
               <% } %>
             </section>
 
             <section class="button-container">
-              <form action="/skins/<%= skin.id %>" method="get">
+              <form action="/skins/<%= skin.id %>" method="get" style="display:inline-block;">
                 <button class="details-button">Details</button>
               </form>
-              <form action="/skins/edit/<%= skin.id %>" method="get">
+              <form action="/skins/edit/<%= skin.id %>" method="get" style="display:inline-block;">
                 <button class="edit-button">
                   <img src="/images/items/edit-icon.png" alt="edit-button">
+                </button>
+              </form>
+              <form action="/favorites/<%= skin.id %>/delete" method="POST" style="display:inline-block;">
+                <button class="remove-favorite-button" type="submit">
+                  <img src="/images/delete-icon.png" alt="edit-button" >
                 </button>
               </form>
             </section>

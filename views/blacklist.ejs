@@ -1,17 +1,17 @@
 <%- include("partials/header") %>
 
 <main class="blacklist-page-main">
-    <h1>Blacklist</h1>
+    <h1>blacklisted skins</h1>
     <article class="all-blacklist-cards">
         <% if (blacklistItems.length === 0) { %>
             <p>Geen skins op de blacklist.</p>
         <% } else { %>
             <% for (const skin of blacklistItems) { %>
                 <article class="blacklist-card">
-                    <img src="<%= skin.imageUrl %>" alt="<%= skin.name %>" class="skin-image-favorite">
-                    <h2><%= skin.name %></h2>
+                    <img src="<%= skin.skin?.images?.icon %>" alt="<%= skin.name %>" class="skin-image-favorite">
+                    <h2><%= skin.skin?.name %></h2>
+                    <h3>Reden:</h3>
                     <section class="reason-container">
-                        <h3>Reden:</h3>
                         <p><%= skin.reason %></p>
                     </section>
                     <section class="button-container">

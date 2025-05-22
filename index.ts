@@ -3,14 +3,14 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
-import { FortniteItem, Skin, Player, Card, Profile } from "./types";
+import { FortniteItem, Skin, Player, Card, Profile, BlacklistedSkin } from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { profiles } from "./public/json/players.json";
 import { error } from "console";
 import { title } from "process";
 import { loginUser, createUser, addFavoriteSkin } from "./account";
 import session from "./session";
-import {usersCollection,connect,  getPlayersByName,getSkinById,getItemsByName,getSkinsByName,itemsCollection,getLeaderboard, updatePlayerMovesIfBetter, skinsCollection, getPlayerById, addFavoriteSkinToDB, getFavSkinsDB, getBlacklistFromDB, addSkinToBlacklistDB, updateSkinStats,
+import {usersCollection,connect,  getPlayersByName,getSkinById,getItemsByName,getSkinsByName,itemsCollection,getLeaderboard, updatePlayerMovesIfBetter, skinsCollection, getPlayerById, addFavoriteSkinToDB, getFavSkinsDB, getBlacklistFromDB, addSkinToBlacklistDB, updateSkinStats, updateBlacklist, removeFavoriteSkinFromDB,
 } from "./database";
 import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
@@ -463,6 +463,54 @@ app.post("/add-blacklist", async (req, res) => {
     res.redirect("/blacklist");
 });
 
+app.get("/blacklist/:skinId/edit", async (req, res) => {
+  const username = req.session.username;
+  const skinId = req.params.skinId;
+
+  if (!username || !skinId) {
+   res.status(400).send("Ongeldige aanvraag: ontbrekende username of skinId");
+   return;
+}
+
+  const blacklistItems = await getBlacklistFromDB(username);
+  const itemToEdit = blacklistItems.find((b: BlacklistedSkin) => b.id === skinId);
+
+  if (!itemToEdit) {
+     res.status(404).send("Skin niet gevonden in de blacklist");
+     return;
+  }
+
+  res.render("edit-blacklist", {
+    skin: itemToEdit.skin,
+    reason: itemToEdit.reason,
+    skinId,
+    title: `Blacklist bewerken - ${itemToEdit.skin?.name || skinId}`,
+    bodyId: "edit-blacklist-page"
+  });
+});
+
+
+app.post("/blacklist/:skinId/edit", async (req, res) => {
+ const username = req.session.username;
+  const skinId = req.params.skinId;
+  const newReason: string = req.body.reason;
+  const remove = req.body.remove === "true";
+
+  if (!username) {
+    res.status(401).send("Niet ingelogd");
+    return;
+  }
+
+  const success = await updateBlacklist(username, skinId, newReason, remove);
+  
+  if (!success) {
+    res.status(404).send("Gebruiker niet gevonden");
+    return;
+  }
+
+  res.redirect("/blacklist");
+});
+
 app.get("/favorite", async (req, res) => {
   const username : any = req.session.username;
  
@@ -483,6 +531,24 @@ app.post("/favorites", async (req, res) => {
   await addFavoriteSkinToDB(username, skinId);
   res.redirect("/favorite");
   
+});
+
+app.post("/favorites", async (req, res) => {
+  const skinId = req.body.skinId;
+  const username: any = req.session.username;
+
+  await addFavoriteSkinToDB(username, skinId);
+  res.redirect("/favorite");
+});
+
+app.post("/favorites/:skinId/delete", async (req, res) => {
+  const skinId = req.params.skinId;
+  const username: any = req.session.username;
+
+
+  await removeFavoriteSkinFromDB(username, skinId);
+
+  res.redirect("/favorite");
 });
 
 
