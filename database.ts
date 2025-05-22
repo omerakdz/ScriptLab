@@ -187,6 +187,45 @@ export async function getBlacklistFromDB(username: string) {
   }));
 }
 
+export async function updateBlacklist(
+  username: string,
+  skinId: string,
+  newReason: string,
+  remove: boolean
+): Promise<boolean> {
+  const user = await usersCollection.findOne({ username });
+  if (!user) return false;
+
+  let currentBlacklist = user.blacklistedSkins ?? [];
+
+  if (remove) {
+    currentBlacklist = currentBlacklist.filter((skin: Skin) => skin.id !== skinId);
+  } else {
+    currentBlacklist = currentBlacklist.map((skin: Skin) =>
+      skin.id === skinId ? { ...skin, reason: newReason } : skin
+    );
+  }
+
+  await usersCollection.updateOne(
+    { username },
+    { $set: { blacklistedSkins: currentBlacklist } }
+  );
+
+  return true;
+}
+
+export async function removeFavoriteSkinFromDB(username: string, skinId: string): Promise<void> {
+ const user = await usersCollection.findOne({ username });
+if (!user) return;
+
+const updatedFavorites = (user.favoriteSkins ?? []).filter((fav : Skin) => fav.id !== skinId);
+
+await usersCollection.updateOne(
+  { username },
+  { $set: { favoriteSkins: updatedFavorites } }
+);
+}
+
 // Functie om verbinding af te sluiten
 async function exit() {
     try {

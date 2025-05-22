@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+
+<main class="add-to-blacklist-container">
+  <h1>Blacklist Bewerken: <%= skin?.name %></h1>
+
+  <form action="/blacklist/<%= skinId %>/edit" method="POST">
+    <article>
+      <label for="reason">Reden</label><br />
+      <textarea id="reason" name="reason" required><%= reason %></textarea>
+    </article>
+
+    <article style="margin-top: 1rem;">
+      <button type="submit" name="remove" value="false">Opslaan</button>
+      <button type="submit" name="remove" value="true" style="background-color: red; color: white;">
+        Verwijder van blacklist
+      </button>
+    </article>
+  </form>
+</main>
+
+<%- include("partials/footer") %>
