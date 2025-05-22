@@ -807,6 +807,12 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   box-shadow: var(--yellow) 0px 0px 7px 5px;
 }
 
+.blacklist-card h2 {
+  font-size: 1.8rem;
+  color: var(--yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
 .reason-container {
   margin: 10px;
   padding: 5px 100px 70px 5px;
@@ -1626,7 +1632,7 @@ button:hover {
 .all-favorite-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
   width: 100%;
@@ -1643,13 +1649,12 @@ button:hover {
 }
 
 .favorite-page-main h1 {
-    font-size: 4rem;
-    color: var(--yellow);
-    text-align: center;
-    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
-    z-index: 1;
-    border-radius: 10px;
-    padding: 1rem;
+  font-size: 4rem;
+  color: var(--yellow);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .favorite-card {
@@ -1736,23 +1741,21 @@ background-color: var(--dark-gray);
 }
 
 .details-button {
-    text-align: center;
-    width: 100px;
-    height: 40px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 15px;
-    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background-color: var(--dark-gray);
-    color: var(--yellow);
-    transition: transform 0.2s;
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid var(--yellow);
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: var(--yellow);
+  color: #000;
+  transition: transform 0.2s;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid var(--yellow);
 }
 
 .details-button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .items-favorite {
@@ -2154,7 +2157,7 @@ background-color: var(--dark-gray);
 .shop-button-mobile.next-button:hover {
     transform: scale(1.1);
 } */
-*/
+
 /* CARD GAME*/
 
 #card-game-page {
