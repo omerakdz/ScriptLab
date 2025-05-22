@@ -10,12 +10,14 @@
                 <article class="blacklist-card">
                     <img src="<%= skin.imageUrl %>" alt="<%= skin.name %>" class="skin-image-favorite">
                     <h2><%= skin.name %></h2>
-                    <h3>Reden:</h3>
-                    <p><%= skin.reason %></p>
+                    <section class="reason-container">
+                        <h3>Reden:</h3>
+                        <p><%= skin.reason %></p>
+                    </section>
                     <section class="button-container">
                         <form action="/blacklist/<%= skin.id %>/edit" method="GET">
                             <button class="edit-button" type="submit">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                <img src="/images/items/edit-icon.png" alt="edit-button">
                             </button>
                         </form>
                     </section>

@@ -769,6 +769,51 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Blacklist pagina */
+
+.blacklist-page-main {
+  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+  background-size: cover;
+  position: relative;
+  background-position: center;
+  width: 100vw;
+}
+
+.blacklist-page-main h1 {
+  color: var(--yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  font-size: 4rem;
+  text-align: center;
+  margin: 15px;
+}
+
+.all-blacklist-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  margin: 30px 10%;
+}
+
+.blacklist-card {
+  background-color: var(--dark-gray);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  margin-top: 15px;
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
+}
+
+.reason-container {
+  margin: 10px;
+  padding: 5px 100px 70px 5px;
+  border: var(--yellow) 2px solid;
+  border-radius: 10px;
+}
+
 /*add to blacklist pagina*/
 #add-to-blacklist-page {
   background-image: url("/images/bg-images/bg-desktop-6.jpeg");
@@ -807,7 +852,7 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 350px;
+  height: auto;
   margin-top: 15px;
   position: absolute;
   left: 50%;
@@ -820,14 +865,14 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   width: 90px;
   height: 90px;
   border-radius: 10px;
-  background-color: var(--dark-gray);
+  border: var(--yellow) 2px solid;
   padding: 5px;
 }
 
-.add-to-blacklist-buttons {
-  margin: 10px 0;
+.wins-losses {
+  margin: 15px;
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .ab-wins,
@@ -837,7 +882,7 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   padding: 10px 15px;
   font-size: 1.2rem;
   border-radius: 5px;
-  color: var(--dark-gray);
+  color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1474,14 +1519,6 @@ button:hover {
   margin: 10px 0;
 }
 
-/* #personages-box {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    border: 2px solid var(--yellow);
-} */
-
 #personages-box img {
   width: 60px;
   height: 60px;
@@ -1598,8 +1635,15 @@ button:hover {
   z-index: 0;
 }
 
+.error-message-favorite {
+  color: red;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
 .favorite-page-main h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--yellow);
     text-align: center;
     text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
@@ -1681,7 +1725,7 @@ background-color: var(--dark-gray);
   transition: transform 0.2s ease;
   background-color: var(--yellow);
   border: none;
-  padding: 10px 10px;
+  padding: 5px;
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 5px;
