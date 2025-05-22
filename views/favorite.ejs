@@ -1,11 +1,11 @@
 <%- include("partials/header") %>
 
 <main class="favorite-page-main">
-  <h1>Jouw favoriete skins</h1>
   <article class="all-favorite-cards">
     <% if (skins.length === 0) { %>
-      <p>Je hebt nog geen favoriete skins.</p>
+      <p class="error-message-favorite">Je hebt nog geen favoriete skins.</p>
     <% } else { %>
+        <h1>Jouw favoriete skins</h1>
       <% for (const fav of skins) { %>
         <% const skin = fav.skin; %>
         <% if (skin) { %>
