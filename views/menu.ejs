@@ -1,58 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Menu Pagina</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/menu.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body id="menuBody">
     <section class="menu-page-container">
         <h2 class="title">Kies een game</h2>
+
+        <% if (typeof errorMessage !== 'undefined') { %>
+            <div class="error-message" style="color: red; margin-bottom: 1rem;">
+                <p><%= errorMessage %></p>
+            </div>
+        <% } %>
+
         <section class="menu-cards">
+
+            <form action="/choose-game" method="post" class="game-form" style="display: inline-block;">
+                <input type="hidden" name="game" value="Fifa" />
+                <button type="submit" class="game-button" style="background: none; border: none; padding: 0; cursor: pointer;">
+                    <article class="game-card">
+                        <img src="images/Fifa.webp" alt="FIFA" />
+                        <figure class="overlay">
+                            <p>Fifa</p>
+                            <span class="cross">X</span>
+                        </figure>
+                    </article>
+                </button>
+            </form>
+
+            <form action="/choose-game" method="post" class="game-form" style="display: inline-block;">
+                <input type="hidden" name="game" value="Lord Of The Rings" />
+                <button type="submit" class="game-button" style="background: none; border: none; padding: 0; cursor: pointer;">
+                    <article class="game-card">
+                        <img src="images/LOTR.jpeg" alt="Lord Of The Rings" />
+                        <figure class="overlay">
+                            <p>Lord Of The Rings</p>
+                            <span class="cross">X</span>
+                        </figure>
+                    </article>
+                </button>
+            </form>
+
+            <form action="/choose-game" method="post" class="game-form" style="display: inline-block;">
+                <input type="hidden" name="game" value="LegoMasters" />
+                <button type="submit" class="game-button" style="background: none; border: none; padding: 0; cursor: pointer;">
+                    <article class="game-card">
+                        <img src="images/Lego.jpeg" alt="LegoMasters" />
+                        <figure class="overlay">
+                            <p>LegoMasters</p>
+                            <span class="cross">X</span>
+                        </figure>
+                    </article>
+                </button>
+            </form>
+
             <article class="game-card">
-                <img src="images/Fifa.webp" alt="FIFA">
-                <figure class="overlay">
-                    <p>Fifa</p>
-                    <span class="cross">X</span>
-                </figure>
-            </article>
-            <article class="game-card">
-                <img src="images/LOTR.jpeg" alt="Lord Of The Rings">
-                <figure class="overlay">
-                    <p>Lord Of The Rings</p>
-                    <span class="cross">X</span>
-                </figure>
-            </article>
-            <article class="game-card">
-                <img src="images/Lego.jpeg" alt="LegoMasters">
-                <figure class="overlay">
-                    <p>LegoMasters</p>
-                    <span class="cross">X</span>
-                </figure>
-            </article>
-            <article class="game-card">
-                <a href="/login" class="game-link">
-                    <img src="images/Fortnite.jpeg" alt="Fortnite">
+                <a href="/login" class="game-link" style="text-decoration: none; color: inherit;">
+                    <img src="images/Fortnite.jpeg" alt="Fortnite" />
                     <figure class="overlay">
                         <p>Fortnite</p>
                     </figure>
                 </a>
             </article>
-            <article class="game-card">
-                <img src="images/Pokemon.jpeg" alt="Pokémon">
-                <figure class="overlay">
-                    <p>Pokemon</p>
-                    <span class="cross">X</span>
-                </figure>
-            </article>
-            <article class="game-card">
-                <img src="images/MTG.jpeg" alt="Magic The Gathering">
-                <figure class="overlay">
-                    <p>Magic The Gathering</p>
-                    <span class="cross">X</span>
-                </figure>
-            </article>
+
+            <form action="/choose-game" method="post" class="game-form" style="display: inline-block;">
+                <input type="hidden" name="game" value="Pokemon" />
+                <button type="submit" class="game-button" style="background: none; border: none; padding: 0; cursor: pointer;">
+                    <article class="game-card">
+                        <img src="images/Pokemon.jpeg" alt="PokÃ©mon" />
+                        <figure class="overlay">
+                            <p>Pokemon</p>
+                            <span class="cross">X</span>
+                        </figure>
+                    </article>
+                </button>
+            </form>
+
+            <form action="/choose-game" method="post" class="game-form" style="display: inline-block;">
+                <input type="hidden" name="game" value="Magic The Gathering" />
+                <button type="submit" class="game-button" style="background: none; border: none; padding: 0; cursor: pointer;">
+                    <article class="game-card">
+                        <img src="images/MTG.jpeg" alt="Magic The Gathering" />
+                        <figure class="overlay">
+                            <p>Magic The Gathering</p>
+                            <span class="cross">X</span>
+                        </figure>
+                    </article>
+                </button>
+            </form>
+
         </section>
     </section>
 </body>
+</html>
