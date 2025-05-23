@@ -77,6 +77,18 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/choose-game", (req, res) => {
+  const chosenGame = req.body.game;
+
+  if (chosenGame === "fortnite") {
+    return res.redirect("/login");
+  } else {
+    res.render("menu", {
+      errorMessage: `Spel "${chosenGame}" niet beschikbaar, probeer Fortnite!`
+    });
+  }
+});
+
 app.get("/login", (req, res) => {
   const message = "";
   res.render("login", {
