@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+
+<main class="skin-details-container">
+  <h1><%= skin.name %></h1>
+  <% if (skin.images && skin.images.icon) { %>
+  <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
+<% } else { %>
+  <p>Geen afbeelding beschikbaar voor deze skin.</p>
+<% } %>
+
+  <section class="backstory">
+    <h2>Backstory</h2>
+    <p><%= backstory %></p>
+  </section>
+
+  <a href="/favorite" class="back-button-dtl">Terug naar favorieten</a>
+</main>
+
+<%- include("partials/footer") %>

@@ -23,33 +23,34 @@
             </section>
 
             <section class="items-favorite">
-              <% const itemsToShow = (skin.items || []).slice(0, 2);
-                 while (itemsToShow.length < 2) itemsToShow.push(null);
+              <% 
+                const itemsToShow = (skin.items || []).slice(0, 2);
+                while (itemsToShow.length < 2) itemsToShow.push(null);
               %>
 
               <% for (const item of itemsToShow) { %>
                 <section class="item-img">
                   <% if (item) { %>
-                    <img src="<%= item.images.icon %>" alt="<%= item.name %>">
+                    <img class="fav-item" src="<%= item.images.icon %>" alt="<%= item.name %>">
                   <% } else { %>
-                    <article  title="Niet bekend">?</article>
+                    <article class="fav-item" title="Niet bekend">?</article>
                   <% } %>
                 </section>
               <% } %>
             </section>
 
             <section class="button-container">
-              <form action="/skins/<%= skin.id %>" method="get" style="display:inline-block;">
+             <form action="/favorites/<%= skin.id %>/detail" method="get" style="display:inline-block;">
                 <button class="details-button">Details</button>
-              </form>
+             </form>
               <form action="/skins/edit/<%= skin.id %>" method="get" style="display:inline-block;">
                 <button class="edit-button">
                   <img src="/images/items/edit-icon.png" alt="edit-button">
                 </button>
               </form>
               <form action="/favorites/<%= skin.id %>/delete" method="POST" style="display:inline-block;">
-                <button class="remove-favorite-button" type="submit">
-                  <img src="/images/delete-icon.png" alt="edit-button" >
+                <button class="remove-button" type="submit">
+                  <img src="/images/delete-icon.png" alt="delete-button">
                 </button>
               </form>
             </section>

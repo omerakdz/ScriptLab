@@ -19,10 +19,14 @@
                         <img id="skin-image" src="<%= skin.images.icon %>" alt="<%= skin.name %>">
                         <h1><%= skin.name %></h1>
                         <section class="skin-actions">
-                           <form method="POST" class="favorite-form" action="/favorites" target="invisible-frame">
+                           <form method="POST" class="favorite-form" action="/skins">
                                 <input type="hidden" name="skinId" value="<%= skin.id %>">
                                 <button type="submit" class="favorite-button">
-                                    <img class="star-icon" src="images/items/star-icon.png" alt="ster">
+                                    <% if (favoriteSkinIds.includes(skin.id)) { %>
+                                        <img class="star-icon" src="images/star-filled.png" alt="favoriet">
+                                    <% } else { %>
+                                        <img class="star-icon" src="images/star-empty.png" alt="niet favoriet">
+                                    <% } %>
                                 </button>
                             </form>
 

@@ -33,6 +33,29 @@ export async function getSkinById(id: string) {
     return await skinsCollection.findOne({ id });
 }
 
+export async function getFavoriteSkinById(username: string, skinId: string): Promise<Skin | null> { // was nodig voor fav detail want deed moeilijk
+  const user = await usersCollection.findOne({ username });
+  if (!user?.favoriteSkins?.length) {
+    return null;
+  }
+
+  const isFavorite = user.favoriteSkins.some((fav: FavoriteSkin) => fav.id === skinId);
+  if (!isFavorite) {
+    return null;
+  }
+
+  const skin = await skinsCollection.findOne({ id: skinId });
+
+  return skin || null;
+}
+
+export async function getFavoriteSkinIds(username: string | undefined): Promise<string[]> { // voor skin pagina ster
+  if (!username) return [];
+  const favSkins = await getFavSkinsDB(username);
+  return favSkins.map(skin => skin.id.toString());
+}
+
+
 export async function getItemsByName(q: string = "", sortField: string = "name", sortDirection: SortDirection = 1) {
     const query = q === "" ? {} : { name: { $regex: q, $options: 'i' } };  
     return await itemsCollection.find(query).sort({ [sortField]: sortDirection }).toArray();

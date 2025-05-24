@@ -594,6 +594,13 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 }
 
 /*skin stats edit pagina*/
+
+#edit-skin-page{
+  background-image: url("/images/bg-images/bg-desktop-6.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
 #edit-skin-page main {
   grid-area: main;
   max-width: 480px;
@@ -608,9 +615,21 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 
 #edit-skin-page main h1 {
   margin-bottom: 1.5rem;
-  font-weight: lighter;
   text-align: center;
   color: var(--yellow);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.edit-fav-img{
+  text-align: center; 
+  height: 120px;
+  margin-bottom: 0.5rem;
+}
+
+.edit-fav-img img{
+  max-width: 200px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 #edit-skin-page form {
@@ -627,7 +646,6 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 
 #edit-skin-page input[type="number"] {
   padding: 0.6rem 1rem;
-  font-family: "Fortnite";
   font-size: 1.4rem;
   border: 2px solid var(--yellow);
   border-radius: 6px;
@@ -637,28 +655,21 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   transition: border-color 0.3s ease;
 }
 
-#edit-skin-page input[type="number"]:focus {
-  border-color: var(--blue);
-}
-
 #edit-skin-page button[type="submit"] {
   background-color: var(--yellow);
-  color: var(--dark-gray);
-  font-family: "Fortnite";
+  color: black;
   font-weight: lighter;
   font-size: 1.6rem;
   border: none;
   border-radius: 8px;
   padding: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 8px var(--yellow);
-  transition: background-color 0.3s ease;
+  transition:  0.5s ease;
+  text-align: center;
 }
 
 #edit-skin-page button[type="submit"]:hover {
-  background-color: var(--blue);
-  color: white;
-  box-shadow: 0 0 12px var(--blue);
+  transform: scale(1.1);
 }
 
 
@@ -771,12 +782,14 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 
 /* Blacklist pagina */
 
+
 .blacklist-page-main {
+  grid-area: main;
   background-image: url("/images/bg-images/bg-desktop-5.jpeg");
   background-size: cover;
   position: relative;
   background-position: center;
-  width: 100vw;
+
 }
 
 .blacklist-page-main h1 {
@@ -802,13 +815,19 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 350px;
+  height: 380px;
   margin-top: 15px;
   box-shadow: var(--yellow) 0px 0px 7px 5px;
 }
 
 .blacklist-card h2 {
   font-size: 1.8rem;
+  color: var(--yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.blacklist-card h3 {
+  font-size: 1.3rem;
   color: var(--yellow);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
@@ -936,6 +955,81 @@ textarea {
 
 .add-button:hover {
   transform: scale(1.05);
+}
+
+/*edit blacklist pagina*/
+.edit-blacklist-container {
+  grid-area: main;
+  background-image: url("/images/bg-images/bg-desktop-6.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.edit-blacklist-container {
+  color: var(--yellow);
+  font-size: 1.8rem;
+  text-align: center;
+  position: relative;
+  padding-top: 6rem;
+}
+
+.edit-blacklist-container h1 {
+  font-size: 2rem;
+  background-color: var(--dark-gray);
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.edit-bl-img{
+  height: 80px;
+  border: black 2px solid;
+  border-radius: 10px;
+}
+
+.edit-blacklist-card {
+  background-color: var(--dark-gray);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+
+.edit-blacklist-card textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: black;
+  margin-top: 0.8rem;
+
+}
+
+.edit-blacklist-card button {
+  margin: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--yellow);
+  color: black;
+  transition: 0.3s ease;
+}
+
+.edit-blacklist-card button:hover {
+  filter: brightness(1.1);
 }
 
 /* MENU PAGINA */
@@ -1710,6 +1804,13 @@ background-color: var(--dark-gray);
   font-size: 1.5rem;
 }
 
+.item-img {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  font-size: 1.2rem;
+}
+
 /* Buttons favoriet pagina */
 
 .button-container {
@@ -1755,6 +1856,25 @@ background-color: var(--dark-gray);
 }
 
 .details-button:hover {
+  transform: scale(1.02);
+}
+
+.remove-button{
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  color: black;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+  background-color: var(--yellow);
+  border: none;
+  padding: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
   transform: scale(1.02);
 }
 
@@ -1808,6 +1928,86 @@ background-color: var(--dark-gray);
 #button-left-fav:hover i {
   transform: scale(1.1);
 }
+
+/*SKIN DETAIL*/
+#skin-detail {
+  background-image: url("/images/bg-images/bg-desktop-6.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: var(--yellow);
+}
+
+.skin-details-container {
+  grid-area: main;
+  background-color: var(--dark-gray);
+  max-width: 600px;
+  margin: 3rem auto 2rem; 
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.skin-details-container h1 {
+  font-size: 2rem; 
+  margin-bottom: 0.8rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.skin-details-container img {
+  width: 120px; /* kleiner */
+  height: 120px; /* kleiner */
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid var(--yellow); /* iets dunner */
+  padding: 4px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.skin-details-container .backstory {
+  background-color: var(--yellow);
+  color: black;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+  margin-bottom: 2rem;
+  font-size: 1.1rem; 
+  line-height: 1.4;
+  text-align: left;
+}
+
+.skin-details-container .backstory h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.8rem; 
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skin-details-container .back-button-dtl {
+  display: inline-block;
+  background-color: var(--yellow);
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.back-button-dtl{
+  height: 50px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.skin-details-container .back-button-dtl:hover {
+  transform: scale(1.05);
+}
+
 /* SKINS PAGINA */
 
 #skins-page-main {
@@ -1948,6 +2148,7 @@ background-color: var(--dark-gray);
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   border-radius: 20px;
+  background-color: var(--dark-gray);
 }
 
 .add-blacklist-btn {
@@ -2105,58 +2306,6 @@ background-color: var(--dark-gray);
   display: none;
 }
 
-/* SHOP BUTTONS */
-/* .shop-button {
-    background-color: var(--yellow);
-    color: var(--dark-gray);
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s ease-in-out;
-    margin: 0 50px;
-    width: 55px;
-    height: 55px;
-    text-align: center;
-}
-
-.shop-button:hover {
-    transform: scale(1.1);
-}
-
-
-/* MOBILE SHOP BUTTONS */
-/* .shop-button-mobile {
-    background-color: var(--yellow);
-    color: var(--dark-gray);
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s ease-in-out;
-    width: 50px;
-    height: 50px;
-}
-
-.shop-button-mobile:hover {
-    transform: scale(1.1);
-}
-
-.shop-button-mobile.prev-button,
-.shop-button-mobile.next-button {
-    font-size: 1.5rem;
-    padding: 15px;
-    background-color: var(--yellow);
-    color: var(--dark-gray);
-    border-radius: 5px;
-}
-
-.shop-button-mobile.prev-button:hover,
-.shop-button-mobile.next-button:hover {
-    transform: scale(1.1);
-} */
 
 /* CARD GAME*/
 
@@ -2997,50 +3146,6 @@ footer {
     white-space: nowrap;
   }
 
-  /* .game-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 50px;
-    max-width: 100vw;
-    justify-items: center;
-    align-items: center;
-    position: relative;
-    height: 420px;
-  }
-
-  .game-card {
-    width: 200px;
-    height: 200px;
-  } */
-
-  /* Pijltjes knoppen
-  .scroll-btn {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 50%;
-    z-index: 10;
-  } */
-
-  /* .scroll-btn.left {
-    left: 10px;
-  }
-
-  .scroll-btn.right {
-    right: 10px;
-  }
-
-  .scroll-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
-  } */
 
   /*profile page*/
   .settings-left-btns {
@@ -3062,6 +3167,45 @@ footer {
     height: 30px;
     margin-left: 30px;
     margin-top: 20px;
+  }
+/*detail skin pagina */
+  .skin-details-container {
+    max-width: 90vw;      
+    margin: 2rem auto 1.5rem;
+    padding: 10px 15px;
+    height: 400px;
+    position: relative;
+    top: 50px;
+  }
+
+  .skin-details-container h1 {
+    font-size: 1.6rem;    
+    margin-bottom: 0.6rem;
+  }
+
+  .skin-details-container img {
+    width: 100px;         
+    height: 100px;
+    border-radius: 10px;
+    padding: 3px;
+    margin-bottom: 1rem;
+  }
+
+  .skin-details-container .backstory {
+    font-size: 1rem;      
+    padding: 12px 15px;
+    margin-bottom: 1.5rem;
+  }
+
+  .skin-details-container .backstory h2 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+
+  .skin-details-container .back-button-dtl {
+    height: 45px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
   }
 }
 
