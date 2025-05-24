@@ -33,6 +33,7 @@ export interface Skin{
         kills: number;
         deaths: number;
     };
+    items?: FortniteItem[];
 }
 
 export interface BlacklistedSkin {

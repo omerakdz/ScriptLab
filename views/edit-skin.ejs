@@ -1,7 +1,12 @@
 <%- include("partials/header") %>
 
 <main>
-  <h1>Pas wins en losses aan voor <%= skin.name %></h1>
+  <h1>bewerk: <%= skin.name %></h1>
+  
+  <article class="edit-fav-img">
+    <img src="<%= skin.images.icon %>" alt="Afbeelding van <%= skin.name %>"/>
+  </article>
+
   <form action="/skins/edit/<%= skin.id %>" method="post">
     <label for="wins">Wins:</label>
     <input type="number" id="wins" name="wins" value="<%= skin.wins ?? 0 %>" min="0" required>

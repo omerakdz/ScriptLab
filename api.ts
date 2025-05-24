@@ -25,6 +25,12 @@ export async function fetchItems(limit: number = 40): Promise<FortniteItem[]> {
   return validItems.slice(0, limit);
 }
 
+export async function giveRandomItems(count = 2): Promise<FortniteItem[]> { // random itmes geven aan skins in fav pagina etc
+  const items = await fetchItems(100); 
+  const shuffled = items.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
 export async function fetchShop(limit: number = 40): Promise<FortniteItem[]> {
   const response = await fetch("https://fortnite-api.com/v2/shop");
   const data = await response.json();

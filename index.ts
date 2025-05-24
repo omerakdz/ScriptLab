@@ -4,13 +4,13 @@ import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
 import { FortniteItem, Skin, Player, Card, Profile, BlacklistedSkin } from "./types";
-import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
+import { fetchSkins, fetchItems, fetchAll, fetchShop, giveRandomItems } from "./api";
 import { profiles } from "./public/json/players.json";
 import { error } from "console";
 import { title } from "process";
 import { loginUser, createUser, addFavoriteSkin } from "./account";
 import session from "./session";
-import {usersCollection,connect,  getPlayersByName,getSkinById,getItemsByName,getSkinsByName,itemsCollection,getLeaderboard, updatePlayerMovesIfBetter, skinsCollection, getPlayerById, addFavoriteSkinToDB, getFavSkinsDB, getBlacklistFromDB, addSkinToBlacklistDB, updateSkinStats, updateBlacklist, removeFavoriteSkinFromDB,
+import {usersCollection,connect,  getPlayersByName,getSkinById,getItemsByName,getSkinsByName,itemsCollection,getLeaderboard, updatePlayerMovesIfBetter, skinsCollection, getPlayerById, addFavoriteSkinToDB, getFavSkinsDB, getBlacklistFromDB, addSkinToBlacklistDB, updateSkinStats, updateBlacklist, removeFavoriteSkinFromDB, getFavoriteSkinById,getFavoriteSkinIds
 } from "./database";
 import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
@@ -281,6 +281,7 @@ app.get("/items", async (req, res) => {
 
 app.get("/skins", async (req, res) => {
   const query = typeof req.query.q === "string" ? req.query.q : "";
+  const username = req.session.username;
 
   const fetchedSkins = await fetchSkins(40);
   const databaseSkins = await getSkinsByName(query);
@@ -291,12 +292,35 @@ app.get("/skins", async (req, res) => {
 
   const skins = [...filteredFetchedSkins, ...databaseSkins];
 
+  const favoriteSkinIds = await getFavoriteSkinIds(username);
+
   res.render("skins", {
     bodyId: "skins-page",
     title: "Skins",
     skins,
     searchQuery: query,
+    favoriteSkinIds,  
   });
+});
+
+app.post("/skins", async (req, res) => {
+  const username = req.session.username;
+  const skinId = req.body.skinId;
+
+  if (!username) {
+     res.status(401).send("Niet ingelogd");
+     return;
+  }
+
+  const favoriteSkinIds = await getFavoriteSkinIds(username);
+
+  if (favoriteSkinIds.includes(skinId)) {
+    await removeFavoriteSkinFromDB(username, skinId);
+  } else {
+    await addFavoriteSkinToDB(username, skinId);
+  }
+
+  res.redirect("/skins");
 });
 
 app.get("/skins/edit/:id", async (req, res) => {
@@ -525,8 +549,7 @@ app.post("/blacklist/:skinId/edit", async (req, res) => {
 
 app.get("/favorite", async (req, res) => {
   const username : any = req.session.username;
- 
-  const skins = await getFavSkinsDB(username);
+  const skins : Skin[]  = await getFavSkinsDB(username);
 
   res.render("favorite", {
     title: "Favorieten",
@@ -545,13 +568,6 @@ app.post("/favorites", async (req, res) => {
   
 });
 
-app.post("/favorites", async (req, res) => {
-  const skinId = req.body.skinId;
-  const username: any = req.session.username;
-
-  await addFavoriteSkinToDB(username, skinId);
-  res.redirect("/favorite");
-});
 
 app.post("/favorites/:skinId/delete", async (req, res) => {
   const skinId = req.params.skinId;
@@ -561,6 +577,27 @@ app.post("/favorites/:skinId/delete", async (req, res) => {
   await removeFavoriteSkinFromDB(username, skinId);
 
   res.redirect("/favorite");
+});
+
+app.get("/favorites/:id/detail", async (req, res) => {
+  const skinId = req.params.id;
+  const username: any = req.session.username;
+
+  const skin = await getFavoriteSkinById(username, skinId);
+
+  if (!skin) {
+    res.status(404).send("Skin niet gevonden");
+    return;
+  }
+
+  const backstory = `De skin "${skin.name}" werd voor het eerst gebruikt tijdens een legendarisch toernooi in Neo-Tilted. Volgens de overlevering werd het gecreëerd door een mysterieuze hacker om chaos te zaaien in het Fortnite-universum.`;
+
+  res.render("skin-detail", {
+    title: "Skin Detail",
+    skin,
+    backstory,
+    bodyId: "skin-detail"
+  });
 });
 
 
