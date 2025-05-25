@@ -3,11 +3,12 @@ import { clearGameSession } from "../games";
 import { fetchItems, fetchSkins } from "../api";
 import { usersCollection } from "../database";
 import { Skin } from "../types";
+import { secureMiddleware } from "../middleware/middleWare";
 
 export default function gameRouter() {
   const router = express.Router();
 
-  router.get("/landing", async (req, res) => {
+  router.get("/landing", secureMiddleware, async (req, res) => {
     const skins = await fetchSkins(40);
     const selectedSkinImage = req.query.selectedSkinImage;
     res.render("landing", {
@@ -43,7 +44,7 @@ export default function gameRouter() {
   });
 
   // secureMiddleware
-  router.get("/choose-item", async (req, res) => {
+  router.get("/choose-item", secureMiddleware, async (req, res) => {
     const items = await fetchItems(20);
     res.render("choose-item", {
       bodyId: "item-pagina",
@@ -54,7 +55,7 @@ export default function gameRouter() {
     });
   });
 
-  router.post("/select-items", async (req, res) => {
+  router.post("/select-items", secureMiddleware, async (req, res) => {
     const selectedItems = req.body.selectedItems || [];
     if (selectedItems.length === 2) {
       console.log("Geselecteerde items:", selectedItems.length); // Controle
@@ -77,7 +78,7 @@ export default function gameRouter() {
     }
   });
 
-  router.get("/index", async (req, res) => {
+  router.get("/index", secureMiddleware, async (req, res) => {
     await clearGameSession(req.session);
     res.render("index", {
       bodyId: "home-page",

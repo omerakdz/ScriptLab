@@ -15,12 +15,13 @@ import {
 } from "../database";
 import { fetchItems, fetchSkins, giveRandomItems } from "../api";
 import { BlacklistedSkin, FortniteItem, Skin } from "../types";
+import { secureMiddleware } from "../middleware/middleWare";
 
 export default function skinsRouter() {
   const router = express.Router();
 
   //  tonen van skins (zoeken + favorieten)
-  router.get("/skins", async (req, res) => {
+  router.get("/skins", secureMiddleware, async (req, res) => {
     const query = typeof req.query.q === "string" ? req.query.q : "";
     const username = req.session.username;
 
@@ -45,7 +46,7 @@ export default function skinsRouter() {
   });
 
   //  toevoegen/verwijderen favoriet
-  router.post("/skins", async (req, res) => {
+  router.post("/skins", secureMiddleware, async (req, res) => {
     const username = req.session.username;
     const skinId = req.body.skinId;
 
@@ -66,7 +67,7 @@ export default function skinsRouter() {
   });
 
   //  edit pagina van een skin
-  router.get("/skins/edit/:id", async (req, res) => {
+  router.get("/skins/edit/:id", secureMiddleware, async (req, res) => {
     const id = req.params.id;
 
     const skin: any = await skinsCollection.findOne({ id });
@@ -84,7 +85,7 @@ export default function skinsRouter() {
   });
 
   // opslaan wijzigingen skin stats
-  router.post("/skins/edit/:id", async (req, res) => {
+  router.post("/skins/edit/:id", secureMiddleware, async (req, res) => {
     const id = req.params.id;
     const wins = req.body.wins;
     const losses = req.body.losses;
@@ -102,7 +103,7 @@ export default function skinsRouter() {
   });
 
   //  tonen blacklist
-  router.get("/blacklist", async (req, res) => {
+  router.get("/blacklist", secureMiddleware, async (req, res) => {
     const username: any = req.session.username;
     const blacklistItems = await getBlacklistFromDB(username);
     res.render("blacklist", {
@@ -113,7 +114,7 @@ export default function skinsRouter() {
   });
 
   // formulier toevoegen aan blacklist
-  router.get("/add-blacklist/:skinId", async (req, res) => {
+  router.get("/add-blacklist/:skinId", secureMiddleware, async (req, res) => {
     const skinId = req.params.skinId;
     const skin = await getSkinById(skinId);
 
@@ -125,7 +126,7 @@ export default function skinsRouter() {
   });
 
   //  opslaan van blacklist item
-  router.post("/add-blacklist", async (req, res) => {
+  router.post("/add-blacklist", secureMiddleware, async (req, res) => {
     const username: any = req.session.username;
 
     const skinId = req.body.skinId;
@@ -141,7 +142,7 @@ export default function skinsRouter() {
   });
 
   //formulier bewerken blacklist item
-  router.get("/blacklist/:skinId/edit", async (req, res) => {
+  router.get("/blacklist/:skinId/edit", secureMiddleware, async (req, res) => {
     const username = req.session.username;
     const skinId = req.params.skinId;
 
@@ -168,7 +169,7 @@ export default function skinsRouter() {
   });
 
   // opslaan bewerkte blacklist
-  router.post("/blacklist/:skinId/edit", async (req, res) => {
+  router.post("/blacklist/:skinId/edit", secureMiddleware, async (req, res) => {
     const username = req.session.username;
     const skinId = req.params.skinId;
     const newReason: string = req.body.reason;
@@ -190,7 +191,7 @@ export default function skinsRouter() {
   });
 
   // favoriete skins tonen
-router.get("/favorite", async (req, res) => {
+router.get("/favorite", secureMiddleware, async (req, res) => {
    const username: any = req.session.username;
   const favoriteSkins = await getFavSkinsDB(username);
 
@@ -219,7 +220,7 @@ router.get("/favorite", async (req, res) => {
 });
 
   //  toevoegen favoriet
-  router.post("/favorites", async (req, res) => {
+  router.post("/favorites", secureMiddleware, async (req, res) => {
     const skinId = req.body.skinId;
     const username: any = req.session.username;
 
@@ -228,7 +229,7 @@ router.get("/favorite", async (req, res) => {
   });
 
   // verwijderen favoriet
-  router.post("/favorites/:skinId/delete", async (req, res) => {
+  router.post("/favorites/:skinId/delete", secureMiddleware, async (req, res) => {
     const skinId = req.params.skinId;
     const username: any = req.session.username;
 
@@ -238,7 +239,7 @@ router.get("/favorite", async (req, res) => {
   });
 
   //  detailpagina favoriet
-  router.get("/favorites/:id/detail", async (req, res) => {
+  router.get("/favorites/:id/detail", secureMiddleware, async (req, res) => {
     const skinId = req.params.id;
     const username: any = req.session.username;
 
