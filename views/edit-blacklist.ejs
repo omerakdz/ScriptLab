@@ -6,7 +6,7 @@
     <form action="/blacklist/<%= skinId %>/edit" method="POST" class="edit-blacklist-card">
        <img src="<%= skin.images?.icon %>" alt="<%= skin.name %>" class="edit-bl-img">
       <article>
-        <label for="reason">bewerk reden:</label><br />
+        <label class="edit-reason" for="reason">bewerk reden:</label><br />
         <textarea id="reason" name="reason" required><%= reason %></textarea>
       </article>
 

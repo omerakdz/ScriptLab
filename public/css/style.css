@@ -593,6 +593,10 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 }
 
 /*skin stats edit pagina*/
+#edit-skin-page{
+  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+  background-position: center;
+}
 #edit-skin-page main {
   grid-area: main;
   max-width: 480px;
@@ -605,11 +609,23 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   font-size: 1.6rem;
 }
 
+.edit-fav-img{
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-fav-img img{
+  border: var(--yellow) 2px solid;
+  border-radius: 10px;
+}
+
 #edit-skin-page main h1 {
   margin-bottom: 1.5rem;
   font-weight: lighter;
   text-align: center;
   color: var(--yellow);
+  text-shadow: black ;
 }
 
 #edit-skin-page form {
@@ -636,10 +652,6 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   transition: border-color 0.3s ease;
 }
 
-#edit-skin-page input[type="number"]:focus {
-  border-color: var(--blue);
-}
-
 #edit-skin-page button[type="submit"] {
   background-color: var(--yellow);
   color: var(--dark-gray);
@@ -650,14 +662,12 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   border-radius: 8px;
   padding: 0.8rem;
   cursor: pointer;
-  box-shadow: 0 0 8px var(--yellow);
-  transition: background-color 0.3s ease;
+  transition:  0.3s ease;
+  text-align: center;
 }
 
 #edit-skin-page button[type="submit"]:hover {
-  background-color: var(--blue);
-  color: white;
-  box-shadow: 0 0 12px var(--blue);
+  transform: scale(1.1);
 }
 
 
@@ -780,11 +790,11 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 /* Blacklist pagina */
 
 .blacklist-page-main {
+  grid-area: main;
   background-image: url("/images/bg-images/bg-desktop-5.jpeg");
   background-size: cover;
   position: relative;
   background-position: center;
-  width: 100vw;
 }
 
 .blacklist-page-main h1 {
@@ -810,7 +820,7 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 350px;
+  height: 380px;
   margin-top: 15px;
   box-shadow: var(--yellow) 0px 0px 7px 5px;
 }
@@ -945,6 +955,91 @@ textarea {
 .add-button:hover {
   transform: scale(1.05);
 }
+
+/*edit blacklist*/
+#edit-blacklist-page {
+  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.edit-blacklist-container {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: var(--yellow);
+
+}
+
+.edit-blacklist-container h1 {
+  font-size: 3rem;
+  background-color: var(--dark-gray);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+
+
+.edit-blacklist-card {
+  background-color: var(--dark-gray);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.edit-bl-img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 3px solid var(--yellow);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.edit-blacklist-card label {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.edit-blacklist-card textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  resize: none;
+  color: black;
+}
+
+.edit-blacklist-card button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: var(--yellow);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.edit-blacklist-card button:hover {
+  transform: scale(1.05);
+}
+
 
 /* MENU PAGINA */
 
@@ -1730,7 +1825,6 @@ background-color: var(--dark-gray);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   gap: 20px;
   margin-top: 10px;
 }
@@ -1822,6 +1916,90 @@ background-color: var(--dark-gray);
 #button-left-fav:hover i {
   transform: scale(1.1);
 }
+
+/*favoriet detail*/
+#skin-detail {
+  background-image: url(/images/bg-images/bg-desktop-5.jpeg);
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.skin-details-main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Detail-container gecentreerd */
+.skin-detail-container {
+  background-color: var(--dark-gray);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  color: var(--yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Titel skin */
+.skin-detail-container h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Afbeelding van skin */
+.skin-detail-container img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 3px solid var(--yellow);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Backstory sectie */
+.backstory {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.backstory h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.backstory p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+/* Terugknop */
+.back-button-dtl {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  background-color: var(--yellow);
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+  border: 2px solid var(--yellow);
+}
+
+.back-button-dtl:hover {
+  transform: scale(1.05);
+}
+
 /* SKINS PAGINA */
 
 #skins-page-main {
@@ -2178,7 +2356,6 @@ background-color: var(--dark-gray);
   background-image: url("/images/bg-images/game-card-desktop.jpeg");
   background-position: center;
   background-size: cover;
-  min-height: 100vh;
 }
 
 .card-game-content {
@@ -2749,7 +2926,8 @@ footer {
   .menu-container {
     position: relative;
     display: inline-block;
-    right: 60px;
+    right: 67px;
+    top: 4px;
   }
 
   .menu-toggle {
@@ -2766,6 +2944,9 @@ footer {
   .hamburger-icon img {
     width: 100%;
     height: auto;
+    position: relative;
+     right: -10px;
+    top: -2px;
   }
 
   .dropdown-menu {
@@ -3115,37 +3296,41 @@ footer {
 
 
   /*edit blacklist*/
-  .edit-blacklist-container {
-    padding-top: 4rem;
-    font-size: 1.4rem;
-    text-align: center;
+ .edit-blacklist-container {
+    padding: 20px 10px;
   }
 
   .edit-blacklist-container h1 {
-    font-size: 1.5rem;
-    padding: 0.8rem 1.5rem;
-    top: 8%;
+    font-size: 2rem;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 20px;
   }
 
   .edit-blacklist-card {
-    width: 90%;
     padding: 20px;
-    margin-top: 4rem;
+    border-radius: 10px;
+    width: 90%;
+  }
+
+  .edit-bl-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .edit-blacklist-card label {
+    font-size: 1.2rem;
   }
 
   .edit-blacklist-card textarea {
-    min-height: 100px;
+    height: 100px;
     font-size: 0.95rem;
   }
 
   .edit-blacklist-card button {
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
+    padding: 8px 16px;
+    font-size: 1rem;
   }
 
-  .edit-bl-img {
-    height: 60px;
-  }
 
   /*profile page*/
   .settings-left-btns {
@@ -3597,7 +3782,7 @@ footer {
     }
 
     .favorite-page-main h1 {
-      font-size: 2.5rem;
+      font-size: 3rem !important;
       margin: 10px;
     }
 
@@ -3862,57 +4047,55 @@ footer {
     }
 
     /* GAME KAART SPEL */
-    #card-game-page {
-      background-image: none;
-    }
+    
+  .card-game-content {
+  background-image: url("/images/bg-images/game-card-mobile.jpeg");
+  background-position: center;
+  background-size: cover;
+}
 
-    .card-game-content {
-      background-image: url("/images/bg-images/game-card-mobile.jpeg");
-      background-position: center;
-      background-size: cover;
-    }
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 118px);
+  gap: 10px;
+  justify-content: center; 
+  margin-top: 1rem;
+}
 
-    .game-board {
-      grid-template-columns: repeat(3, 118px);
-    }
+.card {
+  width: 118px;
+  height: 120px;
+}
 
-    .card {
-      height: 120px;
-      width: 120px;
-    }
 
-    .status-container {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 10px;
-      background-color: var(--dark-gray);
-      z-index: 1;
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      justify-content: space-between;
-      opacity: 97%;
-      margin: 0 auto;
-    }
+.status-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+  background-color: var(--dark-gray);
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  opacity: 0.97;
+  margin: 0 auto;
+}
 
-    h1 {
-      font-size: 2rem;
-    }
+h1 {
+  font-size: 2rem;
+}
 
-    .timer,
-    .moves-count {
-      font-size: 1.5rem;
-    }
+.timer,
+.moves-count {
+  font-size: 1.5rem;
+}
 
-    .reset button {
-      padding: 8px;
-      font-size: 1rem;
-    }
+.reset button {
+  padding: 8px;
+  font-size: 1rem;
+}
 
-    /* Game bord padding aanpassen */
-    .game-board {
-      padding: 10px;
-    }
 
     /* SKINS PAGINA */
     #skins-page-main {
@@ -3939,9 +4122,13 @@ footer {
       margin: 0;
     }
 
+    .skin{
+      margin: 0;
+    }
+
     #skin-image {
-      width: 100%;
-      height: 100%;
+      width: 150px !important;
+      height: 150px !important;
     }
 
     .search-skin {
@@ -4054,64 +4241,6 @@ footer {
       max-height: 550px;
     }
 
-    /*footer*/
-    footer {
-      font-size: 0.9rem;
-    }
-
-  /* GAME KAART SPEL */
-  #card-game-page {
-    background-color: var(--blue);
-  }
-
-  .card-game-content {
-    background-image: url("/images/bg-images/game-card-mobile.jpeg");
-    background-position: center;
-    background-size: cover;
-  }
-
-  .game-board {
-    grid-template-columns: repeat(3, 118px);
-  }
-
-  .card {
-    height: 120px;
-    width: 120px;
-  }
-
-  .status-container {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10px;
-    background-color: var(--dark-gray);
-    z-index: 1;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    opacity: 97%;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .timer,
-  .moves-count {
-    font-size: 1.5rem;
-  }
-
-  .reset button {
-    padding: 8px;
-    font-size: 1rem;
-  }
-
-  /* Game bord padding aanpassen */
-  .game-board {
-    padding: 10px;
-  }
-
   /* SKINS PAGINA */
   #skins-page-main {
     flex: 1;
@@ -4130,14 +4259,9 @@ footer {
   .all-skins {
     align-items: center;
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
 
-  #skin-image {
-    width: 200px;
-    height: 200px;
-  }
 
   .search-skin {
     width: 200px;
@@ -4148,10 +4272,6 @@ footer {
     font-size: 15px;
   }
 
-  .current-skin img {
-    width: 300px;
-    height: 300px;
-  }
 
   .skins-wins img,
   .skins-losses img {

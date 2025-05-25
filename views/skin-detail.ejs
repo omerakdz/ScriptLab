@@ -1,6 +1,7 @@
 <%- include("partials/header") %>
 
-<main class="skin-details-container">
+<main class="skin-details-main">
+  <section class="skin-detail-container">
   <h1><%= skin.name %></h1>
   <% if (skin.images && skin.images.icon) { %>
   <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" />
@@ -14,6 +15,7 @@
   </section>
 
   <a href="/favorite" class="back-button-dtl">Terug naar favorieten</a>
+  </section>
 </main>
 
 <%- include("partials/footer") %>
