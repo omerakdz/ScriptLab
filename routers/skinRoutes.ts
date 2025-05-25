@@ -13,8 +13,8 @@ import {
   updateBlacklist,
   updateSkinStats,
 } from "../database";
-import { fetchSkins } from "../api";
-import { BlacklistedSkin, Skin } from "../types";
+import { fetchItems, fetchSkins, giveRandomItems } from "../api";
+import { BlacklistedSkin, FortniteItem, Skin } from "../types";
 
 export default function skinsRouter() {
   const router = express.Router();
@@ -190,16 +190,33 @@ export default function skinsRouter() {
   });
 
   // favoriete skins tonen
-  router.get("/favorite", async (req, res) => {
-    const username: any = req.session.username;
-    const skins: Skin[] = await getFavSkinsDB(username);
+router.get("/favorite", async (req, res) => {
+   const username: any = req.session.username;
+  const favoriteSkins = await getFavSkinsDB(username);
 
-    res.render("favorite", {
-      title: "Favorieten",
-      bodyId: "favorites-page",
-      skins,
-    });
+  const allItems = await fetchItems(100);
+
+  function getRandomItemsFromList(items: FortniteItem[], count = 2): FortniteItem[] {
+    const shuffled = [...items].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+  }
+
+  const skinsWithFullData = [];
+
+  for (const fav of favoriteSkins) {
+    const skin = await getSkinById(fav.id);
+    if (skin) {
+      skin.items = getRandomItemsFromList(allItems, 2);
+      skinsWithFullData.push(skin);
+    }
+  }
+
+  res.render("favorite", {
+    title: "Favorieten",
+    bodyId: "favorites-page",
+    skins: skinsWithFullData, // nu volledige skins met items
   });
+});
 
   //  toevoegen favoriet
   router.post("/favorites", async (req, res) => {

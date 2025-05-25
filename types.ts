@@ -13,7 +13,8 @@ export interface Player {
     losses?: number;
     createdAt?: Date;
     friends?: string[];
-    bestTime?: number | null
+    bestTime?: number | null;
+    moves?: number | null;
     vbucks?: number;
   }
 
