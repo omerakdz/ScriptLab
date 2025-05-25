@@ -2,11 +2,12 @@ import express from "express";
 import { getItemsByName } from "../database";
 import { SortDirection } from "mongodb";
 import { fetchItems } from "../api";
+import { secureMiddleware } from "../middleware/middleWare";
 
 export default function itemsRouter() {
   const router = express.Router();
 
-  router.get("/items", async (req, res) => {
+  router.get("/items", secureMiddleware, async (req, res) => {
     const searchItem = typeof req.query.q === "string" ? req.query.q.trim() : "";
     const sortField = typeof req.query.sort === "string" ? req.query.sort : "name";
     const sortDirection: SortDirection = req.query.dir === "desc" ? -1 : 1;

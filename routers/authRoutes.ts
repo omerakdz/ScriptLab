@@ -82,5 +82,14 @@ export default function authRouter() {
     res.redirect("/landing");
   });
 
+  router.post("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if (err){
+            return res.status(500).send("Fout bij uitloggen");
+        } 
+        res.redirect("/login");
+    });
+});
+
   return router;
 }

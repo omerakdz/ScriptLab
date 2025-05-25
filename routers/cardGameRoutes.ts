@@ -2,11 +2,12 @@ import express from "express";
 import { getLeaderboard, updatePlayerMovesIfBetter } from "../database";
 import { prepareGameData, processCardGameMove, resetSessionGameState,  updateStatsAfterGame } from "../games";
 import { fetchItems } from "../api";
+import { secureMiddleware } from "../middleware/middleWare";
 
 export default function cardGameRouter() {
   const router = express.Router();
 
-  router.get("/card-game", async (req, res) => {
+  router.get("/card-game", secureMiddleware, async (req, res) => {
     const reset = req.query.reset === "true";
     const showLeaderboard = req.query.leaderboard === "true";
 
@@ -37,7 +38,7 @@ export default function cardGameRouter() {
     });
   });
 
-  router.post("/card-game", async (req, res) => {
+  router.post("/card-game", secureMiddleware, async (req, res) => {
     const cardIndex = parseInt(req.body.cardIndex);
 
     const gameState = await processCardGameMove(req.session, cardIndex, req.session.username);

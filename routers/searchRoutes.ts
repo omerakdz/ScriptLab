@@ -1,11 +1,12 @@
 import express from "express";
 import { Profile } from "../types";
 import { profiles } from "../public/json/players.json";
+import { secureMiddleware } from "../middleware/middleWare";
 
 export default function searchRouter() {
   const router = express.Router();
 
-  router.get("/search-profile", (req, res) => {
+  router.get("/search-profile", secureMiddleware, (req, res) => {
   const q = typeof req.query.q === "string" ? req.query.q : "";
   const results: Profile[] = profiles.filter((profile) =>
     profile.name.toLowerCase().includes(q.toLowerCase())
