@@ -712,6 +712,10 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   display: flex;
 }
 
+.content p {
+  font-family:Arial, Helvetica, sans-serif;
+}
+
 .menu {
   width: 30%;
   margin-right: 20px;
@@ -824,10 +828,10 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 }
 
 /*add to blacklist pagina*/
-#add-to-blacklist-page {
+
+#add-blacklist-page{
   background-image: url("/images/bg-images/bg-desktop-6.jpeg");
-  background-size: cover;
-  position: relative;
+  grid-area: main;
   background-position: center;
 }
 
@@ -1713,6 +1717,12 @@ background-color: var(--dark-gray);
   font-size: 1.5rem;
 }
 
+.item-img {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  font-size: 1.2rem;
+}
 /* Buttons favoriet pagina */
 
 .button-container {
@@ -2308,12 +2318,16 @@ background-color: var(--dark-gray);
 .game-end-content h2 {
   font-size: 1.8rem;
   margin-bottom: 10px;
+  color: var(--yellow);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .game-end-content p,
 #final-moves {
   font-size: 1.1rem;
   margin-bottom: 15px;
+   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+   font-weight: 300;
 }
 
 /* Nieuwe knoppen container */
@@ -2356,6 +2370,16 @@ background-color: var(--dark-gray);
   object-fit: contain;
 }
 
+.game-end-buttons-wrapper button img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: inline-block;
+}
+
+.game-end-buttons-wrapper button img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
 /* Leaderboard overlay */
 .leaderboard-overlay {
   position: fixed;
@@ -2385,25 +2409,31 @@ background-color: var(--dark-gray);
 }
 
 .leaderboard-container h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 12px;
-  font-weight: 600;
+  color: var(--yellow);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 .leaderboard-container ul {
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
-  max-height: 250px;
-  overflow-y: auto;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .leaderboard-container li {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 6px 0;
   padding-left: 6px;
-  border-left: 3px solid var(--yellow);
+  justify-content: center;
+}
+
+.lb-item {
+  display: flex;
+  align-items: center; /* Zorgt voor verticale uitlijning */
+  gap: 8px; /* Ruimte tussen afbeelding en tekst */
 }
 
 .game-end-buttons-wrapper {
@@ -3068,6 +3098,13 @@ footer {
     border-radius: 6px;
   }
 
+  /*blacklist*/
+  .all-blacklist-cards{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+  }
+
   /* ADD TO BLACKLIST*/
   .add-to-blacklist-container h1 {
     top: 20%;
@@ -3075,50 +3112,39 @@ footer {
     white-space: nowrap;
   }
 
-  /* .game-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 50px;
-    max-width: 100vw;
-    justify-items: center;
-    align-items: center;
-    position: relative;
-    height: 420px;
+
+  /*edit blacklist*/
+  .edit-blacklist-container {
+    padding-top: 4rem;
+    font-size: 1.4rem;
+    text-align: center;
   }
 
-  .game-card {
-    width: 200px;
-    height: 200px;
-  } */
-
-  /* Pijltjes knoppen
-  .scroll-btn {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 50%;
-    z-index: 10;
-  } */
-
-  /* .scroll-btn.left {
-    left: 10px;
+  .edit-blacklist-container h1 {
+    font-size: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    top: 8%;
   }
 
-  .scroll-btn.right {
-    right: 10px;
+  .edit-blacklist-card {
+    width: 90%;
+    padding: 20px;
+    margin-top: 4rem;
   }
 
-  .scroll-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
-  } */
+  .edit-blacklist-card textarea {
+    min-height: 100px;
+    font-size: 0.95rem;
+  }
+
+  .edit-blacklist-card button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .edit-bl-img {
+    height: 60px;
+  }
 
   /*profile page*/
   .settings-left-btns {
@@ -3570,7 +3596,7 @@ footer {
     }
 
     .favorite-page-main h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin: 10px;
     }
 
@@ -3670,6 +3696,12 @@ footer {
     .shop-item {
       width: calc(50% - 20px);
       /* 2 items naast elkaar */
+    }
+
+    .shop-section{
+      background-size: cover;
+      background-color: var(--blue);
+      background-image: none;
     }
 
     /*user-profile*/
@@ -3894,18 +3926,21 @@ footer {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
     .all-skins {
       align-items: center;
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
+      grid-template-columns: repeat(2,1fr);
+      justify-items: center;
+      width: 450px;
+      margin: 0;
     }
 
     #skin-image {
-      width: 200px;
-      height: 200px;
+      width: 100%;
+      height: 100%;
     }
 
     .search-skin {
@@ -3918,8 +3953,8 @@ footer {
     }
 
     .current-skin img {
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
     }
 
     .skins-wins img,
@@ -4185,6 +4220,7 @@ footer {
   .choose-item-error {
     font-size: 1.5rem;
   }
+  
 
   /*item search pagina*/
   .item {

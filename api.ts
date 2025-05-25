@@ -25,9 +25,9 @@ export async function fetchItems(limit: number = 40): Promise<FortniteItem[]> {
   return validItems.slice(0, limit);
 }
 
-export async function giveRandomItems(count = 2): Promise<FortniteItem[]> { // random itmes geven aan skins in fav pagina etc
-  const items = await fetchItems(100); 
-  const shuffled = items.sort(() => 0.5 - Math.random());
+export function giveRandomItems(items: any[], count: number): any[] {
+  if (!items || items.length === 0) return [];
+  const shuffled = [...items].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 }
 

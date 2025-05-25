@@ -65,11 +65,15 @@ export async function getItemById(id: string) {
     return await itemsCollection.findOne({ id });
 }
 
+
+
 export async function getLeaderboard() {
-  return await usersCollection.find({})
-    .sort({ moves: 1 }) 
-    .limit(4)
-    .toArray();
+  return await usersCollection.find({
+    moves: { $ne: null }  // alleen spelers die moves hebben
+  })
+  .sort({ moves: 1 })
+  .limit(4)
+  .toArray();
 }
 
 export async function updatePlayerMovesIfBetter(username: string, newMoves: number) {
@@ -87,34 +91,6 @@ export async function updatePlayerMovesIfBetter(username: string, newMoves: numb
       { $set: { moves: newMoves } }
     );
   }
-}
-
-export async function updateGameResult(username: string, didWin: boolean) {
-    const user = await usersCollection.findOne({ username });
-
-    if (!user) return;
-
-    const currentWins = user.wins ?? 0;
-    const currentLosses = user.losses ?? 0;
-    const currentLevel = user.level ?? 1;
-    const currentVbucks = user.vbucks ?? 1000;
-
-    const newWins = didWin ? currentWins + 1 : currentWins;
-    const newLosses = didWin ? currentLosses : currentLosses + 1;
-    const newLevel = didWin ? currentLevel + 1 : currentLevel;
-    const newVbucks = didWin ? currentVbucks + 100 : currentVbucks + 50;
-
-     await usersCollection.updateOne(
-        { username },
-        {
-            $set: {
-                wins: newWins,
-                losses: newLosses,
-                level: newLevel,
-                vbucks: newVbucks
-            }
-        }
-    );
 }
 
 export async function addFriend(username: string, friendUsername: string) {
@@ -276,10 +252,10 @@ async function seed() {
     }
 
     
-        // Voeg minstens 3 spelers toe
+        // 3 spelers toegevoegd
         for (let i = 1; i <= 3; i++) {
              const id = await createUserId();
-            const selectedSkin = skins[i % skins.length];  // Zorg ervoor dat we niet buiten de array gaan
+            const selectedSkin = skins[i % skins.length];  
             const selectedItems = items.slice(i * 2, i * 2 + 2);  // Kies twee verschillende items voor elke speler
     
             const examplePlayer: Player = {
@@ -290,6 +266,7 @@ async function seed() {
                 wins: 12 + i,
                 losses: 8 + i,
                 bestTime: null,
+                moves: 29 + i,
                 createdAt: new Date(),
                 friends: [],
                 selectedSkinId: selectedSkin,

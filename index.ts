@@ -50,7 +50,7 @@ app.use(async (req, res, next) => {
       res.locals.level = user.level || 1;
       res.locals.wins = user.wins || 0;
       res.locals.losses = user.losses || 0;
-      res.locals.vbucks = 1000;
+      res.locals.vbucks = user.vbucks || 1000;
 
       if (user.selectedSkinId) {
         const skins = await fetchSkins();
@@ -68,6 +68,26 @@ app.use(async (req, res, next) => {
 
   next();
 });
+
+async function addTestMoves() { // test voor leaderboard
+  try {
+    const result1 = await usersCollection.updateOne(
+      { username: "omer" },
+      { $set: { moves: 35 } }
+    );
+
+    const result2 = await usersCollection.updateOne(
+      { username: "Player2" },
+      { $set: { moves: 25 } }
+    );
+
+    console.log("Updated result:", result1.modifiedCount);
+  } catch (err) {
+    console.error("error updating the resuls:", err);
+  }
+}
+
+addTestMoves();
 
 app.use("/", rootRouter());              
 app.use("/", authRouter());          

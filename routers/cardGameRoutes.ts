@@ -1,6 +1,6 @@
 import express from "express";
 import { getLeaderboard, updatePlayerMovesIfBetter } from "../database";
-import { prepareGameData, processCardGameMove, resetSessionGameState } from "../games";
+import { prepareGameData, processCardGameMove, resetSessionGameState,  updateStatsAfterGame } from "../games";
 import { fetchItems } from "../api";
 
 export default function cardGameRouter() {
@@ -49,6 +49,7 @@ export default function cardGameRouter() {
 
     if (gameState.gameEnded && req.session.username) {
       await updatePlayerMovesIfBetter(req.session.username, gameState.moves);
+      await await updateStatsAfterGame(req.session.username, gameState.moves);
     }
 
     res.render("card-game", {

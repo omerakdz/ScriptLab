@@ -6,56 +6,53 @@
   <% } else { %>
     <h1>favoriete skins</h1>
     <article class="all-favorite-cards">
-      <% for (const fav of skins) { %>
-        <% const skin = fav.skin; %>
-        <% if (skin) { %>
-          <article class="favorite-card">
-            <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" class="skin-image-favorite">
-            <h2><%= skin.name %></h2>
+      <% for (const skin of skins) { %>
+        <article class="favorite-card">
+          <img src="<%= skin.images.icon %>" alt="<%= skin.name %>" class="skin-image-favorite">
+          <h2><%= skin.name %></h2>
 
-            <section class="wins-losses-icons">
-              <button class="favorite-wins">
-                <p><%= skin.stats?.wins || 0 %></p> <i class="fa-solid fa-trophy"></i>
+          <section class="wins-losses-icons">
+            <button class="favorite-wins">
+              <p><%= skin.stats?.wins || 0 %></p> <i class="fa-solid fa-trophy"></i>
+            </button>
+            <button class="favorite-losses">
+              <p><%= skin.stats?.losses || 0 %></p> <i class="fa-solid fa-skull-crossbones"></i>
+            </button>
+          </section>
+
+          <section class="items-favorite">
+            <% 
+              const itemsToShow = (skin.items || []).slice(0, 2);
+              while (itemsToShow.length < 2) itemsToShow.push(null);
+            %>
+
+            <% for (const item of itemsToShow) { %>
+              <section class="item-img">
+                <% if (item) { %>
+                  <img class="fav-item" src="<%= item.images.icon %>" alt="<%= item.name %>">
+                <% } else { %>
+                  <article class="fav-item" title="Niet bekend">?</article>
+                <% } %>
+              </section>
+            <% } %>
+          </section>
+
+          <section class="button-container">
+            <form action="/favorites/<%= skin.id %>/detail" method="get" style="display:inline-block;">
+              <button class="details-button">Details</button>
+            </form>
+            <form action="/skins/edit/<%= skin.id %>" method="get" style="display:inline-block;">
+              <button class="edit-button">
+                <img src="/images/items/edit-icon.png" alt="edit-button">
               </button>
-              <button class="favorite-losses">
-                <p><%= skin.stats?.losses || 0 %></p> <i class="fa-solid fa-skull-crossbones"></i>
+            </form>
+            <form action="/favorites/<%= skin.id %>/delete" method="POST" style="display:inline-block;">
+              <button class="remove-button" type="submit">
+                <img src="/images/delete-icon.png" alt="delete-button">
               </button>
-            </section>
-
-            <section class="items-favorite">
-              <% 
-                const itemsToShow = (skin.items || []).slice(0, 2);
-                while (itemsToShow.length < 2) itemsToShow.push(null);
-              %>
-
-              <% for (const item of itemsToShow) { %>
-                <section class="item-img">
-                  <% if (item) { %>
-                    <img class="fav-item" src="<%= item.images.icon %>" alt="<%= item.name %>">
-                  <% } else { %>
-                    <article class="fav-item" title="Niet bekend">?</article>
-                  <% } %>
-                </section>
-              <% } %>
-            </section>
-
-            <section class="button-container">
-             <form action="/favorites/<%= skin.id %>/detail" method="get" style="display:inline-block;">
-                <button class="details-button">Details</button>
-             </form>
-              <form action="/skins/edit/<%= skin.id %>" method="get" style="display:inline-block;">
-                <button class="edit-button">
-                  <img src="/images/items/edit-icon.png" alt="edit-button">
-                </button>
-              </form>
-              <form action="/favorites/<%= skin.id %>/delete" method="POST" style="display:inline-block;">
-                <button class="remove-button" type="submit">
-                  <img src="/images/delete-icon.png" alt="delete-button">
-                </button>
-              </form>
-            </section>
-          </article>
-        <% } %>
+            </form>
+          </section>
+        </article>
       <% } %>
     </article>
   <% } %>

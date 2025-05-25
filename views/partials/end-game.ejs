@@ -3,14 +3,25 @@
   <article class="leaderboard-container">
     <h3>Leaderboard:</h3>
     <ul>
-      <% leaderboard.forEach(player => { %>
-        <li><strong><%= player.username %></strong>: <%= player.moves %> zetten</li>
-      <% }) %>
+      <% for (let i = 0; i < leaderboard.length; i++) { %>
+      <li class="lb-item">
+        <% if (i === 0) { %>
+          <img src="/images/items/first-medal.png" alt="1st place" width="24" height="24">
+        <% } else if (i === 1) { %>
+          <img src="/images/items/second-medal.png" alt="2nd place" width="24" height="24">
+        <% } else if (i === 2) { %>
+          <img src="/images/items/third-medal.png" alt="3rd place" width="24" height="24">
+        <% } else { %>
+          <strong><%= i + 1 %>.</strong>
+        <% } %>
+        <strong><%= leaderboard[i].username %></strong>: <%= leaderboard[i].moves %> moves
+    </li>
+  <% } %>
     </ul>
     <form action="/card-game" method="GET">
       <input type="hidden" name="gameEnded" value="true" />
       <button type="submit" class="back-to-endgame-button">
-        &#8592; Terug naar het speloverzicht
+        &#8592; Terug 
       </button>
     </form>
   </article>

@@ -79,6 +79,42 @@ export async function processCardGameMove(session: any, cardIndex: number, usern
   return { cards, flipped, matched, moves, gameEnded };
 }
 
+export async function updateStatsAfterGame(username: string, moves: number) {
+  const user = await usersCollection.findOne({ username });
+  if (!user) return;
+
+  const currentWins = user.wins ?? 0;
+  const currentLevel = user.level ?? 1;
+  const currentVbucks = user.vbucks ?? 1000;
+  const bestMoves = user.moves; // huidige record
+
+  // Elke keer 200 vbucks erbij
+  const newVbucks = currentVbucks + 200;
+
+  // 1 level omhoog
+  const newLevel = currentLevel + 1;
+
+  let newWins = currentWins;
+  let newBestMoves = bestMoves;
+
+  if (bestMoves === null || bestMoves === undefined || moves < bestMoves) {
+    newWins = currentWins + 1;      // 1 win erbij
+    newBestMoves = moves;           // nieuw record zetten
+  }
+
+  await usersCollection.updateOne(
+    { username },
+    {
+      $set: {
+        vbucks: newVbucks,
+        level: newLevel,
+        moves: newBestMoves,
+        wins: newWins,
+      },
+    }
+  );
+}
+
 export async function clearGameSession(session: any) {
   delete session.cards;
   delete session.flipped;
