@@ -69,25 +69,25 @@ app.use(async (req, res, next) => {
   next();
 });
 
-async function addTestMoves() { // test voor leaderboard
-  try {
-    const result1 = await usersCollection.updateOne(
-      { username: "omer" },
-      { $set: { moves: 35 } }
-    );
+// async function addTestMoves() { // test voor leaderboard
+//   try {
+//     const result1 = await usersCollection.updateOne(
+//       { username: "omer" },
+//       { $set: { moves: 35 } }
+//     );
 
-    const result2 = await usersCollection.updateOne(
-      { username: "Player2" },
-      { $set: { moves: 25 } }
-    );
+//     const result2 = await usersCollection.updateOne(
+//       { username: "Player2" },
+//       { $set: { moves: 25 } }
+//     );
 
-    console.log("Updated result:", result1.modifiedCount);
-  } catch (err) {
-    console.error("error updating the resuls:", err);
-  }
-}
+//     console.log("Updated result:", result1.modifiedCount);
+//   } catch (err) {
+//     console.error("error updating the resuls:", err);
+//   }
+// }
 
-addTestMoves();
+// addTestMoves();
 
 app.use("/", rootRouter());              
 app.use("/", authRouter());          

@@ -57,7 +57,8 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 .menu-container {
   position: relative;
   display: inline-block;
-  right: 500px;
+  right: 520px;
+  top:5px;
 }
 
 .menu-toggle {
@@ -78,8 +79,8 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
 
 .dropdown-menu {
   position: absolute;
-  top: 50px;
-  left: 20px;
+  top: 40px;
+  left: 10px;
   background-color: var(--dark-gray);
   border: 1px solid var(--yellow);
   border-radius: 10px;
@@ -2748,7 +2749,7 @@ footer {
   .menu-container {
     position: relative;
     display: inline-block;
-    right: 80px;
+    right: 60px;
   }
 
   .menu-toggle {
@@ -2769,8 +2770,8 @@ footer {
 
   .dropdown-menu {
     position: absolute;
-    top: 50px;
-    left: 20px;
+    top: 40px;
+    left: 10px;
     background-color: var(--dark-gray);
     border: 1px solid var(--yellow);
     border-radius: 10px;
