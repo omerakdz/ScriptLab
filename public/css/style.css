@@ -117,6 +117,13 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   font-size: 1.7rem;
 }
 
+.dropdown-menu button {
+  color: var(--yellow);
+  font-family: 'Fortnite', Arial, sans-serif;
+  font-size: 1.7rem;
+}
+
+
 .dropdown-menu a:hover {
   transition: all 0.3s ease;
   color: #fff;
@@ -124,7 +131,7 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   cursor: pointer;
 }
 
-.logout-link:hover {
+.dropdown-menu button.logout-menu-btn:hover {
   transition: all 0.3s ease;
   color: red;
   text-shadow: none;
@@ -2267,7 +2274,7 @@ background-color: var(--dark-gray);
 }
 
 .shop-des {
-  font-weight: normal;
+  font-family: sans-serif;
   margin-top: 0.5rem;
 }
 
@@ -2299,6 +2306,54 @@ background-color: var(--dark-gray);
 .buy-button:hover {
   transform: scale(1.05);
 }
+
+.bought-button{
+    margin-top: 10px;
+  padding: 10px 15px;
+  background-color: var(--dark-gray);
+  color: var(--yellow);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  font-size: 18px;
+  width: 100%;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.error-message-shop {
+  color: red;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: var(--dark-gray);
+  border: 1px solid red;
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  z-index: 9999;
+  top: 20%;
+  font-size: 1.1rem;
+
+  animation: fadeOut 2s forwards;
+  animation-delay: 1s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
 
 .shop-button-container {
   display: flex;
@@ -2888,6 +2943,68 @@ background-color: var(--dark-gray);
   object-fit: cover;
   border-radius: 10px;
   border: yellow 2px solid;
+}
+
+/*my item pagina*/
+
+#my-items-page{
+  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+#my-items-main {
+  grid-area: main;
+}
+
+#my-items-main h2 {
+  color: var(--yellow);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.1rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.my-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.my-item-card {
+  background-color: var(--dark-gray);
+  border: 2px solid var(--yellow);
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1 1 calc(33.333% - 20px); /* 3 naast elkaar met gap */
+  max-width: 300px;
+  box-sizing: border-box;
+  text-align: center;
+  color: var(--yellow);
+
+  box-shadow: 0 0 10px var(--yellow);
+  transition: transform 0.3s ease;
+}
+
+.my-item-card img {
+  width: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--yellow);
+}
+
+.my-item-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.my-item-card p {
+  font-size: 1.2rem;
+  color: #ddd;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* FOOTER VOOR ALLE PAGINAS */
@@ -4379,6 +4496,14 @@ h1 {
   .item-container {
     max-height: 550px;
   }
+
+  /*my items*/
+  .my-item-card {
+    flex: 1 1 40%;
+    max-width: 50%;
+    margin: 10px;
+  }
+
 
   /*footer*/
   footer {

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { fetchItems, fetchSkins } from './api';
-import { Collection, SortDirection } from 'mongodb';
+import { Collection, ObjectId, SortDirection } from 'mongodb';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 import { BlacklistedSkin, FortniteItem, Player, Skin, FavoriteSkin } from './types';
@@ -64,8 +64,6 @@ export async function getItemsByName(q: string = "", sortField: string = "name",
 export async function getItemById(id: string) {
     return await itemsCollection.findOne({ id });
 }
-
-
 
 export async function getLeaderboard() {
   return await usersCollection.find({

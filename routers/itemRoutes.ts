@@ -1,7 +1,7 @@
 import express from "express";
-import { getItemsByName } from "../database";
+import { getItemsByName, usersCollection } from "../database";
 import { SortDirection } from "mongodb";
-import { fetchItems } from "../api";
+import { fetchItems, fetchShop } from "../api";
 import { secureMiddleware } from "../middleware/middleWare";
 
 export default function itemsRouter() {
@@ -27,6 +27,24 @@ export default function itemsRouter() {
       searchItem,
     });
   });
+
+router.get("/my-items", secureMiddleware, async (req, res) => {
+
+    const user = await usersCollection.findOne({ username: req.session.username });
+    if (!user) {
+      return res.redirect("/login");
+    }
+
+    const items = await fetchShop(100);
+
+    const myItems = items.filter(item => user.boughtItems.includes(item.devName));
+
+    res.render("my-items", {
+      bodyId: "my-items-page",
+      title: "Mijn Gekochte Items",
+      items: myItems,
+    });
+});
 
   return router;
 }

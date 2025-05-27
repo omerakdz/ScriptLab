@@ -43,7 +43,7 @@ export default function gameRouter() {
     res.redirect("choose-item");
   });
 
-  // secureMiddleware
+
   router.get("/choose-item", secureMiddleware, async (req, res) => {
     const items = await fetchItems(20);
     res.render("choose-item", {
