@@ -1,21 +1,32 @@
 <%- include('partials/header') %>
 
-    <main>
-        <section class="user-profile-card">
-            <a href="../index" class="back-button">&larr; TERUG</a>
-            <article class="user-profile">
-                <figure>
-                    <img src="<%= profile.skinIconUrl %>" class="user-avatar">
-                    <p class="profile-name"><%= profile.name %></p>
-                    <button class="user-add-button" id="addUserBtn"><img src="../images/add.png" width="25px">ADD</button>
-                </figure>
-                <ul>
-                    <li>HUIDIGE SKIN: <span class="user-current-skin">BLAZE RAIDER</span></li>
-                    <li>WINS: <span class="wins-amount">9</span> LOSSES: <span class="loses-amount">3</span></li>
-                    <li>BESTE TIJD: <span class="best-time">0:39</span></data></li>
-                </ul>
-            </article>
-        </section>
-    </main>
+<main>
+  <section class="user-profile-card">
+    <a href="../index" class="back-button">&larr; TERUG</a>
+    <article class="user-profile">
+      <figure>
+        <img src="<%= selectedSkinUser.images.icon %>" class="user-avatar">
+        <p class="profile-name"><%= profile.username %></p>
+        <% if (alreadyFriends) { %>
+        <form action=" /remove-friend/<%= profile.username %>" method="post">
+          <input type="hidden" name="friendUsername" value="<%= profile.username %>">
+          <button class="user-add-button" type="submit" id="addUserBtn"><img src="../images/add.png" width="25px">VERWIJDER</button>
+        </form>
+        <% } else {%>
+        <form action="/search/<%= profile.username %>" method="post">
+          <input type="hidden" name="friendUsername" value="<%= profile.username %>">
+          <button class="user-add-button" type="submit" id="addUserBtn"><img src="../images/add.png" width="25px">ADD</button>
+        </form> <%}%> 
+      </figure>
 
-  <%- include('partials/footer') %>
+      <span class="profile-level"> <%= profile.level%>⭐ | <%= profile.wins%>🏆</span>
+
+        <ul>
+          <li>HUIDIGE SKIN: <span class="user-current-skin"><%=selectedSkin.name%></span></li>
+          <li>HIGH SCORE: <span class="wins-amount"><%= profile.moves == null ? "Nog niet gespeeld" : profile.moves %></span></li>
+        </ul>
+    </article>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

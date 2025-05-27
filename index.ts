@@ -3,12 +3,17 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
-import { FortniteItem, Skin, Player, Card, Profile } from "./types";
+import { FortniteItem, Skin, Player, Card } from "./types";
 import { fetchSkins, fetchItems, fetchAll, fetchShop } from "./api";
 import { profiles } from "./public/json/players.json";
 import { error } from "console";
-import { title } from "process";
-import { loginUser, createUser, getSearchResults } from "./account";
+import { cwd, title } from "process";
+import {
+  loginUser,
+  createUser,
+  getSearchResults,
+  getUserProfile,
+} from "./account";
 import session from "./session";
 import {
   usersCollection,
@@ -25,7 +30,16 @@ import { SessionData } from "express-session";
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 import { SortDirection } from "mongodb";
-import { clearGameSession, prepareGameData, processCardGameMove,  resetSessionGameState,  shuffle } from "./games";
+import {
+  clearGameSession,
+  prepareGameData,
+  processCardGameMove,
+  resetSessionGameState,
+  shuffle,
+} from "./games";
+import { userInfo } from "os";
+import { findPackageJSON } from "module";
+import { stringify } from "querystring";
 
 dotenv.config();
 
@@ -100,7 +114,7 @@ app.post("/login", async (req, res) => {
   const password = req.body.password;
 
   try {
-    const user: Player = await loginUser(username, password);
+    const user: Player | undefined = await loginUser(username, password);
     req.session.username = user.username;
     console.log("Sessies gebruikersnaam:", req.session.username);
 
@@ -250,7 +264,6 @@ app.get("/index", async (req, res) => {
   res.render("index", {
     bodyId: "home-page",
     title: "Home pagina",
-
   });
 });
 
@@ -316,24 +329,24 @@ app.get("/guide", (req, res) => {
 });
 
 app.get("/card-game", async (req, res) => {
-    const reset = req.query.reset === "true";
-   const showLeaderboard = req.query.leaderboard === "true";
- 
+  const reset = req.query.reset === "true";
+  const showLeaderboard = req.query.leaderboard === "true";
+
   if (reset || !req.session.cards) {
-     if (reset || !req.session.cards) {
-    await resetSessionGameState(req.session); // hier reset je correct
-    const { shuffled } = await prepareGameData(fetchItems, false);
-    req.session.cards = shuffled;
-  }
+    if (reset || !req.session.cards) {
+      await resetSessionGameState(req.session); // hier reset je correct
+      const { shuffled } = await prepareGameData(fetchItems, false);
+      req.session.cards = shuffled;
+    }
   }
 
-   const gameEnded = req.query.gameEnded === "true" || (
-    req.session.cards && req.session.matched
+  const gameEnded =
+    req.query.gameEnded === "true" ||
+    (req.session.cards && req.session.matched
       ? req.session.cards.length === req.session.matched.length
-      : false
-  );
+      : false);
 
-  let leaderboard : any = [];
+  let leaderboard: any = [];
   if (showLeaderboard) {
     leaderboard = await getLeaderboard();
   }
@@ -342,7 +355,7 @@ app.get("/card-game", async (req, res) => {
     cards: req.session.cards,
     flipped: req.session.flipped,
     matched: req.session.matched,
-    moves: req.session.moves ?? 0 ,
+    moves: req.session.moves ?? 0,
     title: "Kaartspel",
     bodyId: "card-game-page",
     showLeaderboard,
@@ -352,20 +365,24 @@ app.get("/card-game", async (req, res) => {
 });
 
 app.post("/card-game", async (req, res) => {
- const cardIndex = parseInt(req.body.cardIndex);
+  const cardIndex = parseInt(req.body.cardIndex);
 
-  const gameState = await processCardGameMove(req.session, cardIndex, req.session.username);
+  const gameState = await processCardGameMove(
+    req.session,
+    cardIndex,
+    req.session.username
+  );
 
-    req.session.gameEnded = gameState.gameEnded;
-    const showLeaderboard = false;
-    const leaderboard: any[] = [];
+  req.session.gameEnded = gameState.gameEnded;
+  const showLeaderboard = false;
+  const leaderboard: any[] = [];
 
-    if (gameState.gameEnded && req.session.username) {
+  if (gameState.gameEnded && req.session.username) {
     await updatePlayerMovesIfBetter(req.session.username, gameState.moves);
   }
 
   res.render("card-game", {
-     cards: gameState.cards,
+    cards: gameState.cards,
     flipped: gameState.flipped,
     matched: gameState.matched,
     moves: gameState.moves,
@@ -377,62 +394,177 @@ app.post("/card-game", async (req, res) => {
   });
 });
 
-
-
 app.get("/search", async (req, res) => {
-    const q = typeof req.query.q === "string" ? req.query.q : "";
-    const results = await getSearchResults(q);
-    res.render("search-profile", { title: "Zoekresultaten...", bodyId: "profile-search-page", results: results, q: q })
+  const q = typeof req.query.q === "string" ? req.query.q : "";
+  const results = await getSearchResults(q);
+  let noResults: boolean = false;
+  if (q.trim() === "" || results.length === 0) {
+    noResults = true;
+  }
+  console.log(results)
+  res.render("search-profile", {
+    title: "Zoekresultaten...",
+    bodyId: "profile-search-page",
+    results: results,
+    q: q,
+    noResults,
+  });
+});
+
+app.get("/search/:username", async (req, res) => {
+  const username =
+    typeof req.params.username === "string" ? req.params.username : "";
+    if (username === req.session.username) {
+      res.redirect("/profile-settings")
+    }
+  const currentUser = await usersCollection.findOne({ username: req.session.username });
+  const profile = await getUserProfile(username);
+  const skins = await fetchSkins();
+  let alreadyFriends : boolean = false;
+  if (currentUser === null) {
+    return 
+  }
+    if (currentUser.friends.includes(username)) {
+      alreadyFriends = true;
+    }
+  const selectedSkinUser = skins.find((skin) => skin.id === profile.selectedSkinId);
+  res.render("user-profile", {
+    title: `Profiel van ${username}`,
+    bodyId: "user-profile-page",
+    profile,
+    selectedSkinUser,
+    alreadyFriends
+  });
+});
+
+app.post("/search/:username", async (req, res) => {
+  const currentUsername = req.session.username;
+  const friendUsername = req.body.friendUsername
+  if (!friendUsername || friendUsername === currentUsername) {
+     res.status(400).send("Invalid friend username.");
+     return;  
+  }
+
+  const currentUser = await usersCollection.findOne({ username: currentUsername });
+  const friendUser = await usersCollection.findOne({ username: friendUsername });
+
+  if (!currentUser || !friendUser) {
+    res.status(404).send("User not found.");
+     return;
+  }
+
+  await usersCollection.updateOne(
+    { username: currentUsername },
+    { $push: { friends: friendUsername } }
+  );
+
+  await usersCollection.updateOne(
+    { username: friendUsername },
+    { $push: { friends: currentUsername } } as any
+  );
+  res.redirect('back');
+});
+
+app.post("/remove-friend/:username", async(req, res)=>{
+const currentUsername = req.session.username;
+  const friendUsername = req.body.friendUsername
+
+  if (!friendUsername || friendUsername === currentUsername) {
+     res.status(400).send("Invalid friend username.");
+     return;  
+  }
+
+  const currentUser = await usersCollection.findOne({ username: currentUsername });
+  const friendUser = await usersCollection.findOne({ username: friendUsername });
+
+  if (!currentUser || !friendUser) {
+    res.status(404).send("User not found.");
+     return;
+  }
+
+  await usersCollection.updateOne(
+    { username: currentUsername },
+    { $pull: { friends: friendUsername } }
+  );
+
+  await usersCollection.updateOne(
+    { username: friendUsername },
+    { $pull: { friends: currentUsername } } as any
+  );
+  res.redirect('back');
 })
 
-app.get("/search/:username", (req, res) => {
-    const username = typeof req.params.username === "string" ? req.params.username : "";
-    const profile: Profile | undefined = profiles.find(profile => profile.name === username)
-    res.render("user-profile", { title: `Profiel van ${username}`, bodyId: "user-profile-page", profile: profile })
-})
+app.get("/friends", async (req, res) => {
+  const user = await usersCollection.findOne({
+    username: req.session.username,
+  });
+  if (!user) {
+    res.status(404).send("Gebruiker niet gevonden");
+    return;
+  }
+  const friends = await usersCollection
+    .find({
+      username: { $in: user.friends },
+    })
+    .toArray();
 
-app.get('/aim-trainer', (req, res) => {
-    res.render('aim-trainer', {
-        bodyId: "aim-body",
-        title: "Aim Trainer",
-        username: req.session.username ?? null,
-    });
+  let noResults: boolean = false;
+  if (friends.length === 0) {
+    noResults = true;
+  }
+
+  res.render("friends", {
+    title: "Vrienden",
+    friends,
+    bodyId: "friends-page",
+    noResults
+  });
 });
-app.get('/drop-game', (req, res) => {
-    res.render('drop-game', {
-        bodyId: "drop-body",
-        title: "Drop Game",
-        username: req.session.username ?? null,
-    });
-});
+
 app.get("/blacklist", (req, res) => {
-    res.render("blacklist", {
-        title: "Blacklist",
-        bodyId: "blacklistPage"
-    });
-})
+  res.render("blacklist", {
+    title: "Blacklist",
+    bodyId: "blacklistPage",
+  });
+});
 
-app.get("/profile-settings", (req, res) =>{
-    res.render("profile-settings", {
-        title : req.session.username ?? null, 
-        bodyId : "settings-page"})
-})
+app.get("/profile-settings", (req, res) => {
+  res.render("profile-settings", {
+    title: req.session.username ?? null,
+    bodyId: "settings-page",
+  });
+});
 
 app.get("/account-settings", (req, res) => {
   res.render("account-settings", {
     title: "Account-instellingen",
-    bodyId : "settings-page"}
-  )
-})
+    bodyId: "settings-page",
+  });
+});
 
-app.get("/leaderboard", (req, res) => {
-  
+app.get("/leaderboard", async (req, res) => {
+  const user = await usersCollection.findOne({
+    username: req.session.username,
+  });
+  if (!user) {
+    res.status(404).send("Er is een fout opgetreden");
+    return;
+  }
+  const friends = await usersCollection
+    .find({
+      username: { $in: user.friends },
+    })
+    .sort({
+      moves: 1
+    })
+    .toArray();
+    
   res.render("leaderboard", {
     title: "Account-instellingen",
-    bodyId : "friends-page",
-  profiles: profiles}
-  )
-})
+    bodyId: "friends-page",
+    profiles: friends,
+  });
+});
 
 app.listen(app.get("port"), async () => {
   await connect();

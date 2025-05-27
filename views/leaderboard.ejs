@@ -1,26 +1,37 @@
 <%- include("partials/header") %>
 
-    <main>
-        <section class="leaderboard-card">
-            <a href="/index" class="back-button">&larr; TERUG</a>
-            <h1>LEADERBOARD</h1>
-            <table class="leaderboard-table">
-                <tr>
-                    <th>SPELER</th>
-                    <th>TIJD</th>
-                </tr>
-                <% let rank = 1; %>
-                <% for(var profile of profiles ) { %> 
-                    <tr>
-               <td>#<%=rank%> <img src="<%= profile.skinIconUrl %>" alt=""> <a href="/search/<%=profile.username%>"> <span
-                                class="leaderboard-username">
-                                <%= profile.name %> </span></a></td>
-                                <% rank++ %>
-                    <td>0:39</td>
-                <% } %> 
-                </tr>
-            </table>
-        </section>
-    </main>
+<main>
+  <section class="leaderboard-card">
+    <button onclick="window.history.back() || (window.location.href = '/index')" class="back-button">&larr; TERUG</button>
+    <ul class="friends-header">
+      <li><a href="/friends">VRIENDEN</a></li>
+      <li class="active"><a href="/leaderboard">LEADERBOARD</a></li>
+      <li><a href="/search">ZOEKEN</a></li>
+    </ul>
+    <section class="leaderboard-container-1">
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>SPELER</th>
+            <th>BESTE ZETTEN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let rank = 1; %>
+          <% for(var profile of profiles ) { %>
+          <tr>
+            <td>
+              <span style="width: 40px; display:inline-block;">#<%=rank%></span><a href="/search/<%=profile.username%>"><img src="<%= profile.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + profile.selectedSkinId + '/smallicon.png' %>" alt="" /> <span class="leaderboard-username">
+                  <%= profile.username %> </span></a>
+            </td>
+            <% rank++ %>
+            <td><%= profile.moves == null ? "0" : profile.moves %></td>
+            <% } %>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</main>
 
-    <%- include("partials/footer") %>
+<%- include("partials/footer") %>

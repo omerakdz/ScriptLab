@@ -60,8 +60,3 @@ export interface FortniteItem {
         value: string; // outfit, item, etc.
     };
   }
-
-  export interface Profile{
-      name: string;
-      skinIconUrl: string;
-  }

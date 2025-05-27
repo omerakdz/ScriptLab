@@ -1,19 +1,30 @@
 <%- include("partials/header") %>
 
-    <main>
-        <section class="profile-search-card">
-            <a href="index" class="back-button">&larr; TERUG</a>
+<main>
+  <section class="profile-search-card">
+    <a href="index" class="back-button">&larr; TERUG</a>
+    <ul class="friends-header">
+      <li><a href="/friends">VRIENDEN</a></li>
+      <li><a href="/leaderboard">LEADERBOARD</a></li>
+      <li class="active"><a href="/search">ZOEKEN</a></li>
+    </ul>
 
-            <h1>ZOEKRESULTATEN VOOR: <%= q %> </h1>
-            
-            <% for(var result of results ) { %> 
-                <article class="profile-search">
-                    <a href="/search/<%=result.username%>">
-                    <img src="<%= result.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + result.selectedSkinId + '/smallicon.png' %>" alt="">
-                </a>
-                        <span class="profile-search-username"><%= result.username %></span>
-                </article>
-                <% } %> 
+    <form action="/search" class="search-form-profiles" method="get" name="q">
+      <label for="q">Zoek profiel</label>
+      <input class="search-bar-profiles" type="text" name="q" value="<%= q %>">
+    </form>
+
+    <% for(var result of results ) { %>
+    <article class="profile-search">
+      <a href="/search/<%=result.username%>">
+        <img src="<%= result.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + result.selectedSkinId + '/smallicon.png' %>" alt="">
+      </a>
+      <span class="profile-search-username"><%= result.username %></span>
+    </article>
+    <% } %>
+    <% if (noResults){ %>
+    <p class="noresults-msg">Geen zoekresultaten gevonden</p>
+    <%}%> 
         </section>
     </main>
 
