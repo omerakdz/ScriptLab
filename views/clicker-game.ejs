@@ -9,6 +9,13 @@
         <p class="clicker-target">Klik op: <%= target %></p>
     <% } %>
 
+     <% if (result) { %>
+        <section class="clicker-result-section">
+            <article class="clicker-result"><%= result %></article>
+            <a href="/index"><article class="clicker-result" id="clicker-home">terug naar home</article></a>
+        </section>
+    <% } %>
+
     <form method="POST" class="clicker-grid-section">
         <article class="clicker-grid">
             <% items.forEach(item => { %>
@@ -20,11 +27,6 @@
         </article>
     </form>
 
-    <% if (result) { %>
-        <section class="clicker-result-section">
-            <article class="clicker-result"><%= result %></article>
-        </section>
-    <% } %>
 </main>
 
 <%- include("partials/footer") %>

@@ -3180,6 +3180,17 @@ button:hover {
   text-shadow: 1px 1px 3px black;
 }
 
+#clicker-home {
+  transition: transform 0.3s ease; 
+  width: 50%;
+  position: relative;
+  left: 25%;
+}
+
+#clicker-home:hover {
+  transform: scale(1.1); 
+}
+
 /* choose game pagina */
 
 #game-selection-body {
@@ -3215,7 +3226,6 @@ button:hover {
 
 
 .game-option {
-  background-color: #292944;
   border-radius: 12px;
   padding: 1rem;
   text-decoration: none;
@@ -3231,19 +3241,20 @@ button:hover {
 
 
 .game-option {
-  background-color: var(--yellow);
-
-
+  background-color: var(--dark-gray);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 .game-option-title {
   margin: 1rem 0 0.5rem;
   font-size: 1.4rem;
-  color: black;
+  color: var(--yellow);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .game-option-desc {
-  color: black;
+  color: var(--yellow);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 
