@@ -111,7 +111,7 @@ input:not(.input-box-username input, .input-box-password input, .input-password-
   margin: 0.5rem 0;
 }
 
-.dropdown-menu a {
+.dropdown-menu a, .logout-link {
   color: var(--yellow);
   font-family: 'Fortnite', Arial, sans-serif;
   font-size: 1.7rem;
@@ -2432,11 +2432,12 @@ background-color: var(--dark-gray);
 }
 
 .card-game-content h1 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   text-align: center;
   margin-bottom: 20px;
   color: var(--yellow);
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .game-board {
