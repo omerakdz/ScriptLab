@@ -1,4 +1,3 @@
-// voorlopig
 export interface Player {
     id?: number;
     username: string;
@@ -16,6 +15,7 @@ export interface Player {
     bestTime?: number | null;
     moves?: number | null;
     vbucks?: number;
+    boughtItems?: string[];
   }
 
 export interface Skin{
@@ -54,6 +54,8 @@ export interface Card {
 }
 
 export interface FortniteItem {
+    devName: string;
+    finalPrice: number;
     offerTag: any;
     bundle: any;
     id: string;

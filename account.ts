@@ -38,7 +38,8 @@ export async function createUser(username: string, password: string): Promise<Pl
         selectedItems: [],             
         favoriteSkins: [],             
         blacklistedSkins: [],          
-        vbucks: 1000                  
+        vbucks: 1000,
+        boughtItems: []                  
     };
 
     try {

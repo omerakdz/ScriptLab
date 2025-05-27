@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<main id="my-items-main">
+  <h2>Mijn Gekochte Items</h2>
+  <section class="my-items-container">
+    <% if (items.length === 0) { %>
+      <p>Je hebt nog geen items gekocht.</p>
+    <% } else { %>
+      <% for (const item of items) { %>
+        <article class="my-item-card">
+          <img src="<%= item.bundle?.image || 'default-image-path.png' %>" alt="<%= item.bundle?.name || item.devName %>">
+          <h3><%= item.bundle?.name || item.devName %></h3>
+          <p><%= item.offerTag?.text || 'Geen beschrijving beschikbaar' %></p>
+        </article>
+      <% } %>
+    <% } %>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
