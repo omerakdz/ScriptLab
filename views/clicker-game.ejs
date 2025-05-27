@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<main class="clicker-main">
+    <article class="clicker-header">
+        <h1 class="clicker-title">Click op het juiste item!</h1>
+    </article>
+
+    <% if (target) { %>
+        <p class="clicker-target">Klik op: <%= target %></p>
+    <% } %>
+
+    <form method="POST" class="clicker-grid-section">
+        <article class="clicker-grid">
+            <% items.forEach(item => { %>
+                <button type="submit" name="selectedItem" value="<%= item.name %>" class="clicker-item-btn">
+                    <img src="<%= item.images.icon %>" alt="<%= item.name %>" class="clicker-item-img" />
+                    <span class="clicker-item-name"><%= item.name %></span>
+                </button>
+            <% }) %>
+        </article>
+    </form>
+
+    <% if (result) { %>
+        <section class="clicker-result-section">
+            <div class="clicker-result"><%= result %></div>
+        </section>
+    <% } %>
+</main>
+
+<%- include("partials/footer") %>

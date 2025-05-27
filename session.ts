@@ -1,7 +1,7 @@
 import session, { MemoryStore } from "express-session";
 import dotenv from "dotenv";
 import mongoDBsession from "connect-mongodb-session";
-import {CONNECTION_STRING} from "./database";
+import { CONNECTION_STRING } from "./database";
 import { Card } from "./types";
 
 dotenv.config();
@@ -22,12 +22,18 @@ declare module "express-session" {
     export interface SessionData {
         userId?: string; // id van de ingelogde speler
         username?: string; // username van de ingelogde speler
-        cards?: Card[]; 
+        cards?: Card[];
         flipped?: number[];
         matched?: number[];
         moves?: number;
         toBeClosed?: boolean;
         gameEnded?: boolean;
+        clickerGame?: {
+            items: string[];      // bijvoorbeeld itemnamen
+            currentIndex: number; // bijhouden van huidige item
+            startTime: number;    // starttijd voor timer
+            targetOrder: string[]; // de volgorde van de items die de speler moet klikken
+        };
     }
 }
 
@@ -37,6 +43,6 @@ export default session({
     resave: true,
     saveUninitialized: true,
     cookie: {
-            // leeg = sessie stopt wanneer server dicht gaat
+        // leeg = sessie stopt wanneer server dicht gaat
     }
 });

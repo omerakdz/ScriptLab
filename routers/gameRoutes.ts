@@ -86,5 +86,12 @@ export default function gameRouter() {
     });
   });
 
+  router.get(("/game-choice"), secureMiddleware, (req, res) => {
+    res.render("game-choice", {
+      bodyId: "game-selection-body",
+      title: "Kies een spel",
+    });
+  });
+
   return router;
 }

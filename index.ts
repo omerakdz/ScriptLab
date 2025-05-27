@@ -2,9 +2,9 @@ import express, { Express } from "express";
 import ejs from "ejs";
 import dotenv from "dotenv";
 import path from "path";
-import { fetchSkins} from "./api";
+import { fetchSkins } from "./api";
 import session from "./session";
-import {usersCollection,connect} from "./database";
+import { usersCollection, connect } from "./database";
 
 import rootRouter from "./routers/rootRoutes"
 import authRouter from "./routers/authRoutes";
@@ -17,7 +17,7 @@ import searchRouter from "./routers/searchRoutes";
 import shopRouter from "./routers/shopRoutes";
 import skinRouter from "./routers/skinRoutes";
 import userRoutes from "./routers/userRoutes";
-
+import clickerGameRouter from "./routers/clickerGameRoutes";
 dotenv.config();
 
 const app: Express = express();
@@ -39,34 +39,34 @@ app.set("port", process.env.PORT ?? 3000);
 // };
 
 app.use(async (req, res, next) => {
-  if (req.session.username) {
-    res.locals.username = req.session.username;
+    if (req.session.username) {
+        res.locals.username = req.session.username;
 
-    const user = await usersCollection.findOne({
-      username: req.session.username,
-    });
+        const user = await usersCollection.findOne({
+            username: req.session.username,
+        });
 
-    if (user) {
-      res.locals.level = user.level || 1;
-      res.locals.wins = user.wins || 0;
-      res.locals.losses = user.losses || 0;
-      res.locals.vbucks = user.vbucks || 1000;
+        if (user) {
+            res.locals.level = user.level || 1;
+            res.locals.wins = user.wins || 0;
+            res.locals.losses = user.losses || 0;
+            res.locals.vbucks = user.vbucks || 1000;
 
-      if (user.selectedSkinId) {
-        const skins = await fetchSkins();
-        res.locals.selectedSkin = skins.find(
-          (skin) => skin.id === user.selectedSkinId
-        );
-      } else {
+            if (user.selectedSkinId) {
+                const skins = await fetchSkins();
+                res.locals.selectedSkin = skins.find(
+                    (skin) => skin.id === user.selectedSkinId
+                );
+            } else {
+                res.locals.selectedSkin = null;
+            }
+        }
+    } else {
+        res.locals.username = null;
         res.locals.selectedSkin = null;
-      }
     }
-  } else {
-    res.locals.username = null;
-    res.locals.selectedSkin = null;
-  }
 
-  next();
+    next();
 });
 
 // async function addTestMoves() { // test voor leaderboard
@@ -89,9 +89,9 @@ app.use(async (req, res, next) => {
 
 // addTestMoves();
 
-app.use("/", rootRouter());              
-app.use("/", authRouter());          
-app.use("/", cardGameRouter()); 
+app.use("/", rootRouter());
+app.use("/", authRouter());
+app.use("/", cardGameRouter());
 app.use("/", gameRouter());
 app.use("/", guideRouter());
 app.use("/", itemRouter());
@@ -100,10 +100,11 @@ app.use("/", searchRouter());
 app.use("/", shopRouter());
 app.use("/", skinRouter());
 app.use("/", userRoutes());
+app.use("/", clickerGameRouter());
 
 
 app.listen(app.get("port"), async () => {
-  await connect();
-  console.log("Server started on http://localhost/:" + app.get("port"));
+    await connect();
+    console.log("Server started on http://localhost/:" + app.get("port"));
 });
 
