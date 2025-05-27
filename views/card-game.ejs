@@ -4,9 +4,6 @@
     <h1>Memory Card Game</h1>
 
     <section id="status-container" class="status-container">
-      <!-- <article id="timer" class="timer">
-      <p id="timer-text">00:00</p>
-    </article> -->
       <article id="reset" class="reset">
         <form action="/card-game" method="GET" style="margin: 0">
           <button id="reset-btn" type="submit" name="reset" value="true">Reset Game</button>
@@ -19,7 +16,6 @@
       </article>
     </section>
 
-    <!-- http://localhost:3000/card-game?leaderboard=true  -->
     <section id="game-board" class="game-board">
       <% let index=0; for (const card of cards) { %>
         <form method="POST">
