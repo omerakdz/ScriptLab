@@ -1,23 +1,23 @@
 <%- include("partials/header") %>
 
-    <main>
-        <section class="settings-card">
-            <button class="mobile-options-btn" id="optionsBtn"> <img src="images/menu-button.svg" alt=""></button>
-            <ul class="settings-left-btns" id="leftBtns">
-                <a href="/index" class="back-button">&larr; TERUG</a>
+<main>
+  <section class="settings-card">
+    <button class="mobile-options-btn" id="optionsBtn"> <img src="images/menu-button.svg" alt=""></button>
+    <ul class="settings-left-btns" id="leftBtns">
+      <a href="/index" class="back-button">&larr; TERUG</a>
 
-                <li><button class="profile-btn"><a href="/profile-settings">Profiel</a></button></li>
-                <li><button class="account-btn active"> <a href="/account-settings">Account</a></button></li>
-                <li><button class="logout-btn"> <a href="/logout">Uitloggen</a></button></li>
-            </ul>
+      <li><button class="profile-btn"><a href="/profile-settings">Profiel</a></button></li>
+      <li><button class="account-btn active"> <a href="/account-settings">Account</a></button></li>
+      <li><button class="logout-btn"> <a href="/logout">Uitloggen</a></button></li>
+    </ul>
 
-            <article class="settings-account">
-                <button><img src="images/email.png" class="icon" alt=""> E-mailadress wijzigen</button>
-                <button><img src="images/key.png" class="icon">Wachtwoord wijzigen</button>
-                <button id="accountDeletion"><img src="images/trash.svg" class="icon" alt="">Account
-                    verwijderen</button>
-            </article>
-        </section>
-    </main>
+    <article class="settings-account">
+      <button><img src="images/user.png" class="icon" alt=""> Gebruikersnaam wijzigen</button>
+      <button><img src="images/key.png" class="icon">Wachtwoord wijzigen</button>
+      <button id="accountDeletion"><img src="images/trash.svg" class="icon" alt="">Account
+        verwijderen</button>
+    </article>
+  </section>
+</main>
 
-    <%- include("partials/footer") %>
+<%- include("partials/footer") %>

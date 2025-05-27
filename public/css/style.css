@@ -1273,7 +1273,6 @@ textarea {
   margin-top: 50px;
   margin-left: 20px;
   font-size: 30px;
-  align-items: center;
   row-gap: 20px;
 }
 
@@ -1306,22 +1305,37 @@ textarea {
   flex-wrap: wrap;
   column-gap: 20px;
   width: 800px;
-  height: 650px;
+  min-height: 400px;
+  height: auto;
   background-color: var(--dark-gray);
   border-radius: 30px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
   justify-content: center;
   position: fixed;
   align-items: center;
 }
 
-.profile-search-card h1 {
+.search-form-profiles {
   position: absolute;
+  display: flex;
   right: 0;
   top: 0;
   margin-top: 20px;
   margin-right: 20px;
   font-size: 20px;
+  align-items: center;
+}
+
+.noresults-msg{
+  font-size: 35px;
+}
+
+.search-bar-profiles{
+  border-radius: 5px;
+  border: none;
+  text-indent: 10px;
+  height: 25px;
+  margin-left: 10px;
 }
 
 .profile-search-card .back-button {
@@ -1339,6 +1353,8 @@ textarea {
   border-radius: 30px;
   color: white;
   justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .profile-search img {
@@ -1369,6 +1385,10 @@ textarea {
   justify-content: center;
   align-items: center;
   grid-area: main;
+}
+
+.profile-search-card .friends-header{
+  top: 0
 }
 
 /*PROFIEL*/
@@ -1409,6 +1429,17 @@ textarea {
 
 .user-profile {
   margin-top: 30px;
+}
+
+
+.user-profile figure {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30px;
+  column-gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .user-add-button {
@@ -1458,7 +1489,7 @@ textarea {
   height: 650px;
   background-color: var(--dark-gray);
   border-radius: 30px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
   position: fixed;
   align-items: center;
 }
@@ -1471,10 +1502,18 @@ textarea {
 }
 
 .leaderboard-table {
-  height: 450px;
   width: 700px;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
+.leaderboard-container-1{ 
+  margin-top: 50px;
+  height: 450px;
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;}
 
 .leaderboard-table th {
   border-bottom: white 1px solid;
@@ -1496,7 +1535,6 @@ textarea {
 }
 
 .leaderboard-card {
-  color: var(--yellow);
   font-size: 40px;
 }
 
@@ -1535,60 +1573,84 @@ textarea {
 
 .leaderboard-table img {
   vertical-align: middle;
-  margin-left: 20px;
   width: 50px;
   border-radius: 200px;
-}
-
-#friendRequestButton {
-  position: absolute;
-  right: 0;
-  margin-right: 30px;
-  margin-top: 10px;
-  background-color: white;
-  color: black;
-  padding: 8px 18px;
-  border-radius: 30px;
+  border: var(--yellow) solid 1px;
+  margin: 5px;
+  margin-left:15px;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-.friend-requests img {
+/* VRIENDEN PAGINA */
+.friends-card{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  width: 850px;
+  height: 450px;
+  background-color: var(--dark-gray);
+  border-radius: 30px;
+  box-shadow: var(--yellow) 0px 0px 7px 5px;
+  position: fixed;
+  align-items: center;
+}
+
+.friends-card .noresults-msg{
+  margin-top: 80px;
+}
+
+#friends-page main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: main;
+}
+
+.friends-artc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  color: white;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.friends-artc img {
+  margin-top: 10px;
+  width: 120px;
   border-radius: 200px;
 }
 
-.friend-requests {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  color: white;
-  background: #6a6a6a;
-  font-size: 20px;
-  height: 100px;
-  width: 300px;
-  justify-content: center;
-  border-radius: 30px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582);
-  right: 0;
-  margin-top: 30px;
-  margin-right: 70px;
+.friends-artc img:hover {
+  border: var(--yellow) 6px solid;
 }
 
-.friend-requests li {
+.friends-header{
+  font-size: 30px;
   display: flex;
-  align-items: center;
-  margin-left: 20px;
-  width: 300px;
-  position: relative;
+  position: absolute;
+  margin-right: 22rem;
+  margin-top: 60px;
+  column-gap: 20px;
 }
 
-.accept-request-button,
-.decline-request-button {
-  justify-self: end;
+.friends-header li:hover{ 
+  cursor: pointer;
+  transition: 0.4s;
+  color: var(--yellow);
+  text-decoration: underline;
 }
 
+.friends-container{
+  display: flex;
+}
 /* PERSONAGE DETAIL PAGINA */
 #personage-detail-page {
   background-image: url("/images/bg-images/bg-desktop-1.jpeg");

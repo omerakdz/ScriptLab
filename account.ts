@@ -85,6 +85,12 @@ export async function getUserProfile(username: string) {
     return user;
 }
 
+export async function getSearchResults(username: string){
+    if (!username) return [];
+    const users = await usersCollection.find({username: {$regex: username, $options: "i" }}).toArray();
+    return users;
+}
+
 export async function updateSelectedSkin(username: string, skinId: string) {
     await usersCollection.updateOne({ username }, { $set: { selectedSkinId: skinId } });
 }
