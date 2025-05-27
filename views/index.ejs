@@ -1,34 +1,42 @@
-
-    <%- include("partials/header") %>
+<%- include("partials/header") %>
     <main class="card-container">
         <section class="card-section">
             <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/question-sign.png' %>" alt="Skin">
             <article class="card-content">
-                <h3><%= selectedSkin ? selectedSkin.name : 'Geen skin geselecteerd' %></h3>
-                <span id="user-money"><%= vbucks %> <img src="images/items/coin.png" alt=""></span>
-                <span id="user-level"><%= level %> ⭐</span>
-                <span id="user-wins"><%= wins %> 🏆</span>
+                <h3>
+                    <%= selectedSkin ? selectedSkin.name : 'Geen skin geselecteerd' %>
+                </h3>
+                <span id="user-money">
+                    <%= vbucks %> <img src="images/items/coin.png" alt="">
+                </span>
+                <span id="user-level">
+                    <%= level %> ⭐
+                </span>
+                <span id="user-wins">
+                    <%= wins %> 🏆
+                </span>
             </article>
         </section>
-            <article class="menu-items">
-                <ul>
-                    <li>
-                        <a href="/card-game"><span>SPELEN</span></a>
-                        <a href="/card-game"><img src="images/items/console.png" alt="Spelen" title="spelen"></a>
-                    </li>
-                    <li>
-                        <a href="/skins"> <span>SKINS</span></a>
-                        <a href="/skins"><img src="images/items/skin-icon.png" alt="Skins" id="skin-icon-home" title="skins"></a>
-                    </li>
-                    <li>
-                        <a href="/items"><span>ITEMS</span></a>
-                        <a href="/items"><img src="images/items/rainbow-smash.png" alt="Items" title="items"></a>
-                    </li>
-                    <li>
-                        <a href="/shop"><span>SHOP</span></a>
-                        <a href="/shop"><img src="images/items/shop.png" alt="shop" title="shop"></a>
-                    </li>
-                </ul>
-            </article>
+        <article class="menu-items">
+            <ul>
+                <li>
+                    <a href="/game-choice"><span>SPELEN</span></a>
+                    <a href="/game-choice"><img src="images/items/console.png" alt="Spelen" title="spelen"></a>
+                </li>
+                <li>
+                    <a href="/skins"> <span>SKINS</span></a>
+                    <a href="/skins"><img src="images/items/skin-icon.png" alt="Skins" id="skin-icon-home"
+                            title="skins"></a>
+                </li>
+                <li>
+                    <a href="/items"><span>ITEMS</span></a>
+                    <a href="/items"><img src="images/items/rainbow-smash.png" alt="Items" title="items"></a>
+                </li>
+                <li>
+                    <a href="/shop"><span>SHOP</span></a>
+                    <a href="/shop"><img src="images/items/shop.png" alt="shop" title="shop"></a>
+                </li>
+            </ul>
+        </article>
     </main>
     <%- include("partials/footer") %>

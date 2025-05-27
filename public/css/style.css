@@ -3016,7 +3016,7 @@ button:hover {
 }
 
 
-/* Algemeen */
+/* clicker game*/
 #clicker-game-body {
   background-image: url(/images/bg-images/bg-desktop-5.jpeg);
   text-align: center;
@@ -3113,13 +3113,87 @@ button:hover {
   box-shadow: 0 0 6px var(--yellow);
 }
 
-/* RESULTAAT */
 .clicker-result {
   font-size: 1.8rem;
   margin-top: 30px;
   font-weight: bold;
   color: var(--yellow);
   text-shadow: 1px 1px 3px black;
+}
+
+/* choose game pagina */
+
+#game-selection-body {
+  background-image: url("/images/bg-images/bg-desktop-5.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.game-selection-main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  grid-area: main;
+
+}
+
+.game-selection-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.game-selection-title {
+
+  color: var(--yellow);
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+
+}
+
+
+.game-option {
+  background-color: #292944;
+  border-radius: 12px;
+  padding: 1rem;
+  text-decoration: none;
+  color: #fff;
+  width: 250px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-option:hover {
+  transform: scale(1.05);
+}
+
+
+.game-option {
+  background-color: var(--yellow);
+
+
+}
+
+.game-option-title {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.4rem;
+  color: black;
+}
+
+.game-option-desc {
+  color: black;
+}
+
+
+
+.site-footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 1rem;
+  background-color: #151526;
 }
 
 /* FOOTER VOOR ALLE PAGINAS */
