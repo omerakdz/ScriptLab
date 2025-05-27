@@ -4196,6 +4196,9 @@ footer {
   height: 120px;
 }
 
+.card-game-content h1{
+  font-size: 3rem;
+}
 
 .status-container {
   position: -webkit-sticky;
