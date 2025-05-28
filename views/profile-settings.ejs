@@ -2,13 +2,16 @@
 
 <main>
   <section class="settings-card">
-    <button class="mobile-options-btn" id="optionsBtn"> <img src="images/menu-button.svg" alt=""></button>
-    <ul class="settings-left-btns" id="leftBtns">
-      <a href="index" class="back-button">&larr; TERUG</a>
+    <label for="settings-toggle" class="mobile-options-btn">
+      <img src="../images/menu-button.svg" alt="Menu">
+    </label>
+    <input type="checkbox" id="settings-toggle" hidden>
 
-      <li><button class="profile-btn active"><a href="/profile-settings">Profiel</a></button></li>
-      <li><button class="account-btn"> <a href="/account-settings">Account</a></button></li>
-      <li><button class="logout-btn"> <a href="/logout">Uitloggen</a></button></li>
+    <ul class="settings-left-btns">
+      <li><a href="index" class="back-button">&larr; TERUG</a></li>
+      <li><a href="/profile-settings" class="profile-btn">Profiel</a></li>
+      <li><a href="/account-settings" class="account-btn">Account</a></li>
+      <li><a href="/logout" class="logout-btn">Uitloggen</a></li>
     </ul>
 
     <article class="settings-profile">

@@ -2,50 +2,47 @@
 <html lang="nl-BE">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="icon" href="/images/ScriptLab.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="icon" href="/images/ScriptLab.png" type="image/png">
 </head>
 
 <body id="<%= bodyId %>">
-    <header>
-        <article class="logo">
-            <a href="/index"><span>Fortnite</span></a>
-        </article>
-        <article class="menu-container">
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger-icon">
-                <img src="/images/items/hamburger-menu.png" alt="Menu">
-            </label>
-            <section class="dropdown-menu">
-                <ul>
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/favorite">Favorieten</a></li>
-                    <li><a href="/blacklist">Blacklisted</a></li>
-                    <li><a href="/skins">Skins</a></li>
-                    <li><a href="/my-items">My Items</a></li>
-                    <li><a href="/shop">Shop</a></li>
-                    <li><a href="/profile-settings">Profiel</a></li>
-                    <li><a href="/friends">Vrienden</a></li>
-                    <li><a href="/guide">Info</a></li>
-                    <li><form action="/logout" method="post"><button class="logout-menu-btn" type="submit">Uitloggen</button></form></li>
-                </ul>
-            </section>
-        </article>
-        <article class="profile">
-            <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/items/question-sign.png' %>" 
-            alt="<%= username %>"
-            class="<%= selectedSkin ? '' : 'placeholder-icon' %>"
-            >
-                <span>
-                    <%= username %>
-                </span>
-        </article>
-    </header>
-    <script src="/js/menu.js"></script>
-
+  <header>
+    <article class="logo">
+      <a href="/index"><span>Fortnite</span></a>
+    </article>
+    <article class="menu-container">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger-icon">
+        <img src="/images/items/hamburger-menu.png" alt="Menu">
+      </label>
+      <section class="dropdown-menu">
+        <ul>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/favorite">Favorieten</a></li>
+          <li><a href="/blacklist">Blacklisted</a></li>
+          <li><a href="/skins">Skins</a></li>
+          <li><a href="/my-items">My Items</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/profile-settings">Profiel</a></li>
+          <li><a href="/friends">Vrienden</a></li>
+          <li><a href="/guide">Info</a></li>
+          <li>
+            <form action="/logout" method="post"><button class="logout-menu-btn" type="submit">Uitloggen</button></form>
+          </li>
+        </ul>
+      </section>
+    </article>
+    <article class="profile">
+      <img src="<%= selectedSkin ? selectedSkin.images.icon : 'images/items/question-sign.png' %>" alt="<%= username %>" class="<%= selectedSkin ? '' : 'placeholder-icon' %>">
+      <span>
+        <%= username %>
+      </span>
+    </article>
+  </header>

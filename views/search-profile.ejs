@@ -2,7 +2,13 @@
 
 <main>
   <section class="profile-search-card">
+
     <a href="index" class="back-button">&larr; TERUG</a>
+    <label for="friends-toggle" class="menu-btn">
+      <img src="images/menu-button.svg" width="30px" alt="Menu">
+    </label>
+    <input type="checkbox" id="friends-toggle" hidden>
+
     <ul class="friends-header">
       <li><a href="/friends">VRIENDEN</a></li>
       <li><a href="/leaderboard">LEADERBOARD</a></li>
@@ -14,17 +20,19 @@
       <input class="search-bar-profiles" type="text" name="q" value="<%= q %>">
     </form>
 
-    <% for(var result of results ) { %>
-    <article class="profile-search">
+    <section class="search-results-container">
+      <% for(var result of results ) { %>
       <a href="/search/<%=result.username%>">
-        <img src="<%= result.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + result.selectedSkinId + '/smallicon.png' %>" alt="">
+        <article class="profile-search">
+          <img src="<%= result.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + result.selectedSkinId + '/smallicon.png' %>" alt="">
+          <span class="profile-search-username"><%= result.username %></span>
+        </article>
       </a>
-      <span class="profile-search-username"><%= result.username %></span>
-    </article>
-    <% } %>
-    <% if (noResults){ %>
-    <p class="noresults-msg">Geen zoekresultaten gevonden</p>
-    <%}%> 
+      <% } %>
+      <% if (noResults){ %>
+      <p class="noresults-msg">Geen zoekresultaten gevonden</p>
+      <%}%> 
+    </section>
         </section>
     </main>
 
