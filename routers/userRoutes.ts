@@ -16,7 +16,6 @@ export default function profileRouter() {
   if (q.trim() === "" || results.length === 0) {
     noResults = true;
   }
-  console.log(results)
   res.render("search-profile", {
     title: "Zoekresultaten...",
     bodyId: "profile-search-page",

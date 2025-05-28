@@ -3,19 +3,28 @@
 <main>
   <section class="friends-card">
     <a href="index" class="back-button">&larr; TERUG</a>
+
+    <label for="friends-toggle" class="menu-btn">
+      <img src="images/menu-button.svg" width="30px" alt="Menu">
+    </label>
+    <input type="checkbox" id="friends-toggle" hidden>
+
     <ul class="friends-header">
       <li class="active"><a href="/friends">VRIENDEN</a></li>
       <li><a href="/leaderboard">LEADERBOARD</a></li>
       <li><a href="/search">ZOEKEN</a></li>
     </ul>
+
+
+
     <section class="friends-container">
       <% for(var friend of friends ) { %>
-      <article class="friends-artc">
-        <a href="/search/<%=friend.username%>">
+      <a href="/search/<%=friend.username%>">
+        <article class="friends-artc">
           <img src="<%= friend.selectedSkinId == null ? '../images/default-img.png' : 'https://fortnite-api.com/images/cosmetics/br/' + friend.selectedSkinId + '/smallicon.png' %>" alt="" />
-        </a>
-        <span class="profile-search-username"><%= friend.username %></span>
-      </article>
+          <span class="profile-search-username"><%= friend.username %></span>
+        </article>
+      </a>
       <%}%> <% if(noResults) { %>
       <p class="noresults-msg">U heeft nog geen vrienden.<br>
         <a href="/search" style="color: var(--yellow); text-decoration: underline">Klik hier</a> om spelers te zoeken.
