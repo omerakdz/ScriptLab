@@ -102,8 +102,8 @@ app.use("/", skinRouter());
 app.use("/", userRoutes());
 
 
-app.listen(app.get("port"), async () => {
+app.listen(app.get("port"), "0.0.0.0", async () => {
   await connect();
-  console.log("Server started on http://localhost/:" + app.get("port"));
+  console.log("Server started on http://localhost:" + app.get("port"));
 });
 
